@@ -34794,7 +34794,7 @@ a.u-link.u-text-hover-grey-90:hover {
 
 
 .u-footer .u-sheet-1 {
-  min-height: 120px;
+  min-height: 77px;
 }
 
 .u-footer .u-social-icons-1 {
@@ -34803,7 +34803,7 @@ a.u-link.u-text-hover-grey-90:hover {
   width: 158px;
   min-width: 94px;
   white-space: nowrap;
-  margin: 44px auto;
+  margin: 23px auto;
 }
 
 .u-footer .u-icon-1 {
@@ -34824,6 +34824,10 @@ a.u-link.u-text-hover-grey-90:hover {
 @media (max-width: 1199px) {
   .u-footer .u-sheet-1 {
     min-height: 99px;
+  }
+
+  .u-footer .u-social-icons-1 {
+    width: 158px;
   }
 }
 @media (max-width: 991px) {
