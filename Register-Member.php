@@ -190,12 +190,12 @@
             </div>
             <div class="u-form-group u-form-group-6">
               <label for="text-03eb" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Enter New Passord" id="text-03eb" name="password" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <input type="password" placeholder="Enter New Passord" id="text-03eb" name="password" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
               <h6 class="text-center" style="color:#ff0000"><?php echo $message_strnpassword; ?></h6>
             </div>
             <div class="u-form-group u-form-group-7">
               <label for="text-a7ff" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Confirm New Password" id="text-a7ff" name="confirm_password" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <input type="password" placeholder="Confirm New Password" id="text-a7ff" name="confirm_password" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
               <h6 class="text-center" style="color:#ff0000"><?php echo $message_cpassword; ?></h6>
             </div>
             <div class="u-align-center u-form-group u-form-submit">
