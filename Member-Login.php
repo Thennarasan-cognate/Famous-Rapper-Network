@@ -42,7 +42,6 @@
              $_SESSION['image'] = $db_image;
 
  header("Location:Home.html");
-            echo "login Successful";
            
         }else{
             
