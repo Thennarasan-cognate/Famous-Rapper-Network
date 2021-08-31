@@ -5,14 +5,13 @@
     
     if(isset($_REQUEST['submit'])){
          
-//        $email    = $_REQUEST['email'];
-        $username    = $_REQUEST['username'];
+        $email    = $_REQUEST['email'];
         $password = $_REQUEST['password'];
                         
         $password = mysqli_real_escape_string($connection,$_POST['password']);
         $password = md5($password);  
     
-        $query = "SELECT * FROM register WHERE username = '{$username}' ";
+        $query = "SELECT * FROM register WHERE email = '{$email}' ";
         $select_register_query = mysqli_query($connection, $query);
         
         if(!$select_register_query){
@@ -24,7 +23,6 @@
           while($row = mysqli_fetch_array($select_register_query)){
               
                $db_id = $row['id'];
-               $db_username = $row['username'];
                $db_email = $row['email'];
                $db_password = $row['password'];
                $db_firstname = $row['firstname'];
@@ -34,13 +32,11 @@
           }
         
         
-//        if($email === $db_email){
-        if($username === $db_username){
+        if($email === $db_email){
         if($password === $db_password){
      
             
              $_SESSION['email'] = $db_email;
-             $_SESSION['username'] = $db_username;
              $_SESSION['firstname'] = $db_firstname;
              $_SESSION['lastname'] = $db_lastname;
              $_SESSION['image'] = $db_image;
@@ -54,7 +50,7 @@
         }
          
         }else{
-            $message_username = "Username is incorrect";   
+            $message_email = "Invalid Email";   
               
         }
         
@@ -143,10 +139,10 @@
             <div class="u-expanded-width u-form u-login-control u-form-1">
               <form action="" method="post" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;">
                 <div class="u-form-group u-form-name">
-                  <label for="username-708d" class="u-form-control-hidden u-label"></label>
-                  <input type="text" placeholder="Enter your Username" id="username-708d" name="username" class="u-grey-5 u-input u-input-rectangle" required="">
+                  <label for="email-708d" class="u-form-control-hidden u-label"></label>
+                  <input type="email" placeholder="Enter your Email" id="email-708d" name="email" class="u-grey-5 u-input u-input-rectangle" required="">
                   
-                  <h6 class="text-center" style="color:#ff0000"><?php echo $message_username; ?></h6>
+                  <h6 class="text-center" style="color:#ff0000"><?php echo $message_email; ?></h6>
 <!--                  <input type="email" name="email" class="form-control" placeholder="Email address">-->
                 </div>
                 <div class="u-form-group u-form-password">

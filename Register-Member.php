@@ -5,7 +5,6 @@
      if(isset($_POST['submit'])){
          
          $title =  $_POST['title'];
-         $username =  $_POST['username'];
          $firstname=  $_POST['firstname'];
          $lastname=  $_POST['lastname'];
          $image=  $_POST['image'];
@@ -19,7 +18,7 @@
          $youtube =$_POST['youtube'];
          
          
-      if(!empty($username) && !empty($firstname) && !empty($lastname) && !empty($phone) && !empty($email) && !empty($password) && !empty($confirm_password)){
+      if(!empty($firstname) && !empty($lastname) && !empty($phone) && !empty($email) && !empty($password) && !empty($confirm_password)){
           
       $password = mysqli_real_escape_string($connection,$_POST['password']);
       $confirm_password = mysqli_real_escape_string($connection,$_POST['confirm_password']);
@@ -43,8 +42,8 @@
         if(preg_match("/^[0-9]{10}$/", $phone)) {   
 
         
-        $query = "INSERT INTO register (title,username,firstname,lastname,image,phone,email,password,confirm_password,instagram,facebook,twitter,youtube) ";
-        $query .= "VALUES ('Mr/Ms','{$username}','{$firstname}','{$lastname}','profile.jfif','{$phone}','{$email}','{$password}','{$confirm_password}','instagram.com','facebook.com','twitter.com','youtube.com') ";
+        $query = "INSERT INTO register (title,firstname,lastname,image,phone,email,password,confirm_password,instagram,facebook,twitter,youtube) ";
+        $query .= "VALUES ('Mr/Ms','{$firstname}','{$lastname}','profile.jfif','{$phone}','{$email}','{$password}','{$confirm_password}','instagram.com','facebook.com','twitter.com','youtube.com') ";
              
         $register_query = mysqli_query($connection,$query);
             
@@ -170,12 +169,6 @@
 
             <div class="u-form-group u-form-name u-form-group">
                <h6 class="text-center" style="color:#ff0000"><?php echo $message; ?></h6>
-            </div>
-
-            <div class="u-form-group u-form-name u-form-group">
-              <label for="name-cd60" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Enter your Username" id="name-cd60" name="username" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
-             <br>
             </div>
             <div class="u-form-group u-form-name u-form-group">
               <label for="name-cd60" class="u-form-control-hidden u-label"></label>
