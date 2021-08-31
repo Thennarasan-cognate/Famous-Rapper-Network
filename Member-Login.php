@@ -139,8 +139,8 @@
             <div class="u-expanded-width u-form u-login-control u-form-1">
               <form action="" method="post" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;">
                 <div class="u-form-group u-form-name">
-                  <label for="email-708d" class="u-form-control-hidden u-label"></label>
-                  <input type="email" placeholder="Enter your Email" id="email-708d" name="email" class="u-grey-5 u-input u-input-rectangle" required="">
+                  <label for="email-cd60" class="u-form-control-hidden u-label"></label>
+                  <input type="text" placeholder="Enter your Email" id="email-cd60" name="email" class="u-grey-5 u-input u-input-rectangle" required="">
                   
                   <h6 class="text-center" style="color:#ff0000"><?php echo $message_email; ?></h6>
 <!--                  <input type="email" name="email" class="form-control" placeholder="Email address">-->

@@ -1,3 +1,100 @@
+<?php session_start(); ?>
+<?php include "db.php"; ?>
+<?php 
+
+     if(isset($_POST['submit'])){
+         
+         $title =  $_POST['title'];
+         $firstname=  $_POST['firstname'];
+         $lastname=  $_POST['lastname'];
+         $image=  $_POST['image'];
+         $phone=  $_POST['phone'];
+         $email    = $_POST['email'];    
+         $password = $_POST['password'];
+         $confirm_password = $_POST['confirm_password'];
+         $instagram =$_POST['instagram'];
+         $facebook =$_POST['facebook'];
+         $twitter =$_POST['twitter'];
+         $youtube =$_POST['youtube'];
+         
+         
+      if(!empty($firstname) && !empty($lastname) && !empty($phone) && !empty($email) && !empty($password) && !empty($confirm_password)){
+          
+      $password = mysqli_real_escape_string($connection,$_POST['password']);
+      $confirm_password = mysqli_real_escape_string($connection,$_POST['confirm_password']);
+      $password = md5($password);              
+      $confirm_password = md5($confirm_password);              
+     
+      if(preg_match('/^[\p{L} ]+$/u', $firstname)) {
+          
+        if(preg_match('/^[\p{L} ]+$/u', $lastname)) {
+            
+            
+        $uppercase  = preg_match('@[A-Z]@', $password);
+        $lowercase  = preg_match('@[a-z]@', $password);
+        $number     = preg_match('@[0-9]@', $password);
+        $character  = preg_match('/[\'^£!$%&*()}{@#~?><>,|=_+-]/', $password);
+
+        if(strlen($password) >= 8) {
+            
+        if($password == $confirm_password){
+        
+        if(preg_match("/^[0-9]{10}$/", $phone)) {   
+
+        
+        $query = "INSERT INTO register (title,firstname,lastname,image,phone,email,password,confirm_password,instagram,facebook,twitter,youtube) ";
+        $query .= "VALUES ('Mr/Ms','{$firstname}','{$lastname}','profile.jfif','{$phone}','{$email}','{$password}','{$confirm_password}','instagram.com','facebook.com','twitter.com','youtube.com') ";
+             
+        $register_query = mysqli_query($connection,$query);
+            
+            move_uploaded_file($image_tempname,"images/$image");
+      
+        if(!$register_query) {
+            
+            die("Query Failed" . mysqli_error($connection) .' '. mysqli_error($connection));
+        }
+            
+         $_SESSION['status'] = "Registration Was Successful Please Sign In";   
+           
+           header("Location:Member-Login.php");   
+            
+
+          }else{
+              $message_phone = "Invalid Phone No";
+            
+        }
+            
+          }else{
+            
+            $message_cpassword = "password mismatch";
+        }
+       
+          }else{
+              $message_strnpassword = "password contain atleast 8 characters";
+              
+       }
+            
+          }else{
+              $message_Lastname ="Only Alphabets are allowed in lastname";
+            
+       }
+
+          }else{
+              $message_Firstname ="Only Alphabets are allowed in firstname";
+          
+       }
+          
+          }else{
+        $message = "Fields cannot be Empty";
+       }  
+         
+          }else {         
+              $message = ""; 
+       }
+
+  ?>
+
+
 <!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
@@ -65,35 +162,46 @@
     <section class="u-clearfix u-gradient u-section-1" id="sec-6065">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-form u-radius-50 u-white u-form-1">
-          <form action="Home" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-8 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 50px;" redirect="true">
+          <form action="" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-8 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 50px;" redirect="true">
+            
+             <div class="u-form-group u-form-name u-form-group">
+               <h6 class="text-center" style="color:#ff0000"><?php echo $message; ?></h6>
+            </div>
+
             <div class="u-form-group u-form-name u-form-group-1">
               <label for="name-cd60" class="u-form-control-hidden u-label"></label>
               <input type="text" placeholder="Enter your First Name" id="name-cd60" name="firstname" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" required="">
+              <h6 class="text-center" style="color:#ff0000"><?php echo $message_Firstname; ?></h6>
             </div>
             <div class="u-form-group u-form-group-2">
               <label for="text-0253" class="u-form-control-hidden u-label"></label>
               <input type="text" placeholder="Enter your Last Name" id="text-0253" name="lastname" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <h6 class="text-center" style="color:#ff0000"><?php echo $message_Lastname; ?></h6>
             </div>
             <div class="u-form-email u-form-group">
               <label for="email-cd60" class="u-form-control-hidden u-label"></label>
               <input type="email" placeholder="Enter a valid email address" id="email-cd60" name="email" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" required="">
             </div>
+            <br>
             <div class="u-form-group u-form-group-5">
               <label for="text-871f" class="u-form-control-hidden u-label"></label>
-              <input type="text" id="text-871f" name="mobile" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" placeholder="Enter Your Mobile Number">
+              <input type="text" id="text-871f" name="phone" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" placeholder="Enter Your Mobile Number">
+              <h6 class="text-center" style="color:#ff0000"><?php echo $message_phone; ?></h6>
             </div>
             <div class="u-form-group u-form-group-6">
               <label for="text-03eb" class="u-form-control-hidden u-label"></label>
               <input type="text" placeholder="Enter New Passord" id="text-03eb" name="password" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <h6 class="text-center" style="color:#ff0000"><?php echo $message_strnpassword; ?></h6>
             </div>
             <div class="u-form-group u-form-group-7">
               <label for="text-a7ff" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Confirm New Password" id="text-a7ff" name="conformpassword" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <input type="text" placeholder="Confirm New Password" id="text-a7ff" name="confirm_password" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <h6 class="text-center" style="color:#ff0000"><?php echo $message_cpassword; ?></h6>
             </div>
             <div class="u-align-center u-form-group u-form-submit">
-              <a href="#" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-1-base u-palette-1-light-2 u-radius-17 u-btn-1">Register<br>
+              <a href="" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-1-base u-palette-1-light-2 u-radius-17 u-btn-1">Register<br>
               </a>
-              <input type="submit" value="submit" class="u-form-control-hidden">
+              <input type="submit" name="submit" value="submit" class="u-form-control-hidden">
             </div>
             <div class="u-form-send-message u-form-send-success">Thank you! Your Registraion is Successful</div>
             <div class="u-form-send-error u-form-send-message">Registraion Unsuccesful.</div>
