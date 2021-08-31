@@ -181,8 +181,8 @@
             <div class="u-form-email u-form-group">
               <label for="email-cd60" class="u-form-control-hidden u-label"></label>
               <input type="email" placeholder="Enter a valid email address" id="email-cd60" name="email" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" required="">
-            </div>
             <br>
+            </div>
             <div class="u-form-group u-form-group-5">
               <label for="text-871f" class="u-form-control-hidden u-label"></label>
               <input type="text" id="text-871f" name="phone" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" placeholder="Enter Your Mobile Number">

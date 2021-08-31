@@ -41,7 +41,7 @@
              $_SESSION['lastname'] = $db_lastname;
              $_SESSION['image'] = $db_image;
 
-// header("Location:profile.php");
+ header("Location:Home.html");
             echo "login Successful";
            
         }else{
