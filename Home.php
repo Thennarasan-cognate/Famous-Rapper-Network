@@ -23,8 +23,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
- <link rel="stylesheet" href="assets/css/shared/style.css">
- <!-- <link rel="stylesheet" href="style.css"> -->
+ <!-- <link rel="stylesheet" href="assets/css/shared/style.css"> -->
+ <link rel="stylesheet" href="styles.css">
 
     <style>
 img {
@@ -349,7 +349,8 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
       </a>. 
     </section>
 
-    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- <script src="assets/vendors/js/vendor.bundle.base.js"></script> -->
+    <script src="vendor.js"></script>
 
   </body>
 </html>
