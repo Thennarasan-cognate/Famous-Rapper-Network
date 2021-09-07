@@ -138,20 +138,20 @@
             </a>
           </div>
           <div class="u-custom-menu u-nav-container">
-            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.html" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.html" style="padding: 10px 20px;">About</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Contact.html" style="padding: 10px 20px;">Contact</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.html" style="padding: 10px 20px;">Member Login</a>
+            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.php" style="padding: 10px 20px;">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.php" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Contact.php" style="padding: 10px 20px;">Contact</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
 </li></ul>
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-sidenav-overflow">
                 <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.html" style="padding: 10px 20px;">About</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.html" style="padding: 10px 20px;">Contact</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.html" style="padding: 10px 20px;">Member Login</a>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.php" style="padding: 10px 20px;">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.php" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.php" style="padding: 10px 20px;">Contact</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
 </li></ul>
               </div>
             </div>
@@ -181,8 +181,8 @@
             <div class="u-form-email u-form-group">
               <label for="email-cd60" class="u-form-control-hidden u-label"></label>
               <input type="email" placeholder="Enter a valid email address" id="email-cd60" name="email" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" required="">
+              <br>
             </div>
-            <br>
             <div class="u-form-group u-form-group-5">
               <label for="text-871f" class="u-form-control-hidden u-label"></label>
               <input type="text" id="text-871f" name="phone" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" placeholder="Enter Your Mobile Number">
@@ -190,12 +190,12 @@
             </div>
             <div class="u-form-group u-form-group-6">
               <label for="text-03eb" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Enter New Passord" id="text-03eb" name="password" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <input type="password" placeholder="Enter New Passord" id="text-03eb" name="password" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
               <h6 class="text-center" style="color:#ff0000"><?php echo $message_strnpassword; ?></h6>
             </div>
             <div class="u-form-group u-form-group-7">
               <label for="text-a7ff" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Confirm New Password" id="text-a7ff" name="confirm_password" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <input type="password" placeholder="Confirm New Password" id="text-a7ff" name="confirm_password" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
               <h6 class="text-center" style="color:#ff0000"><?php echo $message_cpassword; ?></h6>
             </div>
             <div class="u-align-center u-form-group u-form-submit">

@@ -43,7 +43,7 @@
 
         
         $query = "INSERT INTO register (title,firstname,lastname,image,phone,email,password,confirm_password,instagram,facebook,twitter,youtube) ";
-        $query .= "VALUES ('Mr/Ms','{$firstname}','{$lastname}','profile.jfif','{$phone}','{$email}','{$password}','{$confirm_password}','instagram.com','facebook.com','twitter.com','youtube.com') ";
+        $query .= "VALUES ('Mr/Ms','{$firstname}','{$lastname}','profile.png','{$phone}','{$email}','{$password}','{$confirm_password}','instagram.com','facebook.com','twitter.com','youtube.com') ";
              
         $register_query = mysqli_query($connection,$query);
             
@@ -56,8 +56,9 @@
             
          $_SESSION['status'] = "Registration Was Successful Please Sign In";   
            
-           header("Location:Member-Login.php");   
-            
+            header("Location:Member-Login.php");   
+           // echo "$image";
+           // echo "Registration";
 
           }else{
               $message_phone = "Invalid Phone No";
@@ -110,7 +111,7 @@
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 3.23.2, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     
     <script type="application/ld+json">{
     "@context": "http://schema.org",
@@ -138,20 +139,20 @@
             </a>
           </div>
           <div class="u-custom-menu u-nav-container">
-            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.html" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.html" style="padding: 10px 20px;">About</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Contact.html" style="padding: 10px 20px;">Contact</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.html" style="padding: 10px 20px;">Member Login</a>
+            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.php" style="padding: 10px 20px;">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.php" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Contact.php" style="padding: 10px 20px;">Contact</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
 </li></ul>
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-sidenav-overflow">
                 <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.html" style="padding: 10px 20px;">About</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.html" style="padding: 10px 20px;">Contact</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.html" style="padding: 10px 20px;">Member Login</a>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.php" style="padding: 10px 20px;">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.php" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.php" style="padding: 10px 20px;">Contact</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
 </li></ul>
               </div>
             </div>
@@ -190,12 +191,13 @@
             </div>
             <div class="u-form-group u-form-group-6">
               <label for="text-03eb" class="u-form-control-hidden u-label"></label>
-              <input type="password" placeholder="Enter New Passord" id="text-03eb" name="password" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <input type="password" placeholder="Enter New Passord" id="id_password" name="password" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <span class="far fa-eye" id="togglePassword" style="margin-left: 430px; cursor: pointer;"></span>
               <h6 class="text-center" style="color:#ff0000"><?php echo $message_strnpassword; ?></h6>
             </div>
             <div class="u-form-group u-form-group-7">
               <label for="text-a7ff" class="u-form-control-hidden u-label"></label>
-              <input type="password" placeholder="Confirm New Password" id="text-a7ff" name="confirm_password" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <input type="password" placeholder="Confirm New Password" id="c_password" name="confirm_password" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
               <h6 class="text-center" style="color:#ff0000"><?php echo $message_cpassword; ?></h6>
             </div>
             <div class="u-align-center u-form-group u-form-submit">
@@ -263,3 +265,18 @@ c5.5,0,9.9,4.5,9.9,9.9V73.3z"></path></svg></span>
     </section>
   </body>
 </html>
+
+<script>
+
+const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('#id_password');
+ 
+  togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
+
+</script>
