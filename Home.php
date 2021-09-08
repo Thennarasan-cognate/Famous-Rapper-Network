@@ -14,8 +14,8 @@
     <title>Home</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Home.css" media="screen">
-    <script class="u-script" type="text/javascript" src="assests/jquery.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="assests/nicepage.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 3.23.2, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
@@ -23,8 +23,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
- <!-- <link rel="stylesheet" href="assets/css/shared/style.css"> -->
- <link rel="stylesheet" href="assests/styles.css">
+ <link rel="stylesheet" href="assets/css/shared/style.css">
+ <!-- <link rel="stylesheet" href="style.css"> -->
 
     <style>
 img {
@@ -349,8 +349,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
       </a>. 
     </section>
 
-    <!-- <script src="assets/vendors/js/vendor.bundle.base.js"></script> -->
-    <script src="assests/vendor.js"></script>
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
 
   </body>
 </html>

@@ -2,6 +2,35 @@
 <?php include "db.php"; ?>
 
 
+  <?php
+                    
+    if(isset($_SESSION['firstname'])){
+
+     $firstname =  $_SESSION['firstname'];       
+        
+     $query="SELECT * FROM register WHERE firstname = '{$firstname}' ";
+     $select_user_profile = mysqli_query($connection,$query);
+
+      
+     while($row=mysqli_fetch_array($select_user_profile)){
+
+            $id=$row['id'];
+            $title=$row['title'];
+            $firstname=$row['firstname'];
+            $lastname=$row['lastname'];
+            $email=$row['email'];
+            $password=$row['password'];
+            $confirm_password=$row['confirm_password'];
+            $phone=$row['phone'];
+            $user_role=$row['user_role'];
+            $image=$row['image'];
+            
+           }
+         }
+
+      ?>
+
+
 <!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
@@ -13,11 +42,18 @@
     <title>ProfilePage</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="ProfilePage.css" media="screen">
-    <script class="u-script" type="text/javascript" src="assests/jquery.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="assests/nicepage.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 3.24.3, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     
+
+    <style>
+img {
+  border-radius: 50%;
+}
+</style>
+
     
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
@@ -46,8 +82,26 @@
             <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.php" style="padding: 10px 20px;">Home</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.php" style="padding: 10px 20px;">About</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Contact.php" style="padding: 10px 20px;">Contact</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member-Login</a>
-</li></ul>
+</li>
+
+  <?php
+
+    if(isset($_SESSION['email']) == $db_email){
+
+  ?> 
+
+
+<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member-Login</a>
+</li>
+
+  <?php 
+              
+      }
+              
+    ?> 
+
+
+</ul>
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
@@ -74,7 +128,8 @@
             <div class="u-layout-col">
               <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-1">
                 <div class="u-container-layout u-valign-middle u-container-layout-1">
-                  <div alt="" class="u-image u-image-circle u-image-1" data-image-width="626" data-image-height="417"></div>
+                  <!-- <div alt="" class="u-image u-image-circle u-image-1" data-image-width="626" data-image-height="417"></div> -->
+                <img class="" style="width:550px" src ='images/<?php echo $_SESSION['image'] ?>' alt="">
                 </div>
               </div>
               <div class="u-align-center u-container-style u-layout-cell u-palette-4-base u-size-20 u-layout-cell-2">
@@ -90,9 +145,16 @@
                   <h3 class="u-text u-text-default u-text-6">Details</h3>
                   <p class="u-text u-text-7">
                     <span style="font-weight: 700;">Name: </span>
-                    <br>Hunter Norton<br>
+                    <br><label class="col-sm-3 col-form-label" for="title"><?php echo $title ?>. <?php echo $firstname ?> <?php echo $lastname ?></label><br>
+                    
+                    <span style="font-weight: 700;">Email: </span>
+                    <br><label class="col-sm-3 col-form-label" for="title"><?php echo $email ?></label><br>
+
+                    <span style="font-weight: 700;">Mobile: </span>
+                    <br><label class="col-sm-3 col-form-label" for="title"><?php echo $phone ?></label><br>
+
                     <span style="font-weight: 700;">Age: </span>
-                    <br>33 years <span style="font-weight: 700;">
+                    <br>22 years <span style="font-weight: 700;">
                       <br>Location: 
                     </span>
                     <br>'s-Hertogenbosch, The Netherlands, Earth
