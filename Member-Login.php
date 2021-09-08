@@ -140,14 +140,13 @@
               <form action="" method="post" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;">
                 <div class="u-form-group u-form-name">
                   <label for="email-cd60" class="u-form-control-hidden u-label"></label>
-                  <input type="text" placeholder="Enter your Email" id="email-cd60" name="email" class="u-grey-5 u-input u-input-rectangle" required="">
+                  <input type="text" placeholder="Enter your Email" id="email-cd60" name="email" value="<?php echo isset($_REQUEST["email"]) ? $_REQUEST["email"] : ''; ?>" class="u-grey-5 u-input u-input-rectangle" required="">
                   
                   <h6 class="text-center" style="color:#ff0000"><?php echo $message_email; ?></h6>
-<!--                  <input type="email" name="email" class="form-control" placeholder="Email address">-->
                 </div>
                 <div class="u-form-group u-form-password">
                   <label for="password-708d" class="u-form-control-hidden u-label"></label>
-                  <input type="password" placeholder="Enter your Password" id="id_password" name="password" class="u-grey-5 u-input u-input-rectangle" required="">
+                  <input type="password" placeholder="Enter your Password" id="id_password" name="password" value="<?php echo isset($_REQUEST["password"]) ? $_REQUEST["password"] : ''; ?>" class="u-grey-5 u-input u-input-rectangle" required="">
                   <span class="far fa-eye" id="togglePassword" style="margin-left: 350px; cursor: pointer;"></span>
                   <h6 class="text-center" style="color:#ff0000"><?php echo $message_password; ?></h6>
                 </div>
