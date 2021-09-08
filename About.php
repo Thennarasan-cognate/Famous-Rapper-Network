@@ -85,7 +85,7 @@ img {
 
           <img class="" style="width:60px" src ='images/<?php echo $_SESSION['image'] ?>' alt="">
 
-                      <p class="mb-1 mt-3 font-weight-semibold" style="color:#ff0000">
+                      <p class="mb-1 mt-3 font-weight-semibold" style="color:darkblue;">
                           <?php
                           
                           if(isset($_SESSION['firstname'])){

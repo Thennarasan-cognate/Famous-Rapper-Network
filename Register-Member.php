@@ -17,7 +17,8 @@
          $twitter =$_POST['twitter'];
          $youtube =$_POST['youtube'];
          
-         
+         $error = 0;
+
       if(!empty($firstname) && !empty($lastname) && !empty($phone) && !empty($email) && !empty($password) && !empty($confirm_password)){
           
       $password = mysqli_real_escape_string($connection,$_POST['password']);
@@ -41,9 +42,25 @@
         
         if(preg_match("/^[0-9]{10}$/", $phone)) {   
 
+
+
+        if(!$error){
+        $check_query= "SELECT * FROM register WHERE email = '{$email}' ";
+        $check_register_query = mysqli_query($connection,$check_query);
+
+        if(mysqli_num_rows($check_register_query) > 0){
+
+          $row = mysqli_fetch_assoc($check_register_query);
+
+            if($email==$row['email'])
+            {
+                $message_email= "Email already exists";
+            }
+        }else {
+
         
         $query = "INSERT INTO register (title,firstname,lastname,image,phone,email,password,confirm_password,instagram,facebook,twitter,youtube) ";
-        $query .= "VALUES ('Mr/Ms','{$firstname}','{$lastname}','profile.png','{$phone}','{$email}','{$password}','{$confirm_password}','instagram.com','facebook.com','twitter.com','youtube.com') ";
+        $query .= "VALUES ('Mr/Ms','{$firstname}','{$lastname}','profile.png','{$phone}','{$email}','{$password}','{$confirm_password}','https://facebook.com/','https://facebook.com/','https://twitter.com/','https://youtube.com/') ";
              
         $register_query = mysqli_query($connection,$query);
             
@@ -53,13 +70,14 @@
             
             die("Query Failed" . mysqli_error($connection) .' '. mysqli_error($connection));
         }
-            
+          
          $_SESSION['status'] = "Registration Was Successful Please Sign In";   
            
             header("Location:Member-Login.php");   
-           // echo "$image";
            // echo "Registration";
+ }
 
+}
           }else{
               $message_phone = "Invalid Phone No";
             
@@ -171,33 +189,33 @@
 
             <div class="u-form-group u-form-name u-form-group-1">
               <label for="name-cd60" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Enter your First Name" id="name-cd60" name="firstname" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" required="">
+              <input type="text" placeholder="Enter your First Name" id="name-cd60" name="firstname" value="<?php echo isset($_POST["firstname"]) ? $_POST["firstname"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" required="">
               <h6 class="text-center" style="color:#ff0000"><?php echo $message_Firstname; ?></h6>
             </div>
             <div class="u-form-group u-form-group-2">
               <label for="text-0253" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Enter your Last Name" id="text-0253" name="lastname" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <input type="text" placeholder="Enter your Last Name" id="text-0253" name="lastname" value="<?php echo isset($_POST["lastname"]) ? $_POST["lastname"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
               <h6 class="text-center" style="color:#ff0000"><?php echo $message_Lastname; ?></h6>
             </div>
             <div class="u-form-email u-form-group">
               <label for="email-cd60" class="u-form-control-hidden u-label"></label>
-              <input type="email" placeholder="Enter a valid email address" id="email-cd60" name="email" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" required="">
-            <br>
+              <input type="email" placeholder="Enter a valid email address" id="email-cd60" name="email" value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" required="">
+              <h6 class="text-center" style="color:#ff0000"><?php echo $message_email; ?></h6>
             </div>
             <div class="u-form-group u-form-group-5">
               <label for="text-871f" class="u-form-control-hidden u-label"></label>
-              <input type="text" id="text-871f" name="phone" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" placeholder="Enter Your Mobile Number">
+              <input type="text" id="text-871f" name="phone" value="<?php echo isset($_POST["phone"]) ? $_POST["phone"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" placeholder="Enter Your Mobile Number">
               <h6 class="text-center" style="color:#ff0000"><?php echo $message_phone; ?></h6>
             </div>
             <div class="u-form-group u-form-group-6">
               <label for="text-03eb" class="u-form-control-hidden u-label"></label>
-              <input type="password" placeholder="Enter New Passord" id="id_password" name="password" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <input type="password" placeholder="Enter New Passord" id="id_password" name="password" value="<?php echo isset($_POST["password"]) ? $_POST["password"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
               <span class="far fa-eye" id="togglePassword" style="margin-left: 430px; cursor: pointer;"></span>
               <h6 class="text-center" style="color:#ff0000"><?php echo $message_strnpassword; ?></h6>
             </div>
             <div class="u-form-group u-form-group-7">
               <label for="text-a7ff" class="u-form-control-hidden u-label"></label>
-              <input type="password" placeholder="Confirm New Password" id="c_password" name="confirm_password" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <input type="password" placeholder="Confirm New Password" id="c_password" name="confirm_password" value="<?php echo isset($_POST["confirm_password"]) ? $_POST["confirm_password"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
               <h6 class="text-center" style="color:#ff0000"><?php echo $message_cpassword; ?></h6>
             </div>
             <div class="u-align-center u-form-group u-form-submit">
