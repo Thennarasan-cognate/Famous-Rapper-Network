@@ -105,6 +105,13 @@ img {
               
     ?> 
 
+ <?php
+
+    if(($_SESSION['email']) !== $db_email){
+
+    ?> 
+
+
     <li class="u-nav-item dropdown d-none d-xl-inline-block user-dropdown">
                       <a class="u-nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                       <img class="" style="width:40px" src ='images/<?php echo $_SESSION['image'] ?>' alt=""></a>
@@ -134,6 +141,11 @@ img {
               </div>
           </li>
 
+<?php 
+              
+      }
+              
+    ?> 
 
 </ul>
           </div>

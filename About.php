@@ -76,6 +76,11 @@ img {
                       
             ?> 
 
+    <?php
+
+    if(($_SESSION['email']) !== $db_email){
+
+    ?> 
 
         <li class="u-nav-item dropdown d-none d-xl-inline-block user-dropdown">
                       <a class="u-nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
@@ -106,7 +111,11 @@ img {
               </div>
           </li>
 
-
+<?php 
+              
+      }
+              
+    ?> 
 
 </ul>
           </div>
