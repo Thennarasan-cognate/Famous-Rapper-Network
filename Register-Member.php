@@ -60,7 +60,7 @@
 
         
         $query = "INSERT INTO register (title,firstname,lastname,image,phone,email,password,confirm_password,instagram,facebook,twitter,youtube) ";
-        $query .= "VALUES ('Mr/Ms','{$firstname}','{$lastname}','profile.png','{$phone}','{$email}','{$password}','{$confirm_password}','https://facebook.com/','https://facebook.com/','https://twitter.com/','https://youtube.com/') ";
+        $query .= "VALUES ('Mr/Ms','{$firstname}','{$lastname}','profile.png','{$phone}','{$email}','{$password}','{$confirm_password}','https://instagram.com/','https://facebook.com/','https://twitter.com/','https://youtube.com/') ";
              
         $register_query = mysqli_query($connection,$query);
             
@@ -74,7 +74,7 @@
          $_SESSION['status'] = "Registration Was Successful Please Sign In";   
            
             header("Location:Member-Login.php");   
-           // echo "Registration";
+            
  }
 
 }

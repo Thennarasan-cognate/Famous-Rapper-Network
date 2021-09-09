@@ -1,15 +1,11 @@
-<?php session_start(); ?>
-<?php include "db.php"; ?>
+<?php //session_start(); ?>
+<?php //include "db.php"; ?>
 
 <?php
     
-    if(isset($_REQUEST['submit'])){
+    if(isset($_REQUEST['verify'])){
          
-        $email    = $_REQUEST['email'];
-        $password = $_REQUEST['password'];
-                        
-        $password = mysqli_real_escape_string($connection,$_POST['password']);
-        $password = md5($password);  
+        $email    = $_REQUEST['email']; 
     
         $query = "SELECT * FROM register WHERE email = '{$email}' ";
         $select_register_query = mysqli_query($connection, $query);
@@ -23,43 +19,28 @@
           while($row = mysqli_fetch_array($select_register_query)){
               
                $db_id = $row['id'];
-               $db_email = $row['email'];
-               $db_password = $row['password'];
+               $db_title = $row['title'];
                $db_firstname = $row['firstname'];
                $db_lastname = $row['lastname'];
                $db_image = $row['image'];
+               $db_phone = $row['phone'];
+               $db_email = $row['email'];
+               $db_instagram = $row['instagram'];
+               $db_facebook = $row['facebook'];
+               $db_twitter = $row['twitter'];
+               $db_youtube = $row['youtube'];         
               
           }
-        
-        
-        if($email === $db_email){
-        if($password === $db_password){
-     
-            
-             $_SESSION['email'] = $db_email;
-             $_SESSION['firstname'] = $db_firstname;
-             $_SESSION['lastname'] = $db_lastname;
-             $_SESSION['image'] = $db_image;
-             $_SESSION['phone'] = $db_phone;
 
- header("Location:Home.php");
-           
-        }else{
-            
-            $message_password = "Incorrect password";
-        }
-         
-        }else{
-            $message_email = "Invalid Email";   
-              
-        }
+           // header("Location:New_Password.php");
+        
         
         }
 ?>  
 
 
 <!DOCTYPE html>
-<html style="font-size: 16px;">
+<!-- <html style="font-size: 16px;">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
@@ -125,44 +106,27 @@
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="u-align-center u-container-style u-group u-radius-50 u-shape-round u-white u-group-1">
           <div class="u-container-layout u-valign-middle u-container-layout-1">
-            <h3 class="u-text u-text-default u-text-1">Sign In</h3>
+            <h3 class="text-center">Enter the OTP</h3>
             
-            <?php
-                
-                if(isset($_SESSION['status'])){
-                    
-                    echo $_SESSION['status'];
-                }
-                
-                ?>
+           <p class="font-weight-light text-muted mb-0">
+
+            Enter the OTP that we sent to your email.
+
+           </p>
             
             <div class="u-expanded-width u-form u-login-control u-form-1">
               <form action="" method="post" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;">
                 <div class="u-form-group u-form-name">
                   <label for="email-cd60" class="u-form-control-hidden u-label"></label>
-                  <input type="text" placeholder="Enter your Email" id="email-cd60" name="email" value="<?php echo isset($_REQUEST["email"]) ? $_REQUEST["email"] : ''; ?>" class="u-grey-5 u-input u-input-rectangle" required="">
-                  
-                  <h6 class="text-center" style="color:#ff0000"><?php echo $message_email; ?></h6>
-                </div>
-                <div class="u-form-group u-form-password">
-                  <label for="password-708d" class="u-form-control-hidden u-label"></label>
-                  <input type="password" placeholder="Enter your Password" id="id_password" name="password" value="<?php echo isset($_REQUEST["password"]) ? $_REQUEST["password"] : ''; ?>" class="u-grey-5 u-input u-input-rectangle" required="">
-                  <span class="far fa-eye" id="togglePassword" style="margin-left: 350px; cursor: pointer;"></span>
-                  <h6 class="text-center" style="color:#ff0000"><?php echo $message_password; ?></h6>
-                </div>
-                <div class="u-form-checkbox u-form-group">
-                  <input type="checkbox" id="checkbox-708d" name="remember" value="On">
-                  <label for="checkbox-708d" class="u-label">Remember me</label>
+                  <input type="text" placeholder="Enter your OTP" id="email-cd60" name="email" class="u-grey-5 u-input u-input-rectangle" required="">
                 </div>
                 <div class="u-align-center u-form-group u-form-submit">
-                  <a href="" class="u-btn u-btn-round u-btn-submit u-button-style u-radius-17 u-btn-1">Login</a>
+                  <a href="" class="u-btn u-btn-round u-btn-submit u-button-style u-radius-17 u-btn-1">Next</a>
                   <input type="submit" name="submit" value="submit" class="u-form-control-hidden">
-<!--                  <button class="u-btn u-btn-round u-btn-submit u-button-style u-radius-17 u-btn-1" name="submit" type="submit" id ="submit">login</button>-->
                 </div>
                 <input type="hidden" value="" name="recaptchaResponse">
               </form>
             </div>
-            <a href="Forgot_Password.php" class="u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-btn u-button-style u-login-control u-login-forgot-password u-none u-text-palette-1-base u-btn-2">Forgot password?</a>
           </div>
         </div>
       </div>
@@ -185,18 +149,4 @@
     </section>
   </body>
 </html>
-
-<script>
-
-const togglePassword = document.querySelector('#togglePassword');
-  const password = document.querySelector('#id_password');
- 
-  togglePassword.addEventListener('click', function (e) {
-    // toggle the type attribute
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-    password.setAttribute('type', type);
-    // toggle the eye slash icon
-    this.classList.toggle('fa-eye-slash');
-});
-
-</script>
+ -->
