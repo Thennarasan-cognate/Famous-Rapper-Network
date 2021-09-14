@@ -258,15 +258,26 @@ img {
         <div class="u-clearfix u-layout-wrap u-layout-wrap-1">
           <div class="u-gutter-0 u-layout">
             <div class="u-layout-col">
-              <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-1">
-               <div class="u-container-layout u-valign-middle u-container-layout-1">
-                   <!-- <div alt="" class="u-image u-image-circle u-image-1" data-image-width="626" data-image-height="417"></div>  -->
-                   <div class="form-group">
-                <img class="round-circle" style="width:550px" src ='images/<?php echo $_SESSION['image'] ?>' alt="">
-                <center><input type="file" name="image" value="Edit"></center></div>
-            </div>
 
+              <div class="u-layout-row">
+              <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-video u-video-1">
+                <div class="u-background-video u-expanded" style="">
+                  <div class="embed-responsive embed-responsive-1">
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1" frameborder="0" allowfullscreen=""></iframe>
+                  </div>
+                </div>
+                <div class="u-container-layout u-container-layout-1">
+                  <div class="u-align-top u-expanded u-video">
+                    <div class="embed-responsive embed-responsive-2">
+                      <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="2222" frameborder="0" allowfullscreen=""></iframe>
+                    </div>
+                  </div>
+                </div>
               </div>
+
+              <br>
+
+
               <div class="u-align-center u-container-style u-layout-cell u-palette-4-base u-size-20 u-layout-cell-2">
                 <div class="u-container-layout u-valign-middle u-container-layout-2">
                   <h3 class="u-text u-text-default u-text-3">About me</h3>
@@ -275,6 +286,7 @@ img {
                   </p>
                 </div>
               </div>
+            </div>
               <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-3">
                 <div class="u-container-layout u-container-layout-3">
                   <h3 class="u-text u-text-default u-text-6">Details</h3>
