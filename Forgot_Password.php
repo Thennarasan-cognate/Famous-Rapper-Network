@@ -192,7 +192,72 @@ if(isset($_REQUEST['submit'])){
 
 <?php if(isset($_REQUEST['verify'])){ 
 
-      include "New_Password.php";
+     if(isset($_REQUEST['email'])){
+
+     $email =  $_REQUEST['email'];  
+           
+     $query="SELECT * FROM register WHERE email = '{$email}' ";
+     $select_register_profile = mysqli_query($connection,$query);
+
+      
+     while($row=mysqli_fetch_array($select_register_profile)){
+
+            $id=$row['id'];
+            $title=$row['title'];
+            $firstname=$row['firstname'];
+            $lastname=$row['lastname'];
+            $image=$row['image'];
+            $phone=$row['phone'];
+            $email=$row['email'];
+            $password=$row['password'];
+            $confirm_password=$row['confirm_password'];
+            $instagram=$row['instagram'];
+            $facebook=$row['facebook'];
+            $twitter=$row['twitter'];
+            $youtube=$row['youtube'];
+            
+           }
+         }
+    
+    if(isset($_POST['confirm'])){
+             
+         $password = $_POST['password'];
+         $confirm_password = $_POST['confirm_password'];
+
+     if(!empty($password) && !empty($confirm_password)){
+
+      if($password == $confirm_password){
+          
+      $password = mysqli_real_escape_string($connection,$_POST['password']);
+      $confirm_password = mysqli_real_escape_string($connection,$_POST['confirm_password']);
+      $password = md5($password);              
+      $confirm_password = md5($confirm_password);
+
+      $query="UPDATE register SET password='{$password}', confirm_password='{$confirm_password}' WHERE email= '$email' ";
+
+      $register_query = mysqli_query($connection,$query);
+
+      if(!$register_query) {
+            
+            die("Query Failed" . mysqli_error($connection));
+        }
+
+        header("Location:Member-Login.php"); 
+
+        
+        }else{
+
+          $message_cpassword = "password mismatch";
+
+        }
+
+     }else{
+
+        $message = "Fields cannot be Empty";
+
+     }
+   }
+
 
  ?>
 

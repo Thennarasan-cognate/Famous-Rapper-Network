@@ -1,5 +1,5 @@
-<?php //session_start(); ?>
-<?php //include "db.php"; ?>
+<?php session_start(); ?>
+<?php include "db.php"; ?>
 
 <?php
 
@@ -44,7 +44,7 @@
       $password = md5($password);              
       $confirm_password = md5($confirm_password);
 
-      $query="UPDATE register SET password='{$password}', confirm_password='{$confirm_password}' WHERE email= '{$email}' ";
+      $query="UPDATE register SET password='{$password}', confirm_password='{$confirm_password}' WHERE email= 'Ramya1999@gmail.com' ";
 
       $register_query = mysqli_query($connection,$query);
 
@@ -74,7 +74,7 @@
 
 
 <!DOCTYPE html>
-<!-- <html style="font-size: 16px;">
+<html style="font-size: 16px;">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
@@ -149,7 +149,7 @@
                   <label for="password-708d" class="u-form-control-hidden u-label"></label>
                   <input type="password" placeholder="Enter your New Password" id="id_password" name="password" value="<?php echo isset($_POST["password"]) ? $_POST["password"] : ''; ?>" class="u-grey-5 u-input u-input-rectangle" required="">
                   <span class="far fa-eye" id="togglePassword" style="margin-left: 350px; cursor: pointer;"></span>
-                  <h6 class="text-center" style="color:#ff0000"><?php echo $message_password; ?></h6>
+                  <!-- <h6 class="text-center" style="color:#ff0000"><?php echo $message_password; ?></h6> -->
                 </div>
 
                 <div class="u-form-group u-form-password">
@@ -160,7 +160,7 @@
 
                 <div class="u-align-center u-form-group u-form-submit">
                   <a href="" class="u-btn u-btn-round u-btn-submit u-button-style u-radius-17 u-btn-1">Submit</a>
-                  <input type="submit" name="submit" value="submit" class="u-form-control-hidden">
+                  <input type="submit" name="confirm" value="submit" class="u-form-control-hidden">
                 </div>
                 <input type="hidden" value="" name="recaptchaResponse">
               </form>
@@ -186,7 +186,7 @@
       </a>. 
     </section>
   </body>
-</html> -->
+</html>
 
 <script>
 

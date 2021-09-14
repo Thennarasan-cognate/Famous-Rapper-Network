@@ -16,7 +16,6 @@ if(isset($_SESSION['firstname'])){
      while($row=mysqli_fetch_array($select_register_profile)){
 
             $id=$row['id'];
-            $title=$row['title'];
             $firstname=$row['firstname'];
             $lastname=$row['lastname'];
             $image=$row['image'];
@@ -33,8 +32,7 @@ if(isset($_SESSION['firstname'])){
          }
 
       if(isset($_POST['edit_profile'])){
-
-            $title  =  $_POST['title'];   
+   
             $firstname =  $_POST['firstname'];
             $lastname =  $_POST['lastname'];
             $image = $_FILES['image']['name'];
@@ -84,7 +82,7 @@ if(isset($_SESSION['firstname'])){
           
         if($password==$confirm_password){
               
-    $query="UPDATE register SET title='{$title}', firstname= '{$firstname}', lastname= '{$lastname}',image= '{$image}', email= '{$email}',phone= '{$phone}',instagram='{$instagram}', facebook='{$facebook}',twitter='{$twitter}',youtube='{$youtube}'  WHERE firstname= '{$firstname}' ";  
+    $query="UPDATE register SET firstname= '{$firstname}', lastname= '{$lastname}',image= '{$image}', email= '{$email}',phone= '{$phone}',instagram='{$instagram}', facebook='{$facebook}',twitter='{$twitter}',youtube='{$youtube}'  WHERE firstname= '{$firstname}' ";  
                       
         $update_profile_query=mysqli_query($connection,$query);
 
@@ -141,6 +139,7 @@ if(isset($_SESSION['firstname'])){
     <meta name="generator" content="Nicepage 3.24.3, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     
+    <link rel="stylesheet" href="assets/css/shared/style.css">
 
     <style>
 img {
@@ -190,9 +189,46 @@ img {
 
   <?php 
               
+      }else{
+              
+    ?> 
+
+
+    <li class="u-nav-item dropdown d-none d-xl-inline-block user-dropdown">
+                      <a class="u-nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                      <img class="" style="width:40px" src ='images/<?php echo $_SESSION['image'] ?>' alt=""></a>
+         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                        <div class="dropdown-header text-center">
+
+          <img class="" style="width:60px" src ='images/<?php echo $_SESSION['image'] ?>' alt="">
+
+                      <p class="mb-1 mt-3 font-weight-semibold" style="color:darkblue;">
+                          <?php
+                          
+                          if(isset($_SESSION['firstname'])){
+                              
+                            echo $_SESSION['firstname']; 
+                             
+                          }
+                          
+                          ?>
+                          
+                        </p>
+                              
+                </div>
+                <a class="dropdown-item" href="profile.php">My Profile <span class="badge badge-pill badge-danger"></span><i class="dropdown-item-icon ti-dashboard"></i></a>
+                 
+                <a class="dropdown-item"href="Logout.php">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
+              
+              </div>
+          </li>
+
+<?php 
+              
       }
               
     ?> 
+
 
 
 </ul>
@@ -243,16 +279,12 @@ img {
                 <div class="u-container-layout u-container-layout-3">
                   <h3 class="u-text u-text-default u-text-6">Details</h3>
                   <p class="u-text u-text-7">
-                    <span style="font-weight: 700;">Gender: </span>
-                    <div class="col-sm-9">
-                     <input type="text" value="<?php echo $title; ?>" class="form-control" name="title">
-                    </div>
 
-                    <span style="font-weight: 700;">Name: </span>
+                    <span style="font-weight: 700;">First Name: </span>
                     <div class="form-control"><input type="text" value="<?php echo $firstname; ?>" class="form-control" name="firstname">
                     <h6 class="text-center" style="color:#ff0000"><?php echo $message_Firstname; ?></h6></div>
 
-                    <span style="font-weight: 700;">Name: </span>
+                    <span style="font-weight: 700;">Last Name: </span>
                     <div class="form-control"><input type="text" value="<?php echo $lastname; ?>" class="form-control" name="lastname">
                     <h6 class="text-center" style="color:#ff0000"><?php echo $message_Lastname; ?></h6></div>
                     
@@ -321,5 +353,8 @@ img {
         <span>Website Builder Software</span>
       </a>. 
     </section>
+
+      <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+
   </body>
 </html>

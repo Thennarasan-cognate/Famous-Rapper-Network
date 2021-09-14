@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Aug 31, 2021 at 09:06 AM
+-- Generation Time: Sep 13, 2021 at 07:59 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.1
 
@@ -30,7 +30,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `register` (
   `id` int(33) NOT NULL,
-  `title` text NOT NULL,
   `firstname` varchar(32) NOT NULL,
   `lastname` varchar(32) NOT NULL,
   `image` text NOT NULL,
@@ -48,19 +47,17 @@ CREATE TABLE `register` (
 -- Dumping data for table `register`
 --
 
-INSERT INTO `register` (`id`, `title`, `firstname`, `lastname`, `image`, `phone`, `email`, `password`, `confirm_password`, `instagram`, `facebook`, `twitter`, `youtube`) VALUES
-(1, 'Mr.', 'Sharma', 'Pradap', 'profile.jfif', '9678236714', 'sharma@gmail.com', '26b5c3f86027614d7c3bbec4238a97f8', '', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com'),
-(2, 'Mr.', 'Varun', 'Gupta', 'profile.jfif', '9754370257', 'varun@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', '', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com'),
-(3, 'Ms.', 'Meera', 'Madhavan', 'profile.jfif', '9374183645', 'meera@gmail.com', 'Lap@1234', '', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com'),
-(4, 'Ms.', 'Pavithra', 'Sharma', 'profile.jfif', '9374812934', 'pavithra@gmail.com', '7fc92d58888fcffcff11434c1407fe88', '', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com'),
-(5, 'Ms.', 'Preethi', 'Sharma', 'profile.jfif', '9754370257', 'preethi@gmail.com', '601757150822d642bd21743439a8efd4', '', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com'),
-(6, 'Mr/Ms', 'TestUser', 'TestLast', 'profile.jfif', '9842287036', 'test@gmail.com', '8b1a9953c4611296a827abf8c47804d7', '8b1a9953c4611296a827abf8c47804d7', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com'),
-(7, 'Mr/Ms', 'Thennarasan', 'Boovaragan', 'profile.jfif', '9842287036', 'Thenns@talevent.in', '5d41402abc4b2a76b9719d911017c592', '5d41402abc4b2a76b9719d911017c592', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com'),
-(8, 'Mr/Ms', 'Priya', 'Dharshini', 'profile.jfif', '9159587036', 'Thenns@talevent.in', '8b1a9953c4611296a827abf8c47804d7', '8b1a9953c4611296a827abf8c47804d7', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com'),
-(9, 'Mr/Ms', 'nisha', 'kolanchi', 'profile.jfif', '9878664787', 'nisha@gmail.com', 'a9f56b7ece2113c9c4a1214a19ede99c', 'a9f56b7ece2113c9c4a1214a19ede99c', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com'),
-(10, 'Mr/Ms', 'Thennarasan', 'Boovaragan', 'profile.jfif', '9842287036', 'Thenns@talevent.in', '2c838aba642cca954ebb3a2144eec2a7', '2c838aba642cca954ebb3a2144eec2a7', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com'),
-(11, 'Mr/Ms', 'Neha', 'Ramakrishnan', 'profile.jfif', '9159587036', 'neha@gmail.com', '2c838aba642cca954ebb3a2144eec2a7', '2c838aba642cca954ebb3a2144eec2a7', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com'),
-(12, 'Mr/Ms', 'Thennarasan', 'Boovaragan', 'profile.jfif', '9842287036', 'Thenns@talevent.in', '2c838aba642cca954ebb3a2144eec2a7', '2c838aba642cca954ebb3a2144eec2a7', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com');
+INSERT INTO `register` (`id`, `firstname`, `lastname`, `image`, `phone`, `email`, `password`, `confirm_password`, `instagram`, `facebook`, `twitter`, `youtube`) VALUES
+(1, 'Sharma', 'Pradap', 'profile.png', '9678236714', 'sharma@gmail.com', '26b5c3f86027614d7c3bbec4238a97f8', '26b5c3f86027614d7c3bbec4238a97f8', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com'),
+(2, 'Varun', 'Gupta', 'profile.png', '9754370257', 'varun@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'd41d8cd98f00b204e9800998ecf8427e', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com'),
+(3, 'Meera', 'Madhavan', 'profile.png', '9374183645', 'meera@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'd41d8cd98f00b204e9800998ecf8427e', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com'),
+(4, 'Pavithra', 'Sharma', 'profile.png', '9374812934', 'pavithra@gmail.com', '7fc92d58888fcffcff11434c1407fe88', '7fc92d58888fcffcff11434c1407fe88', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com'),
+(5, 'Preethi', 'Sharma', 'profile.png', '9754370257', 'preethi@gmail.com', '601757150822d642bd21743439a8efd4', '601757150822d642bd21743439a8efd4', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com'),
+(6, 'Thennarasan', 'Boovaragan', 'profile.png', '9754370257', 'thennarasan@gmail.com', '041937bdc743495ae248748592b82d57', '041937bdc743495ae248748592b82d57', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com'),
+(7, 'Ramya', 'Rajendiran', 'profile.png', '9248610456', 'Ramya1999@gmail.com', '88e00fd00ba330b8fa467a8877a014a4', '88e00fd00ba330b8fa467a8877a014a4', 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://youtube.com/'),
+(8, 'Rahul', 'Subramanyam', 'profile.png', '9827410846', 'rahul2021@gmail.com', '0bbd95d0d082f49e4a24a9f473974cd1', '0bbd95d0d082f49e4a24a9f473974cd1', 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://youtube.com/'),
+(9, 'Aliya', 'Mehra', 'profile.png', '9678236714', 'Aliya2020@gmail.com', '6a96b0c6a73eec512ceb3263e2bd41ac', '6a96b0c6a73eec512ceb3263e2bd41ac', 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://youtube.com/'),
+(10, 'Rakul', 'Sharma', 'profile.png', '9248610456', 'Rakul@gmail.com', '5473a0fd41bab3ba823c46e6d74ae34e', '5473a0fd41bab3ba823c46e6d74ae34e', 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://youtube.com/');
 
 --
 -- Indexes for dumped tables
@@ -80,7 +77,7 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `id` int(33) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(33) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
