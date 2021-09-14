@@ -293,41 +293,32 @@ img {
                   <p class="u-text u-text-7">
 
                     <span style="font-weight: 700;">First Name: </span>
-                    <div class="form-control"><input type="text" value="<?php echo $firstname; ?>" class="form-control" name="firstname">
-                    <h6 class="text-center" style="color:#ff0000"><?php echo $message_Firstname; ?></h6></div>
+                    <div><input type="text" value="<?php echo $firstname; ?>" class="form-control" name="firstname">
+                    <h6 style="color:#ff0000"><?php echo $message_Firstname; ?></h6></div>
 
                     <span style="font-weight: 700;">Last Name: </span>
-                    <div class="form-control"><input type="text" value="<?php echo $lastname; ?>" class="form-control" name="lastname">
-                    <h6 class="text-center" style="color:#ff0000"><?php echo $message_Lastname; ?></h6></div>
+                    <div><input type="text" value="<?php echo $lastname; ?>" class="form-control" name="lastname">
+                    <h6 style="color:#ff0000"><?php echo $message_Lastname; ?></h6></div>
                     
                     <span style="font-weight: 700;">Email: </span>
-                    <div class="form-control"><input type="text" value="<?php echo $email; ?>" class="form-control" name="email">
-                    <h6 class="text-center" style="color:#ff0000"><?php echo $message_email; ?></h6></div>
-
-                    <!-- <span style="font-weight: 700;">Password: </span>
-                    <div class="form-control"><input type="password" value="<?php echo $password; ?>" class="form-control" name="password">
-                    <h6 class="" style="color:#ff0000"><?php echo $message_strnpassworad; ?></h6>
-                    <h6 class="" style="color:#ff0000"><?php echo $message_password; ?></h6></div>
-
-                    <span style="font-weight: 700;">Confirm: </span>
-                    <div class="form-control"><input type="password" value="<?php echo $confirm_password; ?>" class="form-control" name="confirm_password">
-                    <h6 class="" style="color:#ff0000"><?php echo $message_confirm; ?></h6></div> -->
+                    <div><input type="text" value="<?php echo $email; ?>" class="form-control" name="email">
+                    <h6 style="color:#ff0000"><?php echo $message_email; ?></h6></div>
 
                     <span style="font-weight: 700;">Mobile: </span>
-                    <div class="form-control"><input type="text" value="<?php echo $phone; ?>" class="form-control" name="phone">
-                    <h6 class="text-center" style="color:#ff0000"><?php echo $message_phone; ?></h6></div>
+                    <div><input type="text" value="<?php echo $phone; ?>" class="form-control" name="phone">
+                    <h6 style="color:#ff0000"><?php echo $message_phone; ?></h6></div>
 
                     <span style="font-weight: 700;">Instagram: </span>
-                    <div class="form-control"><input type="text" value="<?php echo $instagram; ?>" class="form-control" name="instagram"></div>
+                    <div><input type="text" value="<?php echo $instagram; ?>" class="form-control" name="instagram"></div>
 
                     <span style="font-weight: 700;">Facebook: </span>
-                    <div class="form-control"><input type="text" value="<?php echo $facebook; ?>" class="form-control" name="facebook"></div>
+                    <div><input type="text" value="<?php echo $facebook; ?>" class="form-control" name="facebook"></div>
 
                     <span style="font-weight: 700;">Twitter: </span>
-                    <div class="form-control"><input type="text" value="<?php echo $twitter; ?>" class="form-control" name="twitter"></div>
+                    <div><input type="text" value="<?php echo $twitter; ?>" class="form-control" name="twitter"></div>
 
                     <span style="font-weight: 700;">Youtube: </span>
-                    <div class="form-control"><input type="text" value="<?php echo $youtube; ?>" class="form-control" name="youtube"></div>
+                    <div><input type="text" value="<?php echo $youtube; ?>" class="form-control" name="youtube"></div>
 
                     <span style="font-weight: 700;">Age: </span>
                     <br>22 years <span style="font-weight: 700;">
