@@ -15,6 +15,8 @@
          $facebook =$_POST['facebook'];
          $twitter =$_POST['twitter'];
          $youtube =$_POST['youtube'];
+         $Location =$_POST['Location'];
+
          
          $error = 0;
 
@@ -58,8 +60,8 @@
         }else {
 
         
-        $query = "INSERT INTO register (firstname,lastname,image,phone,email,password,confirm_password,instagram,facebook,twitter,youtube) ";
-        $query .= "VALUES ('{$firstname}','{$lastname}','profile.png','{$phone}','{$email}','{$password}','{$confirm_password}','https://instagram.com/','https://facebook.com/','https://twitter.com/','https://youtube.com/') ";
+        $query = "INSERT INTO register (firstname,lastname,image,phone,email,password,confirm_password,instagram,facebook,twitter,youtube,Location) ";
+        $query .= "VALUES ('{$firstname}','{$lastname}','profile.png','{$phone}','{$email}','{$password}','{$confirm_password}','https://instagram.com/','https://facebook.com/','https://twitter.com/','https://youtube.com/','Srimushnam') ";
              
         $register_query = mysqli_query($connection,$query);
             
@@ -73,8 +75,30 @@
          $_SESSION['status'] = "Registration Was Successful Please Sign In";   
            
             // header("Location:Member-Login.php");
-            header("Location:email_verification.php");   
-            
+            // header("Location:email_verification.php"); 
+
+$to=$email;
+$subject = "OTP";
+$rndno=rand(100000, 999999);//OTP generate
+$message = urlencode("otp number.".$rndno);
+$txt = "OTP: ".$rndno."";
+$headers = "From: thennarasan1988@gmail.com" . "\r\n";
+"CC: reshma21@gmail.com";
+if(mail($to,$subject,$txt,$headers)){
+
+$_SESSION['firstname']=$_POST['firstname'];
+$_SESSION['email']=$_POST['email'];
+$_SESSION['phone']=$_POST['phone'];
+$_SESSION['otp']=$rndno;
+
+
+header( "Location: otp.php" );
+}else{
+
+echo "mail send failed";
+
+}
+          
  }
 
 }
@@ -112,6 +136,30 @@
        }
 
   ?>
+
+
+<?php
+// session_start();
+// $rndno=rand(100000, 999999);//OTP generate
+// $message = urlencode("otp number.".$rndno);
+// $to=$_POST['email'];
+// $subject = "OTP";
+// $txt = "OTP: ".$rndno."";
+// $headers = "From: 07.ramyar@gmail.com" . "\r\n" .
+// "CC: thennarasan1988@gmail.com";
+// mail($to,$subject,$txt,$headers);
+// if(isset($_POST['btn-save']))
+// {
+// $_SESSION['firstname']=$_POST['firstname'];
+// $_SESSION['email']=$_POST['email'];
+// $_SESSION['phone']=$_POST['phone'];
+// $_SESSION['otp']=$rndno;
+// header( "Location: otp.php" );
+
+// }
+ ?>
+
+
 
 
 <!DOCTYPE html>

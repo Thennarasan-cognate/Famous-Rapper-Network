@@ -1,85 +1,111 @@
-<?php session_start(); ?>
+<?php //session_start(); ?>
 <?php include "db.php"; ?>
 
+
 <?php
-    
-    if(isset($_REQUEST['submit'])){
-         
-        $email    = $_REQUEST['email']; 
-    
-      if(!empty($email)){
+session_start();
+$rndno=rand(100000, 999999);//OTP generate
+$message = urlencode("otp number.".$rndno);
+$to=$_POST['email'];
+$subject = "OTP";
+$txt = "OTP: ".$rndno."";
+$headers = "From: 07.ramyar@gmail.com" . "\r\n" .
+"CC: thennarasan1988@gmail.com";
+mail($to,$subject,$txt,$headers);
+if(isset($_POST['btn-save']))
+{
+$_SESSION['firstname']=$_POST['firstname'];
+$_SESSION['email']=$_POST['email'];
+$_SESSION['phone']=$_POST['phone'];
+$_SESSION['otp']=$rndno;
+// header( "Location: otp.php" );
 
-        $query = "SELECT * FROM register WHERE email = '{$email}' ";
-        $select_register_query = mysqli_query($connection, $query);
-        
-        if(!$select_register_query){
-            
-            die("Query Failed" . mysqli_error($connection));
-            
-        }
+echo "otp sent your email";
 
-        // header("Location:OTP.php");
-          
-          while($row = mysqli_fetch_array($select_register_query)){
-              
-               $db_id = $row['id'];
-               $db_firstname = $row['firstname'];
-               $db_lastname = $row['lastname'];
-               $db_image = $row['image'];
-               $db_phone = $row['phone'];
-               $db_email = $row['email'];
-               $db_instagram = $row['instagram'];
-               $db_facebook = $row['facebook'];
-               $db_twitter = $row['twitter'];
-               $db_youtube = $row['youtube'];
-    
-              
-          }
-        
-        }else{
-
-          $message_email = "Enter your email address";
-        }
-        
-        }
-?>  
+}
+ ?>
 
 
 
 <?php
     
-    if(isset($_POST['submit'])){
+//     if(isset($_REQUEST['submit'])){
          
-        $email    = $_POST['email']; 
+//         $email    = $_REQUEST['email']; 
     
-        $query = "SELECT * FROM register WHERE email = '{$email}' ";
-        $select_register_query = mysqli_query($connection, $query);
-        
-        if(!$select_register_query){
-            
-            die("Query Failed" . mysqli_error($connection));
-            
-        }
-          
-          while($row = mysqli_fetch_array($select_register_query)){
-              
-               $db_id = $row['id'];
-               $db_firstname = $row['firstname'];
-               $db_lastname = $row['lastname'];
-               $db_image = $row['image'];
-               $db_phone = $row['phone'];
-               $db_email = $row['email'];
-               $db_instagram = $row['instagram'];
-               $db_facebook = $row['facebook'];
-               $db_twitter = $row['twitter'];
-               $db_youtube = $row['youtube'];         
-              
-          }
+//       if(!empty($email)){
 
-            header("Location:Member-Login.php");
+//         $query = "SELECT * FROM register WHERE email = '{$email}' ";
+//         $select_register_query = mysqli_query($connection, $query);
+        
+//         if(!$select_register_query){
+            
+//             die("Query Failed" . mysqli_error($connection));
+            
+//         }
+
+//         // header("Location:OTP.php");
+          
+//           while($row = mysqli_fetch_array($select_register_query)){
+              
+//                $db_id = $row['id'];
+//                $db_firstname = $row['firstname'];
+//                $db_lastname = $row['lastname'];
+//                $db_image = $row['image'];
+//                $db_phone = $row['phone'];
+//                $db_email = $row['email'];
+//                $db_instagram = $row['instagram'];
+//                $db_facebook = $row['facebook'];
+//                $db_twitter = $row['twitter'];
+//                $db_youtube = $row['youtube'];
+    
+              
+//           }
+        
+//         }else{
+
+//           $message_email = "Enter your email address";
+//         }
+        
+//         }
+// ?>  
+
+
+
+ <?php
+    
+//     if(isset($_POST['submit'])){
+         
+//         $email    = $_POST['email']; 
+    
+//         $query = "SELECT * FROM register WHERE email = '{$email}' ";
+//         $select_register_query = mysqli_query($connection, $query);
+        
+//         if(!$select_register_query){
+            
+//             die("Query Failed" . mysqli_error($connection));
+            
+//         }
+          
+//           while($row = mysqli_fetch_array($select_register_query)){
+              
+//                $db_id = $row['id'];
+//                $db_firstname = $row['firstname'];
+//                $db_lastname = $row['lastname'];
+//                $db_image = $row['image'];
+//                $db_phone = $row['phone'];
+//                $db_email = $row['email'];
+//                $db_instagram = $row['instagram'];
+//                $db_facebook = $row['facebook'];
+//                $db_twitter = $row['twitter'];
+//                $db_youtube = $row['youtube'];         
+              
+//           }
+
+//             header("Location:Member-Login.php");
         
         
-        }
+//         }
 ?>  
 
 
@@ -91,7 +117,7 @@
     <meta name="keywords" content="INTUITIVE">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Member Login</title>
+    <title>Register Member</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Member-Login.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -150,11 +176,11 @@
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="u-align-center u-container-style u-group u-radius-50 u-shape-round u-white u-group-1">
           <div class="u-container-layout u-valign-middle u-container-layout-1">
-            <h3 class="text-center">Enter the OTP</h3>
+            <h3 class="text-center">Enter your email address</h3>
             
            <p class="font-weight-light text-muted mb-0">
 
-            To Confirm your email, we sent the OTP to your email address, enter the OTP 
+            <!-- To Confirm your email, we sent the OTP to your email address, enter the OTP  -->
 
            </p>
             
@@ -162,11 +188,11 @@
               <form action="" method="post" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;">
                 <div class="u-form-group u-form-name">
                   <label for="email-cd60" class="u-form-control-hidden u-label"></label>
-                  <input type="text" placeholder="Enter your OTP" id="email-cd60" name="email" class="u-grey-5 u-input u-input-rectangle" required="">
+                  <input type="text" placeholder="Enter your Email" id="email-cd60" name="email" class="u-grey-5 u-input u-input-rectangle" required="">
                 </div>
                 <div class="u-align-center u-form-group u-form-submit">
                   <a href="" class="u-btn u-btn-round u-btn-submit u-button-style u-radius-17 u-btn-1">Next</a>
-                  <input type="submit" name="submit" value="submit" class="u-form-control-hidden">
+                  <input type="submit" name="btn-save" value="submit" class="u-form-control-hidden">
                 </div>
                 <input type="hidden" value="" name="recaptchaResponse">
               </form>
@@ -193,19 +219,3 @@
     </section>
   </body>
 </html>
- 
-
-<script>
-
-const togglePassword = document.querySelector('#togglePassword');
-  const password = document.querySelector('#id_password');
- 
-  togglePassword.addEventListener('click', function (e) {
-    // toggle the type attribute
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-    password.setAttribute('type', type);
-    // toggle the eye slash icon
-    this.classList.toggle('fa-eye-slash');
-});
-
-</script>

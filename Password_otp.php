@@ -1,5 +1,5 @@
 <?php //session_start(); ?>
-<?php include "db.php"; ?>
+<?php //include "db.php"; ?>
 
 
 <?php
@@ -14,17 +14,17 @@ $firstname=$_SESSION['firstname'];
 $email=$_SESSION['email'];
 $phone=$_SESSION['phone'];
 //For admin if he want to know who is register
-$to="reshmasamy21@gmail.com";
+$to="example@gmail.com";
 $subject = "Thank you!";
 $txt = "Some one show your demo Email id: ".$email." Mobile number : ".$phone."";
 $headers = "From: 07.ramyar@gmail.com" . "\r\n" .
-"CC: thennarasan1988.com";
+"CC: thennarasan1988@gmail.com";
 mail($to,$subject,$txt,$headers);
 echo "<p>Thank you for show our Demo.</p>";
 //For admin if he want to know who is register
 
 
-// header( "Location:Member-Login.php" );
+header( "Location:Member-Login.php" );
 
 }
 else{
@@ -46,6 +46,7 @@ mail($to,$subject,$txt,$headers);
 $message="<p class='w3-text-green w3-center'><b>Sucessfully resend OTP to your mail.</b></p>";
 }
 ?>
+
 
 <?php
     
@@ -86,14 +87,14 @@ $message="<p class='w3-text-green w3-center'><b>Sucessfully resend OTP to your m
 
 
 <!DOCTYPE html>
-<html style="font-size: 16px;">
+<!-- <html style="font-size: 16px;">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="keywords" content="INTUITIVE">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Register Member</title>
+    <title>Member Login</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Member-Login.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -103,10 +104,10 @@ $message="<p class='w3-text-green w3-center'><b>Sucessfully resend OTP to your m
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     
     <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "Site2",
-		"logo": "images/default-logo.png"
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Site2",
+    "logo": "images/default-logo.png"
 }</script>
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="Member Login">
@@ -168,16 +169,10 @@ $message="<p class='w3-text-green w3-center'><b>Sucessfully resend OTP to your m
                 </div>
                 <div class="u-align-center u-form-group u-form-submit">
                   <a href="" class="u-btn u-btn-round u-btn-submit u-button-style u-radius-17 u-btn-1">Next</a>
-                  <input type="submit" name="save" value="submit" class="u-form-control-hidden">
+                  <input type="submit" name="verify" value="submit" class="u-form-control-hidden">
                 </div>
-
-             <p class="u-align-center u-form-group u-form-submit"><button class="w3-btn w3-green w3-round" style="width:50%;height:40px" name="resend">Resend</button></p>
-
                 <input type="hidden" value="" name="recaptchaResponse">
               </form>
-
-             <div><?php if(isset($message)) { echo $message; } ?></div>
-
             </div>
           </div>
         </div>
@@ -200,4 +195,4 @@ $message="<p class='w3-text-green w3-center'><b>Sucessfully resend OTP to your m
       </a>. 
     </section>
   </body>
-</html>
+</html> -->

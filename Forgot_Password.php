@@ -1,48 +1,70 @@
 <?php session_start(); ?>
 <?php include "db.php"; ?>
 
+
+<?php
+session_start();
+$rndno=rand(100000, 999999);//OTP generate
+$message = urlencode("otp number.".$rndno);
+$to=$_POST['email'];
+$subject = "OTP";
+$txt = "OTP: ".$rndno."";
+$headers = "From: 07.ramyar@gmail.com.com" . "\r\n" .
+"CC: thennarasan1988@gmail.com";
+mail($to,$subject,$txt,$headers);
+if(isset($_POST['btn-save']))
+{
+$_SESSION['firstname']=$_POST['firstname'];
+$_SESSION['email']=$_POST['email'];
+$_SESSION['phone']=$_POST['phone'];
+$_SESSION['otp']=$rndno;
+// header( "Location: otp.php" );
+} ?>
+
+
+
 <?php
     
-    if(isset($_REQUEST['submit'])){
+    // if(isset($_REQUEST['submit'])){
          
-        $email    = $_REQUEST['email']; 
+    //     $email    = $_REQUEST['email']; 
     
-      if(!empty($email)){
+    //   if(!empty($email)){
 
-        $query = "SELECT * FROM register WHERE email = '{$email}' ";
-        $select_register_query = mysqli_query($connection, $query);
+    //     $query = "SELECT * FROM register WHERE email = '{$email}' ";
+    //     $select_register_query = mysqli_query($connection, $query);
         
-        if(!$select_register_query){
+    //     if(!$select_register_query){
             
-            die("Query Failed" . mysqli_error($connection));
+    //         die("Query Failed" . mysqli_error($connection));
             
-        }
+    //     }
 
-        // header("Location:OTP.php");
+    //     // header("Location:OTP.php");
           
-          while($row = mysqli_fetch_array($select_register_query)){
+    //       while($row = mysqli_fetch_array($select_register_query)){
               
-               $db_id = $row['id'];
-               $db_title = $row['title'];
-               $db_firstname = $row['firstname'];
-               $db_lastname = $row['lastname'];
-               $db_image = $row['image'];
-               $db_phone = $row['phone'];
-               $db_email = $row['email'];
-               $db_instagram = $row['instagram'];
-               $db_facebook = $row['facebook'];
-               $db_twitter = $row['twitter'];
-               $db_youtube = $row['youtube'];
+    //            $db_id = $row['id'];
+    //            $db_title = $row['title'];
+    //            $db_firstname = $row['firstname'];
+    //            $db_lastname = $row['lastname'];
+    //            $db_image = $row['image'];
+    //            $db_phone = $row['phone'];
+    //            $db_email = $row['email'];
+    //            $db_instagram = $row['instagram'];
+    //            $db_facebook = $row['facebook'];
+    //            $db_twitter = $row['twitter'];
+    //            $db_youtube = $row['youtube'];
     
               
-          }
+    //       }
         
-        }else{
+    //     }else{
 
-          $message_email = "Enter your email address";
-        }
+    //       $message_email = "Enter your email address";
+    //     }
         
-        }
+    //     }
 ?>  
 
 
@@ -117,9 +139,9 @@
 
           <?php
 
-if(!isset($_REQUEST['submit'])){
+if(!isset($_POST['btn-save'])){
 
-  if(!isset($_REQUEST['verify'])){ 
+  if(!isset($_POST['save'])){ 
 
 
  ?>
@@ -143,7 +165,7 @@ if(!isset($_REQUEST['submit'])){
                 </div>
                 <div class="u-align-center u-form-group u-form-submit">
                   <a href="" class="u-btn u-btn-round u-btn-submit u-button-style u-radius-17 u-btn-1">Send OTP</a>
-                  <input type="submit" name="submit" value="submit" class="u-form-control-hidden">
+                  <input type="submit" name="btn-save" value="submit" class="u-form-control-hidden">
                 </div>
 
 <?php     
@@ -156,9 +178,9 @@ if(!isset($_REQUEST['submit'])){
 
 <?php
 
-if(isset($_REQUEST['submit'])){
+if(isset($_POST['btn-save'])){
 
-   include "OTP.php";
+   include "Password_otp.php";
 
  ?>
 
@@ -179,7 +201,7 @@ if(isset($_REQUEST['submit'])){
                 </div>
                 <div class="u-align-center u-form-group u-form-submit">
                   <a href="" class="u-btn u-btn-round u-btn-submit u-button-style u-radius-17 u-btn-1">Next</a>
-                  <input type="submit" name="verify" value="submit" class="u-form-control-hidden">
+                  <input type="submit" name="save" value="submit" class="u-form-control-hidden">
                 </div>
 
 
@@ -190,7 +212,7 @@ if(isset($_REQUEST['submit'])){
 
 ?>
 
-<?php if(isset($_REQUEST['verify'])){ 
+<?php if(isset($_POST['save'])){ 
 
      if(isset($_REQUEST['email'])){
 
