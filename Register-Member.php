@@ -322,15 +322,9 @@ c5.5,0,9.9,4.5,9.9,9.9V73.3z"></path></svg></span>
         </div>
       </div></footer>
     <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Website Templates</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.com/" target="_blank">
-        <span>Website Builder Software</span>
-      </a>. 
+      <main>
+        <p>Copyright &copy; Cognate Global alphabet 2021</p>
+      </main>
     </section>
   </body>
 </html>

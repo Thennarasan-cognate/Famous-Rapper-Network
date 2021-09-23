@@ -427,16 +427,10 @@ img {
     </form>
     </section>
     
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Website Templates</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.com/" target="_blank">
-        <span>Website Builder Software</span>
-      </a>. 
+    <section class="u-backlink u-clearfix">
+      <main>
+        <p>Copyright &copy; Cognate Global alphabet 2021</p>
+      </main>
     </section>
 
 

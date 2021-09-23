@@ -224,8 +224,8 @@ img {
 
 
                 <!-- <img class="" style="width:550px" src ='images/<?php //echo $_SESSION['image'] ?>' alt=""> -->
-            <center><button class="" style="width:99px; background-color: #f3f5f6 ;" name="submit"><a href="edit_profile.php">Edit Profile</a></button></center>
-                        </div>
+            <center><button type="button" class="btn btn-primary" style="width:120px; height: 40px; background-color: #f3f5f6 ;" name="submit"><a href="edit_profile.php">Edit Profile</a></button></center>
+              </div>
               </div>
 
               <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-3">
@@ -275,16 +275,10 @@ img {
     
     
     
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Website Templates</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.com/" target="_blank">
-        <span>Website Builder Software</span>
-      </a>. 
+    <section class="u-backlink u-clearfix">
+      <main>
+        <p>Copyright &copy; Cognate Global alphabet 2021</p>
+      </main>
     </section>
 
      <script src="assets/vendors/js/vendor.bundle.base.js"></script>
