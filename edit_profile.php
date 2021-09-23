@@ -47,8 +47,8 @@ if(isset($_SESSION['firstname'])){
             $twitter =  $_POST['twitter'];
             $youtube =  $_POST['youtube'];
             $Location = $_POST['Location'];
-        
-          
+
+
             $password = mysqli_real_escape_string($connection,$_POST['password']);
             $confirm_password = mysqli_real_escape_string($connection,$_POST['confirm_password']);
             $password = md5($password);      
@@ -118,9 +118,27 @@ if(isset($_SESSION['firstname'])){
             
        }
 
+  ?>
 
 
-?>
+     <?php 
+
+       if(isset($_POST['youtube'])){
+
+      $youtube =  $_POST['youtube'];
+
+       $text = $youtube;
+       // echo "youtube link : " . $text . "<br>";
+       $text = preg_replace("#. *youtube\.com/watch\?v=#" , "", $text);
+        echo "the Location Id : " . $text . "<br>";
+       // $text = <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/'.$text.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+     echo $text;
+
+      }
+      // $text="text";
+
+      ?>
+
 
 
 <!DOCTYPE html>
@@ -265,8 +283,24 @@ img {
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.php" style="padding: 10px 20px;">Home</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.php" style="padding: 10px 20px;">About</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.php" style="padding: 10px 20px;">Contact</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Member-Login</a>
-</li></ul>
+</li>
+
+  <?php
+
+    if(isset($_SESSION['email']) == $db_email){
+
+  ?>
+
+<li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Member-Login</a>
+</li>
+
+ <?php 
+              
+      }
+              
+  ?> 
+
+</ul>
               </div>
             </div>
             <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
@@ -288,7 +322,29 @@ img {
               <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-video u-video-1">
                 <div class="u-background-video u-expanded" style="">
                   <div class="embed-responsive embed-responsive-1">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1" frameborder="0" allowfullscreen=""></iframe>
+
+                   
+                   <?php 
+
+                   //   if(isset($_POST['youtube'])){
+
+                   //  $youtube =  $_POST['youtube'];
+
+                   //   $text = $youtube;
+                   //   echo "youtube link : " . $text . "<br>";
+                   //   $text = preg_replace("#. *youtube\.com/watch\?v=#" , "", $text);
+                   //    echo "the Location Id : " . $text . "<br>";
+                   //   // $text = <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/'.$text.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                   // echo $text;
+
+                   //  }
+                   //  // $text="text";
+
+                    ?>
+
+<iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src='https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1;frameborder="0" allowfullscreen="" '></iframe>
+
+                    <!--  <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="<?php echo $youtube ?>;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1" frameborder="0" allowfullscreen=""></iframe>  -->
                   </div>
                 </div>
                 <div class="u-container-layout u-container-layout-1">
@@ -343,7 +399,7 @@ img {
                     <div><input type="text" value="<?php echo $twitter; ?>" class="form-control" name="twitter"></div>
 
                     <span style="font-weight: 700;">Youtube: </span>
-                    <div><input type="text" value="<?php echo $youtube; ?>" class="form-control" name="youtube"></div>
+                    <div><input type="text" id="vid" value="<?php echo $youtube; ?><?php echo $text;?>"class="form-control" name="youtube"></div>
 
                     <span style="font-weight: 700;">Age: </span>
                     <br>22 years<br>
@@ -442,7 +498,9 @@ input[type=submit] {
 
 /*when hovering an item:*/
 .autocomplete-items div:hover {
-  background-color: #e9e9e9; 
+  background-color: #e9e9e9;
+  /*height:45px;
+  overflow: scroll;*/
 }
 
 /*when navigating through the items using the arrow keys:*/
@@ -450,12 +508,11 @@ input[type=submit] {
   background-color: DodgerBlue !important; 
   color: #ffffff;
   max-height: 100px;
-  overflow-y: auto;
+  overflow-y: scroll;
   /* prevent horizontal scrollbar */
   overflow-x: hidden;
   /* add padding to account for vertical scrollbar */
   padding-right: 20px;
-
 
 
 }
@@ -588,7 +645,7 @@ function autocomplete(inp, arr) {
 }
 
 /*An array containing all the country names in the world:*/
-var countries = ["Afghanistan","America","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central Arfrican Republic","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cuba","Curacao","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauro","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre & Miquelon","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","St Kitts & Nevis","St Lucia","St Vincent","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Turks & Caicos","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
+var countries = ["Afghanistan","America","Albania","Australia","Azerbaijan","Bangladesh","Belgium","Bermuda","Bhutan","Brazil","Canada","China","Colombia","Congo","Cook Islands","Denmark","Djibouti","Dominica","Dominican Republic","Egypt","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands","Fiji","Finland","France","French","Gabon","Gambia","Georgia","Germany","Ghana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Latvia","Lebanon","Lesotho","Liberia","Libya","Malaysia","Maldives","Mali","Malta","Mauritania","Namibia","Nauro","Nepal","Netherlands","New Zealand","Oman","Pakistan","Palestine","Panama","Poland","Portugal","Qatar","Reunion","Romania","Russia","Rwanda","Serbia","Singapore","Somalia","Sri Lanka","Switzerland","Taiwan","Togo","Tonga","Tunisia","Turkey","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Vanuatu","Vatican City","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("myInput"), countries);
@@ -596,14 +653,7 @@ autocomplete(document.getElementById("myInput"), countries);
 </body>
 </html>
 
-
-
-
-
-
-
-
-
+      <!-- Dropdown Profile -->
       <script src="assets/vendors/js/vendor.bundle.base.js"></script>
 
   </body>

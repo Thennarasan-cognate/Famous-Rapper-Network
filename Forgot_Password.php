@@ -3,68 +3,71 @@
 
 
 <?php
-session_start();
-$rndno=rand(100000, 999999);//OTP generate
-$message = urlencode("otp number.".$rndno);
-$to=$_POST['email'];
-$subject = "OTP";
-$txt = "OTP: ".$rndno."";
-$headers = "From: 07.ramyar@gmail.com.com" . "\r\n" .
-"CC: thennarasan1988@gmail.com";
-mail($to,$subject,$txt,$headers);
-if(isset($_POST['btn-save']))
-{
-$_SESSION['firstname']=$_POST['firstname'];
-$_SESSION['email']=$_POST['email'];
-$_SESSION['phone']=$_POST['phone'];
-$_SESSION['otp']=$rndno;
-// header( "Location: otp.php" );
-} ?>
+// session_start();
+// $rndno=rand(100000, 999999);//OTP generate
+// $message = urlencode("otp number.".$rndno);
+// $to=$_POST['email'];
+// $subject = "OTP";
+// $txt = "OTP: ".$rndno."";
+// $headers = "From: 07.ramyar@gmail.com.com" . "\r\n" .
+// "CC: thennarasan1988@gmail.com";
+// mail($to,$subject,$txt,$headers);
+// if(isset($_POST['btn-save']))
+// {
+// $_SESSION['firstname']=$_POST['firstname'];
+// $_SESSION['email']=$_POST['email'];
+// $_SESSION['phone']=$_POST['phone'];
+// $_SESSION['otp']=$rndno;
+// // header( "Location: otp.php" );
+// } 
+
+?>
 
 
 
 <?php
     
-    // if(isset($_REQUEST['submit'])){
+    if(isset($_REQUEST['submit'])){
          
-    //     $email    = $_REQUEST['email']; 
+        $email    = $_REQUEST['email']; 
     
-    //   if(!empty($email)){
+      if(!empty($email)){
 
-    //     $query = "SELECT * FROM register WHERE email = '{$email}' ";
-    //     $select_register_query = mysqli_query($connection, $query);
+        $query = "SELECT * FROM register WHERE email = '{$email}' ";
+        $select_register_query = mysqli_query($connection, $query);
         
-    //     if(!$select_register_query){
+        if(!$select_register_query){
             
-    //         die("Query Failed" . mysqli_error($connection));
+            die("Query Failed" . mysqli_error($connection));
             
-    //     }
+        }
 
-    //     // header("Location:OTP.php");
           
-    //       while($row = mysqli_fetch_array($select_register_query)){
+          while($row = mysqli_fetch_array($select_register_query)){
               
-    //            $db_id = $row['id'];
-    //            $db_title = $row['title'];
-    //            $db_firstname = $row['firstname'];
-    //            $db_lastname = $row['lastname'];
-    //            $db_image = $row['image'];
-    //            $db_phone = $row['phone'];
-    //            $db_email = $row['email'];
-    //            $db_instagram = $row['instagram'];
-    //            $db_facebook = $row['facebook'];
-    //            $db_twitter = $row['twitter'];
-    //            $db_youtube = $row['youtube'];
+               $db_id = $row['id'];
+               $db_title = $row['title'];
+               $db_firstname = $row['firstname'];
+               $db_lastname = $row['lastname'];
+               $db_image = $row['image'];
+               $db_phone = $row['phone'];
+               $db_email = $row['email'];
+               $db_instagram = $row['instagram'];
+               $db_facebook = $row['facebook'];
+               $db_twitter = $row['twitter'];
+               $db_youtube = $row['youtube'];
     
               
-    //       }
+          }
         
-    //     }else{
+        }else{
 
-    //       $message_email = "Enter your email address";
-    //     }
+          $message_email = "Enter your email address";
+        }
+
+        header("Location:Password_otp.php");
         
-    //     }
+        }
 ?>  
 
 
@@ -139,7 +142,7 @@ $_SESSION['otp']=$rndno;
 
           <?php
 
-if(!isset($_POST['btn-save'])){
+if(!isset($_POST['submit'])){
 
   if(!isset($_POST['save'])){ 
 
@@ -165,7 +168,7 @@ if(!isset($_POST['btn-save'])){
                 </div>
                 <div class="u-align-center u-form-group u-form-submit">
                   <a href="" class="u-btn u-btn-round u-btn-submit u-button-style u-radius-17 u-btn-1">Send OTP</a>
-                  <input type="submit" name="btn-save" value="submit" class="u-form-control-hidden">
+                  <input type="submit" name="submit" value="submit" class="u-form-control-hidden">
                 </div>
 
 <?php     
@@ -178,14 +181,52 @@ if(!isset($_POST['btn-save'])){
 
 <?php
 
-if(isset($_POST['btn-save'])){
+// if(isset($_POST['submit'])){
 
-   include "Password_otp.php";
+// if(isset($_REQUEST['save'])){
+
+
+         
+        // $email    = $_REQUEST['email']; 
+    
+        // $query = "SELECT * FROM register WHERE email = '{$email}' ";
+        // $select_register_query = mysqli_query($connection, $query);
+        
+        // if(!$select_register_query){
+            
+        //     die("Query Failed" . mysqli_error($connection));
+            
+        // }
+
+        // // header("Location:New_Password.php");
+          
+        //   while($row = mysqli_fetch_array($select_register_query)){
+              
+        //        $db_id = $row['id'];
+        //        $db_title = $row['title'];
+        //        $db_firstname = $row['firstname'];
+        //        $db_lastname = $row['lastname'];
+        //        $db_image = $row['image'];
+        //        $db_phone = $row['phone'];
+        //        $db_email = $row['email'];
+        //        $db_instagram = $row['instagram'];
+        //        $db_facebook = $row['facebook'];
+        //        $db_twitter = $row['twitter'];
+        //        $db_youtube = $row['youtube'];         
+              
+        //   }
+
+        //      header("Location:Member-Login.php");
+        
+        
+        // }
+
+
 
  ?>
 
              
-            <h3 class="text-center">Enter the OTP</h3>
+           <!--  <h3 class="text-center">Enter the OTP</h3>
             
            <p class="font-weight-light text-muted mb-0">
 
@@ -202,88 +243,88 @@ if(isset($_POST['btn-save'])){
                 <div class="u-align-center u-form-group u-form-submit">
                   <a href="" class="u-btn u-btn-round u-btn-submit u-button-style u-radius-17 u-btn-1">Next</a>
                   <input type="submit" name="save" value="submit" class="u-form-control-hidden">
-                </div>
+                </div> -->
 
+<?php
 
-<?php     
-
-   }
-
+// }
 
 ?>
 
-<?php if(isset($_POST['save'])){ 
 
-     if(isset($_REQUEST['email'])){
+<?php 
+      // if(isset($_POST['save'])){ 
 
-     $email =  $_REQUEST['email'];  
+   //   if(isset($_REQUEST['email'])){
+
+   //   $email =  $_REQUEST['email'];  
            
-     $query="SELECT * FROM register WHERE email = '{$email}' ";
-     $select_register_profile = mysqli_query($connection,$query);
+   //   $query="SELECT * FROM register WHERE email = '{$email}' ";
+   //   $select_register_profile = mysqli_query($connection,$query);
 
       
-     while($row=mysqli_fetch_array($select_register_profile)){
+   //   while($row=mysqli_fetch_array($select_register_profile)){
 
-            $id=$row['id'];
-            $title=$row['title'];
-            $firstname=$row['firstname'];
-            $lastname=$row['lastname'];
-            $image=$row['image'];
-            $phone=$row['phone'];
-            $email=$row['email'];
-            $password=$row['password'];
-            $confirm_password=$row['confirm_password'];
-            $instagram=$row['instagram'];
-            $facebook=$row['facebook'];
-            $twitter=$row['twitter'];
-            $youtube=$row['youtube'];
+   //          $id=$row['id'];
+   //          $title=$row['title'];
+   //          $firstname=$row['firstname'];
+   //          $lastname=$row['lastname'];
+   //          $image=$row['image'];
+   //          $phone=$row['phone'];
+   //          $email=$row['email'];
+   //          $password=$row['password'];
+   //          $confirm_password=$row['confirm_password'];
+   //          $instagram=$row['instagram'];
+   //          $facebook=$row['facebook'];
+   //          $twitter=$row['twitter'];
+   //          $youtube=$row['youtube'];
             
-           }
-         }
+   //         }
+   //       }
     
-    if(isset($_POST['confirm'])){
+   //  if(isset($_POST['confirm'])){
              
-         $password = $_POST['password'];
-         $confirm_password = $_POST['confirm_password'];
+   //       $password = $_POST['password'];
+   //       $confirm_password = $_POST['confirm_password'];
 
-     if(!empty($password) && !empty($confirm_password)){
+   //   if(!empty($password) && !empty($confirm_password)){
 
-      if($password == $confirm_password){
+   //    if($password == $confirm_password){
           
-      $password = mysqli_real_escape_string($connection,$_POST['password']);
-      $confirm_password = mysqli_real_escape_string($connection,$_POST['confirm_password']);
-      $password = md5($password);              
-      $confirm_password = md5($confirm_password);
+   //    $password = mysqli_real_escape_string($connection,$_POST['password']);
+   //    $confirm_password = mysqli_real_escape_string($connection,$_POST['confirm_password']);
+   //    $password = md5($password);              
+   //    $confirm_password = md5($confirm_password);
 
-      $query="UPDATE register SET password='{$password}', confirm_password='{$confirm_password}' WHERE email= '$email' ";
+   //    $query="UPDATE register SET password='{$password}', confirm_password='{$confirm_password}' WHERE email= '$email' ";
 
-      $register_query = mysqli_query($connection,$query);
+   //    $register_query = mysqli_query($connection,$query);
 
-      if(!$register_query) {
+   //    if(!$register_query) {
             
-            die("Query Failed" . mysqli_error($connection));
-        }
+   //          die("Query Failed" . mysqli_error($connection));
+   //      }
 
-        header("Location:Member-Login.php"); 
+   //      header("Location:Member-Login.php"); 
 
         
-        }else{
+   //      }else{
 
-          $message_cpassword = "password mismatch";
+   //        $message_cpassword = "password mismatch";
 
-        }
+   //      }
 
-     }else{
+   //   }else{
 
-        $message = "Fields cannot be Empty";
+   //      $message = "Fields cannot be Empty";
 
-     }
-   }
+   //   }
+   // }
 
 
  ?>
 
-            <h3 class="text-center">Create New Password</h3>
+           <!--  <h3 class="text-center">Create New Password</h3>
             
             <div class="u-expanded-width u-form u-login-control u-form-1">
               <form action="" method="post" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;">
@@ -305,8 +346,10 @@ if(isset($_POST['btn-save'])){
                   <a href="" class="u-btn u-btn-round u-btn-submit u-button-style u-radius-17 u-btn-1">Submit</a>
                   <input type="submit" name="confirm" value="submit" class="u-form-control-hidden">
                 </div>
-
-<?php }  ?>
+ -->
+<?php
+ // }  
+ ?>
 
 
                 <input type="hidden" value="" name="recaptchaResponse">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Sep 22, 2021 at 10:40 AM
+-- Generation Time: Sep 23, 2021 at 12:44 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.1
 
@@ -40,7 +40,7 @@ CREATE TABLE `register` (
   `instagram` varchar(40) NOT NULL,
   `facebook` varchar(40) NOT NULL,
   `twitter` varchar(40) NOT NULL,
-  `youtube` varchar(40) NOT NULL,
+  `youtube` varchar(500) NOT NULL,
   `Location` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -55,7 +55,10 @@ INSERT INTO `register` (`id`, `firstname`, `lastname`, `image`, `phone`, `email`
 (4, 'Pavithra', 'Sharma', 'profile.png', '9374812934', 'pavithra@gmail.com', '7fc92d58888fcffcff11434c1407fe88', '7fc92d58888fcffcff11434c1407fe88', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com', ''),
 (5, 'Preethi', 'Sharma', 'profile.png', '9754370257', 'preethi@gmail.com', '601757150822d642bd21743439a8efd4', '601757150822d642bd21743439a8efd4', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com', ''),
 (6, 'Thennarasan', 'Boovaragan', 'profile.png', '9754370257', 'thennarasan@gmail.com', '041937bdc743495ae248748592b82d57', '041937bdc743495ae248748592b82d57', 'instagram.com', 'facebook.com', 'twitter.com', 'youtube.com', ''),
-(7, 'Ramya', 'Rajendiran', 'profile.png', '9248610456', 'Ramya1999@gmail.com', '88e00fd00ba330b8fa467a8877a014a4', '88e00fd00ba330b8fa467a8877a014a4', 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://youtube.com/', 'America');
+(7, 'Ramya', 'Rajendiran', 'profile.png', '9248610456', 'Ramya1999@gmail.com', '88e00fd00ba330b8fa467a8877a014a4', '88e00fd00ba330b8fa467a8877a014a4', 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://youtube.com', 'srimushnam'),
+(8, 'Sundar', 'Rajan', 'profile.png', '9824756102', 'Sundar20@gmail.com', 'dc647eb65e6711e155375218212b3964', 'dc647eb65e6711e155375218212b3964', 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/cRCOVzkGVJM', 'Srimushnam'),
+(9, 'Thapar', 'Singh', 'profile.png', '9837672819', '07.ramyar@gmail.com', '2b5fa564a1259b97bc238fbfa719b076', '2b5fa564a1259b97bc238fbfa719b076', 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam'),
+(10, 'Test', 'Name', 'profile.png', '9824756102', 'thapar@gmail.com', '8b1a9953c4611296a827abf8c47804d7', '8b1a9953c4611296a827abf8c47804d7', 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam');
 
 --
 -- Indexes for dumped tables
@@ -75,7 +78,7 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `id` int(33) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(33) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

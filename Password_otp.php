@@ -1,93 +1,93 @@
-<?php //session_start(); ?>
-<?php //include "db.php"; ?>
+<?php session_start(); ?>
+<?php include "db.php"; ?>
 
 
 <?php
-session_start();
-if(isset($_POST['save']))
-{
-$rno=$_SESSION['otp'];
-$urno=$_POST['otpvalue'];
-if(!strcmp($rno,$urno))
-{
-$firstname=$_SESSION['firstname'];
-$email=$_SESSION['email'];
-$phone=$_SESSION['phone'];
-//For admin if he want to know who is register
-$to="example@gmail.com";
-$subject = "Thank you!";
-$txt = "Some one show your demo Email id: ".$email." Mobile number : ".$phone."";
-$headers = "From: 07.ramyar@gmail.com" . "\r\n" .
-"CC: thennarasan1988@gmail.com";
-mail($to,$subject,$txt,$headers);
-echo "<p>Thank you for show our Demo.</p>";
-//For admin if he want to know who is register
+// session_start();
+// if(isset($_POST['save']))
+// {
+// $rno=$_SESSION['otp'];
+// $urno=$_POST['otpvalue'];
+// if(!strcmp($rno,$urno))
+// {
+// $firstname=$_SESSION['firstname'];
+// $email=$_SESSION['email'];
+// $phone=$_SESSION['phone'];
+// //For admin if he want to know who is register
+// $to="example@gmail.com";
+// $subject = "Thank you!";
+// $txt = "Some one show your demo Email id: ".$email." Mobile number : ".$phone."";
+// $headers = "From: 07.ramyar@gmail.com" . "\r\n" .
+// "CC: thennarasan1988@gmail.com";
+// mail($to,$subject,$txt,$headers);
+// echo "<p>Thank you for show our Demo.</p>";
+// //For admin if he want to know who is register
 
 
-header( "Location:Member-Login.php" );
+// header( "Location:Member-Login.php" );
 
-}
-else{
-echo "<p>Invalid OTP</p>";
-}
-}
-//resend OTP
-if(isset($_POST['resend']))
-{
-$message="<p class='w3-text-green'>Sucessfully send OTP to your mail.</p>";
-$rno=$_SESSION['otp'];
-$to=$_SESSION['email'];
-$subject = "OTP";
+// }
+// else{
+// echo "<p>Invalid OTP</p>";
+// }
+// }
+// //resend OTP
+// if(isset($_POST['resend']))
+// {
+// $message="<p class='w3-text-green'>Sucessfully send OTP to your mail.</p>";
+// $rno=$_SESSION['otp'];
+// $to=$_SESSION['email'];
+// $subject = "OTP";
 
-$txt = "OTP: ".$rno."";
-$headers = "From: 07.ramyar@gmail.com" . "\r\n" .
-"CC: thennarasan1988@gmail.com";
-mail($to,$subject,$txt,$headers);
-$message="<p class='w3-text-green w3-center'><b>Sucessfully resend OTP to your mail.</b></p>";
-}
+// $txt = "OTP: ".$rno."";
+// $headers = "From: 07.ramyar@gmail.com" . "\r\n" .
+// "CC: thennarasan1988@gmail.com";
+// mail($to,$subject,$txt,$headers);
+// $message="<p class='w3-text-green w3-center'><b>Sucessfully resend OTP to your mail.</b></p>";
+// }
 ?>
 
 
 <?php
     
-    // if(isset($_REQUEST['verify'])){
+    if(isset($_REQUEST['verify'])){
          
-    //     $email    = $_REQUEST['email']; 
+        $email    = $_REQUEST['email']; 
     
-    //     $query = "SELECT * FROM register WHERE email = '{$email}' ";
-    //     $select_register_query = mysqli_query($connection, $query);
+        $query = "SELECT * FROM register WHERE email = '{$email}' ";
+        $select_register_query = mysqli_query($connection, $query);
         
-    //     if(!$select_register_query){
+        if(!$select_register_query){
             
-    //         die("Query Failed" . mysqli_error($connection));
+            die("Query Failed" . mysqli_error($connection));
             
-    //     }
+        }
           
-    //       while($row = mysqli_fetch_array($select_register_query)){
+          while($row = mysqli_fetch_array($select_register_query)){
               
-    //            $db_id = $row['id'];
-    //            $db_title = $row['title'];
-    //            $db_firstname = $row['firstname'];
-    //            $db_lastname = $row['lastname'];
-    //            $db_image = $row['image'];
-    //            $db_phone = $row['phone'];
-    //            $db_email = $row['email'];
-    //            $db_instagram = $row['instagram'];
-    //            $db_facebook = $row['facebook'];
-    //            $db_twitter = $row['twitter'];
-    //            $db_youtube = $row['youtube'];         
+               $db_id = $row['id'];
+               $db_title = $row['title'];
+               $db_firstname = $row['firstname'];
+               $db_lastname = $row['lastname'];
+               $db_image = $row['image'];
+               $db_phone = $row['phone'];
+               $db_email = $row['email'];
+               $db_instagram = $row['instagram'];
+               $db_facebook = $row['facebook'];
+               $db_twitter = $row['twitter'];
+               $db_youtube = $row['youtube'];         
               
-    //       }
+          }
 
-    //        // header("Location:New_Password.php");
+            header("Location:New_Password.php");
         
         
-    //     }
+        }
 ?>  
 
 
 <!DOCTYPE html>
-<!-- <html style="font-size: 16px;">
+ <html style="font-size: 16px;">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
@@ -195,4 +195,4 @@ $message="<p class='w3-text-green w3-center'><b>Sucessfully resend OTP to your m
       </a>. 
     </section>
   </body>
-</html> -->
+</html> 

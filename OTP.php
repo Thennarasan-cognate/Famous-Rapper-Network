@@ -78,7 +78,7 @@
               
           }
 
-            header("Location:Home.php");
+            header("Location:Member-Login.php");
         
         
         }
