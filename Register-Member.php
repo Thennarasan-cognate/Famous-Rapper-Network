@@ -61,7 +61,7 @@
 
         
         $query = "INSERT INTO register (firstname,lastname,image,phone,email,password,confirm_password,instagram,facebook,twitter,youtube,Location) ";
-        $query .= "VALUES ('{$firstname}','{$lastname}','profile.png','{$phone}','{$email}','{$password}','{$confirm_password}','https://instagram.com/','https://facebook.com/','https://twitter.com/','https://youtube.com/','Srimushnam') ";
+        $query .= "VALUES ('{$firstname}','{$lastname}','profile.png','{$phone}','{$email}','{$password}','{$confirm_password}','https://instagram.com/','https://facebook.com/','https://twitter.com/','https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp','Srimushnam') ";
              
         $register_query = mysqli_query($connection,$query);
             
@@ -74,30 +74,31 @@
           
          $_SESSION['status'] = "Registration Was Successful Please Sign In";   
            
-            // header("Location:Member-Login.php");
+             // header("Location:Member-Login.php");
+             header( "Location: otp.php" );
             // header("Location:email_verification.php"); 
 
-$to=$email;
-$subject = "OTP";
-$rndno=rand(100000, 999999);//OTP generate
-$message = urlencode("otp number.".$rndno);
-$txt = "OTP: ".$rndno."";
-$headers = "From: thennarasan1988@gmail.com" . "\r\n";
-"CC: reshma21@gmail.com";
-if(mail($to,$subject,$txt,$headers)){
+// $to=$email;
+// $subject = "OTP";
+// $rndno=rand(100000, 999999);//OTP generate
+// $message = urlencode("otp number.".$rndno);
+// $txt = "OTP: ".$rndno."";
+// $headers = "From: thennarasan1988@gmail.com" . "\r\n";
+// "CC: reshma21@gmail.com";
+// if(mail($to,$subject,$txt,$headers)){
 
-$_SESSION['firstname']=$_POST['firstname'];
-$_SESSION['email']=$_POST['email'];
-$_SESSION['phone']=$_POST['phone'];
-$_SESSION['otp']=$rndno;
+// $_SESSION['firstname']=$_POST['firstname'];
+// $_SESSION['email']=$_POST['email'];
+// $_SESSION['phone']=$_POST['phone'];
+// $_SESSION['otp']=$rndno;
 
 
-header( "Location: otp.php" );
-}else{
+// header( "Location: otp.php" );
+// }else{
 
-echo "mail send failed";
+// echo "mail send failed";
 
-}
+// }
           
  }
 
@@ -177,6 +178,8 @@ echo "mail send failed";
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 3.23.2, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+
+    <!-- password Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     
     <script type="application/ld+json">{

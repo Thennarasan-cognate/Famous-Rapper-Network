@@ -72,15 +72,10 @@ img {
 
           <?php 
                       
-              }
+              }else{
                       
             ?> 
 
-    <?php
-
-    if(($_SESSION['email']) !== $db_email){
-
-    ?> 
 
         <li class="u-nav-item dropdown d-none d-xl-inline-block user-dropdown">
                       <a class="u-nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
@@ -113,7 +108,7 @@ img {
 
 <?php 
               
-      }
+     }
               
     ?> 
 
@@ -126,8 +121,25 @@ img {
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.php" style="padding: 10px 20px;">Home</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.php" style="padding: 10px 20px;">About</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.php" style="padding: 10px 20px;">Contact</a>
+
+
+  <?php
+
+    if(isset($_SESSION['email']) == $db_email){
+
+  ?> 
+
+
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
-</li></ul>
+</li>
+
+    <?php 
+                
+        }
+                
+      ?> 
+
+</ul>
               </div>
             </div>
             <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
