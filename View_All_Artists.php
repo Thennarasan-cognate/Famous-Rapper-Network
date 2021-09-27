@@ -141,7 +141,6 @@ img {
 <form action="" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-8 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 50px;" redirect="true">
 
  <div class="u-layout-row">
-    <div class="col-md-4">
             <h6>Artist Name</h6>
             <form action="" method="post" autocomplete="off">
                 <div class="input-group">
@@ -155,10 +154,8 @@ img {
                          <br>
                  <?php   //echo "<td><a class='btn btn-primary' href='View_All_Artists.php'>Clear</a></td>";   ?> 
                  </form> 
-              </div>
 
 
-       <div class="col-md-4">
         <h6>Roles</h6>
          <select type="text" name="roles"id="roles">
                       
@@ -181,12 +178,10 @@ img {
 
                           ?>   
           </select>
-          </div> 
 
         <br>
             <!-- <input type="submit" name="submit" class="btn btn-success" value="Submit"> -->
 
-       <div class="col-md-4">
         <h6>Offerings</h6>
       <select type="text" name="offerings"id="offerings">
                       
@@ -209,7 +204,6 @@ img {
 
                           ?>   
           </select> 
-        </div>
       </div>
 </form>
 
