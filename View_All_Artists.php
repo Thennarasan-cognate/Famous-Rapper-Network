@@ -254,7 +254,7 @@ img {
 
                         if($roles == $Roles) {
                             
-                         echo "<option selected value='$role'>$roles</option>";
+                         echo "<option value='$role'>$roles</option>";
                        
                         }else{
                             
@@ -264,7 +264,7 @@ img {
                         } 
                        
                         $role=$_POST['Roles'];
-                        echo "<option selected value='$role'>$role</option>";
+                        echo "<option value='$role'>$role</option>";
 
                           ?>   
          </select>
@@ -293,7 +293,7 @@ img {
 
                         if($offerings == $Offerings) {
                             
-                         echo "<option selected value='$offer'>$offerings</option>";
+                         echo "<option value='$offer'>$offerings</option>";
                        
                         }else{
                             
@@ -303,7 +303,7 @@ img {
                         } 
                        
                         $offer=$_POST['Offerings'];
-                         echo "<option selected value='$offer'>$offer</option>";
+                         echo "<option value='$offer'>$offer</option>";
 
 
                           ?>   
