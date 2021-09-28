@@ -31,6 +31,26 @@ img {
 }
 </style>
 
+<style>
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    /*color: #212529;*/
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    line-height: 1;
+    border-radius: 0.1875rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+</style>
 
 
     <script type="application/ld+json">{
@@ -119,14 +139,30 @@ img {
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-              <div class="u-inner-container-layout u-sidenav-overflow">
+              <div class="u-sidenav-overflow">
                 <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 10px 20px;">View All Artists</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profile.html" style="padding: 10px 20px;">Profile</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="ProfilePage.html" style="padding: 10px 20px;">ProfilePage</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.html" style="padding: 10px 20px;">Member-Login</a>
-</li></ul>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.php" style="padding: 10px 20px;">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.php" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.php" style="padding: 10px 20px;">Contact</a>
+
+ <?php
+
+    if(isset($_SESSION['email']) == $db_email){
+
+  ?> 
+
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
+</li>
+
+ <?php 
+              
+    }
+              
+  ?> 
+
+</ul>
+
               </div>
             </div>
             <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
@@ -141,80 +177,148 @@ img {
 <form action="" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-8 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 50px;" redirect="true">
 
  <div class="u-layout-row">
-            <h6>Artist Name</h6>
-            <form action="" method="post" autocomplete="off">
-                <div class="input-group">
-                        <input name="search" type="text" placeholder="Search Artists" class="form-control">
+     <div class="col-md-3">
+         <h6>Artist Name</h6>
+             <form action="" method="post" autocomplete="off">
+                 <div class="input-group">
+                     <input name="search" type="text" placeholder="Search Artists" class="form-control">
                         <span class="input-group-btn">
                             <button name="submit" class="btn btn-primary" type="submit">
                                 <span class="glyphicon glyphicon-search">Search</span>
-                        </button>
+                            </button>
                         </span>
-                        </div>
-                         <br>
-                 <?php   //echo "<td><a class='btn btn-primary' href='View_All_Artists.php'>Clear</a></td>";   ?> 
-                 </form> 
+                   </div>
+              </form>
+         </div>
+
+      <div class="col-md-3">
+         <h6>Location</h6>
+         <select type="text" class="form-control" name="Location"id="Location">
+                      
+                        <?php      
+
+                            $query="SELECT Location FROM view_all_artists";
+                            $select_Location=mysqli_query($connection,$query);
+
+                             if(!$select_Location) {
+            
+                              die("Query Failed" . mysqli_error($connection));
+                          } 
+
+                            while($row=mysqli_fetch_assoc($select_Location)){
+
+                            $location=$row['Location'];               
+
+                            // echo "<option value='$location'>$location</option>";
+                            // } 
+
+                           if($location == $Location) {
+                            
+                         echo "<option value='$locate'>$location</option>";
+                       
+                        }else{
+                            
+                        echo "<option value='$location'>$location</option>";
+             
+                         }     
+                        } 
+                       
+                        $locate=$_POST['Location'];
+                        echo "<option value='$locate'>$locate</option>";
 
 
-        <h6>Roles</h6>
-         <select type="text" name="roles"id="roles">
+                          ?>   
+         </select>
+      </div>
+
+      <div class="col-md-3">
+         <h6>Roles</h6>
+          <select type="text" class="form-control" name="Roles"id="Roles">
                       
                         <?php      
 
                             $query="SELECT * FROM roles";
-                            $select_categories=mysqli_query($connection,$query);
+                            $select_roles=mysqli_query($connection,$query);
 
-                             if(!$select_categories) {
+                             if(!$select_roles) {
             
                               die("Query Failed" . mysqli_error($connection));
                           } 
 
-                            while($row=mysqli_fetch_assoc($select_categories)){
+                            while($row=mysqli_fetch_assoc($select_roles)){
 
                             $roles=$row['roles'];               
 
-                            echo "<option value='$roles'>$roles</option>";
-                            } 
+                            // echo "<option value='$roles'>$roles</option>";
+                            // }
+
+                        if($roles == $Roles) {
+                            
+                         echo "<option selected value='$role'>$roles</option>";
+                       
+                        }else{
+                            
+                        echo "<option value='$roles'>$roles</option>";
+             
+                         }     
+                        } 
+                       
+                        $role=$_POST['Roles'];
+                        echo "<option selected value='$role'>$role</option>";
 
                           ?>   
-          </select>
+         </select>
+      </div>
 
-        <br>
-            <!-- <input type="submit" name="submit" class="btn btn-success" value="Submit"> -->
-
-        <h6>Offerings</h6>
-      <select type="text" name="offerings"id="offerings">
+      <div class="col-md-3">
+         <h6>Offerings</h6>
+          <select type="text" class="form-control" name="Offerings"id="Offerings">
                       
                         <?php      
 
                             $query="SELECT * FROM offerings";
-                            $select_categories=mysqli_query($connection,$query);
+                            $select_offerings=mysqli_query($connection,$query);
 
-                             if(!$select_categories) {
+                             if(!$select_offerings) {
             
                               die("Query Failed" . mysqli_error($connection));
                           } 
 
-                            while($row=mysqli_fetch_assoc($select_categories)){
+                            while($row=mysqli_fetch_assoc($select_offerings)){
 
                             $offerings=$row['offerings'];               
 
-                            echo "<option value='$offerings'>$offerings</option>";
-                            } 
+                            // echo "<option value='$Offerings'>$Offerings</option>";
+                            // } 
+
+                        if($offerings == $Offerings) {
+                            
+                         echo "<option selected value='$offer'>$offerings</option>";
+                       
+                        }else{
+                            
+                        echo "<option value='$offerings'>$offerings</option>";
+             
+                         }     
+                        } 
+                       
+                        $offer=$_POST['Offerings'];
+                         echo "<option selected value='$offer'>$offer</option>";
+
 
                           ?>   
           </select> 
       </div>
+  </div>
 </form>
-
 
 
 <?php
 
  if (isset($_POST['submit'])){
                 $search=$_POST['search'];
-               
-              $artist="SELECT * FROM view_all_artists WHERE Name LIKE '%$search%' ";  
+              
+              $artist="SELECT * FROM view_all_artists WHERE Name LIKE '%$search%' AND Location='$locate' AND Roles='$role'  AND Offerings='$offer' ";  
               $search_artist=mysqli_query($connection, $artist); 
                 
                  if(!$search_artist){
@@ -222,7 +326,16 @@ img {
                 }
                 $count=mysqli_num_rows($search_artist);
                 if($count == 0){
-                echo "<center><h3 style='color:#ffa500'>NO Artists Available</h3><center>";
+
+             ?>
+
+          <div class="col-md-1">
+           <?php   echo "<td><a class='btn btn-primary' href='View_All_Artists.php'>Back</a></td>";   ?>
+          </div>
+
+             <?php
+
+                echo "<center><h3 style='color:#ffa500'>NO Artists Available on your search</h3><center>";
                     
             }
            else{
@@ -235,7 +348,8 @@ img {
                     $Roles=$row['Roles'];
                     $Offerings=$row['Offerings'];
                     $Interview_link=$row['Interview_link'];
-                    $Location=$row['Home_town'];
+                    $Location=$row['Location'];
+                    $Home_town=$row['Home_town'];
                     $Birth_place=$row['Birth_place'];
                     $Instagram=$row['Instagram'];
                     $Youtube=$row['Youtube'];
@@ -257,25 +371,26 @@ img {
                     $Bandcamp=$row['Bandcamp'];
                     $Patreon=$row['Patreon'];
                     $LinkedIn=$row['LinkedIn'];
-                 
-
 
 ?>
-
-
-
+<div class="col-md-1">
+ <?php   echo "<td><a class='btn btn-primary' href='View_All_Artists.php'>Clear</a></td>";   ?>
+</div>
+<br>
 
         <div class="u-list u-list-1">
           <div class="u-repeater u-repeater-1">
             <div class="u-container-style u-custom-item u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-1">
                 <!-- <h6 class="u-text u-text-2">Sample Headline</h6> -->
-                <h6 class="u-text u-text-2"><?php echo $Headline ?></h6>
+                <h6 class="u-text u-text-2"><?php echo $Name ?></h6>
                 <img class="u-expanded-width u-image u-image-round u-radius-10 u-image-1" src="images/ome-serious-unshaven-male-keeps-hands-together-dressed-dark-blue-shirt-has-talk-with-interlocutor-stands-against-white-wall.jpg" alt="" data-image-width="626" data-image-height="417">
                  
                 <!-- <img class="u-expanded-width u-image u-image-round u-radius-10 u-image-1" src="<?php echo $Merch_image ?>" alt="" data-image-width="626" data-image-height="417"> -->
+                <!-- <h6 class="u-text u-text-3">Sample Headline</h6> -->
 
-                <h6 class="u-text u-text-3">Sample Headline</h6>
+                <h6 class="u-text u-text-3"><?php echo $Headline ?></h6>
+
                 <!-- <p class="u-small-text u-text u-text-variant u-text-4">Sample text. Click to select the text box. Click again or double click to start editing the text.</p> -->
                 <p class="u-small-text u-text u-text-variant u-text-4"><?php echo $About ?></p>
               </div>
