@@ -320,41 +320,46 @@ img {
 
               <div class="u-layout-row">
               <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-video u-video-1">
-                <div class="u-background-video u-expanded" style="">
+                <!-- <div class="u-background-video u-expanded" style=""> -->
                   <div class="embed-responsive embed-responsive-1">
 
                    
                    <?php 
 
-                   //   if(isset($_POST['youtube'])){
+                     //  if(isset($_POST['youtube'])){
 
-                   //  $youtube =  $_POST['youtube'];
+                     // $youtube =  $_POST['youtube'];
 
-                   //   $text = $youtube;
-                   //   echo "youtube link : " . $text . "<br>";
-                   //   $text = preg_replace("#. *youtube\.com/watch\?v=#" , "", $text);
-                   //    echo "the Location Id : " . $text . "<br>";
-                   //   // $text = <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/'.$text.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                   // echo $text;
+                     //  echo "youtube link : " . $youtube . "<br>";
+                     //  $youtube = preg_replace("#. *youtube\.com/watch\?v=#" , "", $youtube);
+                     //   echo "the Location Id : " . $youtube . "<br>";
+                     //   $youtube = <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/'.$text.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                     // echo $youtube;
+                     // $text ='tgbNymZ7vqY';
+                     // $text ='79DijItQXMM';
 
-                   //  }
-                   //  // $text="text";
+                     // }
+                    
 
                     ?>
 
-<iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src='https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1;frameborder="0" allowfullscreen="" '></iframe>
+<iframe width="420" height="345" src="https://www.youtube.com/embed/B9YKnNtFqds?autoplay=1&mute=1">
+</iframe>
+
+
+<!-- <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src='https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1;frameborder="0" allowfullscreen="" '></iframe> -->
 
                     <!--  <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="<?php echo $youtube ?>;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1" frameborder="0" allowfullscreen=""></iframe>  -->
                   </div>
                 </div>
-                <div class="u-container-layout u-container-layout-1">
+                <!-- <div class="u-container-layout u-container-layout-1">
                   <div class="u-align-top u-expanded u-video">
                     <div class="embed-responsive embed-responsive-2">
                       <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="" frameborder="0" allowfullscreen=""></iframe>
                     </div>
                   </div>
-                </div>
-              </div>
+                </div> -->
+              <!-- </div> -->
 
               <br>
 
@@ -372,7 +377,7 @@ img {
                 <div class="u-container-layout u-container-layout-3">
                   <h3 class="u-text u-text-default u-text-6">Details</h3>
                   <p class="u-text u-text-7">
-
+<?php  echo $youtube; ?>
                     <span style="font-weight: 700;">First Name: </span>
                     <div><input type="text" value="<?php echo $firstname; ?>" class="form-control" name="firstname">
                     <h6 style="color:#ff0000"><?php echo $message_Firstname; ?></h6></div>
