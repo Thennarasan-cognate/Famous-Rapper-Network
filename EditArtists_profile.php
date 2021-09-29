@@ -1,7 +1,8 @@
 <?php ob_start (); ?>
 <?php session_start(); ?>
 <?php include "db.php"; ?>
-<?php
+ 
+ <?php
 if(isset($_SESSION['Email'])){
 
      $Email =  $_SESSION['Email'];  
@@ -40,7 +41,7 @@ if(isset($_SESSION['Email'])){
             $Tiktok=$row['Tiktok'];
             $Bandcamp=$row['Bandcamp'];
             $Patreon=$row['Patreon'];
-            $Linkedln=$row['Linkedln'];
+            $LinkedIn=$row['LinkedIn'];
             
            }
          }
@@ -72,9 +73,9 @@ if(isset($_SESSION['Email'])){
         $Tiktok=$row['Tiktok'];
         $Bandcamp=$row['Bandcamp'];
         $Patreon=$row['Patreon'];
-        $Linkedln=$row['Linkedln'];
+        $LinkedIn=$row['LinkedIn'];
     
-    $query = "UPDATE view_all_artists SET Name='{$Name}',Email='{$Email}',Roles='{$Roles}',Offerings='{$Offerings}',Interview_link='{$Interview_link}',Location='{$Location}',Home_town='{$Home_town}',Birth_place='{$Birth_place}',Instagram='{$Instagram}',Youtube='{$Youtube}',Spotify='{$Spotify}',Merch_image='{$Merch_image}',Merch_link='{$Merch_link}',Headline='{$Headline}',About='{$About}',Featured_song='{$Featured_song}',Featured_music='{$Featured_music}',Featured_album='{$Featured_album}',Soundcloud='{$Soundcloud}',Twitter='{$Twitter}',Community='{$Community}',Facebook='{$Facebook}',Podcast='{$Podcast}',Mailing_list='{$Mailing_list}',Tiktok='{$Tiktok}',Bandcamp='{$Bandcamp}',Patreon='{$Patreon}',Linkedln='{$Linkedln}', WHERE Name='{$Name}' ";
+    $query = "UPDATE view_all_artists SET Email='{$Email}', Name='{$Name}',Roles='{$Roles}',Offerings='{$Offerings}',Interview_link='{$Interview_link}',Location='{$Location}',Home_town='{$Home_town}',Birth_place='{$Birth_place}',Instagram='{$Instagram}',Youtube='{$Youtube}',Spotify='{$Spotify}',Merch_image='{$Merch_image}',Merch_link='{$Merch_link}',Headline='{$Headline}',About='{$About}',Featured_song='{$Featured_song}',Featured_music='{$Featured_music}',Featured_album='{$Featured_album}',Soundcloud='{$Soundcloud}',Twitter='{$Twitter}',Community='{$Community}',Facebook='{$Facebook}',Podcast='{$Podcast}',Mailing_list='{$Mailing_list}',Tiktok='{$Tiktok}',Bandcamp='{$Bandcamp}',Patreon='{$Patreon}',LinkedIn='{$LinkedIn}' WHERE Email = '{$Email}' ";
     $update_profile_query=mysqli_query($connection,$query);
             if(!$update_profile_query) {
               die("Query Failed" . mysqli_error($connection));
@@ -193,10 +194,10 @@ img {
          <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                         <div class="dropdown-header text-center">
 
-          <img class="" style="width:60px" src ='images/<?php echo $_SESSION['image'] ?>' alt="">
+          <!-- <img class="" style="width:60px" src ='images/<?php echo $_SESSION['image'] ?>' alt="">
 
                       <p class="mb-1 mt-3 font-weight-semibold" style="color:darkblue;">
-                          <?php
+           -->                <?php
                           
                           if(isset($_SESSION['Name'])){
                               
@@ -206,8 +207,8 @@ img {
                           
                           ?>
                           
-                        </p>
-                              
+                        <!-- </p>
+ -->                              
                 </div>
                 <a class="dropdown-item" href="profile.php">My Profile <span class="badge badge-pill badge-danger"></span><i class="dropdown-item-icon ti-dashboard"></i></a>
                  
@@ -385,15 +386,16 @@ img {
                     <div><input type="text" value="<?php echo $Bandcamp; ?>" class="form-control" name="Bandcamp"></div>
                     <span style="font-weight: 700;">Patreon: </span>
                     <div><input type="text" value="<?php echo $Patreon; ?>" class="form-control" name="Patreon"></div>
-                    <span style="font-weight: 700;">Linkedln: </span>
-                    <div><input type="text" value="<?php echo $Linkedln; ?>" class="form-control" name="Linkedln"></div>
+                    <span style="font-weight: 700;">LinkedIn: </span>
+                    <div><input type="text" value="<?php echo $LinkedIn; ?>" class="form-control" name="LinkedIn"></div>
+                  </p>
              <!-- <div class="u-align-center u-form-group u-form-submit">
               <a href="" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-1-base u-palette-1-light-2 u-radius-17 u-btn-1">Update profile<br>
               </a>
               <input type="submit" name="edit_profile" value="submit" class="u-form-control-hidden">
             </div> -->
          <div class="input-group-btn">
-          <input class="btn btn-primary" type="submit" name="Edit Artist_profile" value="Update profile">
+          <input class="btn btn-primary" type="submit" name="EditArtists_profile" value="Update profile">
         </div>
 
                 </div>
