@@ -337,14 +337,15 @@ img {
                      // echo $youtube;
                      // $text ='tgbNymZ7vqY';
                      // $text ='79DijItQXMM';
+                     // $text ='B9YKnNtFqds';
 
                      // }
                     
 
                     ?>
 
-<iframe width="420" height="345" src="https://www.youtube.com/embed/B9YKnNtFqds?autoplay=1&mute=1">
-</iframe>
+<!-- <iframe width="420" height="345" src="https://www.youtube.com/embed/B9YKnNtFqds?autoplay=1&mute=1"></iframe> -->
+<iframe width="420" height="345" src="https://www.youtube.com/embed/B9YKnNtFqds?autoplay=1"></iframe>
 
 
 <!-- <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src='https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1;frameborder="0" allowfullscreen="" '></iframe> -->
@@ -364,7 +365,7 @@ img {
               <br>
 
 
-              <div class="u-align-center u-container-style u-layout-cell u-palette-4-base u-size-20 u-layout-cell-2">
+            <div class="u-align-center u-container-style u-layout-cell u-palette-4-base u-size-20 u-layout-cell-2">
                 <div class="u-container-layout u-valign-middle u-container-layout-2">
                   <h3 class="u-text u-text-default u-text-3">About me</h3>
                   <p class="u-text u-text-4">I am creative graphic designer. I am&nbsp;an expert in the Adobe Creative Suit and have worked with a varied myriad of clients.&nbsp;Connecting your ideas to customer perception &amp; all the digital dots in between...</p>
@@ -377,8 +378,8 @@ img {
                 <div class="u-container-layout u-container-layout-3">
                   <h3 class="u-text u-text-default u-text-6">Details</h3>
                   <p class="u-text u-text-7">
-<?php  echo $youtube; ?>
-                    <span style="font-weight: 700;">First Name: </span>
+                    
+                    <h6 style="font-weight: 700;">First Name: </h6>
                     <div><input type="text" value="<?php echo $firstname; ?>" class="form-control" name="firstname">
                     <h6 style="color:#ff0000"><?php echo $message_Firstname; ?></h6></div>
 
@@ -396,19 +397,19 @@ img {
 
                     <span style="font-weight: 700;">Instagram: </span>
                     <div><input type="text" value="<?php echo $instagram; ?>" class="form-control" name="instagram"></div>
-
+                    
                     <span style="font-weight: 700;">Facebook: </span>
                     <div><input type="text" value="<?php echo $facebook; ?>" class="form-control" name="facebook"></div>
-
+                    
                     <span style="font-weight: 700;">Twitter: </span>
                     <div><input type="text" value="<?php echo $twitter; ?>" class="form-control" name="twitter"></div>
-
+                    
                     <span style="font-weight: 700;">Youtube: </span>
                     <div><input type="text" id="vid" value="<?php echo $youtube; ?><?php echo $text;?>"class="form-control" name="youtube"></div>
-
+                    
                     <span style="font-weight: 700;">Age: </span>
                     <br>22 years<br>
-                     
+                    
                     <span style="font-weight: 700;">Location: </span>
                     <div id="locationField"><input id="myInput" type="text" value="<?php echo $Location; ?>" class="form-control" onFocus="geolocate()" name="Location"></div>
                     <!-- <br>'s-Hertogenbosch, The Netherlands, Earth -->

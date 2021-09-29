@@ -20,15 +20,19 @@
     <meta name="generator" content="Nicepage 3.26.0, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
       
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
     <!-- Profile Icon -->
     <link rel="stylesheet" href="assets/css/shared/style.css">
-    
-    <style>
-img {
-  border-radius: 50%;
-}
+
+<style>
+
+  img {
+    border-radius: 50%;
+  }
+  
 </style>
 
 <style>
@@ -173,7 +177,7 @@ img {
     <section class="u-align-center-lg u-align-center-md u-align-center-xl u-align-left-sm u-align-left-xs u-clearfix u-section-1" id="carousel_261b">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h3 class="u-text u-text-1">Artist Discovery&nbsp;</h3>
-
+        <button type="button" class="btn btn-primary" style="float: right; width:130px; height: 40px; background-color: #f3f5f6 ;" name="submit"><a href="Add_Artists.php"><i class="fas fa-plus" style="font-size:20px;color:lightblue;text-shadow:2px 2px 4px #000000;"></i> Add Artists</a></button>
 <form action="" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-8 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 50px;" redirect="true">
 
  <div class="u-layout-row">
