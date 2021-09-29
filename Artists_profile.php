@@ -254,85 +254,21 @@ img {
                     <br><label class="" for="title"><?php echo $Email ?></label><br>
 
                     <span style="font-weight: 700;">Roles: </span>
-                    <br><label class="" for="title"><?php echo $roles ?></label><br>
+                    <br><label class="" for="title"><?php echo $Roles ?></label><br>
 
                     <span style="font-weight: 700;">Offerings: </span>
-                    <br><label class="" for="title"><?php echo $offerings ?></label><br>
-
-                    <span style="font-weight: 700;">Interview_link: </span>
-                    <br><label class="" for="title"><?php echo $interview_link ?></label><br>
+                    <br><label class="" for="title"><?php echo $Offerings ?></label><br>
 
                     <span style="font-weight: 700;">Location:</span>
-                    <br><label class="" for="title"><?php echo $location ?></label><br>
+                    <br><label class="" for="title"><?php echo $Location ?></label><br>
 
                     <span style="font-weight: 700;">Home_town: </span>
-                    <br><label class="" for="title"><?php echo $home_town ?></label><br>
+                    <br><label class="" for="title"><?php echo $Home_town ?></label><br>
 
                     <span style="font-weight: 700;">Birth_place:</span>
-                    <br><label class="" for="title"><?php echo $birth_place ?></label><br>
+                    <br><label class="" for="title"><?php echo $Birth_place ?></label><br>
 
-                    <!-- <span style="font-weight: 700;">Instagram:</span>
-                    <br><label class="" for="title"><?php echo $instagram ?></label><br>
-
-                    <span style="font-weight: 700;">Youtube:</span>
-                    <br><label class="" for="title"><?php echo $youtube ?></label><br> -->
-
-                    <span style="font-weight: 700;">Spotify:</span>
-                    <br><label class="" for="title"><?php echo $spotify ?></label><br>
-
-                    <span style="font-weight: 700;">Merch_image:</span>
-                    <br><label class="" for="title"><?php echo $merch_image ?></label><br>
-
-                    <span style="font-weight: 700;">Merch_image:</span>
-                    <br><label class="" for="title"><?php echo $merch_image ?></label><br>
-
-                    <span style="font-weight: 700;">Merch_link:</span>
-                    <br><label class="" for="title"><?php echo $merch_link ?></label><br>
-
-                    <span style="font-weight: 700;">Merch_album:</span>
-                    <br><label class="" for="title"><?php echo $headline ?></label><br>
-
-                    <span style="font-weight: 700;">About:</span>
-                    <br><label class="" for="title"><?php echo $about ?></label><br>
-
-                    <span style="font-weight: 700;">Featured_song:</span>
-                    <br><label class="" for="title"><?php echo $featured_song ?></label><br>
-
-                    <span style="font-weight: 700;">Featured_music:</span>
-                    <br><label class="" for="title"><?php echo $featured_music ?></label><br>
-
-                    <span style="font-weight: 700;">Featured_album:</span>
-                    <br><label class="" for="title"><?php echo $featured_album ?></label><br>
-
-                    <span style="font-weight: 700;">Soundcloud:</span>
-                    <br><label class="" for="title"><?php echo $soundcloud ?></label><br>
-
-                   <!--  <span style="font-weight: 700;">Twitter:</span>
-                    <br><label class="" for="title"><?php echo $twitter ?></label><br>
- -->
-                    <span style="font-weight: 700;">Community:</span>
-                    <br><label class="" for="title"><?php echo $community ?></label><br>
-
-                    <!-- <span style="font-weight: 700;">Facebook:</span>
-                    <br><label class="" for="title"><?php echo $facebook ?></label><br> -->
-
-                    <span style="font-weight: 700;">Podcast:</span>
-                    <br><label class="" for="title"><?php echo $Podcast ?></label><br>
-
-                    <span style="font-weight: 700;">Mailing_list:</span>
-                    <br><label class="" for="title"><?php echo $Mailing_list ?></label><br>
-
-<!--                     <span style="font-weight: 700;">Tiktok:</span>
-                    <br><label class="" for="title"><?php echo $Tiktok ?></label><br> -->
-
-                    <span style="font-weight: 700;">Bandcamp:</span>
-                    <br><label class="" for="title"><?php echo $Bandcamp ?></label><br>
-
-                    <span style="font-weight: 700;">Patreon:</span>
-                    <br><label class="" for="title"><?php echo $Patreon ?></label><br>
-
-                    <!-- <span style="font-weight: 700;">Linkedln:</span>
-                    <br><label class="" for="title"><?php echo $Linkedln ?></label><br> -->
+                    
 
 
                   <div class="u-social-icons u-spacing-10 u-social-icons-1">
