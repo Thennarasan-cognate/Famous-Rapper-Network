@@ -258,7 +258,7 @@
             </div>
             <div class="u-form-group u-form-group-5">
               <label for="text-871f" class="u-form-control-hidden u-label"></label>
-              <input type="text" id="text-871f" name="Offerings" value="<?php echo isset($_POST["Offerigs"]) ? $_POST["Offerings"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" placeholder="Enter your Offerings">
+              <input type="text" id="text-871f" name="Offerings" value="<?php echo isset($_POST["Offerings"]) ? $_POST["Offerings"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" placeholder="Enter your Offerings">
             <br>
             </div>
             <div class="u-form-group u-form-group-5">
@@ -268,12 +268,12 @@
             </div>
             <div class="u-form-group u-form-group-5">
               <label for="text-871f" class="u-form-control-hidden u-label"></label>
-              <input type="text" id="text-871f" name="Home_town" value="<?php echo isset($_POST["Home_town"]) ? $_POST["Home_town"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" placeholder="Enter your Birth Place">
+              <input type="text" id="text-871f" name="Home_town" value="<?php echo isset($_POST["Home_town"]) ? $_POST["Home_town"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" placeholder="Enter your Home Town">
             <br>
             </div>
             <div class="u-form-group u-form-group-5">
               <label for="text-871f" class="u-form-control-hidden u-label"></label>
-              <input type="text" id="text-871f" name="Birth_place" value="<?php echo isset($_POST["Birth_place"]) ? $_POST["Birth_place"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" placeholder="Enter your Home Town">
+              <input type="text" id="text-871f" name="Birth_place" value="<?php echo isset($_POST["Birth_place"]) ? $_POST["Birth_place"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" placeholder="Enter your Birth Place">
             <br>
             </div>
             <div class="u-align-center u-form-group u-form-submit">

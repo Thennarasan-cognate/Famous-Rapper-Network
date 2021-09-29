@@ -14,7 +14,7 @@
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Profile</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="Profile.css" media="screen">
+<link rel="stylesheet" href="View_All_Artists.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 3.26.0, nicepage.com">
@@ -32,7 +32,7 @@
   img {
     border-radius: 50%;
   }
-  
+
 </style>
 
 <style>
@@ -409,16 +409,34 @@
     }
   }else{
 
+
+//        $query = "SELECT * FROM view_all_artists WHERE user_id='1' ";
+//        $artist_id = mysqli_query($connection,$query);
+
+//         while($row=mysqli_fetch_array($artist_id)){
+
+//             $user_id=$row['user_id'];
+//             $Name=$row['Name'];
+//             $Email=$row['Email'];
+//             $Roles=$row['Roles'];
+//             $Offerings=$row['Offerings'];
+//             $Interview_link=$row['Interview_link'];
+//             $Location=$row['Location'];
+//             $About=$row['About'];
+
+// }
+
 ?>
 
     <div class="u-list u-list-1">
-          <div class="u-repeater u-repeater-1">
+       <div class="u-repeater u-repeater-1">
             <div class="u-container-style u-custom-item u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-1">
-                
+              <div class="u-container-layout u-similar-container u-container-layout-1"> 
                 <img class="u-expanded-width u-image u-image-round u-radius-10 u-image-1" src="images/ome-serious-unshaven-male-keeps-hands-together-dressed-dark-blue-shirt-has-talk-with-interlocutor-stands-against-white-wall.jpg" alt="" data-image-width="626" data-image-height="417">
                 <h6 class="u-text u-text-3">Artist Name</h6>
                 <p class="u-small-text u-text u-text-variant u-text-4">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                <!-- <h6 class="u-text u-text-3"><?php //echo $Name ; ?></h6>
+                <p class="u-small-text u-text u-text-variant u-text-4"><?php //echo $About ; ?></p> -->
               </div>
             </div>
             <div class="u-container-style u-custom-item u-list-item u-repeater-item">
@@ -456,8 +474,8 @@
                 <p class="u-small-text u-text u-text-variant u-text-16">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
               </div>
             </div>
-          </div>
-        </div>
+       </div>
+    </div>
 <?php
 
   }

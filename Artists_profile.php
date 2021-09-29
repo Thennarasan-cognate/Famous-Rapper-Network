@@ -41,11 +41,11 @@ if(isset($_SESSION['Email'])){
             $Tiktok=$row['Tiktok'];
             $Bandcamp=$row['Bandcamp'];
             $Patreon=$row['Patreon'];
-            $Linkedin=$row['Linkedin'];
+            $LinkedIn=$row['LinkedIn'];
             
            }
          }
-         echo $Email;
+
       ?>
 
 

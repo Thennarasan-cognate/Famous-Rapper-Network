@@ -85,7 +85,7 @@ if(isset($_SESSION['Email'])){
            header("Location:Artists_profile.php"); 
               
          } 
-         echo $Email;
+
  ?>     
 
 
@@ -274,25 +274,7 @@ img {
                 <!-- <div class="u-background-video u-expanded" style=""> -->
                   <div class="embed-responsive embed-responsive-1">
 
-                   
-                   <?php 
 
-                     //  if(isset($_POST['youtube'])){
-
-                     // $youtube =  $_POST['youtube'];
-
-                     //  echo "youtube link : " . $youtube . "<br>";
-                     //  $youtube = preg_replace("#. *youtube\.com/watch\?v=#" , "", $youtube);
-                     //   echo "the Location Id : " . $youtube . "<br>";
-                     //   $youtube = <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/'.$text.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                     // echo $youtube;
-                     // $text ='tgbNymZ7vqY';
-                     // $text ='79DijItQXMM';
-
-                     // }
-                    
-
-                    ?>
 <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src='https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1;frameborder="0" allowfullscreen="" '></iframe>
 
                     <!--  <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="<?php echo $youtube ?>;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1" frameborder="0" allowfullscreen=""></iframe>  -->
@@ -394,6 +376,9 @@ img {
               </a>
               <input type="submit" name="edit_profile" value="submit" class="u-form-control-hidden">
             </div> -->
+                    <span style="font-weight: 700;">Linkedln: </span>
+                    <div><input type="text" value="<?php echo $LinkedIn; ?>" class="form-control" name="LinkedIn"></div>
+                    
          <div class="input-group-btn">
           <input class="btn btn-primary" type="submit" name="EditArtists_profile" value="Update profile">
         </div>
