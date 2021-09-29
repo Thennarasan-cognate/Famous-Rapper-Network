@@ -45,41 +45,43 @@ if(isset($_SESSION['Email'])){
             
            }
          }
-         if(isset($_POST['EditArtists_profile'])){
-        $Name=$row['Name'];
-        $Email=$row['Email'];
-        $Roles=$row['Roles'];
-        $Offerings=$row['Offerings'];
-        $Interview_link=$row['Interview_link'];
-        $Location=$row['Location'];
-        $Home_town=$row['Home_town'];
-        $Birth_place=$row['Birth_place'];
-        $Instagram=$row['Instagram'];
-        $Youtube=$row['Youtube'];
-        $Spotify=$row['Spotify'];
-        $Merch_image=$row['Merch_image'];
-        $Merch_link=$row['Merch_link'];
-        $Headline=$row['Headline'];
-        $About=$row['About']; 
-        $Featured_song=$row['Featured_song'];
-        $Featured_music=$row['Featured_music'];
-        $Featured_album=$row['Featured_album'];
-        $Soundcloud=$row['Soundcloud'];
-        $Twitter=$row['Twitter'];
-        $Community=$row['Community'];
-        $Facebook=$row['Facebook'];
-        $Podcast=$row['Podcast'];
-        $Mailing_list=$row['Mailing_list'];
-        $Tiktok=$row['Tiktok'];
-        $Bandcamp=$row['Bandcamp'];
-        $Patreon=$row['Patreon'];
-        $LinkedIn=$row['LinkedIn'];
+        if(isset($_POST['EditArtists_profile'])){
+
+            $Name=$row['Name'];
+            $Email=$row['Email'];
+            $Roles=$row['Roles'];
+            $Offerings=$row['Offerings'];
+            $Interview_link=$row['Interview_link'];
+            $Location=$row['Location'];
+            $Home_town=$row['Home_town'];
+            $Birth_place=$row['Birth_place'];
+            $Instagram=$row['Instagram'];
+            $Youtube=$row['Youtube'];
+            $Spotify=$row['Spotify'];
+            $Merch_image=$row['Merch_image'];
+            $Merch_link=$row['Merch_link'];
+            $Headline=$row['Headline'];
+            $About=$row['About']; 
+            $Featured_song=$row['Featured_song'];
+            $Featured_music=$row['Featured_music'];
+            $Featured_album=$row['Featured_album'];
+            $Soundcloud=$row['Soundcloud'];
+            $Twitter=$row['Twitter'];
+            $Community=$row['Community'];
+            $Facebook=$row['Facebook'];
+            $Podcast=$row['Podcast'];
+            $Mailing_list=$row['Mailing_list'];
+            $Tiktok=$row['Tiktok'];
+            $Bandcamp=$row['Bandcamp'];
+            $Patreon=$row['Patreon'];
+            $LinkedIn=$row['LinkedIn'];
     
-    $query = "UPDATE view_all_artists SET Email='{$Email}', Name='{$Name}',Roles='{$Roles}',Offerings='{$Offerings}',Interview_link='{$Interview_link}',Location='{$Location}',Home_town='{$Home_town}',Birth_place='{$Birth_place}',Instagram='{$Instagram}',Youtube='{$Youtube}',Spotify='{$Spotify}',Merch_image='{$Merch_image}',Merch_link='{$Merch_link}',Headline='{$Headline}',About='{$About}',Featured_song='{$Featured_song}',Featured_music='{$Featured_music}',Featured_album='{$Featured_album}',Soundcloud='{$Soundcloud}',Twitter='{$Twitter}',Community='{$Community}',Facebook='{$Facebook}',Podcast='{$Podcast}',Mailing_list='{$Mailing_list}',Tiktok='{$Tiktok}',Bandcamp='{$Bandcamp}',Patreon='{$Patreon}',LinkedIn='{$LinkedIn}' WHERE Email = '{$Email}' ";
-    $update_profile_query=mysqli_query($connection,$query);
-            if(!$update_profile_query) {
-              die("Query Failed" . mysqli_error($connection));
-        }
+    $query = "UPDATE view_all_artists SET Name='{$Name}', Email='{$Email}', Roles='{$Roles}',Offerings='{$Offerings}',Interview_link='{$Interview_link}',Location='{$Location}',Home_town='{$Home_town}',Birth_place='{$Birth_place}',Instagram='{$Instagram}',Youtube='{$Youtube}',Spotify='{$Spotify}',Merch_image='{$Merch_image}',Merch_link='{$Merch_link}',Headline='{$Headline}',About='{$About}',Featured_song='{$Featured_song}',Featured_music='{$Featured_music}',Featured_album='{$Featured_album}',Soundcloud='{$Soundcloud}',Twitter='{$Twitter}',Community='{$Community}',Facebook='{$Facebook}',Podcast='{$Podcast}',Mailing_list='{$Mailing_list}',Tiktok='{$Tiktok}',Bandcamp='{$Bandcamp}',Patreon='{$Patreon}',LinkedIn='{$LinkedIn}' WHERE Email = '{$Email}' ";
+    
+          $update_profile_query=mysqli_query($connection,$query);
+                  if(!$update_profile_query) {
+                    die("Query Failed" . mysqli_error($connection));
+              }
             
           
            header("Location:Artists_profile.php"); 
@@ -333,7 +335,7 @@ img {
                     <span style="font-weight: 700;">Instagram: </span>
                     <div><input type="text" value="<?php echo $Instagram; ?>" class="form-control" name="Instagram"></div>
                     <span style="font-weight: 700;">Youtube: </span>
-                    <div><input type="text" id="vid" value="<?php echo $youtube; ?><?php echo $text;?>"class="form-control" name="youtube"></div>
+                    <div><input type="text" id="vid" value="<?php echo $youtube; ?><?php echo $text;?>"class="form-control" name="Youtube"></div>
                     <span style="font-weight: 700;">Spotify: </span>
                     <div><input type="text" value="<?php echo $Spotify; ?>" class="form-control" name="Spotify"></div>
                     <span style="font-weight: 700;">Merch_image: </span>
@@ -376,11 +378,9 @@ img {
               </a>
               <input type="submit" name="edit_profile" value="submit" class="u-form-control-hidden">
             </div> -->
-                    <span style="font-weight: 700;">Linkedln: </span>
-                    <div><input type="text" value="<?php echo $LinkedIn; ?>" class="form-control" name="LinkedIn"></div>
-                    
+
          <div class="input-group-btn">
-          <input class="btn btn-primary" type="submit" name="EditArtists_profile" value="Update profile">
+          <input class="btn btn-primary" type="submit" name="EditArtists_profile" value="Update Artist">
         </div>
 
                 </div>
