@@ -58,7 +58,7 @@ if(isset($_SESSION['Email'])){
     <meta name="keywords" content="Profile">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Artists_profile</title>
+    <title>Artists profile</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="ProfilePage.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
