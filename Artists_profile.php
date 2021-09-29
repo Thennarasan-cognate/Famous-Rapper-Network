@@ -3,11 +3,11 @@
 
 
   <?php
-if(isset($_SESSION['Name'])){
+if(isset($_SESSION['Email'])){
 
-     $Name =  $_SESSION['Name'];  
+     $Email =  $_SESSION['Email'];  
            
-     $query="SELECT * FROM view_all_artists WHERE Name = '{$Name}' ";
+     $query="SELECT * FROM view_all_artists WHERE Email = '{$Email}' ";
      $select_view_all_artists_Artists_profile = mysqli_query($connection,$query);
 
       
@@ -45,6 +45,7 @@ if(isset($_SESSION['Name'])){
             
            }
          }
+         echo $Email;
       ?>
 
 
@@ -238,7 +239,7 @@ img {
 
 
                 <!-- <img class="" style="width:550px" src ='images/<?php //echo $_SESSION['image'] ?>' alt=""> -->
-            <center><button type="button" class="btn btn-primary" style="width:140px; height: 40px; background-color: #f3f5f6 ;" name="submit"><a href="EditArtists_profile.php">EditArtists_profile</a></button></center>
+            <center><button type="button" class="btn btn-primary" style="width:140px; height: 40px; background-color: #f3f5f6 ;" name="submit"><a href="EditArtists_profile.php">Edit Artist profile</a></button></center>
               </div>
               </div>
 
@@ -247,10 +248,10 @@ img {
                   <h3 class="u-text u-text-default u-text-6">Details</h3>
                   <p class="u-text u-text-7">
                     <span style="font-weight: 700;">Name: </span>
-                    <br><label class="" for="title"><?php echo $name ?></label><br>
+                    <br><label class="" for="title"><?php echo $Name ?></label><br>
                     
                     <span style="font-weight: 700;">Email: </span>
-                    <br><label class="" for="title"><?php echo $email ?></label><br>
+                    <br><label class="" for="title"><?php echo $Email ?></label><br>
 
                     <span style="font-weight: 700;">Roles: </span>
                     <br><label class="" for="title"><?php echo $roles ?></label><br>

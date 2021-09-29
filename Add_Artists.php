@@ -4,35 +4,34 @@
 
      if(isset($_POST['submit'])){
          
-         $user_id=$row['user_id'];
-                    $Name=$_POST['Name'];
-                    $Email=$_POST['Email'];
-                    $Roles=$_POST['Roles'];
-                    $Offerings=$_POST['Offerings'];
-                    $Interview_link=$_POST['Interview_link'];
-                    $Location=$_POST['Location'];
-                    $Home_town=$_POST['Home_town'];
-                    $Birth_place=$_POST['Birth_place'];
-                    $Instagram=$_POST['Instagram'];
-                    $Youtube=$_POST['Youtube'];
-                    $Spotify=$_POST['Spotify'];
-                    $Merch_image=$_POST['Merch_image'];
-                    $Merch_link=$_POST['Merch_link'];
-                    $Headline=$_POST['Headline'];
-                    $About=$_POST['About'];
-                    $Featured_song=$_POST['Featured_song'];
-                    $Featured_music=$_POST['Featured_music'];
-                    $Featured_album=$_POST['Featured_album'];
-                    $Soundcloud=$_POST['Soundcloud'];
-                    $Twitter=$_POST['Twitter'];
-                    $Community=$_POST['Community'];
-                    $Facebook=$_POST['Facebook'];
-                    $Podcast=$_POST['Podcast'];
-                    $Mailing_list=$_POST['Mailing_list'];
-                    $Tiktok=$_POST['Tiktok'];
-                    $Bandcamp=$_POST['Bandcamp'];
-                    $Patreon=$_POST['Patreon'];
-                    $LinkedIn=$_POST['LinkedIn'];
+        $Name=$_POST['Name'];
+        $Email=$_POST['Email'];
+        $Roles=$_POST['Roles'];
+        $Offerings=$_POST['Offerings'];
+        $Interview_link=$_POST['Interview_link'];
+        $Location=$_POST['Location'];
+        $Home_town=$_POST['Home_town'];
+        $Birth_place=$_POST['Birth_place'];
+        $Instagram=$_POST['Instagram'];
+        $Youtube=$_POST['Youtube'];
+        $Spotify=$_POST['Spotify'];
+        $Merch_image=$_POST['Merch_image'];
+        $Merch_link=$_POST['Merch_link'];
+        $Headline=$_POST['Headline'];
+        $About=$_POST['About'];
+        $Featured_song=$_POST['Featured_song'];
+        $Featured_music=$_POST['Featured_music'];
+        $Featured_album=$_POST['Featured_album'];
+        $Soundcloud=$_POST['Soundcloud'];
+        $Twitter=$_POST['Twitter'];
+        $Community=$_POST['Community'];
+        $Facebook=$_POST['Facebook'];
+        $Podcast=$_POST['Podcast'];
+        $Mailing_list=$_POST['Mailing_list'];
+        $Tiktok=$_POST['Tiktok'];
+        $Bandcamp=$_POST['Bandcamp'];
+        $Patreon=$_POST['Patreon'];
+        $LinkedIn=$_POST['LinkedIn'];
 
          
          $error = 0;           
@@ -54,11 +53,6 @@
             }
         }else {
 
-          $_SESSION['Email'] = $Email;
-
-        
-        // $query = "INSERT INTO view_all_artists(Name, Email, Roles, Offerings, Interview_link, Location, Home_town, Birth_place, Instagram, Youtube, Spotify, Merch_image, Merch_link, Headline, About, Featured_song, Featured_music, Featured_album, Soundcloud, Twitter, Community, Facebook, Podcast, Mailing_list, Tiktok, Bandcamp, Patreon, LinkedIn)";
-        // $query .= "VALUES ('$Name', '$Email', '$Roles', '$Offerings', 'https://www.youtube.com/', '$Location', '$Home_town', '$Birth_place', 'https://www.instagram.com/', 'https://www.youtube.com/', 'https://open.spotify.com/', 'https://vangogh.teespring.com/v3/image/hW6NDfluyuw5KPy1lZ9onhwm_wQ/480/560.jpg', 'https://teespring.com', '$Headline', '$About', 'https://song.link/', 'https://www.youtube.com/', 'https://album.link/', 'https://soundcloud.com/', 'https://twitter.com/', 'https://www.facebook.com/', 'https://www.facebook.com/', 'https://www.youtube.com/', 'https://mailchi.mp/', 'https://www.tiktok.com/', 'https://bandcamp.com/', 'https://www.patreon.com/', 'https://www.linkedin.com/')";
         $query = "INSERT INTO view_all_artists(Name, Email, Roles, Offerings, Interview_link, Location, Home_town, Birth_place, Instagram, Youtube, Spotify, Merch_image, Merch_link, Headline, About, Featured_song, Featured_music, Featured_album, Soundcloud, Twitter, Community, Facebook, Podcast, Mailing_list, Tiktok, Bandcamp, Patreon, LinkedIn)";
         $query .= "VALUES ('$Name', '$Email', '$Roles', '$Offerings', '$Interview_link', '$Location', '$Home_town', '$Birth_place', '$Instagram', '$Youtube', '$Spotify', '$Merch_image', '$Merch_link', '$Headline', '$About', '$Featured_song', '$Featured_music', '$Featured_album', '$Soundcloud', '$Twitter', '$Community', '$Facebook', '$Podcast', '$Mailing_list', '$Tiktok', '$Bandcamp', '$Patreon', '$LinkedIn')";
              
@@ -69,11 +63,12 @@
             die("Query Failed" . mysqli_error($connection) .' '. mysqli_error($connection));
         }
           
-         $_SESSION['Artist_status'] = "Artist Added Successfully";   
-           
-             // header("Location:Artists_profile.php");
+         // $_SESSION['Artist_status'] = "Artist Added Successfully";
 
-         $success ="Artist Added Successfully"; 
+
+         $_SESSION['Email'] = $Email;   
+           
+              header("Location:Artists_profile.php");
  }
 
 }
@@ -244,7 +239,6 @@
            <!-- <div class="u-align-center">  -->
              <div class="u-form-group u-form-name u-form-group">
                <h6 class="text-center" style="color:#ff0000"><?php echo $message; ?></h6>
-                <h6 class="text-center" style="color:#18a33d"><?php echo $success; ?></h6>
             </div>
 
             <div class="u-form-group u-form-name u-form-group-1">
@@ -281,15 +275,6 @@
               <label for="text-871f" class="u-form-control-hidden u-label"></label>
               <input type="text" id="text-871f" name="Birth_place" value="<?php echo isset($_POST["Birth_place"]) ? $_POST["Birth_place"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" placeholder="Enter your Home Town">
             <br>
-            </div>
-            <div class="u-form-group u-form-group-5">
-              <label for="text-871f" class="u-form-control-hidden u-label"></label>
-              <input type="text" id="text-871f" name="Headline" value="<?php echo isset($_POST["Headline"]) ? $_POST["Headline"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" placeholder="Headline">
-             <br>
-            </div>
-            <div class="u-form-group u-form-group-5">
-              <label for="text-871f" class="u-form-control-hidden u-label"></label>
-              <input type="text" id="text-871f" name="About" value="<?php echo isset($_POST["About"]) ? $_POST["About"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" placeholder="About yourself">
             </div>
             <div class="u-align-center u-form-group u-form-submit">
               <a href="" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-1-base u-palette-1-light-2 u-radius-17 u-btn-1">Add Artist<br>
