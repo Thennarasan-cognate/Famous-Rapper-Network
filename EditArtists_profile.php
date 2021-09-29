@@ -2,11 +2,11 @@
 <?php session_start(); ?>
 <?php include "db.php"; ?>
 <?php
-if(isset($_SESSION['Name'])){
+if(isset($_SESSION['Email'])){
 
-     $Name =  $_SESSION['Name'];  
+     $Email =  $_SESSION['Email'];  
            
-     $query="SELECT * FROM view_all_artists WHERE Name = '{$Name}' ";
+     $query="SELECT * FROM view_all_artists WHERE Email = '{$Email}' ";
      $select_view_all_artists_Artists_profile = mysqli_query($connection,$query);
 
       
@@ -83,7 +83,8 @@ if(isset($_SESSION['Name'])){
           
            header("Location:Artists_profile.php"); 
               
-         }  
+         } 
+         echo $Email;
  ?>     
 
 
@@ -98,7 +99,7 @@ if(isset($_SESSION['Name'])){
     <meta name="keywords" content="Profile">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>EditArtists_profile</title>
+    <title>Edit Artist profile</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="ProfilePage.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -322,23 +323,23 @@ img {
                   <h3 class="u-text u-text-default u-text-6">Details</h3>
                   <p class="u-text u-text-7">
                     <span style="font-weight: 700;">Name: </span>
-                    <div><input type="text" value="<?php echo $name; ?>" class="form-control" name="name">
-                    <h6 style="color:#ff0000"><?php echo $message_name; ?></h6></div>
+                    <div><input type="text" value="<?php echo $Name; ?>" class="form-control" name="Name">
+                   
 
                     <span style="font-weight: 700;">Email: </span>
-                    <div><input type="text" value="<?php echo $email; ?>" class="form-control" name="email">
+                    <div><input type="text" value="<?php echo $Email; ?>" class="form-control" name="Email">
                     </div>
                     
                     <span style="font-weight: 700;">Roles: </span>
-                    <div><input sze="10" maxlength="10" type="text" value="<?php echo $roles; ?>" class="form-control" name="roles">
+                    <div><input sze="10" maxlength="10" type="text" value="<?php echo $Roles; ?>" class="form-control" name="Roles">
                     </div>
 
                     <span style="font-weight: 700;">Offerings: </span>
-                    <div><input type="text" value="<?php echo $offerings; ?>" class="form-control" name="offerings">
+                    <div><input type="text" value="<?php echo $Offerings; ?>" class="form-control" name="Offerings">
                     </div>
 
                     <span style="font-weight: 700;">Interview_link: </span>
-                    <div><input type="text" value="<?php echo $interview_link; ?>" class="form-control" name="interview_link"></div>
+                    <div><input type="text" value="<?php echo $Interview_link; ?>" class="form-control" name="Interview_link"></div>
                     <span style="font-weight: 700;">Location: </span>
                     <div><input id="myInput" type="text" value="<?php echo $Location; ?>" class="form-control" onFocus="geolocate()" name="Location"></div>
                     <span style="font-weight: 700;">Home_town: </span>
@@ -369,11 +370,11 @@ img {
                     <span style="font-weight: 700;">Soundcloud: </span>
                     <div><input type="text" value="<?php echo $Soundcloud; ?>" class="form-control" name="Soundcloud"></div>
                     <span style="font-weight: 700;">Twitter: </span>
-                    <div><input type="text" value="<?php echo $twitter; ?>" class="form-control" name="twitter"></div>
+                    <div><input type="text" value="<?php echo $Twitter; ?>" class="form-control" name="Twitter"></div>
                     <span style="font-weight: 700;">Community: </span>
                     <div><input type="text" value="<?php echo $Community; ?>" class="form-control" name="Community"></div>
                     <span style="font-weight: 700;">Facebook: </span>
-                    <div><input type="text" value="<?php echo $facebook; ?>" class="form-control" name="facebook"></div>
+                    <div><input type="text" value="<?php echo $Facebook; ?>" class="form-control" name="Facebook"></div>
                     <span style="font-weight: 700;">Podcast: </span>
                     <div><input type="text" value="<?php echo $Podcast; ?>" class="form-control" name="Podcast"></div>
                     <span style="font-weight: 700;">Mailing_list: </span>
@@ -386,24 +387,13 @@ img {
                     <div><input type="text" value="<?php echo $Patreon; ?>" class="form-control" name="Patreon"></div>
                     <span style="font-weight: 700;">Linkedln: </span>
                     <div><input type="text" value="<?php echo $Linkedln; ?>" class="form-control" name="Linkedln"></div>
-
-                    
-
-                    
-
-                    
-                     
-                    
-                    <!-- <br>'s-Hertogenbosch, The Netherlands, Earth -->
-                  </p>
-                  
-           <!-- <div class="u-align-center u-form-group u-form-submit">
+             <!-- <div class="u-align-center u-form-group u-form-submit">
               <a href="" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-1-base u-palette-1-light-2 u-radius-17 u-btn-1">Update profile<br>
               </a>
               <input type="submit" name="edit_profile" value="submit" class="u-form-control-hidden">
             </div> -->
          <div class="input-group-btn">
-          <input class="btn btn-primary" type="submit" name="edit_profile" value="Update profile">
+          <input class="btn btn-primary" type="submit" name="Edit Artist_profile" value="Update profile">
         </div>
 
                 </div>
