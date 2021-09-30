@@ -3,10 +3,9 @@
 
 <?php
 
-if(isset($_SESSION['Name'])){
+ if(isset($_SESSION['Name'])){
+   $Name =  $_SESSION['Name'];
 
-     $Name =  $_SESSION['Name'];  
-           
      $query="SELECT * FROM view_all_artists WHERE Name = '{$Name}' ";
      $select_view_all_artists_Artists_profile = mysqli_query($connection,$query);
 

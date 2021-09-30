@@ -173,6 +173,34 @@ img {
         <a href="View_All_Artists.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-1">View All</a>
         <div class="u-expanded-width u-layout-horizontal u-list u-list-1">
           <div class="u-repeater u-repeater-1">
+
+<?php
+
+
+       $query = "SELECT * FROM view_all_artists WHERE user_id = '1' ";
+       $artist_id = mysqli_query($connection,$query);
+
+        while($row=mysqli_fetch_array($artist_id)){
+
+            $db_user_id=$row['user_id'];
+            $db_Name=$row['Name'];
+            $db_Email=$row['Email'];
+            $db_Roles=$row['Roles'];
+            $db_Offerings=$row['Offerings'];
+            $db_Interview_link=$row['Interview_link'];
+            $db_Location=$row['Location'];
+            $db_About=$row['About'];
+
+
+       $_SESSION['Name'] = $db_Name;
+
+
+}
+
+?>
+
+
+
             <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-1">
               <div class="u-container-layout u-similar-container u-container-layout-1">
                 <div class="u-video u-video-contain u-video-1">
@@ -182,9 +210,10 @@ img {
                 </div>
                 <h3 class="u-text u-text-2">Kyle&nbsp;<br>James
                 </h3>
-                <a href="https://nicepage.com/k/test-website-templates" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-2">View Full Profile</a>
+                <a href="Artists_profile.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-2">View Full Profile</a>
               </div>
             </div>
+
             <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-2">
               <div class="u-container-layout u-similar-container u-container-layout-2">
                 <div class="u-video u-video-contain u-video-2">
@@ -194,9 +223,10 @@ img {
                 </div>
                 <h3 class="u-text u-text-3"> Kid&nbsp;<br>Rohan
                 </h3>
-                <a href="https://nicepage.com/k/test-website-templates" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-3">View Full Profile</a>
+                <a href="Artists_profile.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-3">View Full Profile</a>
               </div>
             </div>
+
             <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-3">
               <div class="u-container-layout u-similar-container u-container-layout-3">
                 <div class="u-video u-video-contain u-video-3">
@@ -206,9 +236,10 @@ img {
                 </div>
                 <h3 class="u-text u-text-4">David&nbsp;<br>Prorok
                 </h3>
-                <a href="https://nicepage.com/k/test-website-templates" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-4">View Full Profile</a>
+                <a href="Artists_profile.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-4">View Full Profile</a>
               </div>
             </div>
+
             <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-4">
               <div class="u-container-layout u-similar-container u-container-layout-4">
                 <div class="u-video u-video-contain u-video-4">
@@ -218,9 +249,10 @@ img {
                 </div>
                 <h3 class="u-text u-text-5">Zhe&nbsp;<br>The Free
                 </h3>
-                <a href="https://nicepage.com/k/test-website-templates" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-5">View Full Profile</a>
+                <a href="Artists_profile.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-5">View Full Profile</a>
               </div>
             </div>
+
             <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-5">
               <div class="u-container-layout u-similar-container u-container-layout-5">
                 <div class="u-video u-video-contain u-video-5">
@@ -229,9 +261,10 @@ img {
                   </div>
                 </div>
                 <h3 class="u-text u-text-6">Sample Headline</h3>
-                <a href="https://nicepage.com/k/test-website-templates" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-6">Hyperlink</a>
+                <a href="Artists_profile.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-6">Hyperlink</a>
               </div>
             </div>
+            
           </div>
           <a class="u-absolute-vcenter u-gallery-nav u-gallery-nav-prev u-icon-rounded u-opacity u-opacity-70 u-palette-1-base u-spacing-10 u-gallery-nav-1" href="#" role="button">
             <span aria-hidden="true">
