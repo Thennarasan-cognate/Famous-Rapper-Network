@@ -1,14 +1,13 @@
-<?php ob_start (); ?>
 <?php session_start(); ?>
 <?php include "db.php"; ?>
  
- <?php
+<?php
 
-if(isset($_SESSION['Email'])){
+if(isset($_SESSION['Name'])){
 
-     $Email =  $_SESSION['Email'];  
+     $Name =  $_SESSION['Name'];  
            
-     $query="SELECT * FROM view_all_artists WHERE Email = '{$Email}' ";
+     $query="SELECT * FROM view_all_artists WHERE Name = '{$Name}' ";
      $select_view_all_artists_Artists_profile = mysqli_query($connection,$query);
 
       
@@ -78,7 +77,7 @@ if(isset($_SESSION['Email'])){
             $Patreon = $_POST['Patreon'];
             $LinkedIn = $_POST['LinkedIn'];
     
-    $query = "UPDATE view_all_artists SET Email='{$Email}',Name='{$Name}', Roles='{$Roles}',Offerings='{$Offerings}',Interview_link='{$Interview_link}',Location='{$Location}',Home_town='{$Home_town}',Birth_place='{$Birth_place}',Instagram='{$Instagram}',Youtube='{$Youtube}',Spotify='{$Spotify}',Merch_image='{$Merch_image}',Merch_link='{$Merch_link}',Headline='{$Headline}',About='{$About}',Featured_song='{$Featured_song}',Featured_music='{$Featured_music}',Featured_album='{$Featured_album}',Soundcloud='{$Soundcloud}',Twitter='{$Twitter}',Community='{$Community}',Facebook='{$Facebook}',Podcast='{$Podcast}',Mailing_list='{$Mailing_list}',Tiktok='{$Tiktok}',Bandcamp='{$Bandcamp}',Patreon='{$Patreon}',LinkedIn='{$LinkedIn}' WHERE Email = '{$Email}' ";
+    $query = "UPDATE view_all_artists SET Name='{$Name}', Email='{$Email}', Roles='{$Roles}', Offerings='{$Offerings}', Interview_link='{$Interview_link}', Location='{$Location}', Home_town='{$Home_town}', Birth_place='{$Birth_place}', Instagram='{$Instagram}', Youtube='{$Youtube}', Spotify='{$Spotify}', Merch_image='{$Merch_image}', Merch_link='{$Merch_link}', Headline='{$Headline}', About='{$About}', Featured_song='{$Featured_song}', Featured_music='{$Featured_music}', Featured_album='{$Featured_album}', Soundcloud='{$Soundcloud}', Twitter='{$Twitter}', Community='{$Community}', Facebook='{$Facebook}', Podcast='{$Podcast}', Mailing_list='{$Mailing_list}', Tiktok='{$Tiktok}', Bandcamp='{$Bandcamp}', Patreon='{$Patreon}', LinkedIn='{$LinkedIn}' WHERE Name = '{$Name}' ";
     
           $update_Artist_query=mysqli_query($connection,$query);
                   if(!$update_Artist_query) {
@@ -319,7 +318,7 @@ img {
                     </div>
                     
                     <span style="font-weight: 700;">Roles: </span>
-                    <div><input sze="10" maxlength="10" type="text" value="<?php echo $Roles; ?>" class="form-control" name="Roles">
+                    <div><input type="text" value="<?php echo $Roles; ?>" class="form-control" name="Roles">
                     </div>
 
                     <span style="font-weight: 700;">Offerings: </span>
@@ -329,7 +328,7 @@ img {
                     <span style="font-weight: 700;">Interview_link: </span>
                     <div><input type="text" value="<?php echo $Interview_link; ?>" class="form-control" name="Interview_link"></div>
                     <span style="font-weight: 700;">Location: </span>
-                    <div><input id="myInput" type="text" value="<?php echo $Location; ?>" class="form-control" onFocus="geolocate()" name="Location"></div>
+                    <div><input id="myInput" type="text" value="<?php echo $Location; ?>" class="form-control" name="Location"></div>
                     <span style="font-weight: 700;">Home_town: </span>
                     <div><input type="text" value="<?php echo $Home_town; ?>" class="form-control" name="Home_town"></div>
                     <span style="font-weight: 700;">Birth_place: </span>

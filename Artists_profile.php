@@ -1,13 +1,13 @@
 <?php session_start(); ?>
 <?php include "db.php"; ?>
 
+<?php
 
-  <?php
-if(isset($_SESSION['Email'])){
+if(isset($_SESSION['Name'])){
 
-     $Email =  $_SESSION['Email'];  
+     $Name =  $_SESSION['Name'];  
            
-     $query="SELECT * FROM view_all_artists WHERE Email = '{$Email}' ";
+     $query="SELECT * FROM view_all_artists WHERE Name = '{$Name}' ";
      $select_view_all_artists_Artists_profile = mysqli_query($connection,$query);
 
       
@@ -133,9 +133,9 @@ img {
                       <p class="mb-1 mt-3 font-weight-semibold" style="color:darkblue;">
                           <?php
                           
-                          if(isset($_SESSION['Name'])){
+                          if(isset($_SESSION['firstname'])){
                               
-                            echo $_SESSION['Name']; 
+                            echo $_SESSION['firstname']; 
                              
                           }
                           

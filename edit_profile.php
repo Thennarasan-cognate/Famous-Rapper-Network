@@ -82,7 +82,7 @@ if(isset($_SESSION['firstname'])){
           
         if($password==$confirm_password){
               
-    $query="UPDATE register SET firstname= '{$firstname}', lastname= '{$lastname}',image= '{$image}', email= '{$email}',phone= '{$phone}',instagram='{$instagram}', facebook='{$facebook}',twitter='{$twitter}',youtube='{$youtube}',Location='{$Location}'  WHERE firstname= '{$firstname}' ";  
+    $query="UPDATE register SET firstname= '{$firstname}', lastname= '{$lastname}', image= '{$image}', email= '{$email}',phone= '{$phone}',instagram='{$instagram}', facebook='{$facebook}',twitter='{$twitter}',youtube='{$youtube}',Location='{$Location}'  WHERE firstname= '{$firstname}' ";  
                       
         $update_profile_query=mysqli_query($connection,$query);
 
@@ -119,26 +119,6 @@ if(isset($_SESSION['firstname'])){
        }
 
   ?>
-
-
-     <?php 
-
-       if(isset($_POST['youtube'])){
-
-      $youtube =  $_POST['youtube'];
-
-       $text = $youtube;
-       // echo "youtube link : " . $text . "<br>";
-       $text = preg_replace("#. *youtube\.com/watch\?v=#" , "", $text);
-        echo "the Location Id : " . $text . "<br>";
-       // $text = <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/'.$text.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-     echo $text;
-
-      }
-      // $text="text";
-
-      ?>
-
 
 
 <!DOCTYPE html>
@@ -216,7 +196,7 @@ img {
           </div>
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.php" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.php" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a></li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.php" style="padding: 10px 20px;">About</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Contact.php" style="padding: 10px 20px;">Contact</a>
 </li>
 
@@ -326,26 +306,11 @@ img {
                    
                    <?php 
 
-                     //  if(isset($_POST['youtube'])){
-
-                     // $youtube =  $_POST['youtube'];
-
-                     //  echo "youtube link : " . $youtube . "<br>";
-                     //  $youtube = preg_replace("#. *youtube\.com/watch\?v=#" , "", $youtube);
-                     //   echo "the Location Id : " . $youtube . "<br>";
-                     //   $youtube = <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/'.$text.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                     // echo $youtube;
-                     // $text ='tgbNymZ7vqY';
-                     // $text ='79DijItQXMM';
-                     // $text ='B9YKnNtFqds';
-
-                     // }
+                       $youtube2 = preg_replace("/https:\/\/\www.youtube.com\/watch\?v=/" , "", $youtube);
                     
-
                     ?>
 
-<!-- <iframe width="420" height="345" src="https://www.youtube.com/embed/B9YKnNtFqds?autoplay=1&mute=1"></iframe> -->
-<iframe width="420" height="345" src="https://www.youtube.com/embed/B9YKnNtFqds?autoplay=1"></iframe>
+<iframe width="420" height="345" src="https://www.youtube.com/embed/<?php echo $youtube2; ?>?autoplay=1&mute=0"></iframe>
 
 
 <!-- <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src='https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1;frameborder="0" allowfullscreen="" '></iframe> -->
@@ -378,7 +343,7 @@ img {
                 <div class="u-container-layout u-container-layout-3">
                   <h3 class="u-text u-text-default u-text-6">Details</h3>
                   <p class="u-text u-text-7">
-                    
+
                     <h6 style="font-weight: 700;">First Name: </h6>
                     <div><input type="text" value="<?php echo $firstname; ?>" class="form-control" name="firstname">
                     <h6 style="color:#ff0000"><?php echo $message_Firstname; ?></h6></div>
