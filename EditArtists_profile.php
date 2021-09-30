@@ -3,6 +3,7 @@
 <?php include "db.php"; ?>
  
  <?php
+
 if(isset($_SESSION['Email'])){
 
      $Email =  $_SESSION['Email'];  
@@ -45,48 +46,50 @@ if(isset($_SESSION['Email'])){
             
            }
          }
-        if(isset($_POST['EditArtists_profile'])){
+         
+      if(isset($_POST['EditArtists_profile'])){
 
-            $Name=$row['Name'];
-            $Email=$row['Email'];
-            $Roles=$row['Roles'];
-            $Offerings=$row['Offerings'];
-            $Interview_link=$row['Interview_link'];
-            $Location=$row['Location'];
-            $Home_town=$row['Home_town'];
-            $Birth_place=$row['Birth_place'];
-            $Instagram=$row['Instagram'];
-            $Youtube=$row['Youtube'];
-            $Spotify=$row['Spotify'];
-            $Merch_image=$row['Merch_image'];
-            $Merch_link=$row['Merch_link'];
-            $Headline=$row['Headline'];
-            $About=$row['About']; 
-            $Featured_song=$row['Featured_song'];
-            $Featured_music=$row['Featured_music'];
-            $Featured_album=$row['Featured_album'];
-            $Soundcloud=$row['Soundcloud'];
-            $Twitter=$row['Twitter'];
-            $Community=$row['Community'];
-            $Facebook=$row['Facebook'];
-            $Podcast=$row['Podcast'];
-            $Mailing_list=$row['Mailing_list'];
-            $Tiktok=$row['Tiktok'];
-            $Bandcamp=$row['Bandcamp'];
-            $Patreon=$row['Patreon'];
-            $LinkedIn=$row['LinkedIn'];
+            $Name = $_POST['Name'];
+            $Email = $_POST['Email'];
+            $Roles = $_POST['Roles'];
+            $Offerings = $_POST['Offerings'];
+            $Interview_link = $_POST['Interview_link'];
+            $Location = $_POST['Location'];
+            $Home_town = $_POST['Home_town'];
+            $Birth_place = $_POST['Birth_place'];
+            $Instagram = $_POST['Instagram'];
+            $Youtube = $_POST['Youtube'];
+            $Spotify = $_POST['Spotify'];
+            $Merch_image = $_POST['Merch_image'];
+            $Merch_link = $_POST['Merch_link'];
+            $Headline = $_POST['Headline'];
+            $About = $_POST['About']; 
+            $Featured_song = $_POST['Featured_song'];
+            $Featured_music = $_POST['Featured_music'];
+            $Featured_album = $_POST['Featured_album'];
+            $Soundcloud = $_POST['Soundcloud'];
+            $Twitter = $_POST['Twitter'];
+            $Community = $_POST['Community'];
+            $Facebook = $_POST['Facebook'];
+            $Podcast = $_POST['Podcast'];
+            $Mailing_list = $_POST['Mailing_list'];
+            $Tiktok = $_POST['Tiktok'];
+            $Bandcamp = $_POST['Bandcamp'];
+            $Patreon = $_POST['Patreon'];
+            $LinkedIn = $_POST['LinkedIn'];
     
-    $query = "UPDATE view_all_artists SET Name='{$Name}', Email='{$Email}', Roles='{$Roles}',Offerings='{$Offerings}',Interview_link='{$Interview_link}',Location='{$Location}',Home_town='{$Home_town}',Birth_place='{$Birth_place}',Instagram='{$Instagram}',Youtube='{$Youtube}',Spotify='{$Spotify}',Merch_image='{$Merch_image}',Merch_link='{$Merch_link}',Headline='{$Headline}',About='{$About}',Featured_song='{$Featured_song}',Featured_music='{$Featured_music}',Featured_album='{$Featured_album}',Soundcloud='{$Soundcloud}',Twitter='{$Twitter}',Community='{$Community}',Facebook='{$Facebook}',Podcast='{$Podcast}',Mailing_list='{$Mailing_list}',Tiktok='{$Tiktok}',Bandcamp='{$Bandcamp}',Patreon='{$Patreon}',LinkedIn='{$LinkedIn}' WHERE Email = '{$Email}' ";
+    $query = "UPDATE view_all_artists SET Email='{$Email}',Name='{$Name}', Roles='{$Roles}',Offerings='{$Offerings}',Interview_link='{$Interview_link}',Location='{$Location}',Home_town='{$Home_town}',Birth_place='{$Birth_place}',Instagram='{$Instagram}',Youtube='{$Youtube}',Spotify='{$Spotify}',Merch_image='{$Merch_image}',Merch_link='{$Merch_link}',Headline='{$Headline}',About='{$About}',Featured_song='{$Featured_song}',Featured_music='{$Featured_music}',Featured_album='{$Featured_album}',Soundcloud='{$Soundcloud}',Twitter='{$Twitter}',Community='{$Community}',Facebook='{$Facebook}',Podcast='{$Podcast}',Mailing_list='{$Mailing_list}',Tiktok='{$Tiktok}',Bandcamp='{$Bandcamp}',Patreon='{$Patreon}',LinkedIn='{$LinkedIn}' WHERE Email = '{$Email}' ";
     
-          $update_profile_query=mysqli_query($connection,$query);
-                  if(!$update_profile_query) {
+          $update_Artist_query=mysqli_query($connection,$query);
+                  if(!$update_Artist_query) {
                     die("Query Failed" . mysqli_error($connection));
               }
             
           
            header("Location:Artists_profile.php"); 
               
-         } 
+          } 
+       
 
  ?>     
 
@@ -335,7 +338,7 @@ img {
                     <span style="font-weight: 700;">Instagram: </span>
                     <div><input type="text" value="<?php echo $Instagram; ?>" class="form-control" name="Instagram"></div>
                     <span style="font-weight: 700;">Youtube: </span>
-                    <div><input type="text" id="vid" value="<?php echo $youtube; ?><?php echo $text;?>"class="form-control" name="Youtube"></div>
+                    <div><input type="text" id="vid" value="<?php echo $Youtube; ?><?php echo $text;?>"class="form-control" name="Youtube"></div>
                     <span style="font-weight: 700;">Spotify: </span>
                     <div><input type="text" value="<?php echo $Spotify; ?>" class="form-control" name="Spotify"></div>
                     <span style="font-weight: 700;">Merch_image: </span>
