@@ -12,7 +12,7 @@
     <meta name="keywords" content="Profile">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>View Artist</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="View_All_Artists.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -387,13 +387,13 @@
             <div class="u-container-style u-custom-item u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-1">
                 <!-- <h6 class="u-text u-text-2">Sample Headline</h6> -->
-                <!-- <h6 class="u-text u-text-2"><?php //echo $Name ?></h6> -->
+                <h6 class="u-text u-text-2"><?php echo $Name ?></h6>
                 <img class="u-expanded-width u-image u-image-round u-radius-10 u-image-1" src="images/ome-serious-unshaven-male-keeps-hands-together-dressed-dark-blue-shirt-has-talk-with-interlocutor-stands-against-white-wall.jpg" alt="" data-image-width="626" data-image-height="417">
                  
                 <!-- <img class="u-expanded-width u-image u-image-round u-radius-10 u-image-1" src="<?php echo $Merch_image ?>" alt="" data-image-width="626" data-image-height="417"> -->
                 <!-- <h6 class="u-text u-text-3">Sample Headline</h6> -->
 
-                <h6 class="u-text-3"style="color:#037bfc"><a href="Artists_Profile.php">View Artist</a></h6>
+                <h6 class="u-text u-text-3"><?php echo $Headline ?></h6>
 
                 <!-- <p class="u-small-text u-text u-text-variant u-text-4">Sample text. Click to select the text box. Click again or double click to start editing the text.</p> -->
                 <p class="u-small-text u-text u-text-variant u-text-4"><?php echo $About ?></p>
@@ -410,85 +410,151 @@
   }else{
 
 
-       $query = "SELECT * FROM view_all_artists WHERE user_id='1' ";
-       $artist_id = mysqli_query($connection,$query);
+//        $query = "SELECT * FROM view_all_artists WHERE user_id='1' ";
+//        $artist_id = mysqli_query($connection,$query);
 
-        while($row=mysqli_fetch_array($artist_id)){
+//         while($row=mysqli_fetch_array($artist_id)){
 
-            $user_id=$row['user_id'];
-            $Name=$row['Name'];
-            $Email=$row['Email'];
-            $Roles=$row['Roles'];
-            $Offerings=$row['Offerings'];
-            $Interview_link=$row['Interview_link'];
-            $Location=$row['Location'];
-            $About=$row['About'];
-            $Merch_image=$row['Merch_image'];
+//             $user_id=$row['user_id'];
+//             $Name=$row['Name'];
+//             $Email=$row['Email'];
+//             $Roles=$row['Roles'];
+//             $Offerings=$row['Offerings'];
+//             $Interview_link=$row['Interview_link'];
+//             $Location=$row['Location'];
+//             $About=$row['About'];
 
-              if($Name === $row['Name'])
-              {
-                $_SESSION['Name'] = $row['Name'];
-              }
-
-}
+// }
 
 ?>
 
-    <div class="u-list u-list-1">
-       <div class="u-repeater u-repeater-1">
-            <div class="u-container-style u-custom-item u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-1"> 
-                <!-- <img class="u-expanded-width u-image u-image-round u-radius-10 u-image-1" src="images/ome-serious-unshaven-male-keeps-hands-together-dressed-dark-blue-shirt-has-talk-with-interlocutor-stands-against-white-wall.jpg" alt="" data-image-width="626" data-image-height="417"> -->
-                <!-- <h6 class="u-text u-text-3">Artist Name</h6> -->
-               <!--  <h6 class="u-text-3"style="color:#037bfc"><a href="Artists_Profile.php">View Artist</a></h6>
-                <p class="u-small-text u-text u-text-variant u-text-4">Sample text. Click to select the text box. Click again or double click to start editing the text.</p> -->
-                <img class="u-expanded-width u-image u-image-round u-radius-10 u-image-1" src="<?php echo $Merch_image ?>" alt="" data-image-width="626" data-image-height="417">
-                <h6 class="u-text-3"style="color:#037bfc"><a href="Artists_Profile.php">View Artist</a></h6>
-                <p class="u-small-text u-text u-text-variant u-text-4"><?php echo $About ; ?></p>
+    <section class="u-clearfix u-section-1" id="sec-6468">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-expanded-width u-layout-grid u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <div class="u-video u-video-contain u-video-1">
+                  <div class="embed-responsive embed-responsive-1">
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
+                  </div>
+                </div>
+                <h4 class="u-text u-text-default u-text-1">Kayle James</h4>
               </div>
             </div>
-            <div class="u-container-style u-custom-item u-list-item u-repeater-item">
+            <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-2">
-                <img class="u-expanded-width u-image u-image-round u-radius-10 u-image-2" src="images/ome-serious-unshaven-male-keeps-hands-together-dressed-dark-blue-shirt-has-talk-with-interlocutor-stands-against-white-wall.jpg" alt="" data-image-width="626" data-image-height="417">
-                <!-- <h6 class="u-text u-text-6">Artist Name</h6> -->
-                <h6 class="u-text-3"style="color:#037bfc"><a href="Artists_Profile.php">View Artist</a></h6>
-                <p class="u-small-text u-text u-text-variant u-text-7">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                <div class="u-video u-video-contain u-video-2">
+                  <div class="embed-responsive embed-responsive-2">
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
+                  </div>
+                </div>
+                <h4 class="u-text u-text-default u-text-2">Sedia B</h4>
               </div>
             </div>
-            <div class="u-container-style u-custom-item u-list-item u-repeater-item">
+            <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-3">
-                <img class="u-expanded-width u-image u-image-round u-radius-10 u-image-3" src="images/ome-serious-unshaven-male-keeps-hands-together-dressed-dark-blue-shirt-has-talk-with-interlocutor-stands-against-white-wall.jpg" alt="" data-image-width="626" data-image-height="417">
-                <!-- <h6 class="u-text u-text-9">Artist Name</h6> -->
-                <h6 class="u-text-3"style="color:#037bfc"><a href="Artists_Profile.php">View Artist</a></h6>
-                <p class="u-small-text u-text u-text-variant u-text-10">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                <div class="u-video u-video-contain u-video-3">
+                  <div class="embed-responsive embed-responsive-3">
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
+                  </div>
+                </div>
+                <h4 class="u-text u-text-default u-text-3">Kid Rohan</h4>
               </div>
             </div>
-            <div class="u-container-style u-custom-item u-list-item u-repeater-item">
+            <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-4">
-                <img class="u-expanded-width u-image u-image-round u-radius-10 u-image-4" src="images/ome-serious-unshaven-male-keeps-hands-together-dressed-dark-blue-shirt-has-talk-with-interlocutor-stands-against-white-wall.jpg" alt="" data-image-width="626" data-image-height="417">
-                <!-- <h6 class="u-text u-text-12">Artist Name</h6> -->
-                <h6 class="u-text-3"style="color:#037bfc"><a href="Artists_Profile.php">View Artist</a></h6>
-                <p class="u-small-text u-text u-text-variant u-text-13">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                <div class="u-video u-video-contain u-video-4">
+                  <div class="embed-responsive embed-responsive-4">
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
+                  </div>
+                </div>
+                <h4 class="u-text u-text-default u-text-4">David Prorok</h4>
               </div>
             </div>
-            <div class="u-container-style u-custom-item u-list-item u-repeater-item">
+            <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-5">
-                <img class="u-expanded-width u-image u-image-round u-radius-10 u-image-5" src="images/ome-serious-unshaven-male-keeps-hands-together-dressed-dark-blue-shirt-has-talk-with-interlocutor-stands-against-white-wall.jpg" alt="" data-image-width="626" data-image-height="417">
-                <!-- <h6 class="u-text u-text-15">Artist Name</h6> -->
-                <h6 class="u-text-3"style="color:#037bfc"><a href="Artists_Profile.php">View Artist</a></h6>
-                <p class="u-small-text u-text u-text-variant u-text-16">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                <div class="u-video u-video-contain u-video-5">
+                  <div class="embed-responsive embed-responsive-5">
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
+                  </div>
+                </div>
+                <h4 class="u-text u-text-default u-text-5">Zhe the Free</h4>
               </div>
             </div>
-            <div class="u-container-style u-custom-item u-list-item u-repeater-item">
+            <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-6">
-                <img class="u-expanded-width u-image u-image-round u-radius-10 u-image-6" src="images/ome-serious-unshaven-male-keeps-hands-together-dressed-dark-blue-shirt-has-talk-with-interlocutor-stands-against-white-wall.jpg" alt="" data-image-width="626" data-image-height="417">
-                <!-- <h6 class="u-text u-text-18">Artist Name</h6> -->
-                <h6 class="u-text-3"style="color:#037bfc"><a href="Artists_Profile.php">View Artist</a></h6>
-                <p class="u-small-text u-text u-text-variant u-text-16">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                <div class="u-video u-video-contain u-video-6">
+                  <div class="embed-responsive embed-responsive-6">
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
+                  </div>
+                </div>
+                <h4 class="u-text u-text-default u-text-6">Sample Headline</h4>
               </div>
             </div>
-       </div>
-    </div>
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-7">
+                <div class="u-video u-video-contain u-video-7">
+                  <div class="embed-responsive embed-responsive-7">
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
+                  </div>
+                </div>
+                <h4 class="u-text u-text-default u-text-7">Sample Headline</h4>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-8">
+                <div class="u-video u-video-contain u-video-8">
+                  <div class="embed-responsive embed-responsive-8">
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
+                  </div>
+                </div>
+                <h4 class="u-text u-text-default u-text-8">Sample Headline</h4>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-9">
+                <div class="u-video u-video-contain u-video-9">
+                  <div class="embed-responsive embed-responsive-9">
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
+                  </div>
+                </div>
+                <h4 class="u-text u-text-default u-text-9">Sample Headline</h4>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-10">
+                <div class="u-video u-video-contain u-video-10">
+                  <div class="embed-responsive embed-responsive-10">
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
+                  </div>
+                </div>
+                <h4 class="u-text u-text-default u-text-10">Sample Headline</h4>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-11">
+                <div class="u-video u-video-contain u-video-11">
+                  <div class="embed-responsive embed-responsive-11">
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
+                  </div>
+                </div>
+                <h4 class="u-text u-text-default u-text-11">Sample Headline</h4>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-12">
+                <div class="u-video u-video-contain u-video-12">
+                  <div class="embed-responsive embed-responsive-12">
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
+                  </div>
+                </div>
+                <h4 class="u-text u-text-default u-text-12">Sample Headline</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 <?php
 
   }

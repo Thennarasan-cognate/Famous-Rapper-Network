@@ -157,188 +157,109 @@ img {
           </div>
         </nav>
       </div></header>
-    <section class="u-align-right u-clearfix u-gradient u-section-1" id="carousel_8813">
-      <div class="u-clearfix u-sheet u-sheet-1">
+    <section class="u-align-right u-clearfix u-white u-section-1" id="carousel_8813">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="u-align-left u-container-style u-group u-group-1">
-          <div class="u-container-layout u-valign-middle u-container-layout-1">
-            <h3 class="u-custom-font u-text u-text-body-alt-color u-text-font u-text-1">Become a Creator</h3>
-            <h1 class="u-text u-text-body-alt-color u-title u-text-2">
-              <a href="https://mim.org/galleries/special-exhibitions/the-electric-guitar-inventing-an-american-icon/" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://mim.org/galleries/special-exhibitions/the-electric-guitar-inventing-an-american-icon/&amp;ved=2ahUKEwjL-aj21PXlAhWhw6YKHYk3CGIQFjALegQIABAB">S</a>hare<br>Your<br>Passion 
-            </h1>
-            <a href="Register-Member.php" data-page-id="867430778" class="u-btn u-btn-round u-button-style u-palette-4-base u-radius-27 u-text-body-alt-color u-btn-1">Become a creator</a>
+          <div class="u-container-layout u-container-layout-1">
+            <h1 class="u-text u-text-palette-5-dark-2 u-title u-text-1" data-animation-name="flipIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="X">Meet The Human Behind The Music </h1>
+            <a href="Register-Member.html" data-page-id="867430778" class="u-border-none u-btn u-btn-round u-button-style u-palette-1-base u-radius-27 u-text-body-alt-color u-btn-1">Register HERE</a>
           </div>
         </div>
-        <img class="u-image u-image-default u-image-1" src="images/4ce0350cf08d3dd58eedeff0e68bed2cdf468ac7a746a7d6192cb370c35b4e70618d38d0af42f2c0f5767141389bf59e6f76e04488869cad68a2a8_1280.jpg" alt="" data-image-width="1280" data-image-height="853" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="Down">
       </div>
     </section>
-    <section class="u-clearfix u-gradient u-section-2" id="sec-af57">
-      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+    <section class="u-clearfix u-section-2" id="sec-f937">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-align-center u-text u-text-1">Discover and Support Our Featured Artists&nbsp;</h2>
+        <a href="View_All_Artists.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-1">View All</a>
         <div class="u-expanded-width u-layout-horizontal u-list u-list-1">
           <div class="u-repeater u-repeater-1">
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
-                <div alt="" class="u-image u-image-circle u-image-1" data-image-width="900" data-image-height="900" data-animation-name="fadeIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="Down"></div>
-                <h1 class="u-text u-text-body-alt-color u-text-default u-title u-text-1">David Prorok</h1>
-                <p class="u-text u-text-body-alt-color u-text-2"> An Ex-Facebook Software Engineer exploring the peaks of human experience through connection and collaboration. The most authentic and genuine person you'll meet online. On a mission to teach a billion people how to freestyle rap.</p>
-                <a href="" class="u-active-none u-border-2 u-border-hover-palette-2-base u-border-palette-2-light-1 u-btn u-button-style u-hover-none u-none u-text-body-alt-color u-btn-1">learn more</a>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2">
-                <div alt="" class="u-image u-image-circle u-image-2" data-image-width="900" data-image-height="900" data-animation-name="fadeIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="Down"></div>
-                <h1 class="u-text u-text-body-alt-color u-text-default u-title u-text-3"> David Prorok</h1>
-                <p class="u-text u-text-body-alt-color u-text-4">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-                <a href="" class="u-active-none u-border-2 u-border-hover-palette-2-base u-border-palette-2-light-1 u-btn u-button-style u-hover-none u-none u-text-body-alt-color u-btn-2">learn more</a>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
-                <div alt="" class="u-image u-image-circle u-image-3" data-image-width="900" data-image-height="900" data-animation-name="fadeIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="Down"></div>
-                <h1 class="u-text u-text-body-alt-color u-text-default u-title u-text-5"> David Prorok</h1>
-                <p class="u-text u-text-body-alt-color u-text-6">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-                <a href="" class="u-active-none u-border-2 u-border-hover-palette-2-base u-border-palette-2-light-1 u-btn u-button-style u-hover-none u-none u-text-body-alt-color u-btn-3">learn more</a>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4">
-                <div alt="" class="u-image u-image-circle u-image-4" data-image-width="900" data-image-height="900" data-animation-name="fadeIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="Down"></div>
-                <h1 class="u-text u-text-body-alt-color u-text-default u-title u-text-7"> David Prorok</h1>
-                <p class="u-text u-text-body-alt-color u-text-8">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-                <a href="" class="u-active-none u-border-2 u-border-hover-palette-2-base u-border-palette-2-light-1 u-btn u-button-style u-hover-none u-none u-text-body-alt-color u-btn-4">learn more</a>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-5">
-                <div alt="" class="u-image u-image-circle u-image-5" data-image-width="900" data-image-height="900" data-animation-name="fadeIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="Down"></div>
-                <h1 class="u-text u-text-body-alt-color u-text-default u-title u-text-9"> David Prorok</h1>
-                <p class="u-text u-text-body-alt-color u-text-10">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-                <a href="" class="u-active-none u-border-2 u-border-hover-palette-2-base u-border-palette-2-light-1 u-btn u-button-style u-hover-none u-none u-text-body-alt-color u-btn-5">learn more</a>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-6">
-                <div alt="" class="u-image u-image-circle u-image-6" data-image-width="900" data-image-height="900" data-animation-name="fadeIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="Down"></div>
-                <h1 class="u-text u-text-body-alt-color u-text-default u-title u-text-11"> David Prorok</h1>
-                <p class="u-text u-text-body-alt-color u-text-12">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-                <a href="" class="u-active-none u-border-2 u-border-hover-palette-2-base u-border-palette-2-light-1 u-btn u-button-style u-hover-none u-none u-text-body-alt-color u-btn-6">learn more</a>
-              </div>
-            </div>
-          </div>
-          <a class="u-absolute-vcenter u-gallery-nav u-gallery-nav-prev u-grey-70 u-icon-circle u-opacity u-opacity-70 u-spacing-10 u-text-body-alt-color u-gallery-nav-1" href="#" role="button">
-            <span aria-hidden="true">
-              <svg viewBox="0 0 451.847 451.847"><path d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
-c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
-c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path></svg>
-            </span>
-            <span class="sr-only">
-              <svg viewBox="0 0 451.847 451.847"><path d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
-c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
-c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path></svg>
-            </span>
-          </a>
-          <a class="u-absolute-vcenter u-gallery-nav u-gallery-nav-next u-grey-70 u-icon-circle u-opacity u-opacity-70 u-spacing-10 u-text-body-alt-color u-gallery-nav-2" href="#" role="button">
-            <span aria-hidden="true">
-              <svg viewBox="0 0 451.846 451.847"><path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
-L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
-c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></svg>
-            </span>
-            <span class="sr-only">
-              <svg viewBox="0 0 451.846 451.847"><path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
-L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
-c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></svg>
-            </span>
-          </a>
-        </div>
-      </div>
-    </section>
-    <section class="u-clearfix u-gradient u-section-3" id="sec-d468">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
-          <div class="u-layout" style="">
-            <div class="u-layout-row" style="">
-              <div class="u-align-center u-container-style u-layout-cell u-left-cell u-shape-rectangle u-size-30 u-size-xs-60 u-layout-cell-1" src="">
-                <div class="u-container-layout u-container-layout-1"><span class="u-icon u-icon-circle u-palette-1-base u-spacing-10 u-icon-1">
-                <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 32 32" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-1755"></use></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 32 32" id="svg-1755"><g><path d="M20.388,10.918L32,12.118l-8.735,7.749L25.914,31.4l-9.893-6.088L6.127,31.4l2.695-11.533L0,12.118 l11.547-1.2L16.026,0.6L20.388,10.918z"></path>
-</g></svg>
-              </span>
-                  <h2 class="u-text u-text-body-alt-color u-text-1"> Broadcast your passion with ease</h2>
-                  <h2 class="u-subtitle u-text u-text-body-alt-color u-text-2"> One platform to host your content, smart-schedule live sessions, and securely accept payments with a personal landing page.</h2>
-                  <a href="" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-btn-1">learn more</a>
-                </div>
-              </div>
-              <div class="u-align-center u-container-style u-layout-cell u-right-cell u-size-30 u-size-xs-60 u-layout-cell-2" src="">
-                <div class="u-container-layout u-container-layout-2" src="">
-                  <div class="u-image u-image-circle u-image-1" data-image-width="1280" data-image-height="854"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="u-clearfix u-gradient u-section-4" id="sec-af9a">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
-          <div class="u-layout">
-            <div class="u-layout-row">
-              <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-20 u-layout-cell-1" src="">
-                <div class="u-container-layout u-valign-middle u-container-layout-1">
-                  <div class="u-image u-image-circle u-image-1" alt="" data-image-width="1280" data-image-height="807"></div>
-                </div>
-              </div>
-              <div class="u-align-left u-container-style u-layout-cell u-right-cell u-shape-rectangle u-size-40 u-layout-cell-2">
-                <div class="u-container-layout u-valign-middle u-container-layout-2">
-                  <h2 class="u-text u-text-body-alt-color u-text-1"> Join a thriving community</h2>
-                  <p class="u-text u-text-body-alt-color u-text-2">Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
-                  <a href="#" class="u-btn u-button-style u-btn-1">read more</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="u-clearfix u-gradient u-section-5" id="sec-3a1d">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-clearfix u-gutter-30 u-layout-wrap u-layout-wrap-1">
-          <div class="u-layout">
-            <div class="u-layout-row">
-              <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-video u-video-1">
-                <div class="u-background-video u-expanded" style="">
+            <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-1">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <div class="u-video u-video-contain u-video-1">
                   <div class="embed-responsive embed-responsive-1">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1" frameborder="0" allowfullscreen=""></iframe>
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=1&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
                   </div>
                 </div>
-                <div class="u-container-layout u-container-layout-1">
-                  <div class="u-align-left u-expanded u-video">
-                    <div class="embed-responsive embed-responsive-2">
-                      <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="2222" frameborder="0" allowfullscreen=""></iframe>
-                    </div>
-                  </div>
-                </div>
+                <h3 class="u-text u-text-2">Kyle&nbsp;<br>James
+                </h3>
+                <a href="https://nicepage.com/k/test-website-templates" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-2">View Full Profile</a>
               </div>
-              <div class="u-align-left u-container-style u-layout-cell u-size-30 u-video u-video-3">
-                <div class="u-background-video u-expanded" style="">
+            </div>
+            <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-2">
+              <div class="u-container-layout u-similar-container u-container-layout-2">
+                <div class="u-video u-video-contain u-video-2">
+                  <div class="embed-responsive embed-responsive-2">
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=1&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
+                  </div>
+                </div>
+                <h3 class="u-text u-text-3"> Kid&nbsp;<br>Rohan
+                </h3>
+                <a href="https://nicepage.com/k/test-website-templates" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-3">View Full Profile</a>
+              </div>
+            </div>
+            <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-3">
+              <div class="u-container-layout u-similar-container u-container-layout-3">
+                <div class="u-video u-video-contain u-video-3">
                   <div class="embed-responsive embed-responsive-3">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1" frameborder="0" allowfullscreen=""></iframe>
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=1&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
                   </div>
                 </div>
-                <div class="u-container-layout u-container-layout-2">
-                  <div class="u-align-left u-expanded u-video">
-                    <div class="embed-responsive embed-responsive-4">
-                      <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="1111" frameborder="0" allowfullscreen=""></iframe>
-                    </div>
+                <h3 class="u-text u-text-4">David&nbsp;<br>Prorok
+                </h3>
+                <a href="https://nicepage.com/k/test-website-templates" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-4">View Full Profile</a>
+              </div>
+            </div>
+            <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-4">
+              <div class="u-container-layout u-similar-container u-container-layout-4">
+                <div class="u-video u-video-contain u-video-4">
+                  <div class="embed-responsive embed-responsive-4">
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=1&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
                   </div>
                 </div>
+                <h3 class="u-text u-text-5">Zhe&nbsp;<br>The Free
+                </h3>
+                <a href="https://nicepage.com/k/test-website-templates" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-5">View Full Profile</a>
+              </div>
+            </div>
+            <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-5">
+              <div class="u-container-layout u-similar-container u-container-layout-5">
+                <div class="u-video u-video-contain u-video-5">
+                  <div class="embed-responsive embed-responsive-5">
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=1&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
+                  </div>
+                </div>
+                <h3 class="u-text u-text-6">Sample Headline</h3>
+                <a href="https://nicepage.com/k/test-website-templates" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-6">Hyperlink</a>
               </div>
             </div>
           </div>
+          <a class="u-absolute-vcenter u-gallery-nav u-gallery-nav-prev u-icon-rounded u-opacity u-opacity-70 u-palette-1-base u-spacing-10 u-gallery-nav-1" href="#" role="button">
+            <span aria-hidden="true">
+              <svg viewBox="0 0 451.847 451.847"><path d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
+c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
+c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path></svg>
+            </span>
+            <span class="sr-only">
+              <svg viewBox="0 0 451.847 451.847"><path d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
+c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
+c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path></svg>
+            </span>
+          </a>
+          <a class="u-absolute-vcenter u-gallery-nav u-gallery-nav-next u-icon-rounded u-opacity u-opacity-70 u-palette-1-base u-spacing-10 u-gallery-nav-2" href="#" role="button">
+            <span aria-hidden="true">
+              <svg viewBox="0 0 451.846 451.847"><path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
+L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
+c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></svg>
+            </span>
+            <span class="sr-only">
+              <svg viewBox="0 0 451.846 451.847"><path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
+L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
+c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></svg>
+            </span>
+          </a>
         </div>
       </div>
     </section>
-    
-    
     <footer class="u-clearfix u-footer" id="sec-ff43"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="u-align-left u-social-icons u-spacing-10 u-social-icons-1">
           <a class="u-social-url" title="facebook" target="_blank" href=""><span class="u-icon u-social-facebook u-social-icon u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-12fb"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-12fb"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M73.5,31.6h-9.1c-1.4,0-3.6,0.8-3.6,3.9v8.5h12.6L72,58.3H60.8v40.8H43.9V58.3h-8V43.9h8v-9.2
