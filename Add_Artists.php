@@ -1,9 +1,10 @@
 <?php session_start(); ?>
 <?php include "db.php"; ?>
+
 <?php 
 
      if(isset($_POST['submit'])){
-         
+
         $Name=$_POST['Name'];
         $Email=$_POST['Email'];
         $Roles=$_POST['Roles'];
@@ -66,7 +67,7 @@
          // $_SESSION['Artist_status'] = "Artist Added Successfully";
 
 
-         $_SESSION['Name'] = $Name;   
+         $_SESSION['Name'] = $Name; 
            
               header("Location:Artists_profile.php");
  }

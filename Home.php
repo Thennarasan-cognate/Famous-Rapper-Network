@@ -162,7 +162,7 @@ img {
         <div class="u-align-left u-container-style u-group u-group-1">
           <div class="u-container-layout u-container-layout-1">
             <h1 class="u-text u-text-palette-5-dark-2 u-title u-text-1" data-animation-name="flipIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="X">Meet The Human Behind The Music </h1>
-            <a href="Register-Member.html" data-page-id="867430778" class="u-border-none u-btn u-btn-round u-button-style u-palette-1-base u-radius-27 u-text-body-alt-color u-btn-1">Register HERE</a>
+            <a href="Register-Member.php" data-page-id="867430778" class="u-border-none u-btn u-btn-round u-button-style u-palette-1-base u-radius-27 u-text-body-alt-color u-btn-1">Register HERE</a>
           </div>
         </div>
       </div>
@@ -177,7 +177,7 @@ img {
 <?php
 
 
-       $query = "SELECT * FROM view_all_artists WHERE user_id = '1' ";
+       $query = "SELECT * FROM view_all_artists ";
        $artist_id = mysqli_query($connection,$query);
 
         while($row=mysqli_fetch_array($artist_id)){
@@ -190,12 +190,12 @@ img {
             $db_Interview_link=$row['Interview_link'];
             $db_Location=$row['Location'];
             $db_About=$row['About'];
+            $db_Youtube=$row['Youtube'];
+
+        $_SESSION['Name'] = $db_Name;
 
 
-       $_SESSION['Name'] = $db_Name;
-
-
-}
+  $youtube2 = preg_replace("/https:\/\/\www.youtube.com\/watch\?v=/" , "", $db_Youtube);
 
 ?>
 
@@ -205,16 +205,20 @@ img {
               <div class="u-container-layout u-similar-container u-container-layout-1">
                 <div class="u-video u-video-contain u-video-1">
                   <div class="embed-responsive embed-responsive-1">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=1&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
+                   <!--  <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=1&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe> -->
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $youtube2; ?>?autoplay=1&mute=0"></iframe>
                   </div>
                 </div>
-                <h3 class="u-text u-text-2">Kyle&nbsp;<br>James
+                <h3 class="u-text u-text-2"><?php echo $db_Name; ?>
                 </h3>
                 <a href="Artists_profile.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-2">View Full Profile</a>
               </div>
             </div>
 
-            <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-2">
+<?php } ?>
+
+
+           <!--  <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-2">
               <div class="u-container-layout u-similar-container u-container-layout-2">
                 <div class="u-video u-video-contain u-video-2">
                   <div class="embed-responsive embed-responsive-2">
@@ -225,9 +229,9 @@ img {
                 </h3>
                 <a href="Artists_profile.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-3">View Full Profile</a>
               </div>
-            </div>
+            </div> -->
 
-            <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-3">
+            <!-- <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-3">
               <div class="u-container-layout u-similar-container u-container-layout-3">
                 <div class="u-video u-video-contain u-video-3">
                   <div class="embed-responsive embed-responsive-3">
@@ -238,9 +242,9 @@ img {
                 </h3>
                 <a href="Artists_profile.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-4">View Full Profile</a>
               </div>
-            </div>
+            </div> -->
 
-            <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-4">
+            <!-- <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-4">
               <div class="u-container-layout u-similar-container u-container-layout-4">
                 <div class="u-video u-video-contain u-video-4">
                   <div class="embed-responsive embed-responsive-4">
@@ -252,8 +256,8 @@ img {
                 <a href="Artists_profile.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-5">View Full Profile</a>
               </div>
             </div>
-
-            <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-5">
+ -->
+           <!--  <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-5">
               <div class="u-container-layout u-similar-container u-container-layout-5">
                 <div class="u-video u-video-contain u-video-5">
                   <div class="embed-responsive embed-responsive-5">
@@ -263,7 +267,7 @@ img {
                 <h3 class="u-text u-text-6">Sample Headline</h3>
                 <a href="Artists_profile.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-6">Hyperlink</a>
               </div>
-            </div>
+            </div> -->
             
           </div>
           <a class="u-absolute-vcenter u-gallery-nav u-gallery-nav-prev u-icon-rounded u-opacity u-opacity-70 u-palette-1-base u-spacing-10 u-gallery-nav-1" href="#" role="button">
