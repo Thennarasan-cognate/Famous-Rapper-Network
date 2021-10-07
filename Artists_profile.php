@@ -3,15 +3,12 @@
 
 <?php
 
-  // if(isset($_SESSION['Name'])){
- //  $Name =  $_SESSION['Name'];
-
  if(isset($_GET['Artists_profile'])){
-           
-        $the_user_id = $_GET['Artists_profile'];
-        $Name = $_GET['Artists_profile'];
 
-     $query="SELECT * FROM view_all_artists WHERE user_id = $the_user_id OR Name = $Name ";
+        $the_user_id = $_GET['Artists_profile'];
+
+      $query="SELECT * FROM view_all_artists WHERE user_id = $the_user_id ";
+
      $select_view_all_artists_Artists_profile = mysqli_query($connection,$query);
 
       

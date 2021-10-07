@@ -3,9 +3,6 @@
  
 <?php
 
- // if(isset($_SESSION['Name'])){
- //  $Name =  $_SESSION['Name'];
-
     if(isset($_GET['EditArtists_profile'])){
            
         $the_user_id = $_GET['EditArtists_profile'];  
@@ -280,7 +277,7 @@ img {
               <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-video u-video-1">
                 <!-- <div class="u-background-video u-expanded" style=""> -->
                   <div class="embed-responsive embed-responsive-1">
-                    
+
                    <?php 
 
                        $Youtube2 = preg_replace("/https:\/\/\www.youtube.com\/watch\?v=/" , "", $Youtube);

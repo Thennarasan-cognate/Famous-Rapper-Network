@@ -55,7 +55,7 @@
         }else {
 
         $query = "INSERT INTO view_all_artists(Name, Email, Roles, Offerings, Interview_link, Location, Home_town, Birth_place, Instagram, Youtube, Spotify, Merch_image, Merch_link, Headline, About, Featured_song, Featured_music, Featured_album, Soundcloud, Twitter, Community, Facebook, Podcast, Mailing_list, Tiktok, Bandcamp, Patreon, LinkedIn)";
-        $query .= "VALUES ('$Name', '$Email', '$Roles', '$Offerings', '$Interview_link', '$Location', '$Home_town', '$Birth_place', '$Instagram', '$Youtube', '$Spotify', '$Merch_image', '$Merch_link', '$Headline', '$About', '$Featured_song', '$Featured_music', '$Featured_album', '$Soundcloud', '$Twitter', '$Community', '$Facebook', '$Podcast', '$Mailing_list', '$Tiktok', '$Bandcamp', '$Patreon', '$LinkedIn')";
+        $query .= "VALUES ('$Name', '$Email', '$Roles', '$Offerings', '$Interview_link', '$Location', '$Home_town', '$Birth_place', '$Instagram', 'https://www.youtube.com/watch?v=B9YKnNtFqds', '$Spotify', '$Merch_image', '$Merch_link', '$Headline', '$About', '$Featured_song', '$Featured_music', '$Featured_album', '$Soundcloud', '$Twitter', '$Community', '$Facebook', '$Podcast', '$Mailing_list', '$Tiktok', '$Bandcamp', '$Patreon', '$LinkedIn')";
              
         $artist_query = mysqli_query($connection,$query);
       
@@ -63,13 +63,10 @@
             
             die("Query Failed" . mysqli_error($connection) .' '. mysqli_error($connection));
         }
-          
-         // $_SESSION['Artist_status'] = "Artist Added Successfully";
-
 
          // $_SESSION['Name'] = $Name; 
            
-              header("Location:Artists_profile.php?Artists_profile=$Name");
+                header("Location:Artists_profile.php?Artists_profile=$user_id");
  }            
 
 }

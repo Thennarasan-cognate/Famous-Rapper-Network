@@ -228,7 +228,7 @@
                         } 
                        
                         $locate=$_POST['Location'];
-                        echo "<option value='$locate'>$locate</option>";
+                        echo "<option selected value='$locate'>Select Location</option>";
 
 
                           ?>   
@@ -268,7 +268,7 @@
                         } 
                        
                         $role=$_POST['Roles'];
-                        echo "<option value='$role'>$role</option>";
+                        echo "<option selected value='$role'>Select Role</option>";
 
                           ?>   
          </select>
@@ -307,7 +307,7 @@
                         } 
                        
                         $offer=$_POST['Offerings'];
-                         echo "<option value='$offer'>$offer</option>";
+                         echo "<option selected value='$offer'>Select Offerings</option>";
 
 
                           ?>   
@@ -325,7 +325,7 @@
  if (isset($_POST['submit'])){
                 $search=$_POST['search'];
               
-              $artist="SELECT * FROM view_all_artists WHERE Name LIKE '%$search%' AND Location='$locate' AND Roles='$role'  AND Offerings='$offer' ";  
+              $artist="SELECT * FROM view_all_artists WHERE Name LIKE '%$search%' OR Roles='$role' OR Location='$locate'  OR Offerings='$offer' ";  
               $search_artist=mysqli_query($connection, $artist); 
                 
                  if(!$search_artist){
