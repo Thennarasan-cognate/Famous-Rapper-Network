@@ -387,11 +387,11 @@
 
       ?>
 
-<div class="col-md-1">
- <?php   echo "<td><a class='btn btn-primary' href='View_All_Artists.php'>Clear</a></td>";   ?>
-</div>
+<!-- <div class="col-md-1">
+ <?php   //echo "<td><a class='btn btn-primary' href='View_All_Artists.php'>Clear</a></td>";   ?>
+</div> -->
 
-     
+
             <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-1">
                 <div class="u-video u-video-contain u-video-1">
@@ -403,8 +403,6 @@
                 <h4 class="u-text u-text-default u-text-1"><?php echo $Name; ?></h4>
               </div>
             </div>
-          
-
 
 <?php 
 
@@ -436,10 +434,6 @@
 
 ?>
 
-    <!-- <section class="u-clearfix u-section-1" id="sec-6468">
-      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <div class="u-expanded-width u-layout-grid u-list u-list-1">
-          <div class="u-repeater u-repeater-1"> -->
             <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-1">
                 <div class="u-video u-video-contain u-video-1">

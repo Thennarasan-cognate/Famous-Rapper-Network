@@ -67,10 +67,10 @@
          // $_SESSION['Artist_status'] = "Artist Added Successfully";
 
 
-         $_SESSION['Name'] = $Name; 
+         // $_SESSION['Name'] = $Name; 
            
-              header("Location:Artists_profile.php");
- }
+              header("Location:Artists_profile.php?Artists_profile=$Name");
+ }            
 
 }
 

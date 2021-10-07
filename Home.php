@@ -2,7 +2,6 @@
 <?php ob_start (); ?>
 <?php include "db.php"; ?>
 
-
 <!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
@@ -63,7 +62,7 @@ img {
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1">
             <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.php" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.php" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a></li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.php" style="padding: 10px 20px;">About</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Contact.php" style="padding: 10px 20px;">Contact</a>
 </li>
 
@@ -182,7 +181,7 @@ img {
 
         while($row=mysqli_fetch_array($artist_id)){
 
-            $db_user_id=$row['user_id'];
+            $user_id=$row['user_id'];
             $db_Name=$row['Name'];
             $db_Email=$row['Email'];
             $db_Roles=$row['Roles'];
@@ -192,10 +191,11 @@ img {
             $db_About=$row['About'];
             $db_Youtube=$row['Youtube'];
 
-        $_SESSION['Name'] = $db_Name;
+        $_SESSION['user_id'] = $user_id;
 
 
   $youtube2 = preg_replace("/https:\/\/\www.youtube.com\/watch\?v=/" , "", $db_Youtube);
+
 
 ?>
 
@@ -211,7 +211,7 @@ img {
                 </div>
                 <h3 class="u-text u-text-2"><?php echo $db_Name; ?>
                 </h3>
-                <a href="Artists_profile.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-2">View Full Profile</a>
+                <?php echo "<a href='Artists_profile.php?Artists_profile={$user_id}' class='u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-2'>View Full Profile</a>" ?>
               </div>
             </div>
 

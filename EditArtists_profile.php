@@ -3,12 +3,14 @@
  
 <?php
 
- if(isset($_SESSION['Name'])){
-  $Name =  $_SESSION['Name'];
+ // if(isset($_SESSION['Name'])){
+ //  $Name =  $_SESSION['Name'];
 
-     // $Name =  $_SESSION['Name'];  
+    if(isset($_GET['EditArtists_profile'])){
            
-     $query="SELECT * FROM view_all_artists WHERE Name = '{$Name}' ";
+        $the_user_id = $_GET['EditArtists_profile'];  
+           
+     $query="SELECT * FROM view_all_artists WHERE user_id = $the_user_id ";
      $select_view_all_artists_Artists_profile = mysqli_query($connection,$query);
 
       
@@ -78,7 +80,7 @@
             $Patreon = $_POST['Patreon'];
             $LinkedIn = $_POST['LinkedIn'];
     
-    $query = "UPDATE view_all_artists SET Name='{$Name}', Email='{$Email}', Roles='{$Roles}', Offerings='{$Offerings}', Interview_link='{$Interview_link}', Location='{$Location}', Home_town='{$Home_town}', Birth_place='{$Birth_place}', Instagram='{$Instagram}', Youtube='{$Youtube}', Spotify='{$Spotify}', Merch_image='{$Merch_image}', Merch_link='{$Merch_link}', Headline='{$Headline}', About='{$About}', Featured_song='{$Featured_song}', Featured_music='{$Featured_music}', Featured_album='{$Featured_album}', Soundcloud='{$Soundcloud}', Twitter='{$Twitter}', Community='{$Community}', Facebook='{$Facebook}', Podcast='{$Podcast}', Mailing_list='{$Mailing_list}', Tiktok='{$Tiktok}', Bandcamp='{$Bandcamp}', Patreon='{$Patreon}', LinkedIn='{$LinkedIn}' WHERE Name = '{$Name}' ";
+    $query = "UPDATE view_all_artists SET Name='{$Name}', Email='{$Email}', Roles='{$Roles}', Offerings='{$Offerings}', Interview_link='{$Interview_link}', Location='{$Location}', Home_town='{$Home_town}', Birth_place='{$Birth_place}', Instagram='{$Instagram}', Youtube='{$Youtube}', Spotify='{$Spotify}', Merch_image='{$Merch_image}', Merch_link='{$Merch_link}', Headline='{$Headline}', About='{$About}', Featured_song='{$Featured_song}', Featured_music='{$Featured_music}', Featured_album='{$Featured_album}', Soundcloud='{$Soundcloud}', Twitter='{$Twitter}', Community='{$Community}', Facebook='{$Facebook}', Podcast='{$Podcast}', Mailing_list='{$Mailing_list}', Tiktok='{$Tiktok}', Bandcamp='{$Bandcamp}', Patreon='{$Patreon}', LinkedIn='{$LinkedIn}' WHERE user_id = $the_user_id ";
     
           $update_Artist_query=mysqli_query($connection,$query);
                   if(!$update_Artist_query) {
@@ -86,7 +88,7 @@
               }
             
           
-           header("Location:Artists_profile.php"); 
+           header("Location:Artists_profile.php?Artists_profile=$user_id"); 
               
           } 
        
@@ -172,7 +174,7 @@ img {
           </div>
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.php" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.php" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a></li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.php" style="padding: 10px 20px;">About</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Contact.php" style="padding: 10px 20px;">Contact</a>
 </li>
 
@@ -237,7 +239,7 @@ img {
               <div class="u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.php" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.php" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a></li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.php" style="padding: 10px 20px;">About</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.php" style="padding: 10px 20px;">Contact</a>
 </li>
 
@@ -268,7 +270,7 @@ img {
       <form action="" autocomplete="off" method="post" enctype="multipart/form-data">
        <!-- <form action="" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-8 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 50px;" redirect="true"> -->
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <h1 class="u-text u-text-1"><?php echo $_SESSION['Name'] ?></h1>
+        <h1 class="u-text u-text-1"><?php echo $Name; ?></h1>
         <p class="u-large-text u-text u-text-variant u-text-2">I'm a creative graphic designer</p>
         <div class="u-clearfix u-layout-wrap u-layout-wrap-1">
           <div class="u-gutter-0 u-layout">
@@ -278,9 +280,16 @@ img {
               <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-video u-video-1">
                 <!-- <div class="u-background-video u-expanded" style=""> -->
                   <div class="embed-responsive embed-responsive-1">
+                    
+                   <?php 
 
+                       $Youtube2 = preg_replace("/https:\/\/\www.youtube.com\/watch\?v=/" , "", $Youtube);
+                    
+                    ?>
 
-<iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src='https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1;frameborder="0" allowfullscreen="" '></iframe>
+<iframe width="420" height="345" src="https://www.youtube.com/embed/<?php echo $Youtube2; ?>?autoplay=0&mute=1"></iframe>
+
+<!-- <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src='https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1;frameborder="0" allowfullscreen="" '></iframe> -->
 
                     <!--  <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="<?php echo $youtube ?>;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1" frameborder="0" allowfullscreen=""></iframe>  -->
                   </div>
