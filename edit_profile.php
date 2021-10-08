@@ -343,40 +343,107 @@ img {
                 <div class="u-container-layout u-container-layout-3">
                   <h3 class="u-text u-text-default u-text-6">Details</h3>
                   <p class="u-text u-text-7">
-
-                    <h6 style="font-weight: 700;">First Name: </h6>
-                    <div><input type="text" value="<?php echo $firstname; ?>" class="form-control" name="firstname">
-                    <h6 style="color:#ff0000"><?php echo $message_Firstname; ?></h6></div>
-
-                    <span style="font-weight: 700;">Last Name: </span>
-                    <div><input type="text" value="<?php echo $lastname; ?>" class="form-control" name="lastname">
-                    <h6 style="color:#ff0000"><?php echo $message_Lastname; ?></h6></div>
-                    
-                    <span style="font-weight: 700;">Email: </span>
-                    <div><input type="text" value="<?php echo $email; ?>" class="form-control" name="email">
-                    <h6 style="color:#ff0000"><?php echo $message_email; ?></h6></div>
-
-                    <span style="font-weight: 700;">Mobile: </span>
-                    <div><input type="text" value="<?php echo $phone; ?>" class="form-control" name="phone">
-                    <h6 style="color:#ff0000"><?php echo $message_phone; ?></h6></div>
-
-                    <span style="font-weight: 700;">Instagram: </span>
-                    <div><input type="text" value="<?php echo $instagram; ?>" class="form-control" name="instagram"></div>
-                    
-                    <span style="font-weight: 700;">Facebook: </span>
-                    <div><input type="text" value="<?php echo $facebook; ?>" class="form-control" name="facebook"></div>
-                    
-                    <span style="font-weight: 700;">Twitter: </span>
-                    <div><input type="text" value="<?php echo $twitter; ?>" class="form-control" name="twitter"></div>
-                    
-                    <span style="font-weight: 700;">Youtube: </span>
-                    <div><input type="text" id="vid" value="<?php echo $youtube; ?><?php echo $text;?>"class="form-control" name="youtube"></div>
-                    
-                    <span style="font-weight: 700;">Age: </span>
-                    <br>22 years<br>
-                    
-                    <span style="font-weight: 700;">Location: </span>
-                    <div id="locationField"><input id="myInput" type="text" value="<?php echo $Location; ?>" class="form-control" onFocus="geolocate()" name="Location"></div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <span style="font-weight: 600;"class="col-sm-3 col-form-label">FirstName: </span>
+                         <div class="col-sm-12">
+                          <input type="text" value="<?php echo $firstname; ?>" class="form-control" name="firstname">
+                          <h6 style="color:#ff0000"><?php echo $message_firstname; ?></h6>
+                           </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">LastName: </span>
+                          <div class="col-sm-12">
+                             <input type="text" value="<?php echo $lastname; ?>" class="form-control" name="lastname">
+                             <h6 style="color:#ff0000"><?php echo $message_Lastname; ?></h6>
+                          </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <span style="font-weight: 600;"class="col-sm-3 col-form-label">Email: </span>
+                         <div class="col-sm-12">
+                          <input type="text" value="<?php echo $email; ?>" class="form-control" name="email">
+                          <h6 style="color:#ff0000"><?php echo $message_email; ?></h6>
+                           </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Mobile: </span>
+                          <div class="col-sm-12">
+                             <input type="text" value="<?php echo $phone; ?>" class="form-control" name="phone">
+                             <h6 style="color:#ff0000"><?php echo $message_phone; ?></h6>
+                          </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <span style="font-weight: 600;"class="col-sm-3 col-form-label">Instagram: </span>
+                         <div class="col-sm-12">
+                          <input type="text" value="<?php echo $instagram; ?>" class="form-control" name="instagram">
+                        </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Facebook: </span>
+                          <div class="col-sm-12">
+                             <input type="text" value="<?php echo $facebook; ?>" class="form-control" name="facebook">
+                             
+                          </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <span style="font-weight: 600;"class="col-sm-3 col-form-label">Twitter: </span>
+                         <div class="col-sm-12">
+                          <input type="text" value="<?php echo $twitter; ?>" class="form-control" name="twitter">
+                        </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Youtube: </span>
+                          <div class="col-sm-12">
+                             <input type="text" value="<?php echo $youtube; ?>" class="form-control" name="youtube">
+                             
+                          </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <span style="font-weight: 600;"class="col-sm-3 col-form-label">Age: </span>
+                         <div class="col-sm-12">
+                             <input type="text" value="<?php echo $age; ?>" class="form-control" name="age">
+                        <!-- <br>22 years<br> -->
+                         
+                        </div>
+                    </div>
+                 </div>
+               
+               <div class="col-md-6">
+                <div class="form-group row">
+                  <span style="font-weight: 600;" class="col-sm-3 col-form-label">Location: </span>
+                     <div class="col-sm-12">
+                      <input id="myInput" type="text" value="<?php echo $Location; ?>" class="form-control" onFocus="geolocate()" name="Location">
+                          </div>
+                    </div>
+                 </div>
+               </div>
+               <!-- <span style="font-weight: 700;">Location: </span>
+                    <div id="locationField"><input id="myInput" type="text" value="<?php echo $Location; ?>" class="form-control" onFocus="geolocate()" name="Location"></div> -->
                     <!-- <br>'s-Hertogenbosch, The Netherlands, Earth -->
                   </p>
                   
