@@ -339,7 +339,7 @@ img {
                <div class="col-md-6">
                   <div class="form-group row">
                      <span style="font-weight: 600;" class="col-sm-3 col-form-label">Name: </span><br>
-                        <div class="col-sm-9">
+                        <div class="col-sm-12">
                           <input type="text" value="<?php echo $Name; ?>" class="form-control" name="Name">
                         </div>
                       </div>
@@ -347,7 +347,7 @@ img {
                 <div class="col-md-6">
                    <div class="form-group row">
                       <span style="font-weight: 600;" class="col-sm-3 col-form-label" >Email: </span>
-                         <div class="col-sm-9">
+                         <div class="col-sm-12">
                           <input type="text"  value="<?php echo $Email; ?>" class="form-control" name="Email">
                          </div>
                     </div>
@@ -357,7 +357,7 @@ img {
                  <div class="col-md-6">
                     <div class="form-group row">
                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">Roles: </span>
-                          <div class="col-sm-9">
+                          <div class="col-sm-12">
                             <input type="text" value="<?php echo $Roles; ?>" class="form-control" name="Roles">
                           </div>
                     </div>
@@ -365,7 +365,7 @@ img {
                  <div class="col-md-6">
                     <div class="form-group row">
                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">Offerings: </span>
-                          <div class="col-sm-9">
+                          <div class="col-sm-12">
                              <input type="text" value="<?php echo $Offerings; ?>" class="form-control" name="Offerings">
                           </div>
                     </div>
@@ -375,7 +375,7 @@ img {
                  <div class="col-md-6">
                     <div class="form-group row">
                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">Interview_link: </span>
-                          <div class="col-sm-9">
+                          <div class="col-sm-12">
                             <input type="text" value="<?php echo $Interview_link; ?>" class="form-control" name="Interview_link">
                           </div>
                     </div>
@@ -383,7 +383,7 @@ img {
                  <div class="col-md-6">
                     <div class="form-group row">
                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">Location: </span>
-                          <div class="col-sm-9">
+                          <div class="col-sm-12">
                             <input id="myInput" type="text" value="<?php echo $Location; ?>" class="form-control" name="Location">
                           </div>
                     </div>
@@ -393,7 +393,7 @@ img {
                  <div class="col-md-6">
                     <div class="form-group row">
                         <span style="font-weight: 600;" class="col-sm-3 col-form-label">Home_town: </span>
-                           <div class="col-sm-9">
+                           <div class="col-sm-12">
                               <input type="text" value="<?php echo $Home_town; ?>" class="form-control" name="Home_town">
                            </div>
                     </div>
@@ -401,13 +401,13 @@ img {
                  <div class="col-md-6">
                     <div class="form-group row">
                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">Birth_place: </span>
-                          <div class="col-sm-9">
+                          <div class="col-sm-12">
                              <input type="text" value="<?php echo $Birth_place; ?>" class="form-control" name="Birth_place">
                           </div>
                     </div>
                  </div>
               </div>
-              <div class="row">
+                <div class="row">
                               <span style="font-weight: 600;">Instagram: </span>
                               <div><input type="text" value="<?php echo $Instagram; ?>" class="form-control" name="Instagram"></div>
                               <span style="font-weight: 600;">Youtube: </span>
