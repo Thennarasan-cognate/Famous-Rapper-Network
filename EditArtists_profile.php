@@ -408,56 +408,186 @@ img {
                  </div>
               </div>
                 <div class="row">
-                              <span style="font-weight: 600;">Instagram: </span>
-                              <div><input type="text" value="<?php echo $Instagram; ?>" class="form-control" name="Instagram"></div>
-                              <span style="font-weight: 600;">Youtube: </span>
-                              <div><input type="text" id="vid" value="<?php echo $Youtube; ?><?php echo $text;?>"class="form-control" name="Youtube"></div></div><br>
-                              <div class="row">
-                                <span style="font-weight: 600;">Spotify: </span>
-                                <div><input type="text" value="<?php echo $Spotify; ?>" class="form-control" name="Spotify"></div>
-                                <span style="font-weight: 600;">Merch_image: </span>
-                                <div><input type="text" value="<?php echo $Merch_image; ?>" class="form-control" name="Merch_image"></div></div><br>
-                                <div class="row">
-                                  <span style="font-weight: 600;">Merch_link: </span>
-                                  <div><input type="text" value="<?php echo $Merch_link; ?>" class="form-control" name="Merch_link"></div>
-                                  <span style="font-weight: 600;">Headline: </span>
-                                  <div><input type="text" value="<?php echo $Headline; ?>" class="form-control" name="Headline"></div></div><br>
-                                  <div class="row">
-                                    <span style="font-weight: 600;">About: </span>
-                                    <div><input type="text" value="<?php echo $About; ?>" class="form-control" name="About"></div>
-                                    <span style="font-weight: 600;">Featured_song: </span>
-                                    <div><input type="text" value="<?php echo $Featured_song; ?>" class="form-control" name="Featured_song"></div></div><br>
-                                    <div class="row">
-                                      <span style="font-weight: 600;">Featured_music: </span>
-                                      <div><input type="text" value="<?php echo $Featured_music; ?>" class="form-control" name="Featured_music"></div>
-                                      <span style="font-weight: 600;">Featured_album: </span>
-                                      <div><input type="text" value="<?php echo $Featured_album; ?>" class="form-control" name="Featured_album"></div></div><br>
-                                      <div class="row">
-                                        <span style="font-weight: 600;">Soundcloud: </span>
-                                        <div><input type="text" value="<?php echo $Soundcloud; ?>" class="form-control" name="Soundcloud"></div>
-                                        <span style="font-weight: 600;">Twitter: </span>
-                                        <div><input type="text" value="<?php echo $Twitter; ?>" class="form-control" name="Twitter"></div></div><br>
-                                        <div class="row">
-                                          <span style="font-weight: 600;">Community: </span>
-                                          <div><input type="text" value="<?php echo $Community; ?>" class="form-control" name="Community"></div>
-                                          <span style="font-weight: 600;">Facebook: </span>
-                                          <div><input type="text" value="<?php echo $Facebook; ?>" class="form-control" name="Facebook"></div></div><br>
-                                          <div class="row">
-                                            <span style="font-weight: 600;">Podcast: </span>
-                                            <div><input type="text" value="<?php echo $Podcast; ?>" class="form-control" name="Podcast"></div>
-                                            <span style="font-weight: 600;">Mailing_list: </span>
-                                            <div><input type="text" value="<?php echo $Mailing_list; ?>" class="form-control" name="Mailing_list"></div></div><br>
-                                            <div class="row">
-                                              <span style="font-weight: 600;">Tiktok: </span>
-                                              <div><input type="text" value="<?php echo $Tiktok; ?>" class="form-control" name="Tiktok"></div>
-                                              <span style="font-weight: 600;">Bandcamp: </span>
-                                              <div><input type="text" value="<?php echo $Bandcamp; ?>" class="form-control" name="Bandcamp"></div></div><br>
-                                              <div class="row">
-                                                <span style="font-weight: 600;">Patreon: </span>
-                                                <div><input type="text" value="<?php echo $Patreon; ?>" class="form-control" name="Patreon"></div>
-                                                <span style="font-weight: 600;">LinkedIn: </span>
-                                                <div><input type="text" value="<?php echo $LinkedIn; ?>" class="form-control" name="LinkedIn"></div></div><br>
-                  </p>
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">Instagram: </span>
+                           <div class="col-sm-12">
+                              <input type="text" value="<?php echo $Instagram; ?>" class="form-control" name="Instagram">
+                           </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Youtube: </span>
+                          <div class="col-sm-12">
+                             <input type="text" value="<?php echo $Youtube; ?>" class="form-control" name="Youtube">
+                          </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">Spotify: </span>
+                           <div class="col-sm-12">
+                              <input type="text" value="<?php echo $Spotify; ?>" class="form-control" name="Spotify">
+                           </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Merch_image: </span>
+                          <div class="col-sm-12">
+                             <input type="text" value="<?php echo $Merch_image; ?>" class="form-control" name="Merch_image">
+                          </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">Merch_link: </span>
+                           <div class="col-sm-12">
+                              <input type="text" value="<?php echo $Merch_link; ?>" class="form-control" name="Merch_link">
+                           </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Headline: </span>
+                          <div class="col-sm-12">
+                             <input type="text" value="<?php echo $Headline; ?>" class="form-control" name="Headline">
+                          </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">About: </span>
+                           <div class="col-sm-12">
+                              <input type="text" value="<?php echo $About; ?>" class="form-control" name="About">
+                           </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Featured_song: </span>
+                          <div class="col-sm-12">
+                             <input type="text" value="<?php echo $Featured_song; ?>" class="form-control" name="Featured_song">
+                          </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">Featured_music: </span>
+                           <div class="col-sm-12">
+                              <input type="text" value="<?php echo $Featured_music; ?>" class="form-control" name="Featured_music">
+                           </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Featured_album: </span>
+                          <div class="col-sm-12">
+                             <input type="text" value="<?php echo $Featured_album; ?>" class="form-control" name="Featured_album">
+                          </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">Soundcloud: </span>
+                           <div class="col-sm-12">
+                              <input type="text" value="<?php echo $Soundcloud; ?>" class="form-control" name="Soundcloud">
+                           </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Twitter: </span>
+                          <div class="col-sm-12">
+                             <input type="text" value="<?php echo $Twitter; ?>" class="form-control" name="Twitter">
+                          </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">Community: </span>
+                           <div class="col-sm-12">
+                              <input type="text" value="<?php echo $Community; ?>" class="form-control" name="Community">
+                           </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Facebook: </span>
+                          <div class="col-sm-12">
+                             <input type="text" value="<?php echo $Facebook; ?>" class="form-control" name="Facebook">
+                          </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">Podcast: </span>
+                           <div class="col-sm-12">
+                              <input type="text" value="<?php echo $Podcast; ?>" class="form-control" name="Podcast">
+                           </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Mailing_list: </span>
+                          <div class="col-sm-12">
+                             <input type="text" value="<?php echo $Mailing_list; ?>" class="form-control" name="Mailing_list">
+                          </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">Tiktok: </span>
+                           <div class="col-sm-12">
+                              <input type="text" value="<?php echo $Tiktok; ?>" class="form-control" name="Tiktok">
+                           </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Bandcamp: </span>
+                          <div class="col-sm-12">
+                             <input type="text" value="<?php echo $Bandcamp; ?>" class="form-control" name="Bandcamp">
+                          </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">Patreon: </span>
+                           <div class="col-sm-12">
+                              <input type="text" value="<?php echo $Patreon; ?>" class="form-control" name="Patreon">
+                           </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">LinkedIn: </span>
+                          <div class="col-sm-12">
+                             <input type="text" value="<?php echo $LinkedIn; ?>" class="form-control" name="LinkedIn">
+                          </div>
+                    </div>
+                 </div>
+              </div>
+            </p>
              <!-- <div class="u-align-center u-form-group u-form-submit">
               <a href="" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-1-base u-palette-1-light-2 u-radius-17 u-btn-1">Update profile<br>
               </a>
