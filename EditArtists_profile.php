@@ -334,29 +334,80 @@ img {
                 <div class="u-container-layout u-container-layout-3">
                   <h3 class="u-text u-text-default u-text-6">Details</h3>
                   <p class="u-text u-text-7">
-                    <div class="form">
-                    <div class="row">
-                      <form>
-                        <span style="font-weight: 600;">Name: </span><br>
-                        <div ><input type="text" value="<?php echo $Name; ?>" class="form-control" name="Name"></div>
-                        <span style="font-weight: 600;">Email: </span>
-                        <div><input type="text"  value="<?php echo $Email; ?>" class="form-control" name="Email"></div> </div><br>
-                        <div class="row">
-                          <span style="font-weight: 600;">Roles: </span>
-                          <div><input type="text" value="<?php echo $Roles; ?>" class="form-control" name="Roles"></div>
-                          <span style="font-weight: 600;">Offerings: </span>
-                          <div><input type="text" value="<?php echo $Offerings; ?>" class="form-control" name="Offerings"></div></div><br>
-                        <div class="row">
-                          <span style="font-weight: 600;">Interview_link: </span>
-                          <div><input type="text" value="<?php echo $Interview_link; ?>" class="form-control" name="Interview_link"></div>
-                          <span style="font-weight: 600;">Location: </span>
-                          <div><input id="myInput" type="text" value="<?php echo $Location; ?>" class="form-control" name="Location"></div></div><br>
-                          <div class="row">
-                            <span style="font-weight: 600;">Home_town: </span>
-                            <div><input type="text" value="<?php echo $Home_town; ?>" class="form-control" name="Home_town"></div>
-                            <span style="font-weight: 600;">Birth_place: </span>
-                            <div><input type="text" value="<?php echo $Birth_place; ?>" class="form-control" name="Birth_place"></div></div><br>
-                            <div class="row">
+                   
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="form-group row">
+                     <span style="font-weight: 600;" class="col-sm-3 col-form-label">Name: </span><br>
+                        <div class="col-sm-9">
+                          <input type="text" value="<?php echo $Name; ?>" class="form-control" name="Name">
+                        </div>
+                      </div>
+                    </div>
+                <div class="col-md-6">
+                   <div class="form-group row">
+                      <span style="font-weight: 600;" class="col-sm-3 col-form-label" >Email: </span>
+                         <div class="col-sm-9">
+                          <input type="text"  value="<?php echo $Email; ?>" class="form-control" name="Email">
+                         </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Roles: </span>
+                          <div class="col-sm-9">
+                            <input type="text" value="<?php echo $Roles; ?>" class="form-control" name="Roles">
+                          </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Offerings: </span>
+                          <div class="col-sm-9">
+                             <input type="text" value="<?php echo $Offerings; ?>" class="form-control" name="Offerings">
+                          </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Interview_link: </span>
+                          <div class="col-sm-9">
+                            <input type="text" value="<?php echo $Interview_link; ?>" class="form-control" name="Interview_link">
+                          </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Location: </span>
+                          <div class="col-sm-9">
+                            <input id="myInput" type="text" value="<?php echo $Location; ?>" class="form-control" name="Location">
+                          </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">Home_town: </span>
+                           <div class="col-sm-9">
+                              <input type="text" value="<?php echo $Home_town; ?>" class="form-control" name="Home_town">
+                           </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="form-group row">
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Birth_place: </span>
+                          <div class="col-sm-9">
+                             <input type="text" value="<?php echo $Birth_place; ?>" class="form-control" name="Birth_place">
+                          </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
                               <span style="font-weight: 600;">Instagram: </span>
                               <div><input type="text" value="<?php echo $Instagram; ?>" class="form-control" name="Instagram"></div>
                               <span style="font-weight: 600;">Youtube: </span>
@@ -405,7 +456,7 @@ img {
                                                 <span style="font-weight: 600;">Patreon: </span>
                                                 <div><input type="text" value="<?php echo $Patreon; ?>" class="form-control" name="Patreon"></div>
                                                 <span style="font-weight: 600;">LinkedIn: </span>
-                                                <div><input type="text" value="<?php echo $LinkedIn; ?>" class="form-control" name="LinkedIn"></div></div></div></form><br>
+                                                <div><input type="text" value="<?php echo $LinkedIn; ?>" class="form-control" name="LinkedIn"></div></div><br>
                   </p>
              <!-- <div class="u-align-center u-form-group u-form-submit">
               <a href="" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-1-base u-palette-1-light-2 u-radius-17 u-btn-1">Update profile<br>
