@@ -383,7 +383,7 @@
 
      <?php 
 
-          $youtube2 = preg_replace("/https:\/\/\www.youtube.com\/watch\?v=/" , "", $Youtube);
+          $Music = preg_replace("/https:\/\/\www.youtube.com\/watch\?v=/" , "", $Featured_music);
 
       ?>
 
@@ -396,7 +396,7 @@
               <div class="u-container-layout u-similar-container u-container-layout-1">
                 <div class="u-video u-video-contain u-video-1">
                   <div class="embed-responsive embed-responsive-1">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $youtube2; ?>?autoplay=1&mute=0"></iframe>
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $Music; ?>?autoplay=1&mute=0"></iframe>
                     <!-- <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $youtube2; ?>?autoplay=1&mute=0"></iframe> -->
                   </div>
                 </div>
@@ -428,8 +428,9 @@
             $Location=$row['Location'];
             $About=$row['About'];
             $Youtube=$row['Youtube'];
+            $Featured_music=$row['Featured_music'];
 
-  $youtube2 = preg_replace("/https:\/\/\www.youtube.com\/watch\?v=/" , "", $Youtube);
+  $Music = preg_replace("/https:\/\/\www.youtube.com\/watch\?v=/" , "", $Featured_music);
 
 
 ?>
@@ -439,7 +440,7 @@
                 <div class="u-video u-video-contain u-video-1">
                   <div class="embed-responsive embed-responsive-1">
                     <!-- <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe> -->
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $youtube2; ?>?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $Music; ?>?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
                   </div>
                 </div>
                 <h4 class="u-text u-text-default u-text-1"><?php echo $Name; ?></h4>

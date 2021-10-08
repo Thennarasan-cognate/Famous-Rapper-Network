@@ -298,11 +298,11 @@ img {
 
                    <?php 
 
-                       $Youtube2 = preg_replace("/https:\/\/\www.youtube.com\/watch\?v=/" , "", $Youtube);
+                       $Music = preg_replace("/https:\/\/\www.youtube.com\/watch\?v=/" , "", $Featured_music);
                     
                     ?>
 
-<iframe width="420" height="345" src="https://www.youtube.com/embed/<?php echo $Youtube2; ?>?autoplay=0&mute=1"></iframe>
+<iframe width="420" height="345" src="https://www.youtube.com/embed/<?php echo $Music; ?>?autoplay=0&mute=1"></iframe>
 
 <!-- <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src='https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1;frameborder="0" allowfullscreen="" '></iframe> -->
 
