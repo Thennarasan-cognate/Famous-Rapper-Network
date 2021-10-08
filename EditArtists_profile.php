@@ -87,7 +87,10 @@
           
            header("Location:Artists_profile.php?Artists_profile=$user_id"); 
               
-          } 
+          }else{
+              $message_Name ="Only Alphabets are allowed in Name";
+          
+       }
        
 
  ?>     
@@ -130,6 +133,21 @@ img {
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="ProfilePage">
     <meta property="og:type" content="website">
+<style type="text/css">
+  span{
+    width: 130px;
+    display: inline-block;
+
+}
+#form{
+  border-radius: 100px;
+  background: white;
+  color: white;
+  width:290px;
+  padding: 4px;
+}
+
+</style>
 
 
 <!-- <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"> 
@@ -316,71 +334,78 @@ img {
                 <div class="u-container-layout u-container-layout-3">
                   <h3 class="u-text u-text-default u-text-6">Details</h3>
                   <p class="u-text u-text-7">
-                    <span style="font-weight: 700;">Name: </span>
-                    <div><input type="text" value="<?php echo $Name; ?>" class="form-control" name="Name">
-                   
-
-                    <span style="font-weight: 700;">Email: </span>
-                    <div><input type="text" value="<?php echo $Email; ?>" class="form-control" name="Email">
-                    </div>
-                    
-                    <span style="font-weight: 700;">Roles: </span>
-                    <div><input type="text" value="<?php echo $Roles; ?>" class="form-control" name="Roles">
-                    </div>
-
-                    <span style="font-weight: 700;">Offerings: </span>
-                    <div><input type="text" value="<?php echo $Offerings; ?>" class="form-control" name="Offerings">
-                    </div>
-
-                    <span style="font-weight: 700;">Interview_link: </span>
-                    <div><input type="text" value="<?php echo $Interview_link; ?>" class="form-control" name="Interview_link"></div>
-                    <span style="font-weight: 700;">Location: </span>
-                    <div><input id="myInput" type="text" value="<?php echo $Location; ?>" class="form-control" name="Location"></div>
-                    <span style="font-weight: 700;">Home_town: </span>
-                    <div><input type="text" value="<?php echo $Home_town; ?>" class="form-control" name="Home_town"></div>
-                    <span style="font-weight: 700;">Birth_place: </span>
-                    <div><input type="text" value="<?php echo $Birth_place; ?>" class="form-control" name="Birth_place"></div>
-
-                    <span style="font-weight: 700;">Instagram: </span>
-                    <div><input type="text" value="<?php echo $Instagram; ?>" class="form-control" name="Instagram"></div>
-                    <span style="font-weight: 700;">Youtube: </span>
-                    <div><input type="text" id="vid" value="<?php echo $Youtube; ?><?php echo $text;?>"class="form-control" name="Youtube"></div>
-                    <span style="font-weight: 700;">Spotify: </span>
-                    <div><input type="text" value="<?php echo $Spotify; ?>" class="form-control" name="Spotify"></div>
-                    <span style="font-weight: 700;">Merch_image: </span>
-                    <div><input type="text" value="<?php echo $Merch_image; ?>" class="form-control" name="Merch_image"></div>
-                    <span style="font-weight: 700;">Merch_link: </span>
-                    <div><input type="text" value="<?php echo $Merch_link; ?>" class="form-control" name="Merch_link"></div>
-                    <span style="font-weight: 700;">Headline: </span>
-                    <div><input type="text" value="<?php echo $Headline; ?>" class="form-control" name="Headline"></div>
-                    <span style="font-weight: 700;">About: </span>
-                    <div><input type="text" value="<?php echo $About; ?>" class="form-control" name="About"></div>
-                    <span style="font-weight: 700;">Featured_song: </span>
-                    <div><input type="text" value="<?php echo $Featured_song; ?>" class="form-control" name="Featured_song"></div>
-                    <span style="font-weight: 700;">Featured_music: </span>
-                    <div><input type="text" value="<?php echo $Featured_music; ?>" class="form-control" name="Featured_music"></div>
-                    <span style="font-weight: 700;">Featured_album: </span>
-                    <div><input type="text" value="<?php echo $Featured_album; ?>" class="form-control" name="Featured_album"></div>
-                    <span style="font-weight: 700;">Soundcloud: </span>
-                    <div><input type="text" value="<?php echo $Soundcloud; ?>" class="form-control" name="Soundcloud"></div>
-                    <span style="font-weight: 700;">Twitter: </span>
-                    <div><input type="text" value="<?php echo $Twitter; ?>" class="form-control" name="Twitter"></div>
-                    <span style="font-weight: 700;">Community: </span>
-                    <div><input type="text" value="<?php echo $Community; ?>" class="form-control" name="Community"></div>
-                    <span style="font-weight: 700;">Facebook: </span>
-                    <div><input type="text" value="<?php echo $Facebook; ?>" class="form-control" name="Facebook"></div>
-                    <span style="font-weight: 700;">Podcast: </span>
-                    <div><input type="text" value="<?php echo $Podcast; ?>" class="form-control" name="Podcast"></div>
-                    <span style="font-weight: 700;">Mailing_list: </span>
-                    <div><input type="text" value="<?php echo $Mailing_list; ?>" class="form-control" name="Mailing_list"></div>
-                    <span style="font-weight: 700;">Tiktok: </span>
-                    <div><input type="text" value="<?php echo $Tiktok; ?>" class="form-control" name="Tiktok"></div>
-                    <span style="font-weight: 700;">Bandcamp: </span>
-                    <div><input type="text" value="<?php echo $Bandcamp; ?>" class="form-control" name="Bandcamp"></div>
-                    <span style="font-weight: 700;">Patreon: </span>
-                    <div><input type="text" value="<?php echo $Patreon; ?>" class="form-control" name="Patreon"></div>
-                    <span style="font-weight: 700;">LinkedIn: </span>
-                    <div><input type="text" value="<?php echo $LinkedIn; ?>" class="form-control" name="LinkedIn"></div>
+                    <div class="form">
+                    <div class="row">
+                      <form>
+                        <span style="font-weight: 600;">Name: </span><br>
+                        <div ><input type="text" value="<?php echo $Name; ?>" class="form-control" name="Name"></div>
+                        <span style="font-weight: 600;">Email: </span>
+                        <div><input type="text"  value="<?php echo $Email; ?>" class="form-control" name="Email"></div> </div><br>
+                        <div class="row">
+                          <span style="font-weight: 600;">Roles: </span>
+                          <div><input type="text" value="<?php echo $Roles; ?>" class="form-control" name="Roles"></div>
+                          <span style="font-weight: 600;">Offerings: </span>
+                          <div><input type="text" value="<?php echo $Offerings; ?>" class="form-control" name="Offerings"></div></div><br>
+                        <div class="row">
+                          <span style="font-weight: 600;">Interview_link: </span>
+                          <div><input type="text" value="<?php echo $Interview_link; ?>" class="form-control" name="Interview_link"></div>
+                          <span style="font-weight: 600;">Location: </span>
+                          <div><input id="myInput" type="text" value="<?php echo $Location; ?>" class="form-control" name="Location"></div></div><br>
+                          <div class="row">
+                            <span style="font-weight: 600;">Home_town: </span>
+                            <div><input type="text" value="<?php echo $Home_town; ?>" class="form-control" name="Home_town"></div>
+                            <span style="font-weight: 600;">Birth_place: </span>
+                            <div><input type="text" value="<?php echo $Birth_place; ?>" class="form-control" name="Birth_place"></div></div><br>
+                            <div class="row">
+                              <span style="font-weight: 600;">Instagram: </span>
+                              <div><input type="text" value="<?php echo $Instagram; ?>" class="form-control" name="Instagram"></div>
+                              <span style="font-weight: 600;">Youtube: </span>
+                              <div><input type="text" id="vid" value="<?php echo $Youtube; ?><?php echo $text;?>"class="form-control" name="Youtube"></div></div><br>
+                              <div class="row">
+                                <span style="font-weight: 600;">Spotify: </span>
+                                <div><input type="text" value="<?php echo $Spotify; ?>" class="form-control" name="Spotify"></div>
+                                <span style="font-weight: 600;">Merch_image: </span>
+                                <div><input type="text" value="<?php echo $Merch_image; ?>" class="form-control" name="Merch_image"></div></div><br>
+                                <div class="row">
+                                  <span style="font-weight: 600;">Merch_link: </span>
+                                  <div><input type="text" value="<?php echo $Merch_link; ?>" class="form-control" name="Merch_link"></div>
+                                  <span style="font-weight: 600;">Headline: </span>
+                                  <div><input type="text" value="<?php echo $Headline; ?>" class="form-control" name="Headline"></div></div><br>
+                                  <div class="row">
+                                    <span style="font-weight: 600;">About: </span>
+                                    <div><input type="text" value="<?php echo $About; ?>" class="form-control" name="About"></div>
+                                    <span style="font-weight: 600;">Featured_song: </span>
+                                    <div><input type="text" value="<?php echo $Featured_song; ?>" class="form-control" name="Featured_song"></div></div><br>
+                                    <div class="row">
+                                      <span style="font-weight: 600;">Featured_music: </span>
+                                      <div><input type="text" value="<?php echo $Featured_music; ?>" class="form-control" name="Featured_music"></div>
+                                      <span style="font-weight: 600;">Featured_album: </span>
+                                      <div><input type="text" value="<?php echo $Featured_album; ?>" class="form-control" name="Featured_album"></div></div><br>
+                                      <div class="row">
+                                        <span style="font-weight: 600;">Soundcloud: </span>
+                                        <div><input type="text" value="<?php echo $Soundcloud; ?>" class="form-control" name="Soundcloud"></div>
+                                        <span style="font-weight: 600;">Twitter: </span>
+                                        <div><input type="text" value="<?php echo $Twitter; ?>" class="form-control" name="Twitter"></div></div><br>
+                                        <div class="row">
+                                          <span style="font-weight: 600;">Community: </span>
+                                          <div><input type="text" value="<?php echo $Community; ?>" class="form-control" name="Community"></div>
+                                          <span style="font-weight: 600;">Facebook: </span>
+                                          <div><input type="text" value="<?php echo $Facebook; ?>" class="form-control" name="Facebook"></div></div><br>
+                                          <div class="row">
+                                            <span style="font-weight: 600;">Podcast: </span>
+                                            <div><input type="text" value="<?php echo $Podcast; ?>" class="form-control" name="Podcast"></div>
+                                            <span style="font-weight: 600;">Mailing_list: </span>
+                                            <div><input type="text" value="<?php echo $Mailing_list; ?>" class="form-control" name="Mailing_list"></div></div><br>
+                                            <div class="row">
+                                              <span style="font-weight: 600;">Tiktok: </span>
+                                              <div><input type="text" value="<?php echo $Tiktok; ?>" class="form-control" name="Tiktok"></div>
+                                              <span style="font-weight: 600;">Bandcamp: </span>
+                                              <div><input type="text" value="<?php echo $Bandcamp; ?>" class="form-control" name="Bandcamp"></div></div><br>
+                                              <div class="row">
+                                                <span style="font-weight: 600;">Patreon: </span>
+                                                <div><input type="text" value="<?php echo $Patreon; ?>" class="form-control" name="Patreon"></div>
+                                                <span style="font-weight: 600;">LinkedIn: </span>
+                                                <div><input type="text" value="<?php echo $LinkedIn; ?>" class="form-control" name="LinkedIn"></div></div></div></form><br>
                   </p>
              <!-- <div class="u-align-center u-form-group u-form-submit">
               <a href="" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-1-base u-palette-1-light-2 u-radius-17 u-btn-1">Update profile<br>
