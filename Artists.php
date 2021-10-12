@@ -2,6 +2,7 @@
 <?php ob_start (); ?>
 <?php include "db.php"; ?>
 
+
 <?php
 
  if(isset($_GET['Artists_profile'])){
@@ -51,6 +52,9 @@
   ?>
 
 
+
+
+
 <!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
@@ -61,12 +65,25 @@
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Page 1</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="Page-1.css" media="screen">
+<link rel="stylesheet" href="Artists.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 3.27.0, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     
+
+<!-- Profile Icon -->
+ <link rel="stylesheet" href="assets/css/shared/style.css">
+ <!-- <link rel="stylesheet" href="style.css"> -->
+
+<style>
+
+img {
+  border-radius: 50%;
+}
+
+</style>
+
     
     <script type="application/ld+json">{
     "@context": "http://schema.org",
@@ -78,7 +95,7 @@
     <meta property="og:title" content="Page 1">
     <meta property="og:type" content="website">
   </head>
-  <body class="u-body"><header class="u-clearfix u-header u-header" id="sec-4ce4"><div class="u-clearfix u-sheet u-sheet-1">
+  <body class="u-body u-white"><header class="u-clearfix u-header u-header" id="sec-4ce4"><div class="u-clearfix u-sheet u-sheet-1">
         <a href="https://nicepage.com" class="u-image u-logo u-image-1">
           <img src="images/default-logo.png" class="u-logo-image u-logo-image-1">
         </a>
@@ -92,7 +109,7 @@
             </a>
           </div>
           <div class="u-custom-menu u-nav-container">
-            <ul class="u-nav u-unstyled u-nav-1">
+             <ul class="u-nav u-unstyled u-nav-1">
             <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.php" style="padding: 10px 20px;">Home</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Artists_profile.php?Artists_profile=<?php echo $user_id; ?>" style="padding: 10px 20px;">Artist Profile</a></li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.php" style="padding: 10px 20px;">About</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Contact.php" style="padding: 10px 20px;">Contact</a>
@@ -182,13 +199,13 @@
         </nav>
       </div></header> 
     <section class="u-clearfix u-section-1" id="sec-f37b">
-      <div class="u-clearfix u-sheet u-valign-middle-sm u-sheet-1">
-        <h2 class="u-align-center u-text u-text-1"><span style="font-weight: 700;"><?php echo $Name ?></span>
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-1"><span style="font-weight: 700;"><?php echo $Name ?></span>
         </h2>
-        <div class="u-align-left u-expanded-width-sm u-expanded-width-xs u-video u-video-1">
-          <div class="embed-responsive embed-responsive-1">
+        <div class="u-align-left u-expanded-width-sm u-expanded-width-xs u-size-30 u-video u-video-1">
+          <div class="embed-responsive embed-responsive-1" style="background-image: url(&quot;https://www.youtube.com/embed/B9YKnNtFqds;);">
 
-               <?php 
+            <?php 
 
                        $Music = preg_replace("/https:\/\/\www.youtube.com\/watch\?v=/" , "", $Featured_music);
                     
@@ -201,124 +218,108 @@
         </div>
         <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-white u-group-1">
           <div class="u-container-layout u-container-layout-1">
-            <h6 class="u-text u-text-default u-text-2"><b><?php echo $Name ?></b>
-            </h6>
-            <p class="u-text u-text-3"><span style="font-weight: 700;">"<?php echo $Headline; ?>!"
-                <span style="font-weight: 400;"></span>
-              </span>
-            </p>
-            <h6 class="u-align-center u-text u-text-4"><span style="font-weight: 700;">About</span>
-            </h6>
-            <p class="u-text u-text-5"><?php echo $About; ?>
-             <!--  Music is my life! I love to create art and I’m here to inspire others! I grew up in Hartford, but moved to Phoenix, AZ shortly after my father died and started a new life. I got into rapping while I was<span class="u-text-body-color"></span> attending Arizona State University. I started getting more into it when I was going to Phoenix College taking music classes. Nowadays I’m involved with various forms of art. My purpose is to have a positive impact on the planet. I will live a life that would make my father proud and help millions of people live better lives. --> 
+            <h6 class="u-text u-text-default u-text-2"><span style="font-weight: 700;"><?php echo $Name; ?></span></h6>
+            <p class="u-text u-text-default u-text-3"><span style="font-weight: 600;">"<?php echo $Headline; ?>!"</span></p><br>
+            <h6 class="u-text u-text-default u-text-4"><span style="font-weight: 600;">About</span></h6>
+            <p class="u-text u-text-default u-text-5">
+             <!--  Music is my life! I love to create art and I’m here to inspire others! I grew up in Hartford, but moved to Phoenix, AZ shortly after my father died and started a new life. I got into rapping while I was<span class="u-text-body-color"></span> attending Arizona State University. I started getting more into it when I was going to Phoenix College taking music classes. Nowadays I’m involved with various forms of art. My purpose is to have a positive impact on the planet. I will live a life that would make my father proud and help millions of people live better lives. -->
+              <?php echo $About; ?>
             </p>
           </div>
         </div>
         <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-group-2">
           <div class="u-container-layout u-container-layout-2">
-            <h6 class="u-text u-text-6">&nbsp; &nbsp; &nbsp;Location: <span style="font-weight: normal;"><?php echo $Location; ?></span>
+            <h6 class="u-text u-text-6">Location: <span style="font-weight: normal;"><?php echo $Location; ?></span>
             </h6>
-            <h6 class="u-text u-text-7"><b>&nbsp; &nbsp; &nbsp;Home town: </b><?php echo $Home_town; ?>
+            <h6 class="u-text u-text-7"><b>Home town: </b><?php echo $Home_town; ?>
             </h6>
-            <h6 class="u-text u-text-8"><b>&nbsp; &nbsp; &nbsp;Birth place: </b><?php echo $Birth_place; ?>
+            <h6 class="u-text u-text-8"><b>Birth place: </b><?php echo $Birth_place; ?>
             </h6>
           </div>
         </div>
         <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-group-3">
           <div class="u-container-layout u-container-layout-3">
-            <h6 class="u-text u-text-black u-text-9"><b>&nbsp; &nbsp;Instagram:&nbsp;</b><a class="u-active-none u-border-none u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-12" href="<?php echo $Instagram; ?>">Instagram.com</a>
+            <h6 class="u-text u-text-black u-text-9"><b>Instagram : </b><a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-7" href="<?php echo $Instagram; ?>">Instagram.com</a>
             </h6>
-            <h6 class="u-text u-text-10"><b>&nbsp; &nbsp;Youtube:&nbsp;<span style="font-weight: 400;"> &nbsp;</span></b>
-              <span style="font-weight: 400;"><a class="u-active-none u-border-none u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-13" href="<?php echo $Youtube; ?>">youtube.com</a></span>
+            <h6 class="u-text u-text-10"><b>Youtube   :   </b><a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-7" href="<?php echo $Youtube; ?>">youtube.com</a>
             </h6>
-            <h6 class="u-text u-text-11">&nbsp; &nbsp;Spotify<b>:&nbsp; &nbsp;&nbsp;</b>
-              <span style="font-weight: normal;"><a class="u-active-none u-border-none u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-14" href="<?php echo $Spotify; ?>">spotify.com</a></span></span>
+            <h6 class="u-text u-text-10"><b>Spotify : </b><a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-7" href="<?php echo $Spotify; ?>">spotify.com</a>
             </h6>
           </div>
         </div>
         <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-group-4">
           <div class="u-container-layout u-container-layout-4">
-            <h6 class="u-align-center u-text u-text-12"><b>Merch</b>
-            </h6>
-            <h6 class="u-align-center u-text u-text-13">
-              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="<?php echo $Merch_image; ?>">Image<span style="font-weight: 700;"></span>
-              </a>
-            </h6>
-            <a href="https://nicepage.com/website-mockup" class="u-btn u-button-style u-btn-2">Shop Now</a>
+            <h6 class="u-text u-text-12"><b>Merch</b>
+            </h6><a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-11" href="<?php echo $Merch_image; ?>">Image</a>
+            <a href="https://nicepage.com/website-mockup" class="u-btn u-button-style u-btn-1">Shop Now</a>
           </div>
         </div>
         <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-group-5">
           <div class="u-container-layout u-container-layout-5">
-            <h6 class="u-text u-text-14"><b>Featured Song:</b></h6>
-            <p class="u-align-center u-text u-text-24"><a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-15" href="<?php echo $Featured_song; ?>">song.link</a>
-            </p>
+            <h6 class="u-text u-text-13"><b>Featured Song:</b><br><br><a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-7" href="<?php echo $Featured_song; ?>"><?php echo $Featured_song; ?></a>
+            </h6>
           </div>
         </div>
         <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-group-6">
           <div class="u-container-layout u-container-layout-6">
-            <h6 class="u-text u-text-15"><b>Featured Music:</b></h6>
-              <p class="u-align-center u-text u-text-25"><a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-16" href="<?php echo $Featured_music; ?>">youtubemusic.com</a>
-            </p>
+            <h6 class="u-text u-text-14"><b>Featured Music:</b><br><br><a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-7" href="<?php echo $Featured_music; ?>"><?php echo $Featured_music; ?></a>
+            </h6>
           </div>
         </div>
         <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-group-7">
           <div class="u-container-layout u-container-layout-7">
-            <h6 class="u-text u-text-16"><b>Featured Album:</b></h6>
-            <p class="u-align-center u-text u-text-26"><a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-16" href="<?php echo $Featured_album; ?>">Album.link</a>
-            </p>
+            <h6 class="u-text u-text-15"><b>Featured Album:</b><br><br><a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-7" href="<?php echo $Featured_album; ?>"><?php echo $Featured_album; ?></a>
+            </h6>
           </div>
         </div>
-        <div class="u-border-2 u-border-grey-5 u-container-style u-expanded-width-xs u-group u-radius-8 u-shape-round u-group-8">
+        <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-group-8">
           <div class="u-container-layout u-container-layout-8">
-            <h6 class="u-text u-text-17">&nbsp;<b>Dig Deeper!</b>
-              <br>
-              <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Unlock <?php echo $Name; ?> premium&nbsp;Profile and access&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; the following:<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-weight: 700;">Email address: </span><?php echo $Email; ?><br>
-              <br>
-              <br>
-              <br>
-              <br>
+            <h6 class="u-text u-text-16">&nbsp;<b>Dig Deeper!</b><br>
+              <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Unlock <?php echo $Name; ?> premium&nbsp;Profile and access the following:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-weight: 700;">Email address: </span><?php echo $Email; ?><br>
               <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
             </h6>
-            <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3">Upgrade Now ($10)<span style="font-weight: 700;"></span>
+            <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-2">Upgrade Now ($10)<span style="font-weight: 700;"></span>
             </a>
           </div>
         </div>
-        <div class="u-align-left u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-group-9">
+        <div class="u-border-2 u-border-grey-5 u-radius-8 u-shape u-shape-round u-shape-1"></div>
+        <a href="https://nicepage.com/css-templates" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-light-2 u-radius-50 u-btn-3">30MIN<span style="font-weight: 400;">
+            <span style="font-weight: 700;">
+              <span style="font-weight: 400;"> call $50</span>
+            </span>
+          </span>
+        </a>
+        <h6 class="u-text u-text-17">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Purchase&nbsp;Time with&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <?php echo $Name; ?> !
+        </h6>
+        <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-light-2 u-radius-50 u-btn-4">60min call $75</a>
+        <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-5">Add to favorties</a>
+        <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-6">Share profile</a>
+        <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-group-9">
           <div class="u-container-layout u-container-layout-9">
-            <h6 class="u-text u-text-18">&nbsp; &nbsp; &nbsp; &nbsp; Purchase&nbsp;Time with&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <?php echo $Name; ?> !
-            </h6>
-            <a href="https://nicepage.com/css-templates" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-light-2 u-radius-50 u-btn-4">30MIN<span style="font-weight: 400;">
-                <span style="font-weight: 700;">
-                  <span style="font-weight: 400;"> call $50</span>
-                </span>
-              </span>
-            </a>
-            <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-light-2 u-radius-50 u-btn-5">60min call $75</a>
-          </div>
-        </div>
-        <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-6">Add to favorties</a>
-        <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-7">Share profile</a>
-        <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-group-10">
-          <div class="u-container-layout u-container-layout-10">
-            <h6 class="u-text u-text-19">Additional Profile:</h6>
+            <div class="fr-view u-clearfix u-rich-text u-text u-text-18"></div>
+            <div class="fr-view u-clearfix u-rich-text u-text u-text-19">
+              <p>
+                <span style="font-weight: 700;">Additional Profile</span>
+              </p>
+            </div>
             <h6 class="u-text u-text-20">
-              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-8" href="<?php echo $LinkedIn; ?>">Linkedin</a>
+              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-7" href="<?php echo $LinkedIn; ?>">Linkedin</a>
             </h6>
             <h6 class="u-text u-text-21">
-              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-9" href="<?php echo $Soundcloud; ?>">Soundcloud</a>
+              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-8" href="<?php echo $Soundcloud; ?>">Soundcloud</a>
             </h6>
             <h6 class="u-text u-text-22">
-              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-10" href="<?php echo $Twitter; ?>">Twitter</a>
+              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-9" href="<?php echo $Twitter; ?>">Twitter</a>
             </h6>
             <h6 class="u-text u-text-23">
-              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-11" href="<?php echo $Facebook; ?>">Facebook</a>
+              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-10" href="<?php echo $Facebook; ?>">Facebook</a>
             </h6>
           </div>
         </div>
       </div>
     </section>
     
-    <footer class="u-clearfix u-footer" id="sec-ff43"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+ <footer class="u-clearfix u-footer" id="sec-ff43"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="u-align-left u-social-icons u-spacing-10 u-social-icons-1">
           <a class="u-social-url" title="facebook" target="_blank" href=""><span class="u-icon u-social-facebook u-social-icon u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-12fb"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-12fb"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M73.5,31.6h-9.1c-1.4,0-3.6,0.8-3.6,3.9v8.5h12.6L72,58.3H60.8v40.8H43.9V58.3h-8V43.9h8v-9.2
             c0-6.7,3.1-17,17-17h12.5v13.9H73.5z"></path></svg></span>

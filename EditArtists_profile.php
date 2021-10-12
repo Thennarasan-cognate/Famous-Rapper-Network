@@ -330,6 +330,7 @@ img {
                 </div>
               </div>
             </div>
+            </div>
               <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-3">
                 <div class="u-container-layout u-container-layout-3">
                   <h3 class="u-text u-text-default u-text-6">Details</h3>
@@ -374,7 +375,7 @@ img {
               <div class="row">
                  <div class="col-md-6">
                     <div class="form-group row">
-                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Interview_link: </span>
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">InterviewLink: </span>
                           <div class="col-sm-12">
                             <input type="text" value="<?php echo $Interview_link; ?>" class="form-control" name="Interview_link">
                           </div>
@@ -392,7 +393,7 @@ img {
               <div class="row">
                  <div class="col-md-6">
                     <div class="form-group row">
-                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">Home_town: </span>
+                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">HomeTown: </span>
                            <div class="col-sm-12">
                               <input type="text" value="<?php echo $Home_town; ?>" class="form-control" name="Home_town">
                            </div>
@@ -400,7 +401,7 @@ img {
                  </div>
                  <div class="col-md-6">
                     <div class="form-group row">
-                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Birth_place: </span>
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">BirthPlace: </span>
                           <div class="col-sm-12">
                              <input type="text" value="<?php echo $Birth_place; ?>" class="form-control" name="Birth_place">
                           </div>
@@ -436,7 +437,7 @@ img {
                  </div>
                  <div class="col-md-6">
                     <div class="form-group row">
-                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Merch_image: </span>
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">MerchImage: </span>
                           <div class="col-sm-12">
                              <input type="text" value="<?php echo $Merch_image; ?>" class="form-control" name="Merch_image">
                           </div>
@@ -446,7 +447,7 @@ img {
               <div class="row">
                   <div class="col-md-6">
                     <div class="form-group row">
-                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">Merch_link: </span>
+                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">MerchLink: </span>
                            <div class="col-sm-12">
                               <input type="text" value="<?php echo $Merch_link; ?>" class="form-control" name="Merch_link">
                            </div>
@@ -472,7 +473,7 @@ img {
                  </div>
                  <div class="col-md-6">
                     <div class="form-group row">
-                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Featured_song: </span>
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">FeaturedSong: </span>
                           <div class="col-sm-12">
                              <input type="text" value="<?php echo $Featured_song; ?>" class="form-control" name="Featured_song">
                           </div>
@@ -482,7 +483,7 @@ img {
               <div class="row">
                   <div class="col-md-6">
                     <div class="form-group row">
-                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">Featured_music: </span>
+                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">FeaturedMusic: </span>
                            <div class="col-sm-12">
                               <input type="text" value="<?php echo $Featured_music; ?>" class="form-control" name="Featured_music">
                            </div>
@@ -490,7 +491,7 @@ img {
                  </div>
                  <div class="col-md-6">
                     <div class="form-group row">
-                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Featured_album: </span>
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">FeaturedAlbum: </span>
                           <div class="col-sm-12">
                              <input type="text" value="<?php echo $Featured_album; ?>" class="form-control" name="Featured_album">
                           </div>
@@ -544,7 +545,7 @@ img {
                  </div>
                  <div class="col-md-6">
                     <div class="form-group row">
-                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">Mailing_list: </span>
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">MailingList: </span>
                           <div class="col-sm-12">
                              <input type="text" value="<?php echo $Mailing_list; ?>" class="form-control" name="Mailing_list">
                           </div>
@@ -600,7 +601,7 @@ img {
 
                 </div>
               </div>
-            </div>
+            <!-- </div> -->
           </div>
         </div>
       </div>
