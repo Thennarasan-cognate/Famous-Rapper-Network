@@ -188,7 +188,7 @@
         <div class="u-align-left u-expanded-width-sm u-expanded-width-xs u-video u-video-1">
           <div class="embed-responsive embed-responsive-1">
 
-               <?php 
+           <?php 
 
                        $Music = preg_replace("/https:\/\/\www.youtube.com\/watch\?v=/" , "", $Featured_music);
                     
@@ -210,7 +210,7 @@
             <h6 class="u-align-center u-text u-text-4"><span style="font-weight: 700;">About</span>
             </h6>
             <p class="u-text u-text-5"><?php echo $About; ?>
-             <!--  Music is my life! I love to create art and I’m here to inspire others! I grew up in Hartford, but moved to Phoenix, AZ shortly after my father died and started a new life. I got into rapping while I was<span class="u-text-body-color"></span> attending Arizona State University. I started getting more into it when I was going to Phoenix College taking music classes. Nowadays I’m involved with various forms of art. My purpose is to have a positive impact on the planet. I will live a life that would make my father proud and help millions of people live better lives. --> 
+              <!-- Music is my life! I love to create art and I’m here to inspire others! I grew up in Hartford, but moved to Phoenix, AZ shortly after my father died and started a new life. I got into rapping while I was<span class="u-text-body-color"></span> attending Arizona State University. I started getting more into it when I was going to Phoenix College taking music classes. Nowadays I’m involved with various forms of art. My purpose is to have a positive impact on the planet. I will live a life that would make my father proud and help millions of people live better lives. -->
             </p>
           </div>
         </div>
@@ -226,13 +226,13 @@
         </div>
         <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-group-3">
           <div class="u-container-layout u-container-layout-3">
-            <h6 class="u-text u-text-black u-text-9"><b>&nbsp; &nbsp;Instagram:&nbsp;</b><a class="u-active-none u-border-none u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-12" href="<?php echo $Instagram; ?>">Instagram.com</a>
+            <h6 class="u-text u-text-black u-text-9"><b>&nbsp; &nbsp;Instagram:&nbsp;</b><a class="u-active-none u-border-none u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-15" href="<?php echo $Instagram; ?>">Instagram.com</a>
             </h6>
             <h6 class="u-text u-text-10"><b>&nbsp; &nbsp;Youtube:&nbsp;<span style="font-weight: 400;"> &nbsp;</span></b>
-              <span style="font-weight: 400;"><a class="u-active-none u-border-none u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-13" href="<?php echo $Youtube; ?>">youtube.com</a></span>
+              <span style="font-weight: 400;"><a class="u-active-none u-border-none u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-16" href="<?php echo $Youtube; ?>">youtube.com</a></span>
             </h6>
             <h6 class="u-text u-text-11">&nbsp; &nbsp;Spotify<b>:&nbsp; &nbsp;&nbsp;</b>
-              <span style="font-weight: normal;"><a class="u-active-none u-border-none u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-14" href="<?php echo $Spotify; ?>">spotify.com</a></span></span>
+              <span style="font-weight: normal;"><a class="u-active-none u-border-none u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-17" href="<?php echo $Spotify; ?>">spotify.com</a></span>
             </h6>
           </div>
         </div>
@@ -249,106 +249,89 @@
         </div>
         <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-group-5">
           <div class="u-container-layout u-container-layout-5">
-            <h6 class="u-text u-text-14"><b>Featured Song:</b></h6>
-            <p class="u-align-center u-text u-text-24"><a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-15" href="<?php echo $Featured_song; ?>">song.link</a>
+            <h6 class="u-text u-text-14"><b>Featured Song:</b>
+            </h6>
+            <p class="u-align-center u-text u-text-15">
+              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3" href="<?php echo $Featured_song; ?>">Song.link</a>
             </p>
           </div>
         </div>
         <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-group-6">
           <div class="u-container-layout u-container-layout-6">
-            <h6 class="u-text u-text-15"><b>Featured Music:</b></h6>
-              <p class="u-align-center u-text u-text-25"><a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-16" href="<?php echo $Featured_music; ?>">youtubemusic.com</a>
+            <h6 class="u-text u-text-16"><b>Featured Music:</b>
+            </h6>
+            <p class="u-align-center u-text u-text-17">
+              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-4" href="<?php echo $Featured_music; ?>">Youtubemusic.com</a>
             </p>
           </div>
         </div>
         <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-group-7">
           <div class="u-container-layout u-container-layout-7">
-            <h6 class="u-text u-text-16"><b>Featured Album:</b></h6>
-            <p class="u-align-center u-text u-text-26"><a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-16" href="<?php echo $Featured_album; ?>">Album.link</a>
+            <h6 class="u-text u-text-18"><b>Featured Album:</b>
+            </h6>
+            <p class="u-align-center u-text u-text-19">
+              <a href="<?php echo $Featured_album; ?>" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-5">Album.link</a>
             </p>
           </div>
         </div>
         <div class="u-border-2 u-border-grey-5 u-container-style u-expanded-width-xs u-group u-radius-8 u-shape-round u-group-8">
           <div class="u-container-layout u-container-layout-8">
-            <h6 class="u-text u-text-17">&nbsp;<b>Dig Deeper!</b>
+            <h6 class="u-text u-text-20">&nbsp;<b>Dig Deeper!</b>
               <br>
-              <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Unlock <?php echo $Name; ?> premium&nbsp;Profile and access&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; the following:<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-weight: 700;">Email address: </span><?php echo $Email; ?><br>
+              <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Unlock <?php echo $Name ?> premium&nbsp;Profile and access&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; the following:<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-weight: 700;">Email address: </span><?php echo $Email; ?><br>
               <br>
               <br>
               <br>
               <br>
               <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
             </h6>
-            <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3">Upgrade Now ($10)<span style="font-weight: 700;"></span>
+            <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-6">Upgrade Now ($10)<span style="font-weight: 700;"></span>
             </a>
           </div>
         </div>
         <div class="u-align-left u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-group-9">
           <div class="u-container-layout u-container-layout-9">
-            <h6 class="u-text u-text-18">&nbsp; &nbsp; &nbsp; &nbsp; Purchase&nbsp;Time with&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <?php echo $Name; ?> !
+            <h6 class="u-text u-text-21">&nbsp; &nbsp; &nbsp; &nbsp; Purchase&nbsp;Time with&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <?php echo $Name ?> !
             </h6>
-            <a href="https://nicepage.com/css-templates" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-light-2 u-radius-50 u-btn-4">30MIN<span style="font-weight: 400;">
-                <span style="font-weight: 700;">
-                  <span style="font-weight: 400;"> call $50</span>
-                </span>
-              </span>
-            </a>
-            <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-light-2 u-radius-50 u-btn-5">60min call $75</a>
+            <a href="https://nicepage.com/css-templates" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-light-2 u-radius-50 u-btn-7">30MIN call $50<span style="font-weight: 400;"></a>
+
+            <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-light-2 u-radius-50 u-btn-8">60min call $75</a>
           </div>
         </div>
-        <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-6">Add to favorties</a>
-        <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-7">Share profile</a>
+        <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-9">Add to favorties</a>
         <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-group-10">
           <div class="u-container-layout u-container-layout-10">
-            <h6 class="u-text u-text-19">Additional Profile:</h6>
-            <h6 class="u-text u-text-20">
-              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-8" href="<?php echo $LinkedIn; ?>">Linkedin</a>
-            </h6>
-            <h6 class="u-text u-text-21">
-              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-9" href="<?php echo $Soundcloud; ?>">Soundcloud</a>
-            </h6>
-            <h6 class="u-text u-text-22">
-              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-10" href="<?php echo $Twitter; ?>">Twitter</a>
-            </h6>
+            <h6 class="u-text u-text-22">Additional Profile:</h6>
             <h6 class="u-text u-text-23">
-              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-11" href="<?php echo $Facebook; ?>">Facebook</a>
+              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-10" href="<?php echo $LinkedIn; ?>">Linkedin</a>
+            </h6>
+            <h6 class="u-text u-text-24">
+              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-11" href="<?php echo $Soundcloud; ?>">Soundcloud</a>
+            </h6>
+            <h6 class="u-text u-text-25">
+              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-12" href="<?php echo $Twitter; ?>">Twitter</a>
+            </h6>
+            <h6 class="u-text u-text-26">
+              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-13" href="<?php echo $Facebook; ?>">Facebook</a>
             </h6>
           </div>
         </div>
+        <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-14">Share profile</a>
       </div>
     </section>
     
-    <footer class="u-clearfix u-footer" id="sec-ff43"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <div class="u-align-left u-social-icons u-spacing-10 u-social-icons-1">
-          <a class="u-social-url" title="facebook" target="_blank" href=""><span class="u-icon u-social-facebook u-social-icon u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-12fb"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-12fb"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M73.5,31.6h-9.1c-1.4,0-3.6,0.8-3.6,3.9v8.5h12.6L72,58.3H60.8v40.8H43.9V58.3h-8V43.9h8v-9.2
-            c0-6.7,3.1-17,17-17h12.5v13.9H73.5z"></path></svg></span>
-          </a>
-          <a class="u-social-url" title="twitter" target="_blank" href=""><span class="u-icon u-social-icon u-social-twitter u-icon-2"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-a27c"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-a27c"><circle fill="currentColor" class="st0" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M83.8,47.3c0,0.6,0,1.2,0,1.7c0,17.7-13.5,38.2-38.2,38.2C38,87.2,31,85,25,81.2c1,0.1,2.1,0.2,3.2,0.2
-            c6.3,0,12.1-2.1,16.7-5.7c-5.9-0.1-10.8-4-12.5-9.3c0.8,0.2,1.7,0.2,2.5,0.2c1.2,0,2.4-0.2,3.5-0.5c-6.1-1.2-10.8-6.7-10.8-13.1
-            c0-0.1,0-0.1,0-0.2c1.8,1,3.9,1.6,6.1,1.7c-3.6-2.4-6-6.5-6-11.2c0-2.5,0.7-4.8,1.8-6.7c6.6,8.1,16.5,13.5,27.6,14
-            c-0.2-1-0.3-2-0.3-3.1c0-7.4,6-13.4,13.4-13.4c3.9,0,7.3,1.6,9.8,4.2c3.1-0.6,5.9-1.7,8.5-3.3c-1,3.1-3.1,5.8-5.9,7.4
-            c2.7-0.3,5.3-1,7.7-2.1C88.7,43,86.4,45.4,83.8,47.3z"></path></svg></span>
-          </a>
-          <a class="u-social-url" title="instagram" target="_blank" href=""><span class="u-icon u-social-icon u-social-instagram u-icon-3"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-7849"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-7849"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M55.9,38.2c-9.9,0-17.9,8-17.9,17.9C38,66,46,74,55.9,74c9.9,0,17.9-8,17.9-17.9C73.8,46.2,65.8,38.2,55.9,38.2
-            z M55.9,66.4c-5.7,0-10.3-4.6-10.3-10.3c-0.1-5.7,4.6-10.3,10.3-10.3c5.7,0,10.3,4.6,10.3,10.3C66.2,61.8,61.6,66.4,55.9,66.4z"></path><path fill="#FFFFFF" d="M74.3,33.5c-2.3,0-4.2,1.9-4.2,4.2s1.9,4.2,4.2,4.2s4.2-1.9,4.2-4.2S76.6,33.5,74.3,33.5z"></path><path fill="#FFFFFF" d="M73.1,21.3H38.6c-9.7,0-17.5,7.9-17.5,17.5v34.5c0,9.7,7.9,17.6,17.5,17.6h34.5c9.7,0,17.5-7.9,17.5-17.5V38.8
-            C90.6,29.1,82.7,21.3,73.1,21.3z M83,73.3c0,5.5-4.5,9.9-9.9,9.9H38.6c-5.5,0-9.9-4.5-9.9-9.9V38.8c0-5.5,4.5-9.9,9.9-9.9h34.5
-            c5.5,0,9.9,4.5,9.9,9.9V73.3z"></path></svg></span>
-          </a>
-          <a class="u-social-url" title="linkedin" target="_blank" href=""><span class="u-icon u-social-icon u-social-linkedin u-icon-4"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-fb82"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-fb82"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M41.3,83.7H27.9V43.4h13.4V83.7z M34.6,37.9L34.6,37.9c-4.6,0-7.5-3.1-7.5-7c0-4,3-7,7.6-7s7.4,3,7.5,7
-            C42.2,34.8,39.2,37.9,34.6,37.9z M89.6,83.7H76.2V62.2c0-5.4-1.9-9.1-6.8-9.1c-3.7,0-5.9,2.5-6.9,4.9c-0.4,0.9-0.4,2.1-0.4,3.3v22.5
-            H48.7c0,0,0.2-36.5,0-40.3h13.4v5.7c1.8-2.7,5-6.7,12.1-6.7c8.8,0,15.4,5.8,15.4,18.1V83.7z"></path></svg></span>
-          </a>
-        </div>
-      </div></footer>
-    <section class="u-backlink u-clearfix">
-      <main>
-        <p>Copyright &copy; Cognate Global alphabet 2021</p>
-      </main>
+    
+    
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-design" target="_blank">
+        <span>Website Design</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="https://nicepage.com/html-website-builder" target="_blank">
+        <span>HTML Layout generator</span>
+      </a>. 
     </section>
-
-
-       <!-- Profile Icon -->
-    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-
   </body>
 </html>

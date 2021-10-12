@@ -221,9 +221,8 @@ img {
             <h6 class="u-text u-text-default u-text-2"><span style="font-weight: 700;"><?php echo $Name; ?></span></h6>
             <p class="u-text u-text-default u-text-3"><span style="font-weight: 600;">"<?php echo $Headline; ?>!"</span></p><br>
             <h6 class="u-text u-text-default u-text-4"><span style="font-weight: 600;">About</span></h6>
-            <p class="u-text u-text-default u-text-5">
+            <p class="u-text u-text-default u-text-5"><?php echo $About; ?>
              <!--  Music is my life! I love to create art and I’m here to inspire others! I grew up in Hartford, but moved to Phoenix, AZ shortly after my father died and started a new life. I got into rapping while I was<span class="u-text-body-color"></span> attending Arizona State University. I started getting more into it when I was going to Phoenix College taking music classes. Nowadays I’m involved with various forms of art. My purpose is to have a positive impact on the planet. I will live a life that would make my father proud and help millions of people live better lives. -->
-              <?php echo $About; ?>
             </p>
           </div>
         </div>
