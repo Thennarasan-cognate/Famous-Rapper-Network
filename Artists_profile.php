@@ -59,7 +59,7 @@
     <meta name="keywords" content="VR headsets, ​VR's Surprising Benefits, ​VR's Surprising Benefits, 1, 2, 3, ​​The benefits of virtual reality, ​Experts reveal four surprising health benefits of VR gaming, Follow Us!">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Page 1</title>
+    <title>Artists profile</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Page-1.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -185,6 +185,7 @@
       <div class="u-clearfix u-sheet u-valign-middle-sm u-sheet-1">
         <h2 class="u-align-center u-text u-text-1"><span style="font-weight: 700;"><?php echo $Name ?></span>
         </h2>
+
         <div class="u-align-left u-expanded-width-sm u-expanded-width-xs u-video u-video-1">
           <div class="embed-responsive embed-responsive-1">
 
@@ -199,6 +200,9 @@
             <!-- <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/L-hm3S1aSnI?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe> -->
           </div>
         </div>
+        <br>
+        <?php echo "<center><button type='button' class='btn btn-primary' style='width:145px; height: 40px; background-color: #f3f5f6 ;' name='submit'><a href='EditArtists_profile.php?EditArtists_profile={$user_id}'>Edit Artist profile</a></button></center>" ?>
+
         <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-white u-group-1">
           <div class="u-container-layout u-container-layout-1">
             <h6 class="u-text u-text-default u-text-2"><b><?php echo $Name ?></b>
