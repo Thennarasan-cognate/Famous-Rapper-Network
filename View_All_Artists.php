@@ -323,11 +323,18 @@
 <?php
 
  if (isset($_POST['submit'])){
-                $search=$_POST['search'];
-              
-              $artist="SELECT * FROM view_all_artists WHERE Name LIKE '%$search%' OR Roles='$role' OR Location='$locate'  OR Offerings='$offer' ";  
+
+            $search=$_POST['search'];
+            $role=$_POST['Roles'];
+            $offer=$_POST['Offerings'];
+            $locate=$_POST['Location'];
+
+             if($search !="" || $role !="" || $locate !="" || $offer != ""){
+
+              $artist="SELECT * FROM view_all_artists WHERE Name LIKE '%$search%' || Roles='$role' || Location='$locate'  || Offerings='$offer' "; 
+
               $search_artist=mysqli_query($connection, $artist); 
-                
+
                  if(!$search_artist){
                     die("QUERY FAILED" . mysqli_error($connection));
                 }
@@ -342,11 +349,14 @@
 
              <?php
 
-                echo "<center><h3 style='color:#ffa500'>NO Artists Available on your search</h3><center>";
+                echo "<center><h3 style='color:#ffa500'>No Artists Available on your search</h3><center>";
                     
             }
            else{
-            
+      
+
+//echo '<button type="button" class="btn btn-primary" style="float: left; width:80px; height: 35px; background-color: #f3f5f6 ;" name="submit"><a href="View_All_Artists.php">Back</a></button>' ;
+   
              while($row=mysqli_fetch_assoc($search_artist)){
 
                     $user_id=$row['user_id'];
@@ -387,10 +397,6 @@
 
       ?>
 
-<!-- <div class="col-md-1">
- <?php   //echo "<td><a class='btn btn-primary' href='View_All_Artists.php'>Clear</a></td>";   ?>
-</div> -->
-
 
             <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-1">
@@ -408,7 +414,12 @@
 
       } 
     }
+  }else{
+
+    header("Location:View_All_Artists.php");
+
   }
+}
 
 
   else{
