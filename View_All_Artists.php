@@ -331,7 +331,7 @@
 
              if($search !="" || $role !="" || $locate !="" || $offer != ""){
 
-              $artist="SELECT * FROM view_all_artists WHERE Name LIKE '%$search%' || Roles='$role' || Location='$locate'  || Offerings='$offer' "; 
+              $artist="SELECT * FROM view_all_artists WHERE Name = '$search' || Roles='$role' || Location='$locate'  || Offerings='$offer' "; 
 
               $search_artist=mysqli_query($connection, $artist); 
 
@@ -355,7 +355,7 @@
            else{
       
 
-//echo '<button type="button" class="btn btn-primary" style="float: left; width:80px; height: 35px; background-color: #f3f5f6 ;" name="submit"><a href="View_All_Artists.php">Back</a></button>' ;
+ // echo '<button type="button" class="btn btn-primary" style="float: left; width:80px; height: 35px; background-color: #f3f5f6 ;" name="submit"><a href="View_All_Artists.php">Back</a></button>' ;
    
              while($row=mysqli_fetch_assoc($search_artist)){
 

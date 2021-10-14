@@ -47,11 +47,10 @@ INSERT INTO `offerings` (`id`, `offerings`) VALUES
 (7, 'Online Events'),
 (8, 'Live Performances'),
 (9, 'Photography'),
-(10, 'Photography'),
-(11, 'Videography'),
-(12, 'Video Editing'),
-(13, 'Remix Challenge'),
-(14, 'Mailing List');
+(10, 'Videography'),
+(11, 'Video Editing'),
+(12, 'Remix Challenge'),
+(13, 'Mailing List');
 
 -- --------------------------------------------------------
 
