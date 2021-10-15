@@ -115,7 +115,8 @@
     <meta name="generator" content="Nicepage 3.24.3, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     
-    <link rel="stylesheet" href="assets/css/shared/style.css">
+   <!-- Profile Icon -->
+  <link rel="stylesheet" href="assets/css/shared/style.css">
 
     <style>
 img {
@@ -189,7 +190,23 @@ img {
           </div>
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.php" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a></li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.php" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a></li>
+
+<?php
+
+    if($_SESSION['role'] == "Admin"){
+
+?>
+
+<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="List_All_Users.php" style="padding: 10px 20px;">View All Users</a></li>
+
+<?php 
+
+   } 
+
+?>
+
+<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.php" style="padding: 10px 20px;">About</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Contact.php" style="padding: 10px 20px;">Contact</a>
 </li>
 
@@ -216,10 +233,10 @@ img {
          <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                         <div class="dropdown-header text-center">
 
-          <!-- <img class="" style="width:60px" src ='images/<?php echo $_SESSION['image'] ?>' alt="">
+          <img class="" style="width:60px" src ='images/<?php echo $_SESSION['image'] ?>' alt="">
 
                       <p class="mb-1 mt-3 font-weight-semibold" style="color:darkblue;">
-           -->                <?php
+                          <?php
                           
                           if(isset($_SESSION['firstname'])){
                               
@@ -229,8 +246,8 @@ img {
                           
                           ?>
                           
-                        <!-- </p>
- -->                              
+                        </p>
+                              
                 </div>
                 <a class="dropdown-item" href="profile.php">My Profile <span class="badge badge-pill badge-danger"></span><i class="dropdown-item-icon ti-dashboard"></i></a>
                  
@@ -254,7 +271,23 @@ img {
               <div class="u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.php" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a></li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.php" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a></li>
+
+<?php
+
+    if($_SESSION['role'] == "Admin"){
+
+?>
+
+<li class="u-nav-item"><a class="u-button-style u-nav-link" href="List_All_Users.php" style="padding: 10px 20px;">View All Users</a></li>
+
+<?php 
+
+   } 
+
+?>
+
+<li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.php" style="padding: 10px 20px;">About</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.php" style="padding: 10px 20px;">Contact</a>
 </li>
 
@@ -832,8 +865,8 @@ autocomplete(document.getElementById("myInput"), countries);
 </body>
 </html>
 
-      <!-- Dropdown Profile -->
-      <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+      <!-- Profile Icon -->
+     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
 
   </body>
 </html>

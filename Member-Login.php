@@ -23,6 +23,8 @@
           while($row = mysqli_fetch_array($select_register_query)){
               
                $db_id = $row['id'];
+               $db_phone = $row['phone'];
+               $db_role = $row['role'];
                $db_email = $row['email'];
                $db_password = $row['password'];
                $db_firstname = $row['firstname'];
@@ -41,6 +43,7 @@
              $_SESSION['lastname'] = $db_lastname;
              $_SESSION['image'] = $db_image;
              $_SESSION['phone'] = $db_phone;
+             $_SESSION['role'] = $db_role;
 
  header("Location:Home.php");
            

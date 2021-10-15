@@ -80,9 +80,11 @@
 }
 
 .u-section-2 .u-repeater-1 {
-  grid-template-columns: 25% 25% 25% 25%;
+  /*grid-template-columns: 25% 25% 25% 25%;
+  grid-gap: 0px 0px;*/
+  grid-template-columns: auto;
+  grid-gap: 60px 60px;
   min-height: 403px;
-  grid-gap: 0px 0px;
 }
 
 .u-section-2 .u-list-item-1 {

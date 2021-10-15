@@ -1,52 +1,129 @@
 <?php session_start(); ?>
 <?php ob_start (); ?>
 <?php include "db.php"; ?>
+<?php include "connection.php"; ?>
+
+
+<?php 
+
+   if(isset($_POST['CheckBoxArray'])){
+       
+       foreach($_POST['CheckBoxArray'] as $uservalueId){
+        
+          $bulk_options = $_POST['bulk_options'];
+           
+          
+  switch($bulk_options){
+
+           case 'Admin':
+
+             $query = "UPDATE register SET role='{$bulk_options}' WHERE id={$uservalueId} " ;                  
+             $update_to_admin_status = mysqli_query($connection,$query);
+
+               if(!$update_to_admin_status){
+              die("Query Failed" . mysqli_error($connection));
+}
+             break; 
+
+
+            case 'User':
+
+              $query = "UPDATE register SET role='{$bulk_options}' WHERE id={$uservalueId} " ;                  
+              $update_to_supplier_status = mysqli_query($connection,$query);
+
+                   // confirmQuery($update_to_supplier_status);
+
+              if(!$update_to_supplier_status){
+              die("Query Failed" . mysqli_error($connection));
+}
+             break; 
+
+            case 'delete':
+
+              $query = "DELETE FROM register WHERE id={$uservalueId} " ;   
+
+              $update_to_delete_status = mysqli_query($connection,$query);
+
+                   // confirmQuery($update_to_delete_status);
+
+              if(!$update_to_delete_status){
+              die("Query Failed" . mysqli_error($connection));
+}
+             break;  
+                 
+          }
+           
+       }
+       
+   }
+
+?>
+
 
 <!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="">
+    <meta name="keywords" content="Profile">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Home</title>
+    <title>All Users</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="Home.css" media="screen">
+<link rel="stylesheet" href="View_All_Artists.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
-    <meta name="generator" content="Nicepage 3.23.2, nicepage.com">
+    <meta name="generator" content="Nicepage 3.26.0, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
-    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
-    
+      
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-<!-- Profile Icon -->
- <link rel="stylesheet" href="assets/css/shared/style.css">
- <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- Profile Icon -->
+    <link rel="stylesheet" href="assets/css/shared/style.css">
 
-    <style>
-img {
-  border-radius: 50%;
-}
+<style>
+
+  img {
+    border-radius: 50%;
+  }
+
 </style>
-    
-    
-    
-    
+
+<style>
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    /*color: #212529;*/
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    line-height: 1;
+    border-radius: 0.1875rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+</style>
+
+
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
-		"name": "Site2",
-		"logo": "images/default-logo.png",
-		"sameAs": []
+		"name": "",
+		"logo": "images/default-logo.png"
 }</script>
     <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="Home">
-    <meta property="og:description" content="">
+    <meta property="og:title" content="Profile">
     <meta property="og:type" content="website">
   </head>
-  <body class="u-body"><header class="u-clearfix u-header u-header" id="sec-3ee6"><div class="u-clearfix u-sheet u-sheet-1">
+  <body class="u-body"><header class="u-clearfix u-header u-header" id="sec-6baa"><div class="u-clearfix u-sheet u-sheet-1">
         <a href="https://nicepage.com" class="u-image u-logo u-image-1">
           <img src="images/default-logo.png" class="u-logo-image u-logo-image-1">
         </a>
@@ -63,21 +140,7 @@ img {
             <ul class="u-nav u-unstyled u-nav-1">
             <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.php" style="padding: 10px 20px;">Home</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a></li>
-
-<?php
-
-    if($_SESSION['role'] == "Admin"){
-
-?>
-
 <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="List_All_Users.php" style="padding: 10px 20px;">View All Users</a></li>
-
-<?php 
-
-   } 
-
-?>
-
 <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.php" style="padding: 10px 20px;">About</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Contact.php" style="padding: 10px 20px;">Contact</a>
 </li>
@@ -130,39 +193,19 @@ img {
 <?php 
               
       }
-
+              
     ?> 
 
         </ul>
           </div>
-
-
-
-
-
-
           <div class="u-custom-menu u-nav-container-collapse">
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.php" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a></li>
-
-<?php
-
-    if($_SESSION['role'] == "Admin"){
-
-?>
-
-<li class="u-nav-item"><a class="u-button-style u-nav-link" href="List_All_Users.php" style="padding: 10px 20px;">View All Users</a></li>
-
-<?php 
-
-   } 
-
-?>
-
-<li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.php" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="List_All_Users.php" style="padding: 10px 20px;">View All Users</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.php" style="padding: 10px 20px;">About</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.php" style="padding: 10px 20px;">Contact</a>
 
  <?php
@@ -187,149 +230,170 @@ img {
             <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
           </div>
         </nav>
+        <div class="u-image u-image-circle u-image-2" alt="" data-image-width="400" data-image-height="265"></div>
       </div></header>
-    <section class="u-align-right u-clearfix u-white u-section-1" id="carousel_8813">
-      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <div class="u-align-left u-container-style u-group u-group-1">
-          <div class="u-container-layout u-container-layout-1">
-            <h1 class="u-text u-text-palette-5-dark-2 u-title u-text-1" data-animation-name="flipIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="X">Meet The Human Behind The Music </h1>
-            <a href="Register-Member.php" data-page-id="867430778" class="u-border-none u-btn u-btn-round u-button-style u-palette-1-base u-radius-27 u-text-body-alt-color u-btn-1">Register HERE</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="u-clearfix u-section-2" id="sec-f937">
+
+
+    <section class="u-align-center-lg u-align-center-md u-align-center-xl u-align-left-sm u-align-left-xs u-clearfix u-section-1" id="carousel_261b">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h2 class="u-align-center u-text u-text-1">Discover and Support Our Featured Artists&nbsp;</h2>
-        <a href="View_All_Artists.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-1">View All</a>
-        <div class="u-expanded-width u-layout-horizontal u-list u-list-1">
-          <div class="u-repeater u-repeater-1">
-
-<?php
+        <h3 class="u-text u-text-1">Users&nbsp;</h3><br>
 
 
-       $query = "SELECT * FROM view_all_artists ";
+<form action="" method='post'>
+    <div class="card">
+       
+      <div id="bulkOptionContainer" class="col-md-3">
+         <div class="input-group">
+          <select class="form-control" name="bulk_options" id="">
+                   
+                <option value="">Select Options</option>
+                <option value="Admin">Admin</option>
+                <option value="User">User</option>
+                <option value="delete">Delete</option>
+                     
+          </select>
+          <span class="input-group-btn">
+        <input type="submit" name="submit" class="btn btn-success" value="Apply">
+      </span>
+       </div> 
+   </div>
+    </div><br>
+ <div class="card">
+  <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+               <div class="col-xs-4">
+                   
+                
+                   
+               </div>
+              
+               
+                <thead>
+                    <tr>
+                        <th><input id="SelectAllBoxes" type="CheckBox"></th>
+                        <th style="color:blue">Id</th>
+                        <th style="color:blue">Firstname</th>
+                        <th style="color:blue">Lastname</th>
+                        <th style="color:blue">Phone No</th>
+                        <th style="color:blue">Email</th>
+                        <th style="color:blue">Role</th>
+                        <!-- <th style="color:blue">Action</th> -->
+                        <th style="color:blue">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                            
+     <?php 
+
+            $query = "SELECT * FROM register";
        $artist_id = mysqli_query($connection,$query);
 
         while($row=mysqli_fetch_array($artist_id)){
 
-            $user_id=$row['user_id'];
-            $db_Name=$row['Name'];
-            $db_Email=$row['Email'];
-            $db_Roles=$row['Roles'];
-            $db_Offerings=$row['Offerings'];
-            $db_Interview_link=$row['Interview_link'];
-            $db_Location=$row['Location'];
-            $db_About=$row['About'];
-            $db_Youtube=$row['Youtube'];
-            $db_Featured_music=$row['Featured_music'];
+            $id=$row['id'];
+            $firstname=$row['firstname'];
+            $lastname=$row['lastname'];
+            $phone=$row['phone'];
+            $email=$row['email'];
+            $role=$row['role'];
 
-        $_SESSION['user_id'] = $user_id;
+                   
+
+                    echo "<tr>";
+                 
+                 ?>
+                 
+                 <td><input class='CheckBoxes' type="CheckBox" name='CheckBoxArray[]' value='<?php echo $id; ?>'></td>
+                  
+             <?php
+                 
+                    echo "<td>$id</td>";
+                    echo "<td>$firstname</td>";
+                    echo "<td>$lastname</td>";
+                    echo "<td>$phone</td>";
+                    echo "<td>$email</td>";
+                    echo "<td>$role</td>";
+
+                   // echo "<td><input type='image' src='assets/icons/edit.svg' width='13' height ='13'><a href='users.php?source=edit_user&edit_user={$id}'>Edit</a></td>";
+                    echo "<td><input type='image' src='assets/icons/delete.svg' width='15' height ='15'><a onClick=\"javascript:return confirm('Are you Sure you want to delete');\"href='List_All_Users.php?delete={$id}'>Delete</a></td>";
+                    echo "</tr>";
+
+                    }
+
+                    ?>
+                   
+            </tbody>
+         </table>
+      </div>
+     </div>
+  </form>
+
+             <?php
+
+                 if(isset($_GET['delete'])){
+                     $the_user_id=$_GET['delete'];
+                     $query="DELETE FROM register WHERE id={$the_user_id}";
+                     $delete_query=mysqli_query($connection,$query);
+                     header("Location:List_All_Users.php");
+                 }
+             ?>  
 
 
-  $Music = preg_replace("/https:\/\/\www.youtube.com\/watch\?v=/" , "", $db_Featured_music);
+<!--  <section class="u-clearfix u-section-1" id="sec-6468">
+        <div class="u-expanded-width u-layout-grid u-list u-list-1">
+          <div class="u-repeater u-repeater-1"> -->
+
+<?php
+
+  //      $query = "SELECT * FROM view_all_artists";
+  //      $artist_id = mysqli_query($connection,$query);
+
+  //       while($row=mysqli_fetch_array($artist_id)){
+
+  //           $user_id=$row['user_id'];
+  //           $Name=$row['Name'];
+  //           $Email=$row['Email'];
+  //           $Roles=$row['Roles'];
+  //           $Offerings=$row['Offerings'];
+  //           $Interview_link=$row['Interview_link'];
+  //           $Location=$row['Location'];
+  //           $About=$row['About'];
+  //           $Youtube=$row['Youtube'];
+  //           $Featured_music=$row['Featured_music'];
+
+  // $Music = preg_replace("/https:\/\/\www.youtube.com\/watch\?v=/" , "", $Featured_music);
 
 
 ?>
 
-
-
-            <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-1">
+           <!--  <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-1">
                 <div class="u-video u-video-contain u-video-1">
                   <div class="embed-responsive embed-responsive-1">
-                   <!--  <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=1&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe> -->
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $Music; ?>?autoplay=1&mute=0"></iframe>
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $Music; ?>?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
                   </div>
                 </div>
-                <h3 class="u-text u-text-2"><?php echo $db_Name; ?>
-                </h3>
-                <?php echo "<a href='Artists_profile.php?Artists_profile={$user_id}' class='u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-2'>View Full Profile</a>" ?>
-              </div>
-            </div>
-
-<?php } ?>
-
-
-           <!--  <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-2">
-              <div class="u-container-layout u-similar-container u-container-layout-2">
-                <div class="u-video u-video-contain u-video-2">
-                  <div class="embed-responsive embed-responsive-2">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=1&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
-                  </div>
-                </div>
-                <h3 class="u-text u-text-3"> Kid&nbsp;<br>Rohan
-                </h3>
-                <a href="Artists_profile.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-3">View Full Profile</a>
+                <h4 class="u-text u-text-default u-text-1"><?php echo $Name; ?></h4>
               </div>
             </div> -->
+<?php
 
-            <!-- <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-3">
-              <div class="u-container-layout u-similar-container u-container-layout-3">
-                <div class="u-video u-video-contain u-video-3">
-                  <div class="embed-responsive embed-responsive-3">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=1&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
-                  </div>
-                </div>
-                <h3 class="u-text u-text-4">David&nbsp;<br>Prorok
-                </h3>
-                <a href="Artists_profile.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-4">View Full Profile</a>
-              </div>
-            </div> -->
+ // }
 
-            <!-- <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-4">
-              <div class="u-container-layout u-similar-container u-container-layout-4">
-                <div class="u-video u-video-contain u-video-4">
-                  <div class="embed-responsive embed-responsive-4">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=1&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
-                  </div>
-                </div>
-                <h3 class="u-text u-text-5">Zhe&nbsp;<br>The Free
-                </h3>
-                <a href="Artists_profile.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-5">View Full Profile</a>
-              </div>
-            </div>
- -->
-           <!--  <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-5">
-              <div class="u-container-layout u-similar-container u-container-layout-5">
-                <div class="u-video u-video-contain u-video-5">
-                  <div class="embed-responsive embed-responsive-5">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=1&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
-                  </div>
-                </div>
-                <h3 class="u-text u-text-6">Sample Headline</h3>
-                <a href="Artists_profile.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-6">Hyperlink</a>
-              </div>
-            </div> -->
-            
-          </div>
-          <a class="u-absolute-vcenter u-gallery-nav u-gallery-nav-prev u-icon-rounded u-opacity u-opacity-70 u-palette-1-base u-spacing-10 u-gallery-nav-1" href="#" role="button">
-            <span aria-hidden="true">
-              <svg viewBox="0 0 451.847 451.847"><path d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
-c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
-c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path></svg>
-            </span>
-            <span class="sr-only">
-              <svg viewBox="0 0 451.847 451.847"><path d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
-c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
-c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path></svg>
-            </span>
-          </a>
-          <a class="u-absolute-vcenter u-gallery-nav u-gallery-nav-next u-icon-rounded u-opacity u-opacity-70 u-palette-1-base u-spacing-10 u-gallery-nav-2" href="#" role="button">
-            <span aria-hidden="true">
-              <svg viewBox="0 0 451.846 451.847"><path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
-L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
-c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></svg>
-            </span>
-            <span class="sr-only">
-              <svg viewBox="0 0 451.846 451.847"><path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
-L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
-c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></svg>
-            </span>
-          </a>
+ ?>
+
+
+         <!--  </div>
         </div>
+    </section> -->
+
+
       </div>
     </section>
+
+
+
     <footer class="u-clearfix u-footer" id="sec-ff43"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="u-align-left u-social-icons u-spacing-10 u-social-icons-1">
           <a class="u-social-url" title="facebook" target="_blank" href=""><span class="u-icon u-social-facebook u-social-icon u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-12fb"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-12fb"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M73.5,31.6h-9.1c-1.4,0-3.6,0.8-3.6,3.9v8.5h12.6L72,58.3H60.8v40.8H43.9V58.3h-8V43.9h8v-9.2
@@ -357,12 +421,9 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
         <p>Copyright &copy; Cognate Global alphabet 2021</p>
       </main>
     </section>
-    
-    <!-- Profile Icon -->
-    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+
+       <!-- Profile Icon -->
+      <script src="assets/vendors/js/vendor.bundle.base.js"></script>
 
   </body>
 </html>
-
-
-

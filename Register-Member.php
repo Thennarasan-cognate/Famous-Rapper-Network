@@ -8,6 +8,7 @@
          $lastname=  $_POST['lastname'];
          $image=  $_POST['image'];
          $phone=  $_POST['phone'];
+         $role=  $_POST['role'];
          $email    = $_POST['email'];    
          $password = $_POST['password'];
          $confirm_password = $_POST['confirm_password'];
@@ -60,8 +61,8 @@
         }else {
 
         
-        $query = "INSERT INTO register (firstname,lastname,image,phone,email,password,confirm_password,instagram,facebook,twitter,youtube,Location) ";
-        $query .= "VALUES ('{$firstname}','{$lastname}','profile.png','{$phone}','{$email}','{$password}','{$confirm_password}','https://instagram.com/','https://facebook.com/','https://twitter.com/','https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp','Srimushnam') ";
+        $query = "INSERT INTO register (firstname,lastname,image,phone,role,email,password,confirm_password,instagram,facebook,twitter,youtube,Location) ";
+        $query .= "VALUES ('{$firstname}','{$lastname}','profile.png','{$phone}','User','{$email}','{$password}','{$confirm_password}','https://instagram.com/','https://facebook.com/','https://twitter.com/','https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp','Srimushnam') ";
              
         $register_query = mysqli_query($connection,$query);
             
