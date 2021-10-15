@@ -29,6 +29,7 @@
                $db_password = $row['password'];
                $db_firstname = $row['firstname'];
                $db_lastname = $row['lastname'];
+               $db_fullname = $row['fullname'];
                $db_image = $row['image'];
               
           }
@@ -41,6 +42,7 @@
              $_SESSION['email'] = $db_email;
              $_SESSION['firstname'] = $db_firstname;
              $_SESSION['lastname'] = $db_lastname;
+             $_SESSION['fullname'] = $db_fullname;
              $_SESSION['image'] = $db_image;
              $_SESSION['phone'] = $db_phone;
              $_SESSION['role'] = $db_role;

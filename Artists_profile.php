@@ -244,7 +244,17 @@ img {
           </div>
         </div>
         <br>
-        <?php echo "<center><button type='button' class='btn btn-primary' style='width:145px; height: 40px; background-color: #f3f5f6 ;' name='submit'><a href='EditArtists_profile.php?EditArtists_profile={$user_id}'>Edit Artist profile</a></button></center>" ?>
+        <?php 
+
+       if($_SESSION['fullname'] == $Name){
+
+
+        echo "<center><button type='button' class='btn btn-primary' style='width:145px; height: 40px; background-color: #f3f5f6 ;' name='submit'><a href='EditArtists_profile.php?EditArtists_profile={$user_id}'>Edit Artist profile</a></button></center>";
+
+      }
+
+
+         ?>
 
         <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-white u-group-1">
           <div class="u-container-layout u-container-layout-1">

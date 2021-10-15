@@ -6,6 +6,7 @@
          
          $firstname=  $_POST['firstname'];
          $lastname=  $_POST['lastname'];
+         $fullname=  $_POST['fullname'];
          $image=  $_POST['image'];
          $phone=  $_POST['phone'];
          $role=  $_POST['role'];
@@ -21,7 +22,7 @@
          
          $error = 0;
 
-      if(!empty($firstname) && !empty($lastname) && !empty($phone) && !empty($email) && !empty($password) && !empty($confirm_password)){
+      if(!empty($firstname) && !empty($lastname) && !empty($fullname) && !empty($phone) && !empty($email) && !empty($password) && !empty($confirm_password)){
           
       $password = mysqli_real_escape_string($connection,$_POST['password']);
       $confirm_password = mysqli_real_escape_string($connection,$_POST['confirm_password']);
@@ -61,8 +62,8 @@
         }else {
 
         
-        $query = "INSERT INTO register (firstname,lastname,image,phone,role,email,password,confirm_password,instagram,facebook,twitter,youtube,Location) ";
-        $query .= "VALUES ('{$firstname}','{$lastname}','profile.png','{$phone}','User','{$email}','{$password}','{$confirm_password}','https://instagram.com/','https://facebook.com/','https://twitter.com/','https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp','Srimushnam') ";
+        $query = "INSERT INTO register (firstname,lastname,fullname,image,phone,role,email,password,confirm_password,instagram,facebook,twitter,youtube,Location) ";
+        $query .= "VALUES ('{$firstname}','{$lastname}','{$fullname}','profile.png','{$phone}','User','{$email}','{$password}','{$confirm_password}','https://instagram.com/','https://facebook.com/','https://twitter.com/','https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp','Srimushnam') ";
              
         $register_query = mysqli_query($connection,$query);
             
@@ -248,6 +249,11 @@
               <label for="text-0253" class="u-form-control-hidden u-label"></label>
               <input type="text" placeholder="Enter your Last Name" id="text-0253" name="lastname" value="<?php echo isset($_POST["lastname"]) ? $_POST["lastname"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
               <h6 class="text-center" style="color:#ff0000"><?php echo $message_Lastname; ?></h6>
+            </div>
+             <div class="u-form-group u-form-group-3">
+              <label for="text-0253" class="u-form-control-hidden u-label"></label>
+              <input type="text" placeholder="Enter your Full Name" id="text-0253" name="fullname" value="<?php echo isset($_POST["fullname"]) ? $_POST["fullname"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <h6 class="text-center" style="color:#ff0000"><?php echo $message_fullname; ?></h6>
             </div>
             <div class="u-form-email u-form-group">
               <label for="email-cd60" class="u-form-control-hidden u-label"></label>
