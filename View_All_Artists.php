@@ -523,7 +523,8 @@ input[type=submit] {
                     <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $youtube2; ?>?autoplay=1&mute=0"></iframe>
                   </div>
                 </div>
-                <h4 class="u-text u-text-default u-text-1"><?php echo $Name; ?></h4>
+                <h4 class="u-text u-text-default u-text-1 "><a class="u-text-palette-1-base u-btn-1"href="Artists_profile.php?Artists_profile=<?php echo $user_id; ?>"><?php echo $Name; ?></a></h4>
+               <!--  <h4 class="u-text u-text-default u-text-1"><?php echo $Name; ?></h4> -->
               </div>
             </div>
 
