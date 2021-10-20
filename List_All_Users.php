@@ -89,6 +89,12 @@
     border-radius: 50%;
   }
 
+ .card .col-md-3{
+
+  padding-left: 0px;
+ }
+
+
 </style>
 
 <style>

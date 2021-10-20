@@ -18,6 +18,7 @@
             $id=$row['id'];
             $firstname=$row['firstname'];
             $lastname=$row['lastname'];
+            $fullname=$row['fullname'];
             $email=$row['email'];
             $password=$row['password'];
             $confirm_password=$row['confirm_password'];
@@ -258,9 +259,8 @@ img {
           </div>
           <br>
 
-
-                <!-- <img class="" style="width:550px" src ='images/<?php //echo $_SESSION['image'] ?>' alt=""> -->
             <center><button type="button" class="btn btn-primary" style="width:120px; height: 40px; background-color: #f3f5f6 ;" name="submit"><a href="edit_profile.php">Edit Profile</a></button></center>
+
               </div>
               </div>
 

@@ -27,13 +27,84 @@
     <!-- Profile Icon -->
     <link rel="stylesheet" href="assets/css/shared/style.css">
 
+
+<script type='text/javascript' src='js/autocomplete.js'></script>
+<link rel="stylesheet" type='text/css' href="css/autocomplete.css"> 
+
 <style>
 
   img {
     border-radius: 50%;
   }
 
+<style>
+    
+/*
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: 16px Arial;  
+}
+
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}*/
+
 </style>
+
+
 
 <style>
 
@@ -224,19 +295,20 @@
               
   ?> 
 
-<form action="" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-8 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 50px;" redirect="true">
+<form action="" autocomplete="off" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-8 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 50px;" redirect="true">
 
  <div class="u-layout-row">
      <div class="col-md-3">
          <h6>Search Artist</h6>
              <form action="" method="post" autocomplete="off">
                  <div class="input-group">
-                     <input name="search" type="text" placeholder="Search Artists" class="form-control">
-                        <span class="input-group-btn">
+                     <input name="Name" id="demoB" type="text" placeholder="Search Artists" class="form-control">
+                        <!-- <span class="input-group-btn"> -->
                             <button name="submit" class="btn btn-primary" type="submit">
-                                <span class="glyphicon glyphicon-search">Search</span>
+                                <!-- <span class="glyphicon glyphicon-search">Search</span> -->
+                                <i class="fa fa-search"></i>
                             </button>
-                        </span>
+                        <!-- </span> -->
                    </div>
               </form>
          </div>
@@ -370,7 +442,7 @@
 
  if (isset($_POST['submit'])){
 
-            $search=$_POST['search'];
+            $search=$_POST['Name'];
             $role=$_POST['Roles'];
             $offer=$_POST['Offerings'];
             $locate=$_POST['Location'];
@@ -663,3 +735,24 @@
 
   </body>
 </html>
+
+
+<script>
+    // (C) ATTACH AUTOCOMPLETE TO INPUT FIELDS
+    window.addEventListener("DOMContentLoaded", function(){
+      // ac.attach({
+      //   target: "customer-title",
+      //   data: "search.php",
+      //   post: { type: "firstname" }
+      // });
+      
+      ac.attach({
+        target: "demoB",
+        data: "search.php",
+        post: { type: "Name" },
+        // OPTIONAL
+//        delay : 100,
+//        min : 1
+      });
+    });
+</script>

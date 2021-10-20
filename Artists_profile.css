@@ -1,5 +1,8 @@
 .u-section-1 .u-sheet-1 {
+ /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr;*/
   min-height: 1469px;
+  background-color: white;
 }
 
 .u-section-1 .u-text-1 {
