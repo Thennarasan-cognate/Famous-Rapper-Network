@@ -37,71 +37,6 @@
     border-radius: 50%;
   }
 
-<style>
-    
-/*
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font: 16px Arial;  
-}
-
-
-.autocomplete {
-  position: relative;
-  display: inline-block;
-}
-
-input {
-  border: 1px solid transparent;
-  background-color: #f1f1f1;
-  padding: 10px;
-  font-size: 16px;
-}
-
-input[type=text] {
-  background-color: #f1f1f1;
-  width: 100%;
-}
-
-input[type=submit] {
-  background-color: DodgerBlue;
-  color: #fff;
-  cursor: pointer;
-}
-
-.autocomplete-items {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
-  z-index: 99;
-  
-  top: 100%;
-  left: 0;
-  right: 0;
-}
-
-.autocomplete-items div {
-  padding: 10px;
-  cursor: pointer;
-  background-color: #fff; 
-  border-bottom: 1px solid #d4d4d4; 
-}
-
-
-.autocomplete-items div:hover {
-  background-color: #e9e9e9; 
-}
-
-
-.autocomplete-active {
-  background-color: DodgerBlue !important; 
-  color: #ffffff; 
-}*/
-
 </style>
 
 
@@ -741,19 +676,13 @@ input[type=submit] {
 <script>
     // (C) ATTACH AUTOCOMPLETE TO INPUT FIELDS
     window.addEventListener("DOMContentLoaded", function(){
-      // ac.attach({
-      //   target: "customer-title",
-      //   data: "search.php",
-      //   post: { type: "firstname" }
-      // });
-      
       ac.attach({
         target: "demoB",
         data: "search.php",
         post: { type: "Name" },
         // OPTIONAL
-//        delay : 100,
-//        min : 1
+        delay : 50,
+        min : 1
       });
     });
 </script>
