@@ -12,7 +12,7 @@
     <meta name="keywords" content="Profile">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Profile</title>
+    <title>Favourites</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="View_All_Artists.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -27,7 +27,7 @@
     <!-- Profile Icon -->
     <link rel="stylesheet" href="assets/css/shared/style.css">
 
-<!-- Autocomplete -->
+
 <script type='text/javascript' src='js/autocomplete.js'></script>
 <link rel="stylesheet" type='text/css' href="css/autocomplete.css"> 
 
@@ -89,7 +89,7 @@
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1">
             <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.php" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a></li>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Favourites.php" style="padding: 10px 20px;">Favourite Artists</a></li>
 
 <?php
 
@@ -168,7 +168,7 @@
               <div class="u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.php" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a></li>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Favourites.php" style="padding: 10px 20px;">Favourite Artists</a></li>
 
 <?php
 
@@ -213,24 +213,9 @@
       </div></header>
     <section class="u-align-center-lg u-align-center-md u-align-center-xl u-align-left-sm u-align-left-xs u-clearfix u-section-1" id="carousel_261b">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h3 class="u-text u-text-1">Artist Discovery&nbsp;</h3>
+        <h3 class="u-text u-text-1">Favourites&nbsp;</h3>
 
-<?php
-
-    if($_SESSION['role'] == "Admin"){
-
-  ?> 
-
-
-        <button type="button" class="btn btn-primary" style="float: right; width:130px; height: 40px; background-color: #f3f5f6 ;" name="submit"><a href="Add_Artists.php"><i class="fas fa-plus" style="font-size:20px;color:lightblue;text-shadow:2px 2px 4px #000000;"></i> Add Artists</a></button>
-
-<?php 
-              
-    }
-              
-  ?> 
-
-<form action="" autocomplete="off" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-8 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 50px;" redirect="true">
+<!-- <form action="" autocomplete="off" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-8 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 50px;" redirect="true">
 
  <div class="u-layout-row">
      <div class="col-md-3">
@@ -238,12 +223,9 @@
              <form action="" method="post" autocomplete="off">
                  <div class="input-group">
                      <input name="Name" id="demoB" type="text" placeholder="Search Artists" class="form-control">
-                        <!-- <span class="input-group-btn"> -->
-                            <button name="submit" class="btn btn-primary" type="submit">
-                                <!-- <span class="glyphicon glyphicon-search">Search</span> -->
-                                <i class="fa fa-search"></i>
-                            </button>
-                        <!-- </span> -->
+                        <button name="submit" class="btn btn-primary" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
                    </div>
               </form>
          </div>
@@ -265,9 +247,6 @@
                             while($row=mysqli_fetch_assoc($select_Location)){
 
                             $location=$row['Location'];               
-
-                            // echo "<option value='$location'>$location</option>";
-                            // } 
 
                            if($location == $Location) {
                             
@@ -306,9 +285,6 @@
 
                             $roles=$row['roles'];               
 
-                            // echo "<option value='$roles'>$roles</option>";
-                            // }
-
                         if($roles == $Roles) {
                             
                          echo "<option value='$role'>$roles</option>";
@@ -343,10 +319,7 @@
 
                             while($row=mysqli_fetch_assoc($select_offerings)){
 
-                            $offerings=$row['offerings'];               
-
-                            // echo "<option value='$Offerings'>$Offerings</option>";
-                            // } 
+                            $offerings=$row['offerings'];                
 
                         if($offerings == $Offerings) {
                             
@@ -367,12 +340,10 @@
           </select> 
       </div>
   </div>
-</form>
+</form> -->
  <section class="u-clearfix u-section-1" id="sec-6468">
-      <!-- <div class="u-clearfix u-sheet u-valign-middle u-sheet-1"> -->
         <div class="u-expanded-width u-layout-grid u-list u-list-1">
           <div class="u-repeater u-repeater-1">
-            
 
 <?php
 
@@ -407,9 +378,7 @@
                     
             }
            else{
-      
 
- // echo '<button type="button" class="btn btn-primary" style="float: left; width:80px; height: 35px; background-color: #f3f5f6 ;" name="submit"><a href="View_All_Artists.php">Back</a></button>' ;
    
              while($row=mysqli_fetch_assoc($search_artist)){
 
@@ -479,7 +448,7 @@
   else{
 
 
-       $query = "SELECT * FROM view_all_artists";
+       $query = "SELECT * FROM view_all_artists WHERE Favourites='True'";
        $artist_id = mysqli_query($connection,$query);
 
         while($row=mysqli_fetch_array($artist_id)){
@@ -494,6 +463,7 @@
             $About=$row['About'];
             $Youtube=$row['Youtube'];
             $Featured_music=$row['Featured_music'];
+            $Favourites=$row['Favourites'];
 
   $Music = preg_replace("/https:\/\/\www.youtube.com\/watch\?v=/" , "", $Featured_music);
 
@@ -517,123 +487,10 @@
 
  ?>
 
-         
+
           </div>
         </div>
-      <!-- </div> -->
     </section>
-
-            
-            <!-- <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-2">
-                <div class="u-video u-video-contain u-video-2">
-                  <div class="embed-responsive embed-responsive-2">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
-                  </div>
-                </div>
-                <h4 class="u-text u-text-default u-text-2">Sedia B</h4>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-3">
-                <div class="u-video u-video-contain u-video-3">
-                  <div class="embed-responsive embed-responsive-3">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
-                  </div>
-                </div>
-                <h4 class="u-text u-text-default u-text-3">Kid Rohan</h4>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-4">
-                <div class="u-video u-video-contain u-video-4">
-                  <div class="embed-responsive embed-responsive-4">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
-                  </div>
-                </div>
-                <h4 class="u-text u-text-default u-text-4">David Prorok</h4>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-5">
-                <div class="u-video u-video-contain u-video-5">
-                  <div class="embed-responsive embed-responsive-5">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
-                  </div>
-                </div>
-                <h4 class="u-text u-text-default u-text-5">Zhe the Free</h4>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-6">
-                <div class="u-video u-video-contain u-video-6">
-                  <div class="embed-responsive embed-responsive-6">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
-                  </div>
-                </div>
-                <h4 class="u-text u-text-default u-text-6">Sample Headline</h4>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-7">
-                <div class="u-video u-video-contain u-video-7">
-                  <div class="embed-responsive embed-responsive-7">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
-                  </div>
-                </div>
-                <h4 class="u-text u-text-default u-text-7">Sample Headline</h4>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-8">
-                <div class="u-video u-video-contain u-video-8">
-                  <div class="embed-responsive embed-responsive-8">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
-                  </div>
-                </div>
-                <h4 class="u-text u-text-default u-text-8">Sample Headline</h4>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-9">
-                <div class="u-video u-video-contain u-video-9">
-                  <div class="embed-responsive embed-responsive-9">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
-                  </div>
-                </div>
-                <h4 class="u-text u-text-default u-text-9">Sample Headline</h4>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-10">
-                <div class="u-video u-video-contain u-video-10">
-                  <div class="embed-responsive embed-responsive-10">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
-                  </div>
-                </div>
-                <h4 class="u-text u-text-default u-text-10">Sample Headline</h4>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-11">
-                <div class="u-video u-video-contain u-video-11">
-                  <div class="embed-responsive embed-responsive-11">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
-                  </div>
-                </div>
-                <h4 class="u-text u-text-default u-text-11">Sample Headline</h4>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-12">
-                <div class="u-video u-video-contain u-video-12">
-                  <div class="embed-responsive embed-responsive-12">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
-                  </div>
-                </div>
-                <h4 class="u-text u-text-default u-text-12">Sample Headline</h4>
-              </div>
-            </div> -->
 
       </div>
     </section>
@@ -671,7 +528,7 @@
   </body>
 </html>
 
-<!-- Autocomplete Script -->
+
 <script>
     // (C) ATTACH AUTOCOMPLETE TO INPUT FIELDS
     window.addEventListener("DOMContentLoaded", function(){
@@ -685,3 +542,4 @@
       });
     });
 </script>
+

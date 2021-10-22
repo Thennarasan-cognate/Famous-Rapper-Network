@@ -246,7 +246,9 @@ img {
         <br>
         <?php 
 
-       if($_SESSION['fullname'] == $Name){
+       // if(($_SESSION['fullname'] == $Name) || ($_SESSION['role'] == "Admin")){
+
+        if(($_SESSION['email'] == $Email) || ($_SESSION['role'] == "Admin")){
 
 
         echo "<center><button type='button' class='btn btn-primary' style='width:145px; height: 40px; background-color: #f3f5f6 ;' name='submit'><a href='EditArtists_profile.php?EditArtists_profile={$user_id}'>Edit Artist profile</a></button></center>";
@@ -355,7 +357,15 @@ img {
             <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-light-2 u-radius-50 u-btn-8">60min call $75</a>
           </div>
         </div>
-        <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-9">Add to favorties</a>
+        <!-- <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-9">Add to favorties</a> -->
+
+<div ng-app="app" ng-init="liked = false" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-9">
+  <like-button ng-model="liked" class="ng-pristine ng-untouched ng-valid ng-isolate-scope"><div class="like-button" ng-click="liked = true">          <div class="like-button-like">            <i class="ion-heart"></i>            like          </div>          <div class="like-button-liked" ng-class="{ show: liked }">            <i class="ion-checkmark"></i>            liked          </div>        </div></like-button>
+  
+  <!-- <div class="info ng-binding">liked: false</div> -->
+</div>
+
+
         <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-group-10">
           <div class="u-container-layout u-container-layout-10">
             <h6 class="u-text u-text-22">Additional Profile:</h6>
@@ -409,5 +419,137 @@ img {
     
     <!-- Profile Icon -->
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+
+
+
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+      <script id="rendered-js">
+angular.module("app", [])
+
+// like button directive
+.directive("likeButton", function () {
+  return {
+    restrict: "E",
+    scope: {
+      liked: "=ngModel" // enable ng-model
+    },
+    // would be in likeButton.html
+    template:
+    "<div class='like-button' ng-click='liked = true'> \
+         <div class='like-button-like'> \
+           <i class='ion-heart'></i> \
+           Favourite \
+         </div> \
+         <div class='like-button-liked' ng-class='{ show: liked }'> \
+           <i class='ion-checkmark'></i> \
+           Favourite \
+         </div> \
+       </div>" };
+
+});
+//# sourceURL=pen.js
+    </script>
+
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+  
+<style>
+/** {
+  box-sizing: border-box;
+}*/
+
+/*html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}*/
+
+/*body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #eee;
+}*/
+
+
+.u-btn-9 .like-button-like{
+
+min-width: 150px;
+
+}
+
+
+.info {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  color: #444;
+}
+
+.like-button {
+  /*font-size: 40px;
+  width: auto;*/
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  /*border: 2px solid #0288d1;
+  background-color: white;
+  color: black;
+  text-transform: uppercase;
+  cursor: pointer;*/
+}
+
+.like-button-like {
+  padding: 0.1em 0.2em;
+}
+.like-button-like i {
+  transition: color 0.2s ease-in;
+}
+.like-button-like:hover i, .like-button-like:focus i {
+  color: #f44336;
+}
+
+.like-button-liked {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 0.1em 0.2em;
+  z-index: 1;
+  background-color: #478ac9;
+  color: #fff;
+  transition: transform 0.4s ease-out;
+  transform: translateX(-120%);
+}
+.like-button-liked.show {
+  transform: translateX(0);
+}
+.like-button-liked i {
+  transition: color 0.2s ease-in;
+}
+.like-button-liked:hover i, .like-button-liked:focus i {
+  color: #4cAf50;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
   </body>
 </html>
