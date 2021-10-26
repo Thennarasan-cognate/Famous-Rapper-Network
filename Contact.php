@@ -2,6 +2,105 @@
 <?php ob_start (); ?>
 <?php include "db.php"; ?>
 
+<?php
+
+$result="";
+
+if(isset($_POST['submit'])){
+    
+  require 'PHPMailer/PHPMailerAutoload.php';
+  require('phpmailer/class.phpmailer.php');
+
+$mail = new PHPMailer;
+
+// $mail->SMTPDebug = 3;
+
+$mail->isSMTP();
+
+$mail->Host = 'smtp.gmail.com';
+$mail->Port=587;
+$mail->SMTPAuth = true;
+$mail->SMTPSecure='tls';
+
+
+$mail->Username = 'barthalomena17@gmail.com';
+$mail->Password = 'mena@2001';
+
+$mail->setFrom ($_POST['email'],$_POST['name']);
+$mail->addAddress('07.ramyar@gmail.com');
+#$mail->addReplyTo( $_POST['email'],$_POST['name']);
+
+$mail->isHTML(true);
+
+$mail->Subject = $_POST['message'];
+$mail->Body    = 'name:'.$_POST['name'].'<br>email:'.$_POST['email'].'<br>message:'.$_POST['message'];
+
+if(!$mail->send()) {
+   echo "Message could not be sent.". $mail->ErrorInfo;
+}else{
+  echo "" ;
+  
+}
+
+}
+
+
+    
+    
+//get data from form  
+#$name = $_POST['name'];
+#$email= $_POST['email'];
+#$message= $_POST['message'];
+#$to = "barthalomena17@gmail.com";
+#$subject = "Mail From website";
+#$txt ="Name = ". $name . "\r\n  Email = " . $email . "\r\n Message =" . $message;
+#$headers = "From: barthalomena@gmail.com" . "\r\n" .
+#"CC: somebodyelse@example.com";
+#if($email!=NULL){
+    #mail($to,$subject,$txt,$headers);
+#}
+//redirect
+#header("Location:contact.php");
+
+
+      #echo "Email successfully sent.";
+
+
+      #$query = "INSERT INTO 'contact' ('name', 'email', 'message') VALUES ('$name', '$from','$message')";
+
+      // $query = "INSERT INTO contact (name,email,message) ";
+      // $query .= "VALUES ('{$name}','{$from}','{$message}') ";
+
+      // $result = mysqli_query($connection, $query);
+
+      // if(!$result){
+
+      //   die("Query Failed" . mysqli_error($connection));
+
+      // }
+
+ 
+      $query = "SELECT * FROM View_All_Artists WHERE Name = 'David Prorok' ";
+        $select_View_All_Artists_query = mysqli_query($connection, $query);
+        
+        if(!$select_View_All_Artists_query){
+            
+            die("Query Failed" . mysqli_error($connection));
+          
+        }
+          
+          while($row = mysqli_fetch_array($select_View_All_Artists_query)){
+              
+               $db_user_id = $row['user_id'];
+               $db_Name = $row['Name'];
+               $db_Email = $row['Email'];
+            
+          }
+          
+
+          ?>
+
+
 <!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
@@ -30,11 +129,11 @@ img {
 
 
     <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "Site2",
-		"logo": "images/default-logo.png",
-		"sameAs": []
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Site2",
+    "logo": "images/default-logo.png",
+    "sameAs": []
 }</script>
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="Contact">
@@ -56,24 +155,7 @@ img {
           </div>
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.php" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a></li>
-
-<?php
-
-    if($_SESSION['role'] == "Admin"){
-
-?>
-
-<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="List_All_Users.php" style="padding: 10px 20px;">View All Users</a>
-</li>
-
-<?php
-
-    }
-
-?>
-
-<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.php" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.php" style="padding: 10px 20px;">About</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Contact.php" style="padding: 10px 20px;">Contact</a>
 </li>
 
@@ -136,23 +218,7 @@ img {
               <div class="u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.php" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a></li>
-
-<?php
-
-    if($_SESSION['role'] == "Admin"){
-
-?>
-
-<li class="u-nav-item"><a class="u-button-style u-nav-link" href="List_All_Users.php" style="padding: 10px 20px;">View All Users</a></li>
-
-<?php 
-
-   } 
-
-?>
-
-<li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.php" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a></li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.php" style="padding: 10px 20px;">About</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.php" style="padding: 10px 20px;">Contact</a>
 </li>
 
@@ -184,7 +250,7 @@ img {
           <div class="u-container-layout u-valign-middle-xl u-valign-middle-xs u-container-layout-1">
             <h1 class="u-text u-text-1">Contact Us</h1>
             <div class="u-align-left u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-form u-form-1">
-              <form action="#" method="POST" class="u-clearfix u-form-spacing-28 u-form-vertical u-inner-form" style="padding: 10px" source="custom" name="form">
+              <form action="contact.php" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-28 u-form-vertical u-inner-form" style="padding: 10px" source="custom" name="form">
                 <div class="u-form-group u-form-name u-form-group-1">
                   <label for="name-5a14" class="u-form-control-hidden u-label" wfd-invisible="true">Name</label>
                   <input type="text" placeholder="Enter your Name" id="name-5a14" name="name" class="u-input u-input-rectangle u-white" required="">
@@ -195,13 +261,13 @@ img {
                 </div>
                 <div class="u-form-group u-form-message u-form-group-3">
                   <label for="message-5a14" class="u-form-control-hidden u-label" wfd-invisible="true">Message</label>
-                  <textarea placeholder="" rows="4" cols="50" id="message-5a14" name="message" class="u-input u-input-rectangle u-white" required=""></textarea>
+                  <textarea placeholder=" write something" rows="4" cols="50" id="message-5a14" name="message" class="u-input u-input-rectangle u-white" required=""></textarea>
                 </div>
                 <div class="u-align-center u-form-group u-form-submit u-form-group-4">
-                  <a href="#" class="u-active-white u-border-2 u-border-white u-btn u-btn-submit u-button-style u-hover-white u-none u-text-hover-palette-2-base u-text-palette-2-base u-btn-1">Submit</a>
-                  <input type="submit" value="submit" class="u-form-control-hidden" wfd-invisible="true">
+                  <a href="" class="u-active-white u-border-2 u-border-white u-btn u-btn-submit u-button-style u-hover-white u-none u-text-hover-palette-2-base u-text-palette-2-base u-btn-1">submit</a>
+                  <input type="submit" value="submit" name="submit" class="u-form-control-hidden" wfd-invisible="true">
                 </div>
-                <div class="u-form-send-message u-form-send-success" wfd-invisible="true"> Thank you! Your message has been sent. </div>
+                 <div class="u-form-send-message u-form-send-success" wfd-invisible="true"> Thank you! Your message has been sent. </div>
                 <div class="u-form-send-error u-form-send-message" wfd-invisible="true"> Unable to send your message. Please fix errors then try again. </div>
                 <input type="hidden" value="" name="recaptchaResponse" wfd-invisible="true">
               </form>
@@ -212,8 +278,8 @@ img {
           <div class="u-repeater u-repeater-1">
             <div class="u-align-center u-container-style u-list-item u-repeater-item u-white u-list-item-1">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2"><span class="u-icon u-icon-circle u-text-palette-1-base u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 52 52" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-077e"></use></svg><svg class="u-svg-content" viewBox="0 0 52 52" x="0px" y="0px" id="svg-077e" style="enable-background:new 0 0 52 52;"><path style="fill:currentColor;" d="M38.853,5.324L38.853,5.324c-7.098-7.098-18.607-7.098-25.706,0h0
-	C6.751,11.72,6.031,23.763,11.459,31L26,52l14.541-21C45.969,23.763,45.249,11.72,38.853,5.324z M26.177,24c-3.314,0-6-2.686-6-6
-	s2.686-6,6-6s6,2.686,6,6S29.491,24,26.177,24z"></path></svg></span>
+  C6.751,11.72,6.031,23.763,11.459,31L26,52l14.541-21C45.969,23.763,45.249,11.72,38.853,5.324z M26.177,24c-3.314,0-6-2.686-6-6
+  s2.686-6,6-6s6,2.686,6,6S29.491,24,26.177,24z"></path></svg></span>
                 <h5 class="u-text u-text-2">our main office</h5>
                 <p class="u-text u-text-3">SoHo 94 Broadway St New York, NY 1001</p>
               </div>
@@ -245,8 +311,11 @@ img {
 </g></svg></span>
                 <h5 class="u-text u-text-8">Email</h5>
                 <p class="u-text u-text-9">
-                  <a href="mailto:hello@theme.com" class="u-active-none u-border-1 u-border-palette-2-base u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-2-base u-btn-2">hello@theme.com</a>
+                  <a href="mailto:hello@theme.com" class="u-active-none u-border-1 u-border-palette-2-base u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-2-base u-btn-2">david@famousrapper.com</a>
                 </p>
+
+       <!-- <?php // echo $db_Email;?> -->
+
               </div>
             </div>
           </div>
