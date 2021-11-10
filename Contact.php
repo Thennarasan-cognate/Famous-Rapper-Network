@@ -9,7 +9,7 @@ $result="";
 if(isset($_POST['submit'])){
     
   require 'PHPMailer/PHPMailerAutoload.php';
-  require('phpmailer/class.phpmailer.php');
+  require('PHPMailer/class.phpmailer.php');
 
 $mail = new PHPMailer;
 
@@ -23,8 +23,11 @@ $mail->SMTPAuth = true;
 $mail->SMTPSecure='tls';
 
 
-$mail->Username = 'barthalomena17@gmail.com';
-$mail->Password = 'mena@2001';
+// $mail->Username = 'barthalomena17@gmail.com';
+// $mail->Password = 'mena@2001';
+
+$mail->Username = 'reshmasamy21@gmail.com';
+$mail->Password = '9789261719';
 
 $mail->setFrom ($_POST['email'],$_POST['name']);
 $mail->addAddress('07.ramyar@gmail.com');

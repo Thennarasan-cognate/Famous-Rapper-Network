@@ -3,7 +3,26 @@
 <?php 
 
      if(isset($_POST['submit'])){
-         
+
+   require 'PHPMailer/PHPMailerAutoload.php';
+   require('phpmailer/class.phpmailer.php');
+
+$mail = new PHPMailer;
+
+
+$rndno=rand(100000, 999999);
+echo $rndno;
+//OTP generate
+#$mail->SMTPDebug = 3;
+
+$mail->isSMTP();
+
+$mail->Host = 'smtp.gmail.com';
+$mail->Port=587;
+$mail->SMTPAuth = true;
+$mail->SMTPSecure='tls';
+
+  
          $firstname=  $_POST['firstname'];
          $lastname=  $_POST['lastname'];
          $fullname=  $_POST['fullname'];
@@ -13,6 +32,8 @@
          $email    = $_POST['email'];    
          $password = $_POST['password'];
          $confirm_password = $_POST['confirm_password'];
+         $otp = $_POST['otp'];
+         $otp=$rndno;
          $instagram =$_POST['instagram'];
          $facebook =$_POST['facebook'];
          $twitter =$_POST['twitter'];
@@ -62,8 +83,8 @@
         }else {
 
         
-        $query = "INSERT INTO register (firstname,lastname,fullname,image,phone,role,email,password,confirm_password,instagram,facebook,twitter,youtube,Location) ";
-        $query .= "VALUES ('{$firstname}','{$lastname}','{$fullname}','profile.png','{$phone}','User','{$email}','{$password}','{$confirm_password}','https://instagram.com/','https://facebook.com/','https://twitter.com/','https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp','Srimushnam') ";
+        $query = "INSERT INTO register (firstname,lastname,fullname,image,phone,role,email,password,confirm_password,otp,instagram,facebook,twitter,youtube,Location) ";
+        $query .= "VALUES ('{$firstname}','{$lastname}','{$fullname}','profile.png','{$phone}','User','{$email}','{$password}','{$confirm_password}','{$rndno}','https://instagram.com/','https://facebook.com/','https://twitter.com/','https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp','Srimushnam') ";
              
         $register_query = mysqli_query($connection,$query);
             
@@ -74,11 +95,33 @@
             die("Query Failed" . mysqli_error($connection) .' '. mysqli_error($connection));
         }
           
-         $_SESSION['status'] = "Registration Was Successful Please Sign In";   
-           
-             // header("Location:Member-Login.php");
-             header( "Location: otp.php" );
-            // header("Location:email_verification.php"); 
+         $_SESSION['status'] = "Registration Was Successful Please Sign In"; 
+
+          $_SESSION['otp'] = $otp;
+          $_SESSION['email'] = $email;
+
+          // $mail->Username = 'barthalomena17@gmail.com';
+          // $mail->Password = 'mena@2001';
+
+          $mail->Username = 'reshmasamy21@gmail.com';
+          $mail->Password = '9789261719';
+
+          $mail->setFrom ('barthalomena@gmail.com');
+          $mail->addAddress($_POST['email'],$_POST['firstname']);
+          #$mail->addReplyTo( $_POST['email'],$_POST['name']);
+          
+          $mail->isHTML(true);
+          $mail->Subject = $_POST['Firstname'];;
+          $mail->Body    = 'name:'.$_POST['firstname'].'<br>email:'.$_POST['email'].'<br>OTP:'.$rndno;
+          
+          if(!$mail->send()) {
+             echo "Message could not be sent.". $mail->ErrorInfo;
+          }else{
+            echo " otp sent successfully to ur mail: " ;
+          }  
+
+          header( "Location: otp.php" );
+
 
 // $to=$email;
 // $subject = "OTP";

@@ -48,10 +48,11 @@
 ?>
 
 <?php
-    
-    if(isset($_REQUEST['verify'])){
-         
-        $email    = $_REQUEST['email']; 
+
+    if(isset($_REQUEST['verify'])){  
+
+        $email    = $_SESSION['email'];
+        $otp = $_REQUEST['otp']; 
     
         $query = "SELECT * FROM register WHERE email = '{$email}' ";
         $select_register_query = mysqli_query($connection, $query);
@@ -71,6 +72,7 @@
                $db_image = $row['image'];
                $db_phone = $row['phone'];
                $db_email = $row['email'];
+               $db_otp = $row['otp'];
                $db_instagram = $row['instagram'];
                $db_facebook = $row['facebook'];
                $db_twitter = $row['twitter'];
@@ -78,7 +80,18 @@
               
           }
 
-            header("Location:Member-Login.php");
+          if($otp === $db_otp){
+            
+             $_SESSION['email'] = $db_email;
+             $_SESSION['otp'] = $db_otp;
+
+          header("Location:Member-Login.php");
+           
+         
+        }else{
+            $message_otp = "Incorrect OTP";   
+              
+        }
         
         
         }
@@ -152,7 +165,7 @@
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="u-align-center u-container-style u-group u-radius-50 u-shape-round u-white u-group-1">
           <div class="u-container-layout u-valign-middle u-container-layout-1">
-            <h3 class="text-center">Enter the OTP</h3>
+            <h3 class="text-center">Enter OTP</h3>
             
            <p class="font-weight-light text-muted mb-0">
 
@@ -164,7 +177,8 @@
               <form action="" method="post" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;">
                 <div class="u-form-group u-form-name">
                   <label for="email-cd60" class="u-form-control-hidden u-label"></label>
-                  <input type="text" placeholder="Enter your OTP" id="email-cd60" name="email" class="u-grey-5 u-input u-input-rectangle" required="">
+                  <input type="text" placeholder="Enter your OTP" id="" name="otp" value="<?php echo isset($_REQUEST["otp"]) ? $_REQUEST["otp"] : ''; ?>" class="u-grey-5 u-input u-input-rectangle" required="">
+                  <h6 style="color:#ff0000"><?php echo $message_otp ?></h6>
                 </div>
                 <div class="u-align-center u-form-group u-form-submit">
                   <a href="" class="u-btn u-btn-round u-btn-submit u-button-style u-radius-17 u-btn-1">Next</a>
