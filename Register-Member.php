@@ -111,8 +111,8 @@ $mail->SMTPSecure='tls';
           #$mail->addReplyTo( $_POST['email'],$_POST['name']);
           
           $mail->isHTML(true);
-          $mail->Subject = $_POST['Firstname'];;
-          $mail->Body    = 'name:'.$_POST['firstname'].'<br>email:'.$_POST['email'].'<br>OTP:'.$rndno;
+          $mail->Subject = "Email Verification";
+          $mail->Body    = 'Hi'.' '.$_POST["firstname"].'<br><br>To verify your email'.' '.$_POST['email'].' '.'we sent you an otp, enter the otp in the field'.' '.$rndno;
           
           if(!$mail->send()) {
              echo "Message could not be sent.". $mail->ErrorInfo;
