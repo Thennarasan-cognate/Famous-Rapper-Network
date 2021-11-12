@@ -46,13 +46,14 @@
 // $message="<p class='w3-text-green w3-center'><b>Sucessfully resend OTP to your mail.</b></p>";
 // }
 ?>
-
-
 <?php
-    
+
     if(isset($_REQUEST['verify'])){
-         
-        $email    = $_REQUEST['email']; 
+
+     
+
+        $email    = $_SESSION['email'];
+        $otp = $_REQUEST['otp']; 
     
         $query = "SELECT * FROM register WHERE email = '{$email}' ";
         $select_register_query = mysqli_query($connection, $query);
@@ -72,6 +73,7 @@
                $db_image = $row['image'];
                $db_phone = $row['phone'];
                $db_email = $row['email'];
+               $db_otp = $row['otp'];
                $db_instagram = $row['instagram'];
                $db_facebook = $row['facebook'];
                $db_twitter = $row['twitter'];
@@ -79,7 +81,20 @@
               
           }
 
-            header("Location:New_Password.php");
+          if($otp === $db_otp){
+            
+             $_SESSION['email'] = $db_email;
+             $_SESSION['otp'] = $db_otp;
+      
+
+
+          header("Location:New_Password.php");
+           
+         
+        }else{
+            $message_otp = "Incorrect OTP";   
+              
+        }
         
         
         }
@@ -165,7 +180,8 @@
               <form action="" method="post" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;">
                 <div class="u-form-group u-form-name">
                   <label for="email-cd60" class="u-form-control-hidden u-label"></label>
-                  <input type="text" placeholder="Enter your OTP" id="email-cd60" name="email" class="u-grey-5 u-input u-input-rectangle" required="">
+                  <input type="text" placeholder="Enter your OTP" id="" name="otp" value="<?php echo isset($_REQUEST["otp"]) ? $_REQUEST["otp"] : ''; ?>" class="u-grey-5 u-input u-input-rectangle" required="">
+                  <h6 style="color:#ff0000"><?php echo $message_otp ?></h6>
                 </div>
                 <div class="u-align-center u-form-group u-form-submit">
                   <a href="" class="u-btn u-btn-round u-btn-submit u-button-style u-radius-17 u-btn-1">Next</a>
@@ -173,6 +189,7 @@
                 </div>
                 <input type="hidden" value="" name="recaptchaResponse">
               </form>
+              <div><?php if(isset($message)) { echo $message; } ?></div>
             </div>
           </div>
         </div>

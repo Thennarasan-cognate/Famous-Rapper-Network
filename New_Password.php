@@ -3,9 +3,11 @@
 
 <?php
 
-   if(isset($_REQUEST['email'])){
+   if(isset($_REQUEST['confirm'])){
 
-     $email =  $_REQUEST['email'];  
+     $email =  $_SESSION['email'];
+     $password = $_REQUEST['password'];
+     $confirm_password = $_REQUEST['confirm_password'];  
            
      $query="SELECT * FROM register WHERE email = '{$email}' ";
      $select_register_profile = mysqli_query($connection,$query);
@@ -28,23 +30,28 @@
             $youtube=$row['youtube'];
             
            }
-         }
+         // }
     
-    if(isset($_POST['confirm'])){
+    // if(isset($_POST['confirm'])){
              
-         $password = $_POST['password'];
-         $confirm_password = $_POST['confirm_password'];
+    //      $password = $_POST['password'];
+    //      $confirm_password = $_POST['confirm_password'];
 
-     if(!empty($password) && !empty($confirm_password)){
+     // if(!empty($password) && !empty($confirm_password)){
 
-      if($password == $confirm_password){
+      if($password === $confirm_password){
+
+
+        $_SESSION['email'] = $db_email;
+        $_SESSION['password'] = $db_password;
+        $_SESSION['confirm_password'] = $db_confirm_password;
           
-      $password = mysqli_real_escape_string($connection,$_POST['password']);
-      $confirm_password = mysqli_real_escape_string($connection,$_POST['confirm_password']);
+      $password = mysqli_real_escape_string($connection,$_REQUEST['password']);
+      $confirm_password = mysqli_real_escape_string($connection,$_REQUEST['confirm_password']);
       $password = md5($password);              
       $confirm_password = md5($confirm_password);
 
-      $query="UPDATE register SET password='{$password}', confirm_password='{$confirm_password}' WHERE email= 'Ramya1999@gmail.com' ";
+      $query="UPDATE register SET password='{$password}', confirm_password='{$confirm_password}' WHERE email= '$email' ";
 
       $register_query = mysqli_query($connection,$query);
 
@@ -52,6 +59,7 @@
             
             die("Query Failed" . mysqli_error($connection));
         }
+
 
         header("Location:Member-Login.php"); 
 
@@ -62,11 +70,11 @@
 
         }
 
-     }else{
+     // }else{
 
-        $message = "Fields cannot be Empty";
+     //    $message = "Fields cannot be Empty";
 
-     }
+     // }
    }
 
 
@@ -144,17 +152,18 @@
             
             <div class="u-expanded-width u-form u-login-control u-form-1">
               <form action="" method="post" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;">
+                
 
                 <div class="u-form-group u-form-password">
                   <label for="password-708d" class="u-form-control-hidden u-label"></label>
-                  <input type="password" placeholder="Enter your New Password" id="id_password" name="password" value="<?php echo isset($_POST["password"]) ? $_POST["password"] : ''; ?>" class="u-grey-5 u-input u-input-rectangle" required="">
+                  <input type="password" placeholder="Enter your New Password" id="id_password" name="password" value="<?php echo isset($_REQUEST["password"]) ? $_REQUEST["password"] : ''; ?>" class="u-grey-5 u-input u-input-rectangle" required="">
                   <span class="far fa-eye" id="togglePassword" style="margin-left: 350px; cursor: pointer;"></span>
                   <!-- <h6 class="text-center" style="color:#ff0000"><?php echo $message_password; ?></h6> -->
                 </div>
 
                 <div class="u-form-group u-form-password">
                   <label for="password-708d" class="u-form-control-hidden u-label"></label>
-                  <input type="password" placeholder="Confirm Password" id="id_password" name="confirm_password" value="<?php echo isset($_POST["password"]) ? $_POST["password"] : ''; ?>" class="u-grey-5 u-input u-input-rectangle" required="">
+                  <input type="password" placeholder="Confirm Password" id="id_password" name="confirm_password" value="<?php echo isset($_REQUEST["password"]) ? $_REQUEST["password"] : ''; ?>" class="u-grey-5 u-input u-input-rectangle" required="">
                   <h6 class="text-center" style="color:#ff0000"><?php echo $message_cpassword; ?></h6>
                 </div>
 
@@ -164,6 +173,7 @@
                 </div>
                 <input type="hidden" value="" name="recaptchaResponse">
               </form>
+              <div><?php if(isset($message)) { echo $message; } ?></div>
             </div>
           </div>
         </div>

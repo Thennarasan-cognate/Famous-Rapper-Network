@@ -22,17 +22,32 @@
 // } 
 
 ?>
-
-
-
 <?php
-    
-    if(isset($_REQUEST['submit'])){
-         
-        $email    = $_REQUEST['email']; 
-    
-      if(!empty($email)){
 
+    if(isset($_REQUEST['submit'])){ 
+     
+    require 'PHPMailer/PHPMailerAutoload.php';
+   require('phpmailer/class.phpmailer.php');
+
+$mail = new PHPMailer;
+
+
+$rndno=rand(100000, 999999);
+echo $rndno;
+//OTP generate
+#$mail->SMTPDebug = 3;
+
+$mail->isSMTP();
+
+$mail->Host = 'smtp.gmail.com';
+$mail->Port=587;
+$mail->SMTPAuth = true;
+$mail->SMTPSecure='tls'; 
+
+        $email    = $_REQUEST['email'];
+        // $otp = $_REQUEST['otp'];
+        
+    
         $query = "SELECT * FROM register WHERE email = '{$email}' ";
         $select_register_query = mysqli_query($connection, $query);
         
@@ -41,7 +56,6 @@
             die("Query Failed" . mysqli_error($connection));
             
         }
-
           
           while($row = mysqli_fetch_array($select_register_query)){
               
@@ -52,23 +66,64 @@
                $db_image = $row['image'];
                $db_phone = $row['phone'];
                $db_email = $row['email'];
+               $db_otp = $row['otp'];
                $db_instagram = $row['instagram'];
                $db_facebook = $row['facebook'];
                $db_twitter = $row['twitter'];
-               $db_youtube = $row['youtube'];
-    
+               $db_youtube = $row['youtube'];         
               
           }
-        
-        }else{
 
-          $message_email = "Enter your email address";
+          if($email === $db_email){
+            // if($otp === $db_otp){
+            
+             $_SESSION['email'] = $db_email;
+             $_SESSION['otp'] = $db_otp;
+             
+            $query="UPDATE register SET otp='{$rndno}'WHERE email= '$email' ";
+            $register_query = mysqli_query($connection,$query);
+
+      if(!$register_query) {
+            
+            die("Query Failed" . mysqli_error($connection));
         }
 
-        header("Location:Password_otp.php");
+          $mail->Username = 'reshmasamy21@gmail.com';
+          $mail->Password = '9789261719';
+
+          $mail->setFrom ('barthalomena@gmail.com');
+          $mail->addAddress($_POST['email'],$_POST['firstname']);
+          #$mail->addReplyTo( $_POST['email'],$_POST['name']);
+          
+          $mail->isHTML(true);
+          $mail->Subject = "Email Verification";
+          $mail->Body    = 'Hi'.' '.$_POST["firstname"].'<br><br>To verify your email'.' '.$_POST['email'].' '.'we sent you an otp, enter the otp in the field'.' '.$rndno;
+          
+          if(!$mail->send()) {
+             echo "Message could not be sent.". $mail->ErrorInfo;
+          }else{
+            echo " otp sent successfully to ur mail: " ;
+          }  
+          
+
+          header("Location:Password_otp.php");
+        //   }else{
+        //     $message_otp = "Incorrect otp";   
+              
+        // }
+           
+         
+        }else{
+            $message_email = "Invalid email";   
+              
+        }
+        
         
         }
 ?>  
+
+
+
 
 
 <!DOCTYPE html>
@@ -142,9 +197,9 @@
 
           <?php
 
-if(!isset($_POST['submit'])){
+// if(!isset($_POST['submit'])){
 
-  if(!isset($_POST['save'])){ 
+  // if(!isset($_POST['save'])){ 
 
 
  ?>
@@ -163,7 +218,7 @@ if(!isset($_POST['submit'])){
               <form action="" method="post" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;">
                 <div class="u-form-group u-form-name">
                   <label for="email-cd60" class="u-form-control-hidden u-label"></label>
-                  <input type="text" placeholder="Enter your Email" id="email-cd60" name="email" class="u-grey-5 u-input u-input-rectangle" required="">
+                  <input type="text" placeholder="Enter your Email" id="" name="email" value="<?php echo isset($_REQUEST["email"]) ? $_REQUEST["email"] : ''; ?>"class="u-grey-5 u-input u-input-rectangle" required="">
                   <h6 class="text-center" style="color:#ff0000"><?php echo $message_email; ?></h6>
                 </div>
                 <div class="u-align-center u-form-group u-form-submit">
@@ -173,7 +228,7 @@ if(!isset($_POST['submit'])){
 
 <?php     
 
-   } }
+   // } }
 
 
 ?>
@@ -354,6 +409,7 @@ if(!isset($_POST['submit'])){
 
                 <input type="hidden" value="" name="recaptchaResponse">
               </form>
+              <div><?php if(isset($message)) { echo $message; } ?></div>
             </div>
           </div>
         </div>
@@ -363,7 +419,7 @@ if(!isset($_POST['submit'])){
   </body>
 </html>
 
-<script>
+<!-- <script>
 
 const togglePassword = document.querySelector('#togglePassword');
   const password = document.querySelector('#id_password');
@@ -376,4 +432,4 @@ const togglePassword = document.querySelector('#togglePassword');
     this.classList.toggle('fa-eye-slash');
 });
 
-</script>
+</script> -->
