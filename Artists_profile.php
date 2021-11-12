@@ -344,7 +344,7 @@ img {
               <br>
               <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
             </h6>
-            <a href="https://nicepage.com/css-templates" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-6">Upgrade Now ($10)<span style="font-weight: 700;"></span>
+            <a href="payment/index.php" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-6">Upgrade Now ($10)<span style="font-weight: 700;"></span>
             </a>
           </div>
         </div>

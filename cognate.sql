@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Nov 11, 2021 at 04:34 AM
+-- Generation Time: Nov 12, 2021 at 08:02 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.1
 
@@ -51,6 +51,24 @@ INSERT INTO `offerings` (`id`, `offerings`) VALUES
 (11, 'Video Editing'),
 (12, 'Remix Challenge'),
 (13, 'Mailing List');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment`
+--
+
+CREATE TABLE `payment` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `item_number` varchar(255) NOT NULL,
+  `amount` double(10,2) NOT NULL,
+  `currency_code` varchar(55) NOT NULL,
+  `txn_id` varchar(255) NOT NULL,
+  `payment_status` varchar(255) NOT NULL,
+  `payment_response` text NOT NULL,
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -175,6 +193,12 @@ ALTER TABLE `offerings`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `register`
 --
 ALTER TABLE `register`
@@ -201,6 +225,12 @@ ALTER TABLE `view_all_artists`
 --
 ALTER TABLE `offerings`
   MODIFY `id` int(33) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `register`
