@@ -114,7 +114,7 @@ if (!empty($_POST["token"])) {
                 <input type='hidden' name='item_number'
                     value='PHPPOTEG#1'>
             </form>
-    <!-- <div class="test-data">
+   <!--  <div class="test-data">
         <h3>Test Card Information</h3>
         <p>Use these test card numbers with valid expiration month
             / year and CVC code for testing with this demo.</p>

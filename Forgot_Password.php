@@ -33,7 +33,7 @@ $mail = new PHPMailer;
 
 
 $rndno=rand(100000, 999999);
-echo $rndno;
+// echo $rndno;
 //OTP generate
 #$mail->SMTPDebug = 3;
 
