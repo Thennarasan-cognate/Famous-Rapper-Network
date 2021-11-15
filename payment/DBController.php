@@ -9,21 +9,21 @@ class DBController {
 	
     function __construct() {
         $this->conn = $this->connectDB();
-	}	
+	}
 	
 	function connectDB() {
 		$conn = mysqli_connect($this->host,$this->user,$this->password,$this->database,$this->port);
 		return $conn;
-          echo "connected";
-        if($conn){
+     echo "connected";
+   if($conn){
 
-            echo "connected";
-            
-           }else{
+        echo "connected";
+        
+       }else{
 
-            die ("Connection failed");
-
-           }
+        die ("Connection failed");
+        
+       }
 
 	}
 	

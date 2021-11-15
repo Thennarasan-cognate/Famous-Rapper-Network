@@ -114,7 +114,7 @@ if (!empty($_POST["token"])) {
                 <input type='hidden' name='item_number'
                     value='PHPPOTEG#1'>
             </form>
-   <!--  <div class="test-data">
+    <div class="test-data">
         <h3>Test Card Information</h3>
         <p>Use these test card numbers with valid expiration month
             / year and CVC code for testing with this demo.</p>
@@ -142,7 +142,7 @@ if (!empty($_POST["token"])) {
                 <td>Mastercard (debit)</td>
             </tr>
             
-            <tr>
+            <!-- <tr>
                 <td>378282246310005</td>
                 <td>American Express</td>
             </tr>
@@ -164,13 +164,13 @@ if (!empty($_POST["token"])) {
             <tr>
                 <td>6200000000000005</td>
                 <td>UnionPay</td>
-            </tr>
+            </tr> -->
             
         </table>
-    </div> -->
+    </div>
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-    <script src="vendor/jquery/jquery-3.2.1.min.js"
-        type="text/javascript"></script>
+    <!-- <script src="vendor/jquery/jquery-3.2.1.min.js" type="text/javascript"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
     <script>
 function cardValidation () {
     var valid = true;
