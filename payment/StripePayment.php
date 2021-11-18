@@ -21,7 +21,7 @@ class StripePayment
     public function __construct()
     {
         require_once "config.php";
-        $this->apiKey = sk_test_tR3PYbcVNZZ796tH88S4VQ2u;
+        $this->apiKey = sk_test_51JwfjlSJyD0TroTwhE9S27g5Tl8b7aXzD7ohUpsIiRP1hG1qCVXSUUlui8WrR1EpBcfqjusk8eZMZr0lP7ScquI400f7mmaPIy;
         $this->stripeService = new \Stripe\Stripe();
         $this->stripeService->setVerifySslCerts(false);
         $this->stripeService->setApiKey($this->apiKey);
@@ -40,14 +40,14 @@ class StripePayment
     public function chargeAmountFromCard($cardDetails)
     {
         $customerDetailsAry = array(
-            'email' => $cardDetails['email'],
+            'name' => $cardDetails['name'],
             'source' => $cardDetails['token']
         );
         $customerResult = $this->addCustomer($customerDetailsAry);
         $charge = new Charge();
         $cardDetailsAry = array(
             'customer' => $customerResult->id,
-            'amount' => $cardDetails['amount']*100 ,
+            'amount' => $cardDetails['amount'],
             'currency' => $cardDetails['currency_code'],
             'description' => $cardDetails['item_name'],
             'metadata' => array(

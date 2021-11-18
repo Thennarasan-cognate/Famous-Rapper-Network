@@ -1,4 +1,4 @@
-<?php //session_start(); ?>
+<?php session_start(); ?>
 <?php include "db.php"; ?>
 
 
@@ -24,90 +24,6 @@ echo "otp sent your email";
 
 }
  ?>
-
-
-
-<?php
-    
-//     if(isset($_REQUEST['submit'])){
-         
-//         $email    = $_REQUEST['email']; 
-    
-//       if(!empty($email)){
-
-//         $query = "SELECT * FROM register WHERE email = '{$email}' ";
-//         $select_register_query = mysqli_query($connection, $query);
-        
-//         if(!$select_register_query){
-            
-//             die("Query Failed" . mysqli_error($connection));
-            
-//         }
-
-//         // header("Location:OTP.php");
-          
-//           while($row = mysqli_fetch_array($select_register_query)){
-              
-//                $db_id = $row['id'];
-//                $db_firstname = $row['firstname'];
-//                $db_lastname = $row['lastname'];
-//                $db_image = $row['image'];
-//                $db_phone = $row['phone'];
-//                $db_email = $row['email'];
-//                $db_instagram = $row['instagram'];
-//                $db_facebook = $row['facebook'];
-//                $db_twitter = $row['twitter'];
-//                $db_youtube = $row['youtube'];
-    
-              
-//           }
-        
-//         }else{
-
-//           $message_email = "Enter your email address";
-//         }
-        
-//         }
-// ?>  
-
-
-
- <?php
-    
-//     if(isset($_POST['submit'])){
-         
-//         $email    = $_POST['email']; 
-    
-//         $query = "SELECT * FROM register WHERE email = '{$email}' ";
-//         $select_register_query = mysqli_query($connection, $query);
-        
-//         if(!$select_register_query){
-            
-//             die("Query Failed" . mysqli_error($connection));
-            
-//         }
-          
-//           while($row = mysqli_fetch_array($select_register_query)){
-              
-//                $db_id = $row['id'];
-//                $db_firstname = $row['firstname'];
-//                $db_lastname = $row['lastname'];
-//                $db_image = $row['image'];
-//                $db_phone = $row['phone'];
-//                $db_email = $row['email'];
-//                $db_instagram = $row['instagram'];
-//                $db_facebook = $row['facebook'];
-//                $db_twitter = $row['twitter'];
-//                $db_youtube = $row['youtube'];         
-              
-//           }
-
-//             header("Location:Member-Login.php");
-        
-        
-//         }
-?>  
-
 
 <!DOCTYPE html>
  <html style="font-size: 16px;">
