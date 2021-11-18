@@ -47,7 +47,7 @@ class StripePayment
         $charge = new Charge();
         $cardDetailsAry = array(
             'customer' => $customerResult->id,
-            'amount' => $cardDetails['amount'],
+            'amount' => $cardDetails['amount'] ,
             'currency' => $cardDetails['currency_code'],
             'description' => $cardDetails['item_name'],
             'metadata' => array(
@@ -59,3 +59,5 @@ class StripePayment
         return $result->jsonSerialize();
     }
 }
+
+?>

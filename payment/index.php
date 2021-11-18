@@ -8,14 +8,14 @@ if (!empty($_POST["token"])) {
     require_once 'StripePayment.php';
     $stripePayment = new StripePayment();
     
-   $stripeResponse = $stripePayment->chargeAmountFromCard($_POST);
+      // $stripeResponse = $stripePayment->chargeAmountFromCard($_POST);
     
-    // $stripeResponse = "10";
+      $stripeResponse = "10";
 
     require_once "DBController.php";
     $dbController = new DBController();
     
-    $amount = $stripeResponse["amount"] /100;
+    $amount = $stripeResponse["amount"]/100;
     
     $param_type = 'ssdssss';
     $param_value_array = array(
@@ -30,20 +30,20 @@ if (!empty($_POST["token"])) {
     $query = "INSERT INTO payment (name, item_number, amount, currency_code, txn_id, payment_status, payment_response) values (?, ?, ?, ?, ?, ?, ?)";
     $id = $dbController->insert($query, $param_type, $param_value_array);
     
-    if ($stripeResponse['amount_refunded'] == 0 && empty($stripeResponse['failure_code']) && $stripeResponse['paid'] == 1 && $stripeResponse['captured'] == 1 && $stripeResponse['status'] == 'succeeded') {
+    if ($stripeResponse['amount_refunded'] == 0 && empty($stripeResponse['failure_code']) && $stripeResponse['paid'] == 1 && $stripeResponse['captured'] == 1 && $stripeResponse['status'] == 'succeeded') {}
         $successMessage = "Stripe payment is completed successfully. The TXN ID is " . $stripeResponse["balance_transaction"];
-    }
+    
 }
+// print $stripeResponse ."<br>";
+// print $amount ."<br>";
+// print $stripeResponse['amount_refunded'] ."<br>";
+// print $stripeResponse['failure_code'] ."<br>";
+// print $stripeResponse['paid'] ."<br>";
+// print $stripeResponse['captured'] ."<br>";
+// print $stripeResponse['status'] ."<br>";
+// print $customerDetails ."<br>";
+// print $cardDetails['currency_code'];
 ?>
-<html>
-<head>
-<link href="style.css" rel="stylesheet" type="text/css"/ >
-</head>
-<body>
-    <h4>Pay with card</h4>
-     <?php if(!empty($successMessage)) { ?>
-    <div id="success-message"><?php echo $successMessage; ?></div>
-    <?php  } ?>
 
 <!-- <style>
 .FormFieldInput-Icons, .FormFieldInput-IconsIcon {
@@ -71,10 +71,21 @@ if (!empty($_POST["token"])) {
 }
 
 </style> -->
+
+
+<html>
+<head>
+<link href="style.css" rel="stylesheet" type="text/css"/ >
+<title>Payment Page</title>
+</head>
+<body>
+    <h4>Pay with card</h4>
+     <?php if(!empty($successMessage)) { ?>
+    <div id="success-message"><?php echo $successMessage; ?></div>
+    <?php  } ?>
     <div id="error-message"></div>
                 
-            <form id="frmStripePayment" action=""
-                method="post">
+            <form id="frmStripePayment" action="" method="post">
                 <div class="field-row">
                     <label>Card Holder Name</label> <span
                         id="card-holder-name-info" class="info"></span><br>
@@ -180,8 +191,8 @@ if (!empty($_POST["token"])) {
                         <img alt="loader" src="LoaderIcon.gif">
                     </div>
                 </div>
-                <input type='hidden' name='amount' value='10'>
-                <input type='hidden' name='currency_code' value='USD'>
+                <input type='hidden' name='amount' value="10">
+                <input type='hidden' name='currency_code'>
                 <input type='hidden' name='item_name' value='Test Product'>
                 <input type='hidden' name='item_number' value='PHPPOTEG#1'>
             </form>
