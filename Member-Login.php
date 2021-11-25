@@ -25,6 +25,7 @@
                $db_id = $row['id'];
                $db_phone = $row['phone'];
                $db_role = $row['role'];
+               $db_premium = $row['premium'];
                $db_email = $row['email'];
                $db_password = $row['password'];
                $db_firstname = $row['firstname'];
@@ -46,6 +47,7 @@
              $_SESSION['image'] = $db_image;
              $_SESSION['phone'] = $db_phone;
              $_SESSION['role'] = $db_role;
+             $_SESSION['premium'] = $db_premium;
 
  header("Location:Home.php");
            

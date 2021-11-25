@@ -67,7 +67,7 @@
 
           $user_id = $connection -> insert_id;
            
-                  header("Location:Artists_profile.php?Artists_profile=$user_id");
+                  header("Location:Payment_page/Artists_profile.php?Artists_profile=$user_id");
  }            
 
 }

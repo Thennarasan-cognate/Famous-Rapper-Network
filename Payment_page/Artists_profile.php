@@ -1,3 +1,27 @@
+<?php
+session_start();
+include "../db.php";
+require('config.php');
+?>
+<!-- <form action="submit.php" method="post">
+	<script
+		src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+		data-key="<?php echo $publishableKey?>"
+		data-amount="1000"
+		data-name="Upgrade with Kyle James"
+		
+		
+		data-currency="usd"
+		data-email="<?php echo $Email ?>"
+	>
+	</script>
+
+</form> -->
+
+<!-- data-name="Programming with Vishal"
+data-description="Programming with Vishal Desc"
+data-image="https://www.logostack.com/wp-content/uploads/designers/eclipse42/small-panda-01-600x420.jpg" -->
+
 <?php session_start(); ?>
 <?php ob_start (); ?>
 <?php include "db.php"; ?>
@@ -47,7 +71,8 @@
             
            }
 
-           $_SESSION['Email'] = $Email;
+           // $_SESSION['Name'] = $Name;
+           // $_SESSION['Email'] = $Email;
 
          }
 
@@ -86,7 +111,70 @@
 //             die("Query Failed" . mysqli_error($connection));
 //         }      
 
-// }         
+// }  
+
+
+if(isset($_POST['stripeToken'])){
+	\Stripe\Stripe::setVerifySslCerts(false);
+
+	$token=$_POST['stripeToken'];
+
+	$data=\Stripe\Charge::create(array(
+		"amount"=>1000,
+		"currency"=>"inr",
+		"description"=>"Upgrade with".' '. $Name ,
+		"source"=>$token,
+
+	));
+
+	if($data['status']==='succeeded'){
+
+    $the_email  =  $_SESSION['email'];
+
+	 $query="SELECT * FROM register WHERE email = '{$the_email}' ";
+     $select_register_profile = mysqli_query($connection,$query);
+
+     while($row=mysqli_fetch_array($select_register_profile)){
+
+            $id=$row['id'];
+            $title=$row['title'];
+            $firstname=$row['firstname'];
+            $lastname=$row['lastname'];
+            $image=$row['image'];
+            $phone=$row['phone'];
+            $email=$row['email'];
+            $premium=$row['premium'];
+            $password=$row['password'];
+            $confirm_password=$row['confirm_password'];
+            $instagram=$row['instagram'];
+            $facebook=$row['facebook'];
+            $twitter=$row['twitter'];
+            $youtube=$row['youtube'];
+            
+           }
+
+     $query2="UPDATE register SET premium='True' WHERE email= '{$the_email}' ";
+
+      $register_query = mysqli_query($connection,$query2);
+
+      if(!$register_query) {
+            
+            die("Query Failed" . mysqli_error($connection));
+        }     	
+
+       // header( "Location: index.php?Artists_profile.php=1" );
+
+	}else{
+
+		echo "payment failed please try again";
+
+	// echo "<pre>";
+	// print_r($data);
+	// echo json_encode($data['status']);
+	// print_r($data['status']);
+	}
+}
+
 
   ?>
 
@@ -100,15 +188,15 @@
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Artists profile</title>
-    <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="Artists_profile.css" media="screen">
-    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <link rel="stylesheet" href="../nicepage.css" media="screen">
+<link rel="stylesheet" href="../Artists_profile.css" media="screen">
+    <script class="u-script" type="text/javascript" src="../jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="../nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 3.27.0, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     
 <!-- Profile Icon -->
- <link rel="stylesheet" href="assets/css/shared/style.css">
+ <link rel="stylesheet" href="../assets/css/shared/style.css">
  <!-- <link rel="stylesheet" href="style.css"> -->
 
     <style>
@@ -130,7 +218,7 @@ img {
   </head>
   <body class="u-body"><header class="u-clearfix u-header u-header" id="sec-4ce4"><div class="u-clearfix u-sheet u-sheet-1">
         <a href="Home.php" class="u-image u-logo u-image-1">
-          <img src="images/default-logo.png" class="u-logo-image u-logo-image-1">
+          <img src="../images/default-logo.png" class="u-logo-image u-logo-image-1">
         </a>
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
           <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
@@ -143,7 +231,7 @@ img {
           </div>
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1">
-            <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.php" style="padding: 10px 20px;">Home</a>
+            <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../Home.php" style="padding: 10px 20px;">Home</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Artists_profile.php?Artists_profile=<?php echo $user_id; ?>" style="padding: 10px 20px;">Artist Profile</a></li>
 
 <?php
@@ -152,7 +240,7 @@ img {
 
 ?>
 
-<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="List_All_Users.php" style="padding: 10px 20px;">View All Users</a></li>
+<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../List_All_Users.php" style="padding: 10px 20px;">View All Users</a></li>
 
 <?php 
 
@@ -161,8 +249,8 @@ img {
 ?>
 
 
-<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.php" style="padding: 10px 20px;">About</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Contact.php" style="padding: 10px 20px;">Contact</a>
+<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../About.php" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../Contact.php" style="padding: 10px 20px;">Contact</a>
 </li>
 
   <?php
@@ -171,7 +259,7 @@ img {
 
   ?> 
 
-<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
+<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../Member-Login.php" style="padding: 10px 20px;">Member Login</a>
 </li>
 
   <?php 
@@ -183,11 +271,11 @@ img {
 
            <li class="u-nav-item dropdown d-none d-xl-inline-block user-dropdown">
               <a class="u-nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <img class="" style="width:40px" src ='images/<?php echo $_SESSION['image'] ?>' alt=""></a>
+              <img class="" style="width:40px" src ='../images/<?php echo $_SESSION['image'] ?>' alt=""></a>
  <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                 <div class="dropdown-header text-center">
 
-  <img class="" style="width:60px" src ='images/<?php echo $_SESSION['image'] ?>' alt="">
+  <img class="" style="width:60px" src ='../images/<?php echo $_SESSION['image'] ?>' alt="">
 
                   <p class="mb-1 mt-3 font-weight-semibold" style="color:darkblue;">
                       <?php
@@ -205,7 +293,7 @@ img {
                 </div>
                 <a class="dropdown-item" href="profile.php">My Profile <span class="badge badge-pill badge-danger"></span><i class="dropdown-item-icon ti-dashboard"></i></a>
                  
-                <a class="dropdown-item"href="Logout.php">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
+                <a class="dropdown-item"href="../Logout.php">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
               
               </div>
           </li>
@@ -222,8 +310,8 @@ img {
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.php" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Artists_profile.php?Artists_profile=<?php echo $user_id; ?>" style="padding: 10px 20px;">Artists Profile</a></li>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Home.php" style="padding: 10px 20px;">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Artists_profile.php?Artists_profile=<?php echo $user_id; ?>" style="padding: 10px 20px;">Artists Profile</a></li>
 
 <?php
 
@@ -231,7 +319,7 @@ img {
 
 ?>
 
-<li class="u-nav-item"><a class="u-button-style u-nav-link" href="List_All_Users.php" style="padding: 10px 20px;">View All Users</a></li>
+<li class="u-nav-item"><a class="u-button-style u-nav-link" href="../List_All_Users.php" style="padding: 10px 20px;">View All Users</a></li>
 
 <?php 
 
@@ -239,8 +327,8 @@ img {
 
 ?>
 
-<li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.php" style="padding: 10px 20px;">About</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.php" style="padding: 10px 20px;">Contact</a>
+<li class="u-nav-item"><a class="u-button-style u-nav-link" href="../About.php" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Contact.php" style="padding: 10px 20px;">Contact</a>
 
  <?php
 
@@ -248,7 +336,7 @@ img {
 
   ?> 
 
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Member-Login.php" style="padding: 10px 20px;">Member Login</a>
 </li>
 
  <?php 
@@ -265,7 +353,7 @@ img {
         </nav>
       </div></header> 
     <section class="u-clearfix u-section-1" id="sec-f37b">
-      <form action="submit.php" method="post">
+      <form action="" method="post">
       <div class="u-clearfix u-sheet u-valign-middle-sm u-sheet-1">
         <h2 class="u-align-center u-text u-text-1"><span style="font-weight: 700;"><?php echo $Name ?></span>
         </h2>
@@ -292,7 +380,7 @@ img {
         if(($_SESSION['email'] == $Email) || ($_SESSION['role'] == "Admin")){
 
 
-        echo "<center><button type='button' class='btn btn-primary' style='width:145px; height: 40px; background-color: #f3f5f6 ;' name='submit'><a href='EditArtists_profile.php?EditArtists_profile={$user_id}'>Edit Artist profile</a></button></center>";
+        echo "<center><button type='button' class='btn btn-primary' style='width:145px; height: 40px; background-color: #f3f5f6 ;' name='submit'><a href='../EditArtists_profile.php?EditArtists_profile={$user_id}'>Edit Artist profile</a></button></center>";
 
       }
 
@@ -393,7 +481,6 @@ img {
        }else{
 
       ?>
-
               <br>
               <br>
               <br>
@@ -403,8 +490,29 @@ img {
             </h6>
             <!-- <a href="https://buy.stripe.com/eVaeXC8k64LS7uw8ww" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-6">Upgrade Now ($10)<span style="font-weight: 700;"> -->
 
-            <a href="" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-6">Upgrade Now ($10)<span style="font-weight: 700;">  
-             <input type="submit" name="upgrade" value="submit" class="u-form-control-hidden">   
+  <script
+		src="https://checkout.stripe.com/checkout.js" class="stripe-button btn"
+		data-key="<?php echo $publishableKey?>"
+		data-amount="1000"
+		data-name="Upgrade with <?php echo $Name ?>"
+		
+		
+		data-currency="usd"
+		data-email="<?php echo $_SESSION['email'] ?>"
+	>
+	</script>
+<style>
+.btn{
+  margin: 82px auto 0 139px;
+  padding: 13px 32px 13px 30px;
+}
+
+</style>
+
+
+
+            <!-- <a href="" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-6">Upgrade Now ($10)<span style="font-weight: 700;">  
+             <input type="submit" name="upgrade" value="submit" class="u-form-control-hidden">  -->  
               <!-- <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button u-btn-6"></script>
               <a href="Payment_page/index.php" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-6">Upgrade Now ($10)<span style="font-weight: 700;"> -->
@@ -490,7 +598,7 @@ img {
     </section>
     
     <!-- Profile Icon -->
-    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="../assets/vendors/js/vendor.bundle.base.js"></script>
 
 
 

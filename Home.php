@@ -244,7 +244,7 @@ img {
                 </div>
                 <h3 class="u-text u-text-2"><?php echo $db_Name; ?>
                 </h3>
-                <?php echo "<a href='Artists_profile.php?Artists_profile={$user_id}' class='u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-2'>View Full Profile</a>" ?>
+                <?php echo "<a href='Payment_page/Artists_profile.php?Artists_profile={$user_id}' class='u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-2'>View Full Profile</a>" ?>
               </div>
             </div>
 
