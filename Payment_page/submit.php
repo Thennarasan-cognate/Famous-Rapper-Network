@@ -30,7 +30,6 @@ if(isset($_POST['stripeToken'])){
 
 	echo "<pre>";
 	print_r($data);
-	// echo json_encode($data['status']);
 	// print_r($data['status']);
 	}
 }

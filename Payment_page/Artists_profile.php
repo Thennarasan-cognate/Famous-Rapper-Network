@@ -1,30 +1,9 @@
 <?php
+ob_start ();
 session_start();
 include "../db.php";
 require('config.php');
 ?>
-<!-- <form action="submit.php" method="post">
-	<script
-		src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-		data-key="<?php echo $publishableKey?>"
-		data-amount="1000"
-		data-name="Upgrade with Kyle James"
-		
-		
-		data-currency="usd"
-		data-email="<?php echo $Email ?>"
-	>
-	</script>
-
-</form> -->
-
-<!-- data-name="Programming with Vishal"
-data-description="Programming with Vishal Desc"
-data-image="https://www.logostack.com/wp-content/uploads/designers/eclipse42/small-panda-01-600x420.jpg" -->
-
-<?php session_start(); ?>
-<?php ob_start (); ?>
-<?php include "db.php"; ?>
 
 <?php
 
@@ -71,108 +50,63 @@ data-image="https://www.logostack.com/wp-content/uploads/designers/eclipse42/sma
             
            }
 
-           // $_SESSION['Name'] = $Name;
-           // $_SESSION['Email'] = $Email;
-
          }
-
-// if(isset($_GET['upgrade'])){
-
-//   $the_email    = $_SESSION['email'];
-
-//   $query="SELECT * FROM register WHERE email = $the_email ";
-//      $select_register_profile = mysqli_query($connection,$query);
-
-      
-//      while($row=mysqli_fetch_array($select_register_profile)){
-
-//             $id=$row['id'];
-//             $title=$row['title'];
-//             $firstname=$row['firstname'];
-//             $lastname=$row['lastname'];
-//             $image=$row['image'];
-//             $phone=$row['phone'];
-//             $email=$row['email'];
-//             $password=$row['password'];
-//             $confirm_password=$row['confirm_password'];
-//             $instagram=$row['instagram'];
-//             $facebook=$row['facebook'];
-//             $twitter=$row['twitter'];
-//             $youtube=$row['youtube'];
-            
-//            }
-
-//      $query2="UPDATE register SET premium='True' WHERE email= $the_email ";
-
-//       $register_query = mysqli_query($connection,$query2);
-
-//       if(!$register_query) {
-            
-//             die("Query Failed" . mysqli_error($connection));
-//         }      
-
-// }  
 
 
 if(isset($_POST['stripeToken'])){
-	\Stripe\Stripe::setVerifySslCerts(false);
 
-	$token=$_POST['stripeToken'];
+  	\Stripe\Stripe::setVerifySslCerts(false);
 
-	$data=\Stripe\Charge::create(array(
-		"amount"=>1000,
-		"currency"=>"inr",
-		"description"=>"Upgrade with".' '. $Name ,
-		"source"=>$token,
+  	$token=$_POST['stripeToken'];
 
-	));
+  	$data=\Stripe\Charge::create(array(
+  		"amount"=>1000,
+  		"currency"=>"inr",
+  		"description"=>"Upgrade with".' '. $Name ,
+  		"source"=>$token,
 
-	if($data['status']==='succeeded'){
+  	));
 
-    $the_email  =  $_SESSION['email'];
+  	if($data['status']==='succeeded'){
 
-	 $query="SELECT * FROM register WHERE email = '{$the_email}' ";
-     $select_register_profile = mysqli_query($connection,$query);
+        $the_email  =  $_SESSION['email'];
 
-     while($row=mysqli_fetch_array($select_register_profile)){
+    	 $query="SELECT * FROM register WHERE email = '{$the_email}' ";
+         $select_register_profile = mysqli_query($connection,$query);
 
-            $id=$row['id'];
-            $title=$row['title'];
-            $firstname=$row['firstname'];
-            $lastname=$row['lastname'];
-            $image=$row['image'];
-            $phone=$row['phone'];
-            $email=$row['email'];
-            $premium=$row['premium'];
-            $password=$row['password'];
-            $confirm_password=$row['confirm_password'];
-            $instagram=$row['instagram'];
-            $facebook=$row['facebook'];
-            $twitter=$row['twitter'];
-            $youtube=$row['youtube'];
-            
-           }
+         while($row=mysqli_fetch_array($select_register_profile)){
 
-     $query2="UPDATE register SET premium='True' WHERE email= '{$the_email}' ";
+                $id=$row['id'];
+                $title=$row['title'];
+                $firstname=$row['firstname'];
+                $lastname=$row['lastname'];
+                $image=$row['image'];
+                $phone=$row['phone'];
+                $email=$row['email'];
+                $premium=$row['premium'];
+                $password=$row['password'];
+                $confirm_password=$row['confirm_password'];
+                $instagram=$row['instagram'];
+                $facebook=$row['facebook'];
+                $twitter=$row['twitter'];
+                $youtube=$row['youtube'];
+                
+               }
 
-      $register_query = mysqli_query($connection,$query2);
+         $query2="UPDATE register SET premium='True' WHERE email= '{$the_email}' ";
 
-      if(!$register_query) {
-            
-            die("Query Failed" . mysqli_error($connection));
-        }     	
+          $register_query = mysqli_query($connection,$query2);
 
-       // header( "Location: index.php?Artists_profile.php=1" );
+          if(!$register_query) {
+                
+                die("Query Failed" . mysqli_error($connection));
+            }     	
 
-	}else{
+    	}else{
 
-		echo "payment failed please try again";
+    		echo "payment failed please try again";
 
-	// echo "<pre>";
-	// print_r($data);
-	// echo json_encode($data['status']);
-	// print_r($data['status']);
-	}
+    	}
 }
 
 
@@ -197,7 +131,6 @@ if(isset($_POST['stripeToken'])){
     
 <!-- Profile Icon -->
  <link rel="stylesheet" href="../assets/css/shared/style.css">
- <!-- <link rel="stylesheet" href="style.css"> -->
 
     <style>
 img {
@@ -369,13 +302,10 @@ img {
 
 <iframe width="420" height="345" src="https://www.youtube.com/embed/<?php echo $Music; ?>?autoplay=0&mute=0"></iframe>
 
-            <!-- <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/L-hm3S1aSnI?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe> -->
           </div>
         </div>
         <br>
         <?php 
-
-       // if(($_SESSION['fullname'] == $Name) || ($_SESSION['role'] == "Admin")){
 
         if(($_SESSION['email'] == $Email) || ($_SESSION['role'] == "Admin")){
 
@@ -398,7 +328,6 @@ img {
             <h6 class="u-align-center u-text u-text-4"><span style="font-weight: 700;">About</span>
             </h6>
             <p class="u-text u-text-5"><?php echo $About; ?>
-              <!-- Music is my life! I love to create art and I’m here to inspire others! I grew up in Hartford, but moved to Phoenix, AZ shortly after my father died and started a new life. I got into rapping while I was<span class="u-text-body-color"></span> attending Arizona State University. I started getting more into it when I was going to Phoenix College taking music classes. Nowadays I’m involved with various forms of art. My purpose is to have a positive impact on the planet. I will live a life that would make my father proud and help millions of people live better lives. -->
             </p>
           </div>
         </div>
@@ -469,18 +398,18 @@ img {
             <h6 class="u-text u-text-20">&nbsp;<b>Dig Deeper!</b>
               <br>
               <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Unlock <?php echo $Name ?> premium&nbsp;Profile and access the following:<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-              <?php
+          <?php
 
-        if(($_SESSION['premium'] == "True") || ($_SESSION['role'] == "Admin")){
+             if(($_SESSION['premium'] == "True") || ($_SESSION['role'] == "Admin")){
 
-      ?> 
+           ?> 
               <span style="font-weight: 700;">Email address: </span><?php echo $Email; ?>
 
-<?php
+          <?php
        
-       }else{
+             }else{
 
-      ?>
+           ?>
               <br>
               <br>
               <br>
@@ -490,34 +419,35 @@ img {
             </h6>
             <!-- <a href="https://buy.stripe.com/eVaeXC8k64LS7uw8ww" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-6">Upgrade Now ($10)<span style="font-weight: 700;"> -->
 
-  <script
-		src="https://checkout.stripe.com/checkout.js" class="stripe-button btn"
-		data-key="<?php echo $publishableKey?>"
-		data-amount="1000"
-		data-name="Upgrade with <?php echo $Name ?>"
-		
-		
-		data-currency="usd"
-		data-email="<?php echo $_SESSION['email'] ?>"
-	>
-	</script>
-<style>
-.btn{
-  margin: 82px auto 0 139px;
-  padding: 13px 32px 13px 30px;
-}
+          <script
+        		src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        		data-key="<?php echo $publishableKey?>"
+        		data-amount="1000"
+        		data-name="Upgrade with <?php echo $Name ?>"
+        		
+        		
+        		data-currency="usd"
+        		data-email="<?php echo $_SESSION['email'] ?>"
+        	>
+        	</script>
+          <style>
 
-</style>
+           .stripe-button-el {
+               margin: 102px auto 0 199px;
+            }
 
+           /*.btn{
+              margin: 82px auto 0 139px;
+              padding: 13px 32px 13px 30px;
+            }*/
 
-
-            <!-- <a href="" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-6">Upgrade Now ($10)<span style="font-weight: 700;">  
-             <input type="submit" name="upgrade" value="submit" class="u-form-control-hidden">  -->  
+          </style>
+  
               <!-- <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button u-btn-6"></script>
-              <a href="Payment_page/index.php" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-6">Upgrade Now ($10)<span style="font-weight: 700;"> -->
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button u-btn-6"></script> -->
+              <!-- <a href="" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-6">Upgrade Now ($10)<span style="font-weight: 700;">
             </span>
-            </a>
+            </a> -->
 
         <?php
 
