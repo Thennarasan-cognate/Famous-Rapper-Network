@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Nov 25, 2021 at 05:54 AM
+-- Generation Time: Nov 25, 2021 at 06:18 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.1
 
@@ -95,6 +95,8 @@ CREATE TABLE `register` (
   `role` varchar(15) NOT NULL,
   `premium` varchar(11) NOT NULL DEFAULT 'False',
   `email` varchar(30) NOT NULL,
+  `email_verification_link` varchar(200) NOT NULL,
+  `email_status` varchar(100) NOT NULL DEFAULT 'unverified',
   `password` varchar(50) NOT NULL,
   `confirm_password` varchar(50) NOT NULL,
   `otp` int(33) NOT NULL,
@@ -109,16 +111,16 @@ CREATE TABLE `register` (
 -- Dumping data for table `register`
 --
 
-INSERT INTO `register` (`id`, `firstname`, `lastname`, `fullname`, `image`, `phone`, `role`, `premium`, `email`, `password`, `confirm_password`, `otp`, `instagram`, `facebook`, `twitter`, `youtube`, `Location`) VALUES
-(1, 'Admin', 'Admin', 'Admin Admin', 'profile.png', '9248610456', 'Admin', 'True', 'Admin@gmail.com', '0e7517141fb53f21ee439b355b5a1d0a', '0e7517141fb53f21ee439b355b5a1d0a', 0, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam'),
-(2, 'Thennarasan', 'Boovaragan', 'Thennarasan Boovaragan', 'profile.png', '7806880596', 'User', 'True', 'thennarasan@gmail.com', '566b90345409295e8cbba6aa3446c485', '566b90345409295e8cbba6aa3446c485', 0, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam'),
-(3, 'Kyle', 'James', 'Kyle James', 'profile.png', '9837672819', 'User', 'False', 'KyleJames860@gmail.com', '2ec9246a5c996d9a0004b47ec3dc6a81', '2ec9246a5c996d9a0004b47ec3dc6a81', 0, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam'),
-(4, 'Sedia', 'B', 'Sedia B', 'profile.png', '9824756102', 'User', 'True', 'blackchinamusic@gmail.com', 'aabb08f59a5cbe498657274b0acff6c7', 'aabb08f59a5cbe498657274b0acff6c7', 0, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam'),
-(5, 'Kid', 'Rohan', 'Kid Rohan', 'profile.png', '9827410846', 'User', 'False', 'thelonelycottage@gmail.com', 'e4d9b646b046fbe1dbcde2eb9949b60e', 'e4d9b646b046fbe1dbcde2eb9949b60e', 0, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam'),
-(6, 'David', 'Prorok', 'David Prorok', 'profile.png', '7806880596', 'User', 'True', 'david@famousrapper.com', '889211b122daa7f9f917d3d3b3475514', '889211b122daa7f9f917d3d3b3475514', 0, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam'),
-(7, 'Zhe The', 'Free', 'Zhe The Free', 'profile.png', '9827410846', 'User', 'True', 'Zhethefree@gmail.com', 'c690d96b5584cce2e59384df7881f569', 'c690d96b5584cce2e59384df7881f569', 0, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam'),
-(10, 'Ramya', 'Rajendiran', 'Ramya Rajendiran', 'profile.png', '9248610456', 'User', 'True', '07.ramyar@gmail.com', '88e00fd00ba330b8fa467a8877a014a4', '88e00fd00ba330b8fa467a8877a014a4', 646924, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam'),
-(12, 'Reshma', 'Samy', 'Reshma Samy', 'profile.png', '9827410846', 'User', 'True', 'reshmasamy21@gmail.com', '1123d029e3a71dee9762fcdaee4a95bc', '1123d029e3a71dee9762fcdaee4a95bc', 324629, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam');
+INSERT INTO `register` (`id`, `firstname`, `lastname`, `fullname`, `image`, `phone`, `role`, `premium`, `email`, `email_verification_link`, `email_status`, `password`, `confirm_password`, `otp`, `instagram`, `facebook`, `twitter`, `youtube`, `Location`) VALUES
+(1, 'Admin', 'Admin', 'Admin Admin', 'profile.png', '9248610456', 'Admin', 'True', 'Admin@gmail.com', '', 'unverified', '0e7517141fb53f21ee439b355b5a1d0a', '0e7517141fb53f21ee439b355b5a1d0a', 0, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam'),
+(2, 'Thennarasan', 'Boovaragan', 'Thennarasan Boovaragan', 'profile.png', '7806880596', 'User', 'True', 'thennarasan@gmail.com', '', 'unverified', '566b90345409295e8cbba6aa3446c485', '566b90345409295e8cbba6aa3446c485', 0, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam'),
+(3, 'Kyle', 'James', 'Kyle James', 'profile.png', '9837672819', 'User', 'False', 'KyleJames860@gmail.com', '', 'unverified', '2ec9246a5c996d9a0004b47ec3dc6a81', '2ec9246a5c996d9a0004b47ec3dc6a81', 0, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam'),
+(4, 'Sedia', 'B', 'Sedia B', 'profile.png', '9824756102', 'User', 'True', 'blackchinamusic@gmail.com', '', 'unverified', 'aabb08f59a5cbe498657274b0acff6c7', 'aabb08f59a5cbe498657274b0acff6c7', 0, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam'),
+(5, 'Kid', 'Rohan', 'Kid Rohan', 'profile.png', '9827410846', 'User', 'False', 'thelonelycottage@gmail.com', '', 'unverified', 'e4d9b646b046fbe1dbcde2eb9949b60e', 'e4d9b646b046fbe1dbcde2eb9949b60e', 0, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam'),
+(6, 'David', 'Prorok', 'David Prorok', 'profile.png', '7806880596', 'User', 'True', 'david@famousrapper.com', '', 'unverified', '889211b122daa7f9f917d3d3b3475514', '889211b122daa7f9f917d3d3b3475514', 0, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam'),
+(7, 'Zhe The', 'Free', 'Zhe The Free', 'profile.png', '9827410846', 'User', 'True', 'Zhethefree@gmail.com', '', 'unverified', 'c690d96b5584cce2e59384df7881f569', 'c690d96b5584cce2e59384df7881f569', 0, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam'),
+(10, 'Ramya', 'Rajendiran', 'Ramya Rajendiran', 'profile.png', '9248610456', 'User', 'True', '07.ramyar@gmail.com', '', 'unverified', '88e00fd00ba330b8fa467a8877a014a4', '88e00fd00ba330b8fa467a8877a014a4', 646924, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam'),
+(13, 'Reshma', 'Priya', 'Reshma Priya', 'profile.png', '8072219874', 'User', 'False', 'reshmasamy21@gmail.com', 'http://localhost:8889/demo/Famous-Rapper-Network/email_verification.php', 'unverified', 'e1e7ea465afc730052fdbe132f519277', 'e1e7ea465afc730052fdbe132f519277', 892404, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam');
 
 -- --------------------------------------------------------
 
@@ -246,7 +248,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `id` int(33) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(33) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `roles`

@@ -8,7 +8,7 @@
    require('phpmailer/class.phpmailer.php');
 
 $mail = new PHPMailer;
-
+$link = "http://localhost:8889/demo/Famous-Rapper-Network/email_verification.php";
 
 $rndno=rand(100000, 999999);
 // echo $rndno;
@@ -39,6 +39,7 @@ $mail->SMTPSecure='tls';
          $twitter =$_POST['twitter'];
          $youtube =$_POST['youtube'];
          $Location =$_POST['Location'];
+         $email_verification_link = $_POST['email_verification_link'];
 
          
          $error = 0;
@@ -48,7 +49,8 @@ $mail->SMTPSecure='tls';
       $password = mysqli_real_escape_string($connection,$_POST['password']);
       $confirm_password = mysqli_real_escape_string($connection,$_POST['confirm_password']);
       $password = md5($password);              
-      $confirm_password = md5($confirm_password);              
+      $confirm_password = md5($confirm_password);
+                   
      
       if(preg_match('/^[\p{L} ]+$/u', $firstname)) {
           
@@ -83,8 +85,8 @@ $mail->SMTPSecure='tls';
         }else {
 
         
-        $query = "INSERT INTO register (firstname,lastname,fullname,image,phone,role,email,password,confirm_password,otp,instagram,facebook,twitter,youtube,Location) ";
-        $query .= "VALUES ('{$firstname}','{$lastname}','{$fullname}','profile.png','{$phone}','User','{$email}','{$password}','{$confirm_password}','{$rndno}','https://instagram.com/','https://facebook.com/','https://twitter.com/','https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp','Srimushnam') ";
+        $query = "INSERT INTO register (firstname,lastname,fullname,image,phone,role,email,email_verification_link,password,confirm_password,otp,instagram,facebook,twitter,youtube,Location) ";
+        $query .= "VALUES ('{$firstname}','{$lastname}','{$fullname}','profile.png','{$phone}','User','{$email}','{$link}','{$password}','{$confirm_password}','{$rndno}','https://instagram.com/','https://facebook.com/','https://twitter.com/','https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp','Srimushnam') ";
              
         $register_query = mysqli_query($connection,$query);
             
@@ -99,12 +101,15 @@ $mail->SMTPSecure='tls';
 
           $_SESSION['otp'] = $otp;
           $_SESSION['email'] = $email;
+          $_SESSION['email_verification_link'] = $email_verification_link;
+
+        
 
           // $mail->Username = 'barthalomena17@gmail.com';
           // $mail->Password = 'mena@2001';
 
-          $mail->Username = 'reshmasamy21@gmail.com';
-          $mail->Password = '9789261719';
+          $mail->Username = 'CGBSTech2021@gmail.com';
+          $mail->Password = 'cgbs@2021';
 
           $mail->setFrom ('barthalomena@gmail.com');
           $mail->addAddress($_POST['email'],$_POST['firstname']);
@@ -112,15 +117,15 @@ $mail->SMTPSecure='tls';
           
           $mail->isHTML(true);
           $mail->Subject = "Email Verification";
-          $mail->Body    = 'Hi'.' '.$_POST["firstname"].'<br><br>To verify your email'.' '.$_POST['email'].' '.'we sent you an otp, enter the otp in the field'.' '.$rndno;
+          $mail->Body    = 'Here is the verification link'.' '.$link;
           
           if(!$mail->send()) {
              echo "Message could not be sent.". $mail->ErrorInfo;
           }else{
-            echo " otp sent successfully to ur mail: " ;
+             $message =  '<label class="text-success">Register Done, Please check your mail.</label>';
           }  
 
-          header( "Location: otp.php" );
+          // header( "Location: otp.php" );
 
 
 // $to=$email;
@@ -178,7 +183,7 @@ $mail->SMTPSecure='tls';
        }  
          
           }else {         
-              $message = ""; 
+              // $message = ""; 
        }
 
   ?>
@@ -280,7 +285,7 @@ $mail->SMTPSecure='tls';
           <form action="" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-8 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 50px;" redirect="true">
             
              <div class="u-form-group u-form-name u-form-group">
-               <h6 class="text-center" style="color:#ff0000"><?php echo $message; ?></h6>
+               <h6 class="text-center" style="color:#00b300"><?php echo $message; ?></h6>
             </div>
 
             <div class="u-form-group u-form-name u-form-group-1">

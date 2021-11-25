@@ -88,8 +88,8 @@ $mail->SMTPSecure='tls';
             die("Query Failed" . mysqli_error($connection));
         }
 
-          $mail->Username = 'reshmasamy21@gmail.com';
-          $mail->Password = '9789261719';
+          $mail->Username = 'CGBSTech2021@gmail.com';
+          $mail->Password = 'cgbs@2021';
 
           $mail->setFrom ('barthalomena@gmail.com');
           $mail->addAddress($_POST['email'],$_POST['firstname']);
