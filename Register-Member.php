@@ -123,36 +123,9 @@ $mail->SMTPSecure='tls';
              echo "Message could not be sent.". $mail->ErrorInfo;
           }else{
              $message =  '<label class="text-success">Register Done, Please check your mail.</label>';
-          }  
-
-          // header( "Location: otp.php" );
-
-
-// $to=$email;
-// $subject = "OTP";
-// $rndno=rand(100000, 999999);//OTP generate
-// $message = urlencode("otp number.".$rndno);
-// $txt = "OTP: ".$rndno."";
-// $headers = "From: thennarasan1988@gmail.com" . "\r\n";
-// "CC: reshma21@gmail.com";
-// if(mail($to,$subject,$txt,$headers)){
-
-// $_SESSION['firstname']=$_POST['firstname'];
-// $_SESSION['email']=$_POST['email'];
-// $_SESSION['phone']=$_POST['phone'];
-// $_SESSION['otp']=$rndno;
-
-
-// header( "Location: otp.php" );
-// }else{
-
-// echo "mail send failed";
-
-// }
-          
- }
-
-}
+          }         
+       }
+    }
           }else{
               $message_phone = "Invalid Phone No";
             
@@ -190,6 +163,31 @@ $mail->SMTPSecure='tls';
 
 
 <?php
+
+// $to=$email;
+// $subject = "OTP";
+// $rndno=rand(100000, 999999);//OTP generate
+// $message = urlencode("otp number.".$rndno);
+// $txt = "OTP: ".$rndno."";
+// $headers = "From: thennarasan1988@gmail.com" . "\r\n";
+// "CC: reshma21@gmail.com";
+// if(mail($to,$subject,$txt,$headers)){
+
+// $_SESSION['firstname']=$_POST['firstname'];
+// $_SESSION['email']=$_POST['email'];
+// $_SESSION['phone']=$_POST['phone'];
+// $_SESSION['otp']=$rndno;
+
+
+// header( "Location: otp.php" );
+// }else{
+
+// echo "mail send failed";
+
+// }
+
+
+
 // session_start();
 // $rndno=rand(100000, 999999);//OTP generate
 // $message = urlencode("otp number.".$rndno);

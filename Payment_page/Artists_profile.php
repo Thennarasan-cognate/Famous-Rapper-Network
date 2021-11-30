@@ -50,9 +50,11 @@ require('config.php');
             
            }
 
+
          }
 
-
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $errors = array();
 if(isset($_POST['stripeToken'])){
 
   	\Stripe\Stripe::setVerifySslCerts(false);
@@ -100,17 +102,52 @@ if(isset($_POST['stripeToken'])){
           if(!$register_query) {
                 
                 die("Query Failed" . mysqli_error($connection));
-            }     	
-
-    	}else{
-
-    		echo "payment failed please try again";
+            }    	
 
     	}
+     //  else{
+    	// 	echo "payment failed please try again";
+    	// }
+
+}else {
+        $errors['token'] = 'The order cannot be processed. You have not been charged. 
+                            Please try again.';
+    }
 }
 
+if(isset($_SESSION['id'])){
 
-  ?>
+     $db_id =  $_SESSION['id'];       
+        
+     $query="SELECT * FROM register WHERE id = '{$db_id}' ";
+     $select_user_profile = mysqli_query($connection,$query);
+
+      
+     while($row=mysqli_fetch_array($select_user_profile)){
+
+            $db_id=$row['id'];
+            $db_firstname=$row['firstname'];
+            $db_lastname=$row['lastname'];
+            $db_fullname=$row['fullname'];
+            $db_role = $row['role'];
+            $db_premium = $row['premium'];
+            $the_email=$row['email'];
+            $db_password=$row['password'];
+            $db_confirm_password=$row['confirm_password'];
+            $db_phone=$row['phone'];
+            $db_user_role=$row['user_role'];
+            $db_image=$row['image'];
+            $db_instagram=$row['instagram'];
+            $db_facebook=$row['facebook'];
+            $db_twitter=$row['twitter'];
+            $db_youtube=$row['youtube'];
+            $db_Location=$row['Location'];
+            
+    }
+  }
+
+
+?>
 
 
 <!DOCTYPE html>
@@ -224,7 +261,7 @@ img {
                     </p>
                   
                 </div>
-                <a class="dropdown-item" href="profile.php">My Profile <span class="badge badge-pill badge-danger"></span><i class="dropdown-item-icon ti-dashboard"></i></a>
+                <a class="dropdown-item" href="../profile.php">My Profile <span class="badge badge-pill badge-danger"></span><i class="dropdown-item-icon ti-dashboard"></i></a>
                  
                 <a class="dropdown-item"href="../Logout.php">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
               
@@ -296,9 +333,9 @@ img {
 
            <?php 
 
-                       $Music = preg_replace("/https:\/\/\www.youtube.com\/watch\?v=/" , "", $Featured_music);
+              $Music = preg_replace("/https:\/\/\www.youtube.com\/watch\?v=/" , "", $Featured_music);
                     
-                    ?>
+           ?>
 
 <iframe width="420" height="345" src="https://www.youtube.com/embed/<?php echo $Music; ?>?autoplay=0&mute=0"></iframe>
 
@@ -398,9 +435,10 @@ img {
             <h6 class="u-text u-text-20">&nbsp;<b>Dig Deeper!</b>
               <br>
               <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Unlock <?php echo $Name ?> premium&nbsp;Profile and access the following:<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              
           <?php
 
-             if(($_SESSION['premium'] == "True") || ($_SESSION['role'] == "Admin")){
+             if(($db_premium == "True") || ($_SESSION['role'] == "Admin")){
 
            ?> 
               <span style="font-weight: 700;">Email address: </span><?php echo $Email; ?>

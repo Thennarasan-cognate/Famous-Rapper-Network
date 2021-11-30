@@ -5,11 +5,11 @@
 
 <?php
 
-if(isset($_SESSION['firstname'])){
+if(isset($_SESSION['id'])){
 
-     $firstname =  $_SESSION['firstname'];  
+     $db_id =  $_SESSION['id'];  
            
-     $query="SELECT * FROM register WHERE firstname = '{$firstname}' ";
+     $query="SELECT * FROM register WHERE id = '{$db_id}' ";
      $select_register_profile = mysqli_query($connection,$query);
 
       
@@ -82,7 +82,7 @@ if(isset($_SESSION['firstname'])){
           
         if($password==$confirm_password){
               
-    $query="UPDATE register SET firstname= '{$firstname}', lastname= '{$lastname}', image= '{$image}', email= '{$email}',phone= '{$phone}',instagram='{$instagram}', facebook='{$facebook}',twitter='{$twitter}',youtube='{$youtube}',Location='{$Location}'  WHERE firstname= '{$firstname}' ";  
+    $query="UPDATE register SET firstname= '{$firstname}', lastname= '{$lastname}', image= '{$image}', email= '{$email}',phone= '{$phone}',instagram='{$instagram}', facebook='{$facebook}',twitter='{$twitter}',youtube='{$youtube}',Location='{$Location}'  WHERE id= '{$db_id}' ";  
                       
         $update_profile_query=mysqli_query($connection,$query);
 
@@ -381,7 +381,7 @@ img {
                       <span style="font-weight: 600;"class="col-sm-3 col-form-label">FirstName: </span>
                          <div class="col-sm-12">
                           <input type="text" value="<?php echo $firstname; ?>" class="form-control" name="firstname">
-                          <h6 style="color:#ff0000"><?php echo $message_firstname; ?></h6>
+                          <h6 style="color:#ff0000"><?php echo $message_Firstname; ?></h6>
                            </div>
                     </div>
                  </div>

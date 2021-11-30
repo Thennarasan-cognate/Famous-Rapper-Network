@@ -5,11 +5,11 @@
 
 <?php
                     
-    if(isset($_SESSION['firstname'])){
+    if(isset($_SESSION['id'])){
 
-     $firstname =  $_SESSION['firstname'];       
+     $db_id =  $_SESSION['id'];       
         
-     $query="SELECT * FROM register WHERE firstname = '{$firstname}' ";
+     $query="SELECT * FROM register WHERE id = '{$db_id}' ";
      $select_user_profile = mysqli_query($connection,$query);
 
       
