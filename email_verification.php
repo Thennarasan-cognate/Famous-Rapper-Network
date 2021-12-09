@@ -3,32 +3,45 @@
 
 
 <?php
-            $message =  '<label class="text">Your Email Address Successfully Verified <br/> You can login 
-            here - <a href="Member-Login.php">login</a></label>';
-          
 
-       
+      if(isset($_SESSION['email'])){
 
-// session_start();
-// $rndno=rand(100000, 999999);//OTP generate
-// $message = urlencode("otp number.".$rndno);
-// $to=$_POST['email'];
-// $subject = "OTP";
-// $txt = "OTP: ".$rndno."";
-// $headers = "From: 07.ramyar@gmail.com" . "\r\n" .
-// "CC: thennarasan1988@gmail.com";
-// mail($to,$subject,$txt,$headers);
-// if(isset($_POST['btn-save']))
-// {
-// $_SESSION['firstname']=$_POST['firstname'];
-// $_SESSION['email']=$_POST['email'];
-// $_SESSION['phone']=$_POST['phone'];
-// $_SESSION['otp']=$rndno;
-// header( "Location: Member-Login.php" );
+     $email =  $_SESSION['email'];  
+           
+     $query="SELECT * FROM register WHERE email = '{$email}' ";
+     $select_register_profile = mysqli_query($connection,$query);
 
-// echo "otp sent your email";
+      
+     while($row=mysqli_fetch_array($select_register_profile)){
 
-// }
+            $id=$row['id'];
+            $firstname=$row['firstname'];
+            $lastname=$row['lastname'];
+            $email=$row['email'];
+            $email_status=$row['email_status'];         
+           }
+         }
+
+      if(isset($_POST['submit'])){
+   
+            // $firstname =  $_POST['firstname'];
+            // $lastname =  $_POST['lastname'];       
+            // $email =  $_POST['email'];
+            // $email_status =  $_POST['email_status'];
+            // $email_status='verified'
+   
+     $query="UPDATE register SET email_status= 'Verified' WHERE email= '{$email}' ";  
+                      
+        $update_profile_query=mysqli_query($connection,$query);
+
+         if(!$update_profile_query) {
+            
+            die("Query Failed" . mysqli_error($connection));
+        }
+        header("Location: Member-Login.php");
+
+ }
+
  ?>
 
 <!DOCTYPE html>
@@ -94,39 +107,27 @@
           </div>
         </nav>
       </div></header>
-    <!-- <section class="u-align-center u-clearfix u-grey-10 u-section-1" id="sec-357b"> -->
-      <!-- <div class="u-clearfix u-sheet u-valign-middle u-sheet-1"> -->
-       <!--  <div class="u-align-center u-container-style u-group u-radius-50 u-shape-round u-white u-group-1">
-          <div class="u-container-layout u-valign-middle u-container-layout-1"> -->
-            <h3 align="center">Register Login with Email Verification</h3>
-             <?php echo $message ; ?>
-           
-           <p class="font-weight-light text-muted mb-0">
+            <h3 align="center">Register Login with Email Verification</h3><br>
+            <form action="" method="POST">
+             <div class="u-align-center u-form-group u-form-submit">
+             <label class="text">Your Email Address Successfully Verified <br/> You can login here -</label>
+            <a href="" class="u-btn-submit">login</a>
+            <input type="submit" value="submit" name="submit" class="u-form-control-hidden">
+          </div>
 
-            <!-- To Confirm your email, we sent the OTP to your email address, enter the OTP  -->
+            <!-- <div class="u-align-center u-form-group u-form-submit">
+              <a href="" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-1-base u-palette-1-light-2 u-radius-17 u-btn-1">login<br>
+              </a>
+              <input type="submit" name="submit" value="submit" class="u-form-control-hidden">
+            </div> -->
 
-           </p>
-            
-            <div class="u-expanded-width u-form u-login-control u-form-1">
-              <form action="" method="post" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;">
-                
-                <!-- <div class="u-form-group u-form-name">
-                  <label for="email-cd60" class="u-form-control-hidden u-label"></label>
-                  <input type="text" placeholder="Enter your Email" id="email-cd60" name="email" class="u-grey-5 u-input u-input-rectangle" required="">
-                </div> -->
-                <!-- <div class="u-align-center u-form-group u-form-submit">
-                  <a href="" class="u-btn u-btn-round u-btn-submit u-button-style u-radius-17 u-btn-1">Next</a>
-                  <input type="submit" name="btn-save" value="submit" class="u-form-control-hidden">
-                </div> -->
-                <input type="hidden" value="" name="recaptchaResponse">
-              </form>
-            </div>
-          <!-- </div> -->
+        </form>
+<?php //echo $email_status; ?>
+<?php //echo $email; ?>
+<?php //echo $firstname; ?>
+
         <!-- </div> -->
-      <!-- </div> -->
-  <!--   </section> -->
-    
-    
+   
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-ff43"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
       </div></footer>

@@ -27,6 +27,7 @@
                $db_role = $row['role'];
                $db_premium = $row['premium'];
                $db_email = $row['email'];
+               $db_email_status = $row['email_status'];
                $db_password = $row['password'];
                $db_firstname = $row['firstname'];
                $db_lastname = $row['lastname'];
@@ -38,9 +39,11 @@
         
         if($email === $db_email){
         if($password === $db_password){
-     
-            
+         // if($db_email_status === 'Verified'){
+          
+             $_SESSION['id'] = $db_id;
              $_SESSION['email'] = $db_email;
+             $_SESSION['email_status'] = $db_email_status;
              $_SESSION['firstname'] = $db_firstname;
              $_SESSION['lastname'] = $db_lastname;
              $_SESSION['fullname'] = $db_fullname;
@@ -49,8 +52,15 @@
              $_SESSION['role'] = $db_role;
              $_SESSION['premium'] = $db_premium;
 
- header("Location:Home.php");
-           
+        
+
+            header("Location:Home.php");
+
+        // }else{
+            
+        //     $message_emailstatus = "Your email is not verified, first verify your email";
+        // }
+
         }else{
             
             $message_password = "Incorrect password";
@@ -138,11 +148,12 @@
                 
                 if(isset($_SESSION['status'])){
                     
-                    echo $_SESSION['status'];
+                    // echo $_SESSION['status'];
                 }
                 
-                ?>
-            
+                ?><br>
+            <h7 class="text-center" style="color:#ff0000"><?php echo $message_emailstatus; ?></h7>
+
             <div class="u-expanded-width u-form u-login-control u-form-1">
               <form action="" method="post" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;">
                 <div class="u-form-group u-form-name">

@@ -239,7 +239,7 @@ img {
                 <div class="u-video u-video-contain u-video-1">
                   <div class="embed-responsive embed-responsive-1">
                    <!--  <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=1&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe> -->
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $Music; ?>?autoplay=1&mute=0"></iframe>
+                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $Music; ?>?autoplay=0&mute=1"></iframe>
                   </div>
                 </div>
                 <h3 class="u-text u-text-2"><?php echo $db_Name; ?>

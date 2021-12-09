@@ -79,6 +79,7 @@ if(isset($_POST['stripeToken'])){
          while($row=mysqli_fetch_array($select_register_profile)){
 
                 $id=$row['id'];
+                $Artist_id=$row['Artist_id'];
                 $title=$row['title'];
                 $firstname=$row['firstname'];
                 $lastname=$row['lastname'];
@@ -95,21 +96,22 @@ if(isset($_POST['stripeToken'])){
                 
                }
 
-         $query2="UPDATE register SET premium='True' WHERE email= '{$the_email}' ";
+         $query2="UPDATE register SET premium='True', Artist_id='{$the_user_id}' WHERE email= '{$the_email}' ";
 
           $register_query = mysqli_query($connection,$query2);
 
           if(!$register_query) {
                 
                 die("Query Failed" . mysqli_error($connection));
-            }    	
+            }
 
     	}
      //  else{
     	// 	echo "payment failed please try again";
     	// }
 
-}else {
+}
+else {
         $errors['token'] = 'The order cannot be processed. You have not been charged. 
                             Please try again.';
     }
@@ -398,7 +400,7 @@ img {
               <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="<?php echo $Merch_image; ?>">Image<span style="font-weight: 700;"></span>
               </a>
             </h6>
-            <a href="https://nicepage.com/website-mockup" class="u-btn u-button-style u-btn-2">Shop Now</a>
+            <a href="" class="u-btn u-button-style u-btn-2">Shop Now</a>
           </div>
         </div>
         <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-group-5">
@@ -435,19 +437,43 @@ img {
             <h6 class="u-text u-text-20">&nbsp;<b>Dig Deeper!</b>
               <br>
               <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Unlock <?php echo $Name ?> premium&nbsp;Profile and access the following:<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-              
+
           <?php
 
-             if(($db_premium == "True") || ($_SESSION['role'] == "Admin")){
+             // if(($db_premium == "True") || ($_SESSION['role'] == "Admin")){
 
            ?> 
+<?php
+
+  $query="SELECT * FROM view_all_artists WHERE user_id IN (SELECT DISTINCT Artist_id FROM register a WHERE EXISTS (SELECT * FROM register b WHERE b.Artist_id=a.Artist_id))";
+
+
+  $artist_id = mysqli_query($connection,$query);
+
+        while($row=mysqli_fetch_array($artist_id)){
+
+            $Premium_id=$row['user_id'];
+            $Premium_Name=$row['Name'];
+            $Premium_Email=$row['Email'];
+     }
+              if($Premium_Email === $Email){
+
+              //  echo"hello";
+
+
+              
+
+
+?>
+
               <span style="font-weight: 700;">Email address: </span><?php echo $Email; ?>
 
-          <?php
-       
-             }else{
+        <?php
+              
+              }else{
 
-           ?>
+        ?>
+
               <br>
               <br>
               <br>

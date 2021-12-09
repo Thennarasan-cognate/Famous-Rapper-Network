@@ -1,6 +1,9 @@
-<?php session_start(); ?>
-<?php ob_start (); ?>
-<?php include "db.php"; ?>
+<?php
+ob_start ();
+session_start();
+include "db.php";
+// require('../config.php');
+?>
 
 <?php
 
@@ -47,48 +50,104 @@
             
            }
 
-           $_SESSION['Email'] = $Email;
 
          }
 
-// if(isset($_GET['upgrade'])){
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $errors = array();
+if(isset($_POST['stripeToken'])){
 
-//   $the_email    = $_SESSION['email'];
+    \Stripe\Stripe::setVerifySslCerts(false);
 
-//   $query="SELECT * FROM register WHERE email = $the_email ";
-//      $select_register_profile = mysqli_query($connection,$query);
+    $token=$_POST['stripeToken'];
+
+    $data=\Stripe\Charge::create(array(
+      "amount"=>1000,
+      "currency"=>"inr",
+      "description"=>"Upgrade with".' '. $Name ,
+      "source"=>$token,
+
+    ));
+
+    if($data['status']==='succeeded'){
+
+        $the_email  =  $_SESSION['email'];
+
+       $query="SELECT * FROM register WHERE email = '{$the_email}' ";
+         $select_register_profile = mysqli_query($connection,$query);
+
+         while($row=mysqli_fetch_array($select_register_profile)){
+
+                $id=$row['id'];
+                $title=$row['title'];
+                $firstname=$row['firstname'];
+                $lastname=$row['lastname'];
+                $image=$row['image'];
+                $phone=$row['phone'];
+                $email=$row['email'];
+                $premium=$row['premium'];
+                $password=$row['password'];
+                $confirm_password=$row['confirm_password'];
+                $instagram=$row['instagram'];
+                $facebook=$row['facebook'];
+                $twitter=$row['twitter'];
+                $youtube=$row['youtube'];
+                
+               }
+
+         $query2="UPDATE register SET premium='True' WHERE email= '{$the_email}' ";
+
+          $register_query = mysqli_query($connection,$query2);
+
+          if(!$register_query) {
+                
+                die("Query Failed" . mysqli_error($connection));
+            }     
+
+      }
+     //  else{
+      //  echo "payment failed please try again";
+      // }
+
+}else {
+        $errors['token'] = 'The order cannot be processed. You have not been charged. 
+                            Please try again.';
+    }
+}
+
+if(isset($_SESSION['id'])){
+
+     $db_id =  $_SESSION['id'];       
+        
+     $query="SELECT * FROM register WHERE id = '{$db_id}' ";
+     $select_user_profile = mysqli_query($connection,$query);
 
       
-//      while($row=mysqli_fetch_array($select_register_profile)){
+     while($row=mysqli_fetch_array($select_user_profile)){
 
-//             $id=$row['id'];
-//             $title=$row['title'];
-//             $firstname=$row['firstname'];
-//             $lastname=$row['lastname'];
-//             $image=$row['image'];
-//             $phone=$row['phone'];
-//             $email=$row['email'];
-//             $password=$row['password'];
-//             $confirm_password=$row['confirm_password'];
-//             $instagram=$row['instagram'];
-//             $facebook=$row['facebook'];
-//             $twitter=$row['twitter'];
-//             $youtube=$row['youtube'];
+            $db_id=$row['id'];
+            $db_firstname=$row['firstname'];
+            $db_lastname=$row['lastname'];
+            $db_fullname=$row['fullname'];
+            $db_role = $row['role'];
+            $db_premium = $row['premium'];
+            $the_email=$row['email'];
+            $db_password=$row['password'];
+            $db_confirm_password=$row['confirm_password'];
+            $db_phone=$row['phone'];
+            $db_user_role=$row['user_role'];
+            $db_image=$row['image'];
+            $db_instagram=$row['instagram'];
+            $db_facebook=$row['facebook'];
+            $db_twitter=$row['twitter'];
+            $db_youtube=$row['youtube'];
+            $db_Location=$row['Location'];
             
-//            }
+    }
+  }
 
-//      $query2="UPDATE register SET premium='True' WHERE email= $the_email ";
 
-//       $register_query = mysqli_query($connection,$query2);
-
-//       if(!$register_query) {
-            
-//             die("Query Failed" . mysqli_error($connection));
-//         }      
-
-// }         
-
-  ?>
+?>
 
 
 <!DOCTYPE html>
@@ -344,7 +403,7 @@ img {
               <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="<?php echo $Merch_image; ?>">Image<span style="font-weight: 700;"></span>
               </a>
             </h6>
-            <a href="https://nicepage.com/website-mockup" class="u-btn u-button-style u-btn-2">Shop Now</a>
+            <a href="" class="u-btn u-button-style u-btn-2">Shop Now</a>
           </div>
         </div>
         <div class="u-border-2 u-border-grey-5 u-container-style u-group u-radius-8 u-shape-round u-group-5">
