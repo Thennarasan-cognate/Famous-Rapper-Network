@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Dec 09, 2021 at 01:33 PM
+-- Generation Time: Dec 17, 2021 at 12:24 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.1
 
@@ -87,7 +87,7 @@ INSERT INTO `payment` (`id`, `name`, `item_number`, `amount`, `currency_code`, `
 
 CREATE TABLE `register` (
   `id` int(33) NOT NULL,
-  `Artist_id` int(40) NOT NULL,
+  `Artist_id` int(40) DEFAULT NULL,
   `firstname` varchar(32) NOT NULL,
   `lastname` varchar(32) NOT NULL,
   `fullname` varchar(40) NOT NULL,
@@ -121,7 +121,7 @@ INSERT INTO `register` (`id`, `Artist_id`, `firstname`, `lastname`, `fullname`, 
 (6, 0, 'David', 'Prorok', 'David Prorok', 'profile.png', '7806880596', 'User', 'False', 'david@famousrapper.com', '', 'Verified', '889211b122daa7f9f917d3d3b3475514', '889211b122daa7f9f917d3d3b3475514', 0, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam'),
 (7, 0, 'Zhe The', 'Free', 'Zhe The Free', 'profile.png', '9827410846', 'User', 'False', 'Zhethefree@gmail.com', '', 'Verified', 'c690d96b5584cce2e59384df7881f569', 'c690d96b5584cce2e59384df7881f569', 0, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam'),
 (8, 2, 'Reshma', 'Priya', 'Reshma Priya', 'profile.png', '8072219874', 'User', 'True', 'reshmasamy21@gmail.com', 'http://localhost:8889/demo/Famous-Rapper-Network/email_verification.php', 'Unverified', 'e1e7ea465afc730052fdbe132f519277', 'e1e7ea465afc730052fdbe132f519277', 892404, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&', 'Srimushnam'),
-(17, 0, 'Ramya', 'Rajendiran', 'Ramya Rajendiran', 'profile.png', '9837672819', 'User', 'False', '07.ramyar@gmail.com', 'http://localhost:8889/demo/Famous-Rapper-Network/email_verification.php', 'Verified', '88e00fd00ba330b8fa467a8877a014a4', '88e00fd00ba330b8fa467a8877a014a4', 386615, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam');
+(18, 4, 'Ramya', 'Rajendiran', 'Ramya Rajendiran', 'profile.png', '9824756102', 'User', 'True', '07.ramyar@gmail.com', 'http://localhost:8889/demo/Famous-Rapper-Network/email_verification.php', 'unverified', '88e00fd00ba330b8fa467a8877a014a4', '88e00fd00ba330b8fa467a8877a014a4', 672426, 'https://instagram.com/', 'https://facebook.com/', 'https://twitter.com/', 'https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp', 'Srimushnam');
 
 -- --------------------------------------------------------
 
@@ -249,7 +249,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `id` int(33) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(33) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `roles`

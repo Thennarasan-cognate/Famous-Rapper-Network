@@ -21,6 +21,8 @@
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<link rel="stylesheet" href="assets/css/style.css">
+
 <!-- Profile Icon -->
  <link rel="stylesheet" href="assets/css/shared/style.css">
  <!-- <link rel="stylesheet" href="style.css"> -->
@@ -31,7 +33,21 @@ img {
 }
 </style>
     
-    
+<!--  <style>
+
+.head-btn1 {
+    margin-right: 5px;
+}
+.btn {
+    background: #fb246a;
+    -moz-user-select: none;
+    text-transform: capitalize;
+    color: #fff;
+    border: 1px solid #fb246a;
+
+}
+
+</style>  -->  
     
     
     <script type="application/ld+json">{
@@ -88,7 +104,11 @@ img {
 
   ?> 
 
-<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
+<li class="u-nav-item">
+
+<!-- <a href="Member-Login.php" class="btn head-btn2">Login</a> -->
+
+  <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
 </li>
 
   <?php 
