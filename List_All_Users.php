@@ -1,8 +1,6 @@
 <?php session_start(); ?>
 <?php ob_start (); ?>
 <?php include "db.php"; ?>
-<?php include "connection.php"; ?>
-
 
 <?php 
 

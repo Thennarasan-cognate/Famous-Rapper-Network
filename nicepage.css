@@ -4654,8 +4654,9 @@ ol {
 .u-post-content a,
 .u-tab-item a,
 .u-nav-item a {
-  font-size: inherit;
-  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Barlow",sans-serif;
   line-height: inherit;
   letter-spacing: inherit;
   text-transform: inherit;
@@ -16817,7 +16818,7 @@ div.u-video,
 }
 .u-nav-item a.u-nav-link,
 .menu-collapse a.u-nav-link {
-  color: inherit;
+  color: #252b60;
 }
 .u-nav-container > .u-nav > .u-nav-item > .u-nav-link {
   padding: 10px 20px;

@@ -25,7 +25,7 @@
  <link rel="stylesheet" href="assets/css/shared/style.css">
  <!-- <link rel="stylesheet" href="style.css"> -->
 
-    <style>
+<style>
 img {
   border-radius: 50%;
 }
