@@ -85,7 +85,7 @@
               }
             
           
-           header("Location:Artists_profile.php?Artists_profile=$user_id"); 
+           header("Location:Payment_page/Artists_profile.php?Artists_profile=$user_id"); 
               
           }else{
               $message_Name ="Only Alphabets are allowed in Name";
@@ -115,13 +115,54 @@
     <meta name="generator" content="Nicepage 3.24.3, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     
-   <!-- Profile Icon -->
-  <link rel="stylesheet" href="assets/css/shared/style.css">
+<link rel="stylesheet" href="assets/css/style.css">
 
-    <style>
-img {
-  border-radius: 50%;
+<!-- Profile Icon -->
+ <link rel="stylesheet" href="assets/css/shared/style.css">
+ <!-- <link rel="stylesheet" href="style.css"> -->
+
+<style>
+
+  img {
+    border-radius: 50%;
+  }
+
+.head-btn1 {
+    margin-right: 5px;
 }
+.btn {
+    background: #fb246a;
+    -moz-user-select: none;
+    text-transform: capitalize;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 0;
+    margin-bottom: 0;
+    padding: 27px 44px;
+    border-radius: 0px;
+    margin: 10px;
+    cursor: pointer;
+    transition: color 0.4s linear;
+    position: relative;
+    z-index: 1;
+    border: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.head-btn2 {
+    background: none;
+    border: 1px solid #fb246a;
+    color: #fb246a;
+}
+
 </style>
 
     
@@ -217,7 +258,12 @@ img {
   ?> 
 
 
-<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member-Login</a>
+<li class="u-nav-item">
+
+  <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base btn head-btn2" href="Member-Login.php">Login</a>
+
+  <!-- <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a> -->
+
 </li>
 
   <?php 
@@ -297,7 +343,7 @@ img {
 
   ?>
 
-<li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Member-Login</a>
+<li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Login</a>
 </li>
 
  <?php 
@@ -357,8 +403,10 @@ img {
               <div class="u-align-center u-container-style u-layout-cell u-palette-4-base u-size-20 u-layout-cell-2">
                 <div class="u-container-layout u-valign-middle u-container-layout-2">
                   <h3 class="u-text u-text-default u-text-3">About me</h3>
-                  <p class="u-text u-text-4">I am creative graphic designer. I am&nbsp;an expert in the Adobe Creative Suit and have worked with a varied myriad of clients.&nbsp;Connecting your ideas to customer perception &amp; all the digital dots in between...</p>
-                  <p class="u-text u-text-5">Image from <a href="https://www.freepik.com/photos/business" class="u-active-none u-border-1 u-border-white u-btn u-button-link u-button-style u-hover-none u-none u-text-body-alt-color u-btn-1" target="_blank">Freepik</a>
+                  <p class="u-text u-text-4"><?php echo substr(($About),0,200); ?>
+                 <!--  I am creative graphic designer. I am&nbsp;an expert in the Adobe Creative Suit and have worked with a varied myriad of clients.&nbsp;Connecting your ideas to customer perception &amp; all the digital dots in between... -->
+                </p>
+                  <p class="u-text u-text-5">Image from <a href="<?php echo $Merch_image ?>" class="u-active-none u-border-1 u-border-white u-btn u-button-link u-button-style u-hover-none u-none u-text-body-alt-color u-btn-1" target="_blank">MerchImage</a>
                   </p>
                 </div>
               </div>
@@ -500,7 +548,8 @@ img {
                     <div class="form-group row">
                         <span style="font-weight: 600;" class="col-sm-3 col-form-label">About: </span>
                            <div class="col-sm-12">
-                              <input type="text" value="<?php echo $About; ?>" class="form-control" name="About">
+                              <!-- <input type="text" value="<?php echo $About; ?>" class="form-control" name="About"> -->
+                              <textarea value="<?php echo $About; ?>" class="form-control" name="About"><?php echo $About; ?>"</textarea>
                            </div>
                     </div>
                  </div>

@@ -168,14 +168,55 @@ if(isset($_SESSION['id'])){
     <meta name="generator" content="Nicepage 3.27.0, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     
+<link rel="stylesheet" href="../assets/css/style.css">
+
 <!-- Profile Icon -->
  <link rel="stylesheet" href="../assets/css/shared/style.css">
+ <!-- <link rel="stylesheet" href="style.css"> -->
 
-    <style>
-img {
-  border-radius: 50%;
+<style>
+
+  img {
+    border-radius: 50%;
+  }
+
+.head-btn1 {
+    margin-right: 5px;
 }
-</style>   
+.btn {
+    background: #fb246a;
+    -moz-user-select: none;
+    text-transform: capitalize;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 0;
+    margin-bottom: 0;
+    padding: 27px 44px;
+    border-radius: 0px;
+    margin: 10px;
+    cursor: pointer;
+    transition: color 0.4s linear;
+    position: relative;
+    z-index: 1;
+    border: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.head-btn2 {
+    background: none;
+    border: 1px solid #fb246a;
+    color: #fb246a;
+}
+
+</style>  
 
     
     <script type="application/ld+json">{
@@ -231,7 +272,12 @@ img {
 
   ?> 
 
-<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="../Member-Login.php" style="padding: 10px 20px;">Member Login</a>
+<li class="u-nav-item">
+
+  <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base btn head-btn2" href="../Member-Login.php">Login</a>
+
+  <!-- <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a> -->
+
 </li>
 
   <?php 
@@ -300,7 +346,7 @@ img {
 ?>
 
 <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../About.php" style="padding: 10px 20px;">About</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Contact.php" style="padding: 10px 20px;">Contact</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Contact.php" style="padding: 10px 20px;">Contact</a></li>
 
  <?php
 
@@ -308,7 +354,7 @@ img {
 
   ?> 
 
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Member-Login.php" style="padding: 10px 20px;">Member Login</a>
+<li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Member-Login.php" style="padding: 10px 20px;">Login</a>
 </li>
 
  <?php 
@@ -347,10 +393,10 @@ img {
         <?php 
 
         if(($_SESSION['email'] == $Email) || ($_SESSION['role'] == "Admin")){
+?>
 
-
-        echo "<center><button type='button' class='btn btn-primary' style='width:145px; height: 40px; background-color: #f3f5f6 ;' name='submit'><a href='../EditArtists_profile.php?EditArtists_profile={$user_id}'>Edit Artist profile</a></button></center>";
-
+        <center><a class="btn head-btn2" href='../EditArtists_profile.php?EditArtists_profile=<?php echo $user_id ?>'>Edit Artist profile</a></center>
+<?php
       }
 
 

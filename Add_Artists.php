@@ -102,15 +102,54 @@
     <!-- password Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
-     <!-- Profile Icon -->
-    <link rel="stylesheet" href="assets/css/shared/style.css">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<!-- Profile Icon -->
+ <link rel="stylesheet" href="assets/css/shared/style.css">
+ <!-- <link rel="stylesheet" href="style.css"> -->
 
 <style>
 
   img {
     border-radius: 50%;
   }
-  
+
+.head-btn1 {
+    margin-right: 5px;
+}
+.btn {
+    background: #fb246a;
+    -moz-user-select: none;
+    text-transform: capitalize;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 0;
+    margin-bottom: 0;
+    padding: 27px 44px;
+    border-radius: 0px;
+    margin: 10px;
+    cursor: pointer;
+    transition: color 0.4s linear;
+    position: relative;
+    z-index: 1;
+    border: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.head-btn2 {
+    background: none;
+    border: 1px solid #fb246a;
+    color: #fb246a;
+}
+
 </style>
     
     <script type="application/ld+json">{
@@ -167,7 +206,12 @@
 
   ?> 
 
-<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
+<li class="u-nav-item">
+
+  <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base btn head-btn2" href="Member-Login.php">Login</a>
+
+  <!-- <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a> -->
+
 </li>
 
   <?php 
@@ -245,7 +289,7 @@
 
   ?> 
 
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Login</a>
 </li>
 
  <?php 
@@ -307,7 +351,7 @@
             <br>
             </div>
             <div class="u-align-center u-form-group u-form-submit">
-              <a href="" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-1-base u-palette-1-light-2 u-radius-17 u-btn-1">Add Artist<br>
+              <a href="" class="btn head-btn2">Add Artist<br>
               </a>
               <input type="submit" name="submit" value="submit" class="u-form-control-hidden">
             </div>

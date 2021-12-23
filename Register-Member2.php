@@ -2,28 +2,55 @@
 <?php include "db.php"; ?>
 <?php 
 
-     if(isset($_POST['submit'])){
-         
-         $title =  $_POST['title'];
+if(isset($_POST['submit'])){
+
+   require 'PHPMailer/PHPMailerAutoload.php';
+   require('phpmailer/class.phpmailer.php');
+
+$mail = new PHPMailer;
+$link = "http://localhost:8889/demo/Famous-Rapper-Network/email_verification.php";
+
+$rndno=rand(100000, 999999);
+// echo $rndno;
+//OTP generate
+#$mail->SMTPDebug = 3;
+
+$mail->isSMTP();
+
+$mail->Host = 'smtp.gmail.com';
+$mail->Port=587;
+$mail->SMTPAuth = true;
+$mail->SMTPSecure='tls';
+
+  
          $firstname=  $_POST['firstname'];
          $lastname=  $_POST['lastname'];
+         $fullname=  $_POST['fullname'];
          $image=  $_POST['image'];
          $phone=  $_POST['phone'];
+         $role=  $_POST['role'];
          $email    = $_POST['email'];    
          $password = $_POST['password'];
          $confirm_password = $_POST['confirm_password'];
+         $otp = $_POST['otp'];
+         $otp=$rndno;
          $instagram =$_POST['instagram'];
          $facebook =$_POST['facebook'];
          $twitter =$_POST['twitter'];
          $youtube =$_POST['youtube'];
+         $Location =$_POST['Location'];
+         $email_verification_link = $_POST['email_verification_link'];
+
          
-         
-      if(!empty($firstname) && !empty($lastname) && !empty($phone) && !empty($email) && !empty($password) && !empty($confirm_password)){
+         $error = 0;
+
+      if(!empty($firstname) && !empty($lastname) && !empty($fullname) && !empty($phone) && !empty($email) && !empty($password) && !empty($confirm_password)){
           
       $password = mysqli_real_escape_string($connection,$_POST['password']);
       $confirm_password = mysqli_real_escape_string($connection,$_POST['confirm_password']);
       $password = md5($password);              
-      $confirm_password = md5($confirm_password);              
+      $confirm_password = md5($confirm_password);
+                   
      
       if(preg_match('/^[\p{L} ]+$/u', $firstname)) {
           
@@ -41,24 +68,61 @@
         
         if(preg_match("/^[0-9]{10}$/", $phone)) {   
 
+
+
+        if(!$error){
+        $check_query= "SELECT * FROM register WHERE email = '{$email}' ";
+        $check_register_query = mysqli_query($connection,$check_query);
+
+        if(mysqli_num_rows($check_register_query) > 0){
+
+          $row = mysqli_fetch_assoc($check_register_query);
+
+            if($email==$row['email'])
+            {
+                $message_email= "Email already exists";
+            }
+        }else {
+
         
-        $query = "INSERT INTO register (title,firstname,lastname,image,phone,email,password,confirm_password,instagram,facebook,twitter,youtube) ";
-        $query .= "VALUES ('Mr/Ms','{$firstname}','{$lastname}','profile.jfif','{$phone}','{$email}','{$password}','{$confirm_password}','instagram.com','facebook.com','twitter.com','youtube.com') ";
+          
+         $_SESSION['status'] = "Registration Was Successful Please Sign In"; 
+
+          $_SESSION['otp'] = $otp;
+          $_SESSION['email'] = $email;
+          $_SESSION['email_verification_link'] = $email_verification_link;
+
+          $mail->Username = 'CGBSTech2021@gmail.com';
+          $mail->Password = 'cgbs@2021';
+
+          $mail->setFrom ('CGBSTech2021@gmail.com');
+          $mail->addAddress($_POST['email'],$_POST['firstname']);
+          #$mail->addReplyTo( $_POST['email'],$_POST['name']);
+          
+          $mail->isHTML(true);
+          $mail->Subject = "Email Verification";
+          $mail->Body    = 'Here is the verification link'.' '.$link;
+          
+          if(!$mail->send()) {
+             echo "Message could not be sent.". $mail->ErrorInfo;
+          }else{
+             $message =  '<label class="text-success">Register Done, Please check your mail.</label>';
+   
+        $query = "INSERT INTO register (firstname,lastname,fullname,image,phone,role,email,email_verification_link,password,confirm_password,otp,instagram,facebook,twitter,youtube,Location) ";
+        $query .= "VALUES ('{$firstname}','{$lastname}','{$fullname}','profile.png','{$phone}','User','{$email}','{$link}','{$password}','{$confirm_password}','{$rndno}','https://instagram.com/','https://facebook.com/','https://twitter.com/','https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp','Srimushnam') ";
              
         $register_query = mysqli_query($connection,$query);
             
             move_uploaded_file($image_tempname,"images/$image");
       
         if(!$register_query) {
-            
+             
             die("Query Failed" . mysqli_error($connection) .' '. mysqli_error($connection));
         }
-            
-         $_SESSION['status'] = "Registration Was Successful Please Sign In";   
-           
-           header("Location:Member-Login.php");   
-            
 
+          }         
+       }
+    }
           }else{
               $message_phone = "Invalid Phone No";
             
@@ -79,7 +143,8 @@
             
        }
 
-          }else{
+          }
+          else{
               $message_Firstname ="Only Alphabets are allowed in firstname";
           
        }
@@ -88,11 +153,60 @@
         $message = "Fields cannot be Empty";
        }  
          
-          }else {         
+        }else {         
               $message = ""; 
        }
 
   ?>
+
+
+<?php
+
+// $to=$email;
+// $subject = "OTP";
+// $rndno=rand(100000, 999999);//OTP generate
+// $message = urlencode("otp number.".$rndno);
+// $txt = "OTP: ".$rndno."";
+// $headers = "From: thennarasan1988@gmail.com" . "\r\n";
+// "CC: reshma21@gmail.com";
+// if(mail($to,$subject,$txt,$headers)){
+
+// $_SESSION['firstname']=$_POST['firstname'];
+// $_SESSION['email']=$_POST['email'];
+// $_SESSION['phone']=$_POST['phone'];
+// $_SESSION['otp']=$rndno;
+
+
+// header( "Location: otp.php" );
+// }else{
+
+// echo "mail send failed";
+
+// }
+
+
+
+// session_start();
+// $rndno=rand(100000, 999999);//OTP generate
+// $message = urlencode("otp number.".$rndno);
+// $to=$_POST['email'];
+// $subject = "OTP";
+// $txt = "OTP: ".$rndno."";
+// $headers = "From: 07.ramyar@gmail.com" . "\r\n" .
+// "CC: thennarasan1988@gmail.com";
+// mail($to,$subject,$txt,$headers);
+// if(isset($_POST['btn-save']))
+// {
+// $_SESSION['firstname']=$_POST['firstname'];
+// $_SESSION['email']=$_POST['email'];
+// $_SESSION['phone']=$_POST['phone'];
+// $_SESSION['otp']=$rndno;
+// header( "Location: otp.php" );
+
+// }
+ ?>
+
+
 
 
 <!DOCTYPE html>
@@ -110,14 +224,16 @@
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 3.23.2, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
-    
+
+    <!-- password Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     
     <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "Site2",
-		"logo": "images/default-logo.png",
-		"sameAs": []
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Site2",
+    "logo": "images/default-logo.png",
+    "sameAs": []
 }</script>
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="Register Member">
@@ -125,7 +241,7 @@
     <meta property="og:type" content="website">
   </head>
   <body class="u-body"><header class="u-clearfix u-header u-header" id="sec-3ee6"><div class="u-clearfix u-sheet u-sheet-1">
-        <a href="https://nicepage.com" class="u-image u-logo u-image-1">
+        <a href="Home.php" class="u-image u-logo u-image-1">
           <img src="images/default-logo.png" class="u-logo-image u-logo-image-1">
         </a>
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
@@ -165,37 +281,43 @@
           <form action="" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-8 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 50px;" redirect="true">
             
              <div class="u-form-group u-form-name u-form-group">
-               <h6 class="text-center" style="color:#ff0000"><?php echo $message; ?></h6>
+               <h6 class="text-center" style="color:#00b300"><?php echo $message; ?></h6>
             </div>
 
             <div class="u-form-group u-form-name u-form-group-1">
               <label for="name-cd60" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Enter your First Name" id="name-cd60" name="firstname" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" required="">
+              <input type="text" placeholder="Enter your First Name" id="name-cd60" name="firstname" value="<?php echo isset($_POST["firstname"]) ? $_POST["firstname"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" required="">
               <h6 class="text-center" style="color:#ff0000"><?php echo $message_Firstname; ?></h6>
             </div>
             <div class="u-form-group u-form-group-2">
               <label for="text-0253" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Enter your Last Name" id="text-0253" name="lastname" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <input type="text" placeholder="Enter your Last Name" id="text-0253" name="lastname" value="<?php echo isset($_POST["lastname"]) ? $_POST["lastname"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
               <h6 class="text-center" style="color:#ff0000"><?php echo $message_Lastname; ?></h6>
+            </div>
+             <div class="u-form-group u-form-group-3">
+              <label for="text-0253" class="u-form-control-hidden u-label"></label>
+              <input type="text" placeholder="Enter your Full Name" id="text-0253" name="fullname" value="<?php echo isset($_POST["fullname"]) ? $_POST["fullname"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <h6 class="text-center" style="color:#ff0000"><?php echo $message_fullname; ?></h6>
             </div>
             <div class="u-form-email u-form-group">
               <label for="email-cd60" class="u-form-control-hidden u-label"></label>
-              <input type="email" placeholder="Enter a valid email address" id="email-cd60" name="email" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" required="">
-              <br>
+              <input type="email" placeholder="Enter a valid email address" id="email-cd60" name="email" value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" required="">
+              <h6 class="text-center" style="color:#ff0000"><?php echo $message_email; ?></h6>
             </div>
             <div class="u-form-group u-form-group-5">
               <label for="text-871f" class="u-form-control-hidden u-label"></label>
-              <input type="text" id="text-871f" name="phone" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" placeholder="Enter Your Mobile Number">
+              <input type="text" id="text-871f" name="phone" value="<?php echo isset($_POST["phone"]) ? $_POST["phone"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black" placeholder="Enter Your Mobile Number">
               <h6 class="text-center" style="color:#ff0000"><?php echo $message_phone; ?></h6>
             </div>
             <div class="u-form-group u-form-group-6">
               <label for="text-03eb" class="u-form-control-hidden u-label"></label>
-              <input type="password" placeholder="Enter New Passord" id="text-03eb" name="password" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <input type="password" placeholder="Enter New Passord" id="id_password" name="password" value="<?php echo isset($_POST["password"]) ? $_POST["password"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <span class="far fa-eye" id="togglePassword" style="margin-left: 430px; cursor: pointer;"></span>
               <h6 class="text-center" style="color:#ff0000"><?php echo $message_strnpassword; ?></h6>
             </div>
             <div class="u-form-group u-form-group-7">
               <label for="text-a7ff" class="u-form-control-hidden u-label"></label>
-              <input type="password" placeholder="Confirm New Password" id="text-a7ff" name="confirm_password" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
+              <input type="password" placeholder="Confirm New Password" id="c_password" name="confirm_password" value="<?php echo isset($_POST["confirm_password"]) ? $_POST["confirm_password"] : ''; ?>" class="u-border-1 u-border-grey-5 u-input u-input-rectangle u-text-black">
               <h6 class="text-center" style="color:#ff0000"><?php echo $message_cpassword; ?></h6>
             </div>
             <div class="u-align-center u-form-group u-form-submit">
@@ -250,10 +372,25 @@ c5.5,0,9.9,4.5,9.9,9.9V73.3z"></path></svg></span>
           </a>
         </div>
       </div></footer>
-    <section class="u-backlink u-clearfix u-grey">
+    <section class="u-backlink u-clearfix u-grey-80">
       <main>
         <p>Copyright &copy; Cognate Global alphabet 2021</p>
       </main>
     </section>
   </body>
 </html>
+
+<script>
+
+const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('#id_password');
+ 
+  togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
+
+</script>

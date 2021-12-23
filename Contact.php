@@ -47,41 +47,6 @@ if(!$mail->send()) {
 
 }
 
-
-    
-    
-//get data from form  
-#$name = $_POST['name'];
-#$email= $_POST['email'];
-#$message= $_POST['message'];
-#$to = "barthalomena17@gmail.com";
-#$subject = "Mail From website";
-#$txt ="Name = ". $name . "\r\n  Email = " . $email . "\r\n Message =" . $message;
-#$headers = "From: barthalomena@gmail.com" . "\r\n" .
-#"CC: somebodyelse@example.com";
-#if($email!=NULL){
-    #mail($to,$subject,$txt,$headers);
-#}
-//redirect
-#header("Location:contact.php");
-
-
-      #echo "Email successfully sent.";
-
-
-      #$query = "INSERT INTO 'contact' ('name', 'email', 'message') VALUES ('$name', '$from','$message')";
-
-      // $query = "INSERT INTO contact (name,email,message) ";
-      // $query .= "VALUES ('{$name}','{$from}','{$message}') ";
-
-      // $result = mysqli_query($connection, $query);
-
-      // if(!$result){
-
-      //   die("Query Failed" . mysqli_error($connection));
-
-      // }
-
  
       $query = "SELECT * FROM View_All_Artists WHERE Name = 'David Prorok' ";
         $select_View_All_Artists_query = mysqli_query($connection, $query);
@@ -120,14 +85,53 @@ if(!$mail->send()) {
     <meta name="generator" content="Nicepage 3.23.2, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     
-  <!-- Profile Icon -->
-  <link rel="stylesheet" href="assets/css/shared/style.css">
- <!-- <link rel="stylesheet" href="style.css"> -->
+<link rel="stylesheet" href="assets/css/style.css">
 
-    <style>
-img {
-  border-radius: 50%;
+    <!-- Profile Icon -->
+    <link rel="stylesheet" href="assets/css/shared/style.css">
+
+<style>
+
+  img {
+    border-radius: 50%;
+  }
+
+.head-btn1 {
+    margin-right: 5px;
 }
+.btn {
+    background: #fb246a;
+    -moz-user-select: none;
+    text-transform: capitalize;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 0;
+    margin-bottom: 0;
+    padding: 27px 44px;
+    border-radius: 0px;
+    margin: 10px;
+    cursor: pointer;
+    transition: color 0.4s linear;
+    position: relative;
+    z-index: 1;
+    border: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.head-btn2 {
+    background: none;
+    border: 1px solid #fb246a;
+    color: #fb246a;
+}
+
 </style>
 
 
@@ -169,7 +173,12 @@ img {
 
   ?>
 
-<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
+<li class="u-nav-item">
+
+  <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base btn head-btn2" href="Member-Login.php">Login</a>
+
+  <!-- <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a> -->
+
 </li>
 
   <?php 
@@ -231,7 +240,7 @@ img {
 
   ?>
 
-<li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
+<li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Login</a>
 </li>
 
   <?php 
@@ -267,7 +276,7 @@ img {
                   <textarea placeholder=" write something" rows="4" cols="50" id="message-5a14" name="message" class="u-input u-input-rectangle u-white" required=""></textarea>
                 </div>
                 <div class="u-align-center u-form-group u-form-submit u-form-group-4">
-                  <a href="" class="u-active-white u-border-2 u-border-white u-btn u-btn-submit u-button-style u-hover-white u-none u-text-hover-palette-2-base u-text-palette-2-base u-btn-1">submit</a>
+                  <a href="" class="btn head-btn2">submit</a>
                   <input type="submit" value="submit" name="submit" class="u-form-control-hidden" wfd-invisible="true">
                 </div>
                  <div class="u-form-send-message u-form-send-success" wfd-invisible="true"> Thank you! Your message has been sent. </div>

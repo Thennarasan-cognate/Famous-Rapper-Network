@@ -137,12 +137,54 @@ if(isset($_SESSION['id'])){
     <meta name="generator" content="Nicepage 3.24.3, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     
-    <link rel="stylesheet" href="assets/css/shared/style.css">
+<link rel="stylesheet" href="assets/css/style.css">
 
-    <style>
-img {
-  border-radius: 50%;
+<!-- Profile Icon -->
+ <link rel="stylesheet" href="assets/css/shared/style.css">
+ <!-- <link rel="stylesheet" href="style.css"> -->
+
+<style>
+
+  img {
+    border-radius: 50%;
+  }
+
+.head-btn1 {
+    margin-right: 5px;
 }
+.btn {
+    background: #fb246a;
+    -moz-user-select: none;
+    text-transform: capitalize;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 0;
+    margin-bottom: 0;
+    padding: 27px 44px;
+    border-radius: 0px;
+    margin: 10px;
+    cursor: pointer;
+    transition: color 0.4s linear;
+    position: relative;
+    z-index: 1;
+    border: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.head-btn2 {
+    background: none;
+    border: 1px solid #fb246a;
+    color: #fb246a;
+}
+
 </style>
 
     
@@ -155,32 +197,8 @@ img {
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="ProfilePage">
     <meta property="og:type" content="website">
-
-
-<!-- <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"> 
-
-   <script>
-
-    var autocomplete;
-    function initialize() { 
-      autocomplete = new google.maps.places.Autocomplete( 
-        /** @type {HTMLInputElement} */ (document.getElementById('autocomplete')), 
-        { types: ['geocode'] } ); 
-      google.maps.event.addListener(autocomplete, 'place_changed', function(){
-
-       });
-
-       // autocomplete.addListener('place_changed', function());
-
-    }
-
-   </script> 
-
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUMPvjQWQclHKnvDd-moWrD7QIOceWyc0&libraries=places" async defer></script> --> 
-
-
   </head>
+
   <body class="u-body" onload="initialize()"><header class="u-clearfix u-header u-header" id="sec-6baa"><div class="u-clearfix u-sheet u-sheet-1">
         <a href="Home.php" class="u-image u-logo u-image-1">
           <img src="images/default-logo.png" class="u-logo-image u-logo-image-1">
@@ -223,7 +241,12 @@ img {
   ?> 
 
 
-<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member-Login</a>
+<li class="u-nav-item">
+
+  <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base btn head-btn2" href="Member-Login.php">Login</a>
+
+  <!-- <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a> -->
+
 </li>
 
   <?php 
@@ -303,7 +326,7 @@ img {
 
   ?>
 
-<li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Member-Login</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Login</a>
 </li>
 
  <?php 
@@ -330,9 +353,8 @@ img {
           <div class="u-gutter-0 u-layout">
             <div class="u-layout-col">
 
-              <div class="u-layout-row">
-              <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-video u-video-1">
-                <!-- <div class="u-background-video u-expanded" style=""> -->
+              <div class="u-layout-row" style="min-height: 300px; min-width: 200%;">
+              <div class="u-align-center u-container-style u-layout-cell u-left-cell u-size-30 u-video u-video-1">
                   <div class="embed-responsive embed-responsive-1">
 
                    
@@ -344,32 +366,18 @@ img {
 
 <iframe width="420" height="345" src="https://www.youtube.com/embed/<?php echo $youtube2; ?>?autoplay=1&mute=0"></iframe>
 
-
-<!-- <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src='https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1;frameborder="0" allowfullscreen="" '></iframe> -->
-
-                    <!--  <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="<?php echo $youtube ?>;loop=1&amp;mute=1&amp;showinfo=0&amp;controls=0&amp;start=0&amp;autoplay=1" frameborder="0" allowfullscreen=""></iframe>  -->
                   </div>
                 </div>
-                <!-- <div class="u-container-layout u-container-layout-1">
-                  <div class="u-align-top u-expanded u-video">
-                    <div class="embed-responsive embed-responsive-2">
-                      <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="" frameborder="0" allowfullscreen=""></iframe>
-                    </div>
-                  </div>
-                </div> -->
-              <!-- </div> -->
-
               <br>
-
-
-            <div class="u-align-center u-container-style u-layout-cell u-palette-4-base u-size-20 u-layout-cell-2">
+            <!-- <div class="u-align-center u-container-style u-layout-cell u-palette-4-base u-size-20 u-layout-cell-2">
                 <div class="u-container-layout u-valign-middle u-container-layout-2">
                   <h3 class="u-text u-text-default u-text-3">About me</h3>
                   <p class="u-text u-text-4">I am creative graphic designer. I am&nbsp;an expert in the Adobe Creative Suit and have worked with a varied myriad of clients.&nbsp;Connecting your ideas to customer perception &amp; all the digital dots in between...</p>
-                  <p class="u-text u-text-5">Image from <a href="https://www.freepik.com/photos/business" class="u-active-none u-border-1 u-border-white u-btn u-button-link u-button-style u-hover-none u-none u-text-body-alt-color u-btn-1" target="_blank">Freepik</a>
+                  <p class="u-text u-text-5">Image from <a href="" class="u-active-none u-border-1 u-border-white u-btn u-button-link u-button-style u-hover-none u-none u-text-body-alt-color u-btn-1" target="_blank">Freepik</a>
                   </p>
                 </div>
-              </div>
+              </div> -->
+              
             </div>
               <div class="u-align-center u-container-style u-layout-cell u-size-20 u-layout-cell-3">
                 <div class="u-container-layout u-container-layout-3">

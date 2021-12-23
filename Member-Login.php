@@ -39,7 +39,7 @@
         
         if($email === $db_email){
         if($password === $db_password){
-         // if($db_email_status === 'Verified'){
+         if($db_email_status === 'Verified'){
           
              $_SESSION['id'] = $db_id;
              $_SESSION['email'] = $db_email;
@@ -56,10 +56,10 @@
 
             header("Location:Home.php");
 
-        // }else{
+        }else{
             
-        //     $message_emailstatus = "Your email is not verified, first verify your email";
-        // }
+            $message_emailstatus = "Your email is not verified, first verify your email";
+        }
 
         }else{
             

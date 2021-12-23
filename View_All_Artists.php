@@ -24,6 +24,8 @@
     
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
+<link rel="stylesheet" href="assets/css/style.css">
+
     <!-- Profile Icon -->
     <link rel="stylesheet" href="assets/css/shared/style.css">
 
@@ -36,6 +38,42 @@
   img {
     border-radius: 50%;
   }
+
+.head-btn1 {
+    margin-right: 5px;
+}
+.btn {
+    background: #fb246a;
+    -moz-user-select: none;
+    text-transform: capitalize;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 0;
+    margin-bottom: 0;
+    padding: 27px 44px;
+    border-radius: 0px;
+    margin: 10px;
+    cursor: pointer;
+    transition: color 0.4s linear;
+    position: relative;
+    z-index: 1;
+    border: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.head-btn2 {
+    background: none;
+    border: 1px solid #fb246a;
+    color: #fb246a;
+}
 
 </style>
 
@@ -53,7 +91,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border: 1px solid transparent;
+    /*border: 1px solid transparent;*/
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
     line-height: 1;
@@ -116,7 +154,12 @@
 
   ?> 
 
-<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
+<li class="u-nav-item">
+
+  <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base btn head-btn2" href="Member-Login.php">Login</a>
+
+  <!-- <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a> -->
+
 </li>
 
   <?php 
@@ -193,7 +236,7 @@
 
   ?> 
 
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Login</a>
 </li>
 
  <?php 
@@ -239,7 +282,7 @@
                  <div class="input-group">
                      <input name="Name" id="demoB" type="text" placeholder="Search Artists" class="form-control">
                         <!-- <span class="input-group-btn"> -->
-                            <button name="submit" class="btn btn-primary" type="submit">
+                            <button name="submit" class="btn head-btn2" type="submit">
                                 <!-- <span class="glyphicon glyphicon-search">Search</span> -->
                                 <i class="fa fa-search"></i>
                             </button>

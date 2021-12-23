@@ -28,12 +28,10 @@
  <!-- <link rel="stylesheet" href="style.css"> -->
 
 <style>
-img {
-  border-radius: 50%;
-}
-</style>
-    
-<!--  <style>
+
+  img {
+    border-radius: 50%;
+  }
 
 .head-btn1 {
     margin-right: 5px;
@@ -43,11 +41,35 @@ img {
     -moz-user-select: none;
     text-transform: capitalize;
     color: #fff;
-    border: 1px solid #fb246a;
-
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 0;
+    margin-bottom: 0;
+    padding: 27px 44px;
+    border-radius: 0px;
+    margin: 10px;
+    cursor: pointer;
+    transition: color 0.4s linear;
+    position: relative;
+    z-index: 1;
+    border: 0;
+    overflow: hidden;
+    margin: 0;
 }
 
-</style>  -->  
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.head-btn2 {
+    background: none;
+    border: 1px solid #fb246a;
+    color: #fb246a;
+}
+
+</style>
     
     
     <script type="application/ld+json">{
@@ -106,9 +128,10 @@ img {
 
 <li class="u-nav-item">
 
-<!-- <a href="Member-Login.php" class="btn head-btn2">Login</a> -->
+  <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base btn head-btn2" href="Member-Login.php">Login</a>
 
-  <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
+  <!-- <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a> -->
+
 </li>
 
   <?php 
@@ -191,7 +214,7 @@ img {
 
   ?> 
 
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Login</a>
 </li>
 
  <?php 
@@ -211,9 +234,11 @@ img {
     <section class="u-align-right u-clearfix u-white u-section-1" id="carousel_8813">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="u-align-left u-container-style u-group u-group-1">
-          <div class="u-container-layout u-container-layout-1">
+          <div class="u-align-center u-container-layout u-container-layout-1">
             <h1 class="u-text u-text-palette-5-dark-2 u-title u-text-1" data-animation-name="flipIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="X">Meet The Human Behind The Music </h1>
-            <a href="Register-Member.php" data-page-id="867430778" class="u-border-none u-btn u-btn-round u-button-style u-palette-1-base u-radius-27 u-text-body-alt-color u-btn-1">Register HERE</a>
+            <!-- <a href="Register-Member.php" data-page-id="867430778" class="u-border-none u-btn u-btn-round u-button-style u-palette-1-base u-radius-27 u-text-body-alt-color u-btn-1">Register HERE</a> -->
+            <br><br><br>
+            <a href="Register-Member.php" data-page-id="867430778" class="btn head-btn2">REGISTER HERE</a>
           </div>
         </div>
       </div>
@@ -258,7 +283,6 @@ img {
               <div class="u-container-layout u-similar-container u-container-layout-1">
                 <div class="u-video u-video-contain u-video-1">
                   <div class="embed-responsive embed-responsive-1">
-                   <!--  <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=1&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe> -->
                     <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $Music; ?>?autoplay=0&mute=1"></iframe>
                   </div>
                 </div>
@@ -269,58 +293,6 @@ img {
             </div>
 
 <?php } ?>
-
-
-           <!--  <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-2">
-              <div class="u-container-layout u-similar-container u-container-layout-2">
-                <div class="u-video u-video-contain u-video-2">
-                  <div class="embed-responsive embed-responsive-2">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=1&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
-                  </div>
-                </div>
-                <h3 class="u-text u-text-3"> Kid&nbsp;<br>Rohan
-                </h3>
-                <a href="Artists_profile.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-3">View Full Profile</a>
-              </div>
-            </div> -->
-
-            <!-- <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-3">
-              <div class="u-container-layout u-similar-container u-container-layout-3">
-                <div class="u-video u-video-contain u-video-3">
-                  <div class="embed-responsive embed-responsive-3">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=1&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
-                  </div>
-                </div>
-                <h3 class="u-text u-text-4">David&nbsp;<br>Prorok
-                </h3>
-                <a href="Artists_profile.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-4">View Full Profile</a>
-              </div>
-            </div> -->
-
-            <!-- <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-4">
-              <div class="u-container-layout u-similar-container u-container-layout-4">
-                <div class="u-video u-video-contain u-video-4">
-                  <div class="embed-responsive embed-responsive-4">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=1&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
-                  </div>
-                </div>
-                <h3 class="u-text u-text-5">Zhe&nbsp;<br>The Free
-                </h3>
-                <a href="Artists_profile.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-5">View Full Profile</a>
-              </div>
-            </div>
- -->
-           <!--  <div class="u-container-style u-custom-item u-list-item u-repeater-item u-list-item-5">
-              <div class="u-container-layout u-similar-container u-container-layout-5">
-                <div class="u-video u-video-contain u-video-5">
-                  <div class="embed-responsive embed-responsive-5">
-                    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/B9YKnNtFqds?mute=0&amp;showinfo=1&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
-                  </div>
-                </div>
-                <h3 class="u-text u-text-6">Sample Headline</h3>
-                <a href="Artists_profile.php" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-6">Hyperlink</a>
-              </div>
-            </div> -->
             
           </div>
           <a class="u-absolute-vcenter u-gallery-nav u-gallery-nav-prev u-icon-rounded u-opacity u-opacity-70 u-palette-1-base u-spacing-10 u-gallery-nav-1" href="#" role="button">

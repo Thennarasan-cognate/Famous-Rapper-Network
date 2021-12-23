@@ -24,12 +24,6 @@
 
       if(isset($_POST['submit'])){
    
-            // $firstname =  $_POST['firstname'];
-            // $lastname =  $_POST['lastname'];       
-            // $email =  $_POST['email'];
-            // $email_status =  $_POST['email_status'];
-            // $email_status='verified'
-   
      $query="UPDATE register SET email_status= 'Verified' WHERE email= '{$email}' ";  
                       
         $update_profile_query=mysqli_query($connection,$query);
@@ -52,7 +46,7 @@
     <meta name="keywords" content="INTUITIVE">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Register Member</title>
+    <title>Mail Verification</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Member-Login.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -111,8 +105,8 @@
             <form action="" method="POST">
              <div class="u-align-center u-form-group u-form-submit">
              <label class="text">Your Email Address Successfully Verified <br/> You can login here -</label>
-            <a href="" class="u-btn-submit">login</a>
-            <input type="submit" value="submit" name="submit" class="u-form-control-hidden">
+            <!-- <a href="" class="u-btn-submit">login</a> -->
+            <input type="submit" value="login" name="submit" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-1-base">
           </div>
 
             <!-- <div class="u-align-center u-form-group u-form-submit">

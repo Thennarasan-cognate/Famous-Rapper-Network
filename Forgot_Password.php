@@ -142,6 +142,57 @@ $mail->SMTPSecure='tls';
     <meta name="generator" content="Nicepage 3.23.2, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+<!-- Profile Icon -->
+ <link rel="stylesheet" href="assets/css/shared/style.css">
+ <!-- <link rel="stylesheet" href="style.css"> -->
+
+<style>
+
+  img {
+    border-radius: 50%;
+  }
+
+.head-btn1 {
+    margin-right: 5px;
+}
+.btn {
+    background: #fb246a;
+    -moz-user-select: none;
+    text-transform: capitalize;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 0;
+    margin-bottom: 0;
+    padding: 27px 44px;
+    border-radius: 0px;
+    margin: 10px;
+    cursor: pointer;
+    transition: color 0.4s linear;
+    position: relative;
+    z-index: 1;
+    border: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.head-btn2 {
+    background: none;
+    border: 1px solid #fb246a;
+    color: #fb246a;
+}
+
+</style>
+
     
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
@@ -181,7 +232,7 @@ $mail->SMTPSecure='tls';
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.php" style="padding: 10px 20px;">Home</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.php" style="padding: 10px 20px;">About</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.php" style="padding: 10px 20px;">Contact</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Login</a>
 </li></ul>
               </div>
             </div>
@@ -225,61 +276,6 @@ $mail->SMTPSecure='tls';
                   <a href="" class="u-btn u-btn-round u-btn-submit u-button-style u-radius-17 u-btn-1">Send OTP</a>
                   <input type="submit" name="submit" value="submit" class="u-form-control-hidden">
                 </div>
-
-<?php     
-
-   // } }
-
-
-?>
-                
-
-<?php
-
-// if(isset($_POST['submit'])){
-
-// if(isset($_REQUEST['save'])){
-
-
-         
-        // $email    = $_REQUEST['email']; 
-    
-        // $query = "SELECT * FROM register WHERE email = '{$email}' ";
-        // $select_register_query = mysqli_query($connection, $query);
-        
-        // if(!$select_register_query){
-            
-        //     die("Query Failed" . mysqli_error($connection));
-            
-        // }
-
-        // // header("Location:New_Password.php");
-          
-        //   while($row = mysqli_fetch_array($select_register_query)){
-              
-        //        $db_id = $row['id'];
-        //        $db_title = $row['title'];
-        //        $db_firstname = $row['firstname'];
-        //        $db_lastname = $row['lastname'];
-        //        $db_image = $row['image'];
-        //        $db_phone = $row['phone'];
-        //        $db_email = $row['email'];
-        //        $db_instagram = $row['instagram'];
-        //        $db_facebook = $row['facebook'];
-        //        $db_twitter = $row['twitter'];
-        //        $db_youtube = $row['youtube'];         
-              
-        //   }
-
-        //      header("Location:Member-Login.php");
-        
-        
-        // }
-
-
-
- ?>
-
              
            <!--  <h3 class="text-center">Enter the OTP</h3>
             
