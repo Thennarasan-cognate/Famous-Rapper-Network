@@ -2,27 +2,12 @@
 <?php include "db.php"; ?>
 <?php 
 
-if(isset($_POST['submit'])){
+     if(isset($_POST['submit'])){
 
-   require 'PHPMailer/PHPMailerAutoload.php';
-   require('phpmailer/class.phpmailer.php');
-   require('PHPMailer/class.smtp.php');
+  $link = "http://54.84.8.37/Famous-Rapper-Network/email_verification.php";
 
-$mail = new PHPMailer;
-$link = "http://localhost:8889/demo/Famous-Rapper-Network/email_verification.php";
+  $rndno=rand(100000, 999999);//OTP generate
 
-$rndno=rand(100000, 999999);
-//OTP generate
-#$mail->SMTPDebug = 3;
-
-$mail->isSMTP();
-
-$mail->Host = 'smtp.gmail.com';
-$mail->Port=587;
-$mail->SMTPAuth = true;
-$mail->SMTPSecure='tls';
-
-  
          $firstname=  $_POST['firstname'];
          $lastname=  $_POST['lastname'];
          $fullname=  $_POST['fullname'];
@@ -83,44 +68,40 @@ $mail->SMTPSecure='tls';
                 $message_email= "Email already exists";
             }
         }else {
+              
+              $from ="CGBSTech2021@gmail.com";
+              $to=$email;
+              $subject = "Mail Verification";
+              $txt = 'Here is the verification link'.' '.$link;
+              $headers = "From:" .$from;
+              if(mail($to,$subject,$txt,$headers)){
 
-        
-          
-         $_SESSION['status'] = "Registration Was Successful Please Sign In"; 
+              $_SESSION['firstname']=$_POST['firstname'];
+              $_SESSION['email']=$_POST['email'];
+              $_SESSION['phone']=$_POST['phone'];
+              $_SESSION['otp']=$rndno;
 
-          $_SESSION['otp'] = $otp;
-          $_SESSION['email'] = $email;
-          $_SESSION['email_verification_link'] = $email_verification_link;
-
-          $mail->Username = 'CGBSTech2021@gmail.com';
-          $mail->Password = 'cgbs@2021';
-
-          $mail->setFrom ('CGBSTech2021@gmail.com');
-          $mail->addAddress($_POST['email'],$_POST['firstname']);
-          #$mail->addReplyTo( $_POST['email'],$_POST['name']);
-          
-          $mail->isHTML(true);
-          $mail->Subject = "Email Verification";
-          $mail->Body    = 'Here is the verification link'.' '.$link;
-          
-          if(!$mail->send()) {
-             echo "Message could not be sent.". $mail->ErrorInfo;
-          }else{
-             $message =  '<label class="text-success">Register Done, Please check your mail.</label>';
-   
-        $query = "INSERT INTO register (firstname,lastname,fullname,image,phone,role,email,email_verification_link,password,confirm_password,otp,instagram,facebook,twitter,youtube,Location) ";
-        $query .= "VALUES ('{$firstname}','{$lastname}','{$fullname}','profile.png','{$phone}','User','{$email}','{$link}','{$password}','{$confirm_password}','{$rndno}','https://instagram.com/','https://facebook.com/','https://twitter.com/','https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp','Srimushnam') ";
+   $query = "INSERT INTO register (firstname,lastname,fullname,image,phone,role,email,email_verification_link,password,confirm_password,otp,instagram,facebook,twitter,youtube,Location) ";
+   $query .= "VALUES ('{$firstname}','{$lastname}','{$fullname}','profile.png','{$phone}','User','{$email}','{$link}','{$password}','{$confirm_password}','{$rndno}','https://instagram.com/','https://facebook.com/','https://twitter.com/','https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp','Srimushnam') ";
              
         $register_query = mysqli_query($connection,$query);
             
             move_uploaded_file($image_tempname,"images/$image");
       
         if(!$register_query) {
-             
+            
             die("Query Failed" . mysqli_error($connection) .' '. mysqli_error($connection));
         }
 
-          }         
+
+        $message =  '<label class="text-success">Register Done, Please check your mail.</label>';
+
+          }else{
+             
+             $error_mail = "Mail could not be sent";
+          }
+
+                       
        }
     }
           }else{
@@ -143,8 +124,7 @@ $mail->SMTPSecure='tls';
             
        }
 
-          }
-          else{
+          }else{
               $message_Firstname ="Only Alphabets are allowed in firstname";
           
        }
@@ -153,7 +133,7 @@ $mail->SMTPSecure='tls';
         $message = "Fields cannot be Empty";
        }  
          
-        }else {         
+          }else {         
               $message = ""; 
        }
 
@@ -161,30 +141,6 @@ $mail->SMTPSecure='tls';
 
 
 <?php
-
-// $to=$email;
-// $subject = "OTP";
-// $rndno=rand(100000, 999999);//OTP generate
-// $message = urlencode("otp number.".$rndno);
-// $txt = "OTP: ".$rndno."";
-// $headers = "From: thennarasan1988@gmail.com" . "\r\n";
-// "CC: reshma21@gmail.com";
-// if(mail($to,$subject,$txt,$headers)){
-
-// $_SESSION['firstname']=$_POST['firstname'];
-// $_SESSION['email']=$_POST['email'];
-// $_SESSION['phone']=$_POST['phone'];
-// $_SESSION['otp']=$rndno;
-
-
-// header( "Location: otp.php" );
-// }else{
-
-// echo "mail send failed";
-
-// }
-
-
 
 // session_start();
 // $rndno=rand(100000, 999999);//OTP generate
@@ -281,6 +237,7 @@ $mail->SMTPSecure='tls';
           <form action="" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-8 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 50px;" redirect="true">
             
              <div class="u-form-group u-form-name u-form-group">
+              <h6 class="text-center" style="color:#00b300"><?php echo $error_mail; ?></h6>
                <h6 class="text-center" style="color:#00b300"><?php echo $message; ?></h6>
             </div>
 

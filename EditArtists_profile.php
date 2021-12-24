@@ -555,20 +555,21 @@
                  </div>
                  <div class="col-md-6">
                     <div class="form-group row">
-                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">FeaturedSong: </span>
-                          <div class="col-sm-12">
-                             <input type="text" value="<?php echo $Featured_song; ?>" class="form-control" name="Featured_song">
-                          </div>
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">FeaturedMusic: </span>
+                           <div class="col-sm-12">
+                              <input type="text" value="<?php echo $Featured_music; ?>" class="form-control" name="Featured_music">
+                              <h6 style="color:#a7adb8"><?php echo 'Enter your youtube video link here' ?></h6>
+                           </div>
                     </div>
                  </div>
               </div>
               <div class="row">
                   <div class="col-md-6">
                     <div class="form-group row">
-                        <span style="font-weight: 600;" class="col-sm-3 col-form-label">FeaturedMusic: </span>
-                           <div class="col-sm-12">
-                              <input type="text" value="<?php echo $Featured_music; ?>" class="form-control" name="Featured_music">
-                           </div>
+                       <span style="font-weight: 600;" class="col-sm-3 col-form-label">FeaturedSong: </span>
+                          <div class="col-sm-12">
+                             <input type="text" value="<?php echo $Featured_song; ?>" class="form-control" name="Featured_song">
+                          </div>    
                     </div>
                  </div>
                  <div class="col-md-6">
@@ -671,19 +672,12 @@
                  </div>
               </div>
             </p>
-             <!-- <div class="u-align-center u-form-group u-form-submit">
-              <a href="" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-1-base u-palette-1-light-2 u-radius-17 u-btn-1">Update profile<br>
-              </a>
-              <input type="submit" name="edit_profile" value="submit" class="u-form-control-hidden">
-            </div> -->
-
          <div class="input-group-btn">
           <input class="btn btn-primary" type="submit" name="EditArtists_profile" value="Update Artist">
         </div>
 
                 </div>
               </div>
-            <!-- </div> -->
           </div>
         </div>
       </div>

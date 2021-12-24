@@ -2,11 +2,35 @@
 <?php include "db.php"; ?>
 <?php 
 
-     if(isset($_POST['submit'])){
+if(isset($_POST['submit'])){
 
-  $link = "http://54.84.8.37/Famous-Rapper-Network/email_verification.php";
+require 'PHPMailer/PHPMailerAutoload.php';
+require('PHPMailer/class.phpmailer.php');
+require('PHPMailer/class.smtp.php');
 
-  $rndno=rand(100000, 999999);
+$mail = new PHPMailer();
+
+$email_from='CGBSTech2021@gmail.com';
+
+$link = "http://localhost:8889/demo/Famous-Rapper-Network/email_verification.php";
+$rndno=rand(100000, 999999);
+// $mail->SMTPDebug = 3;
+$headers = "Content-Type: text/html; charset=UTF-8";    
+$headers = 'From: '.$email_from."\r\n".
+'Reply-To: '.$email_from."\r\n" .
+'X-Mailer: PHP/' . phpversion();
+
+$mail->IsSMTP();
+$mail->CharSet="SET NAMES UTF8";
+$mail->SMTPDebug  = 0;
+$mail->CharSet="utf8";
+$mail->Debugoutput = 'html';
+$mail->Host = 'smtp.gmail.com';
+$mail->Port=587;
+$mail->SMTPAuth = true;
+$mail->SMTPSecure='tls';
+
+
 
          $firstname=  $_POST['firstname'];
          $lastname=  $_POST['lastname'];
@@ -69,39 +93,46 @@
             }
         }else {
 
-              $to=$email;
-              $subject = "Mail Verification";
-              $rndno=rand(100000, 999999);//OTP generate
-              $txt = 'Here is the verification link'.' '.$link;
-              $headers = "From: CGBSTech2021@gmail.com";
-              if(mail($to,$subject,$txt,$headers)){
+        
+          
+         $_SESSION['status'] = "Registration Was Successful Please Sign In"; 
 
-              $_SESSION['firstname']=$_POST['firstname'];
-              $_SESSION['email']=$_POST['email'];
-              $_SESSION['phone']=$_POST['phone'];
-              $_SESSION['otp']=$rndno;
+          $_SESSION['otp'] = $otp;
+          $_SESSION['email'] = $email;
+          $_SESSION['email_verification_link'] = $link;
 
-              $message =  '<label class="text-success">Register Done, Please check your mail.</label>';
+          $mail->Username   = "CGBSTech2021@gmail.com"; //or domain credentials on google mail
+          $mail->Password   = "cgbs@2021";
+          $mail->SetFrom('CGBSTech2021@gmail.com');
+          $mail->AddAddress($email, $firstname);
+          $mail->Subject = "Email Verification";
+          $mail->Body = 'Here is the verification link'.' '.$link; //emailbody
+          
+          if(!$mail->send()) 
+            {
+                mysqli_close();
+                echo "<script>alert('Error: " . $mail->ErrorInfo."');</script>";
+            } 
+            else 
+            {
+                mysqli_close();
+                echo "<script>alert('Register Done, Please check your mail');</script>";
 
-   $query = "INSERT INTO register (firstname,lastname,fullname,image,phone,role,email,email_verification_link,password,confirm_password,otp,instagram,facebook,twitter,youtube,Location) ";
-   $query .= "VALUES ('{$firstname}','{$lastname}','{$fullname}','profile.png','{$phone}','User','{$email}','{$link}','{$password}','{$confirm_password}','{$rndno}','https://instagram.com/','https://facebook.com/','https://twitter.com/','https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp','Srimushnam') ";
+        $query = "INSERT INTO register (firstname,lastname,fullname,image,phone,role,email,email_verification_link,password,confirm_password,otp,instagram,facebook,twitter,youtube,Location) ";
+        $query .= "VALUES ('{$firstname}','{$lastname}','{$fullname}','profile.png','{$phone}','User','{$email}','{$link}','{$password}','{$confirm_password}','{$rndno}','https://instagram.com/','https://facebook.com/','https://twitter.com/','https://www.youtube.com/embed/B9YKnNtFqds?playlist=B9YKnNtFqds&amp','Srimushnam') ";
              
         $register_query = mysqli_query($connection,$query);
             
             move_uploaded_file($image_tempname,"images/$image");
       
         if(!$register_query) {
-            
+             
             die("Query Failed" . mysqli_error($connection) .' '. mysqli_error($connection));
         }
 
-          }else{
-             
-             $error_mail = "Mail could not be sent";
-          }
+        }
 
-                       
-       }
+ }
     }
           }else{
               $message_phone = "Invalid Phone No";
@@ -123,7 +154,8 @@
             
        }
 
-          }else{
+          }
+          else{
               $message_Firstname ="Only Alphabets are allowed in firstname";
           
        }
@@ -132,37 +164,11 @@
         $message = "Fields cannot be Empty";
        }  
          
-          }else {         
+        }else {         
               $message = ""; 
        }
-
+    
   ?>
-
-
-<?php
-
-// session_start();
-// $rndno=rand(100000, 999999);//OTP generate
-// $message = urlencode("otp number.".$rndno);
-// $to=$_POST['email'];
-// $subject = "OTP";
-// $txt = "OTP: ".$rndno."";
-// $headers = "From: 07.ramyar@gmail.com" . "\r\n" .
-// "CC: thennarasan1988@gmail.com";
-// mail($to,$subject,$txt,$headers);
-// if(isset($_POST['btn-save']))
-// {
-// $_SESSION['firstname']=$_POST['firstname'];
-// $_SESSION['email']=$_POST['email'];
-// $_SESSION['phone']=$_POST['phone'];
-// $_SESSION['otp']=$rndno;
-// header( "Location: otp.php" );
-
-// }
- ?>
-
-
-
 
 <!DOCTYPE html>
 <html style="font-size: 16px;">
@@ -182,7 +188,59 @@
 
     <!-- password Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    
+   
+   
+    <link rel="stylesheet" href="assets/css/style.css">
+
+<!-- Profile Icon -->
+ <link rel="stylesheet" href="assets/css/shared/style.css">
+ <!-- <link rel="stylesheet" href="style.css"> -->
+
+<style>
+
+  img {
+    border-radius: 50%;
+  }
+
+.head-btn1 {
+    margin-right: 5px;
+}
+.btn {
+    background: #fb246a;
+    -moz-user-select: none;
+    text-transform: capitalize;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 0;
+    margin-bottom: 0;
+    padding: 27px 44px;
+    border-radius: 0px;
+    margin: 10px;
+    cursor: pointer;
+    transition: color 0.4s linear;
+    position: relative;
+    z-index: 1;
+    border: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.head-btn2 {
+    background: none;
+    border: 1px solid #fb246a;
+    color: #fb246a;
+}
+
+</style>
+
+
     <script type="application/ld+json">{
     "@context": "http://schema.org",
     "@type": "Organization",
@@ -210,20 +268,124 @@
           </div>
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.php" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.php" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a></li>
+
+<?php
+
+    if($_SESSION['role'] == "Admin"){
+
+?>
+
+<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="List_All_Users.php" style="padding: 10px 20px;">View All Users</a>
+</li>
+
+<?php } ?>
+
+<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.php" style="padding: 10px 20px;">About</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Contact.php" style="padding: 10px 20px;">Contact</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
-</li></ul>
+</li>
+
+  <?php
+
+    if(isset($_SESSION['email']) == $db_email){
+
+  ?> 
+
+<li class="u-nav-item">
+
+  <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base btn head-btn2" href="Member-Login.php">Login</a>
+
+  <!-- <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a> -->
+
+</li>
+
+
+          <?php 
+                      
+              }else{
+                      
+            ?> 
+
+
+        <li class="u-nav-item dropdown d-none d-xl-inline-block user-dropdown">
+                      <a class="u-nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                      <img class="" style="width:40px" src ='images/<?php echo $_SESSION['image'] ?>' alt=""></a>
+         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                        <div class="dropdown-header text-center">
+
+          <img class="" style="width:60px" src ='images/<?php echo $_SESSION['image'] ?>' alt="">
+
+                      <p class="mb-1 mt-3 font-weight-semibold" style="color:darkblue;">
+                          <?php
+                          
+                          if(isset($_SESSION['firstname'])){
+                              
+                            echo $_SESSION['firstname']; 
+                             
+                          }
+                          
+                          ?>
+                          
+                        </p>
+                              
+                </div>
+                <a class="dropdown-item" href="profile.php">My Profile <span class="badge badge-pill badge-danger"></span><i class="dropdown-item-icon ti-dashboard"></i></a>
+                 
+                <a class="dropdown-item"href="Logout.php">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
+              
+              </div>
+          </li>
+
+<?php 
+              
+     }
+              
+    ?> 
+
+</ul>
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.php" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.php" style="padding: 10px 20px;">About</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.php" style="padding: 10px 20px;">Contact</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Member Login</a>
-</li></ul>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="View_All_Artists.php" style="padding: 10px 20px;">View All Artists</a></li>
+
+<?php
+
+    if($_SESSION['role'] == "Admin"){
+
+?>
+
+<li class="u-nav-item"><a class="u-button-style u-nav-link" href="List_All_Users.php" style="padding: 10px 20px;">View All Users</a></li>
+
+<?php 
+
+   } 
+
+?>
+
+<li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.php" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.php" style="padding: 10px 20px;">Contact</a></li>
+
+
+  <?php
+
+    if(isset($_SESSION['email']) == $db_email){
+
+  ?> 
+
+
+<li class="u-nav-item"><a class="u-button-style u-nav-link" href="Member-Login.php" style="padding: 10px 20px;">Login</a>
+</li>
+
+    <?php 
+                
+        }
+                
+      ?> 
+
+</ul>
               </div>
             </div>
             <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
@@ -277,7 +439,7 @@
               <h6 class="text-center" style="color:#ff0000"><?php echo $message_cpassword; ?></h6>
             </div>
             <div class="u-align-center u-form-group u-form-submit">
-              <a href="" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-1-base u-palette-1-light-2 u-radius-17 u-btn-1">Register<br>
+              <a href="" class="btn head-btn2">Register<br>
               </a>
               <input type="submit" name="submit" value="submit" class="u-form-control-hidden">
             </div>
